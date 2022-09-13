@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private int targetIndex;
     private Transform[] wpPath;
 
-    [SerializeField] private float targetChangeDist = 0.5f;
+    [SerializeField] private float targetChangeDist = 0.1f;
     [SerializeField] private EnemyData ENEMYDATA;
 
     public int DAMAGE { get => damage; }
