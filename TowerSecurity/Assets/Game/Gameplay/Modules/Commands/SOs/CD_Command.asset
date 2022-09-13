@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
+  m_Name: CD_Command
+  m_EditorClassIdentifier: 
+  id: cd
+  argCount: 0
+  succResponse: []
+  helpResponse:
+  - CD <Location>. Use NETSTAT to find a list of locations.
+  errorResponse:
+  - '<CD>: Location not found'
