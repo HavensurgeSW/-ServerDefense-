@@ -59,7 +59,12 @@ public class GameManager : MonoBehaviour
         {
             locList.Add(levelManager.LOCATIONS[i].ID);
         }
-        terminal.AddInterpreterLines(locList);
+            terminal.AddInterpreterLines(locList);
+
+        if (commandManager.CheckHelpCommand(arg))
+        {
+            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
+        }
     }
     public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi) {
         //arguments.length-1 != argCountSO
