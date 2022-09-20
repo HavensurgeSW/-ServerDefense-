@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
-  m_Name: TUTORIAL_Command
+  m_Name: CMDS_Command
   m_EditorClassIdentifier: 
-  id: tutorial
+  id: cmds
   argCount: 0
   succResponse:
-  - You can use the <HELP> argument on any command for more info
-  - 'EG: "cd help" or "install help"'
-  - Use NETSTAT to find existing locations
-  - Locations are the spaces to deploy towers
-  - Use CD <Location> to move between locations
-  - INSTALL ANTIVIRUS will deploy a Tower in selected location
-  - Use CMDS to get a list of all commands
-  helpResponse: []
+  - HELLO
+  - TUTORIAL
+  - CD
+  - INSTALL
+  - NETSTAT
+  - RELOAD
+  - QUIT
+  helpResponse:
+  - Returns a list of available commands
   errorResponse: []

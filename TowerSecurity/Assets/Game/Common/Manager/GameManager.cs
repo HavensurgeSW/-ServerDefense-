@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,7 +50,15 @@ public class GameManager : MonoBehaviour
     }
 
     #region COMMAND_IMPLEMENTATIONS
-
+    public void Command_ReturnCommands(string[] arg, CommandInfo cmdi)
+    {
+        if (commandManager.CheckHelpCommand(arg))
+        {
+            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
+            return;
+        }
+        terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+    }
     public void Command_ReturnLocations(string[] arg, CommandInfo cmdi)
     {
         List<string> locList = new List<string>();
@@ -100,7 +108,6 @@ public class GameManager : MonoBehaviour
             terminal.AddInterpreterLines(cmdi.ERRORRESPONSE);
         }
     }
-
     public void Command_Hello(string[] arg, CommandInfo cmdi) {
 
         if (commandManager.CheckHelpCommand(arg))
@@ -111,7 +118,6 @@ public class GameManager : MonoBehaviour
 
         terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
     }
-
     public void Command_InstallTower(string[] arg, CommandInfo cmdi){
 
         terminal.ClearCmdEntries();
@@ -143,16 +149,13 @@ public class GameManager : MonoBehaviour
             terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
         }
     }
-
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
     {
         terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
     }
-
     public void Command_ReloadScene(string[] arg, CommandInfo cmdi) {
         SceneManager.LoadScene(1);
     }
-
     public void Command_QuitGame(string[] arg, CommandInfo cmdi)
     {
         if (commandManager.CheckHelpCommand(arg))
@@ -168,7 +171,6 @@ public class GameManager : MonoBehaviour
 #endif
         }
     }
-
     #endregion
 
 }
