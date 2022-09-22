@@ -59,6 +59,26 @@ public class GameManager : MonoBehaviour
         }
         terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
     }
+
+    public void Command_NetworkController(string[] arg, CommandInfo cmdi)
+    {
+        if (commandManager.CheckHelpCommand(arg))
+        {
+            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
+            return;
+        }
+
+        if (arg[0] == "init") {
+            levelManager.BeginWave();
+            terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+        }
+
+        if (arg[0] == "pause")
+        {
+            levelManager.PauseWave();
+            terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+        }
+    }
     public void Command_ReturnLocations(string[] arg, CommandInfo cmdi)
     {
         List<string> locList = new List<string>();

@@ -2,23 +2,50 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyHandler : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private int enemyCount = 10;
+    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] WaypointManager waypoints;
-    [SerializeField] Enemy[] enemies;
+    [SerializeField] Transform spawnPoint;
 
-    private void Init()
+    [Header("Fixed Delay")]
+    [SerializeField] private float delayBtwSpawns;
+
+    private float spawnTimer;
+    private int enemiesSpawned;
+
+    private bool waveEnabled = false;
+
+    // Update is called once per frame
+    void Update()
     {
-        foreach (Enemy e in enemies)
+        if (waveEnabled)
         {
-            e.Init(waypoints.WAYPOINTS);
-        }    
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer < 0)
+            {
+                spawnTimer = delayBtwSpawns;
+                if (enemiesSpawned < enemyCount)
+                {
+                    enemiesSpawned++;
+                    SpawnEnemy();
+                }
+            }
+        }
     }
 
-    private void Start()
+    private void SpawnEnemy()
     {
-        Init();
+        GameObject newInstance = Instantiate(enemyPrefab, spawnPoint);
+        newInstance.GetComponent<Enemy>().Init(waypoints.WAYPOINTS);
+        newInstance.SetActive(true);
     }
 
+    public void ToggleWave(bool b) {
+        waveEnabled = b;
+    }
 }

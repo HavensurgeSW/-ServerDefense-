@@ -22,5 +22,7 @@ MonoBehaviour:
   - Use CD <Location> to move between locations
   - INSTALL ANTIVIRUS will deploy a Tower in selected location
   - Use CMDS to get a list of all commands
-  helpResponse: []
+  - Use NETWORK INIT to begin the wave
+  helpResponse:
+  - You need god m8
   errorResponse: []

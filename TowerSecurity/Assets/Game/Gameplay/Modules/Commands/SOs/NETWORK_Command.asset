@@ -10,19 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
-  m_Name: CMDS_Command
+  m_Name: NETWORK_Command
   m_EditorClassIdentifier: 
-  id: cmds
-  argCount: 0
-  succResponse:
-  - HELLO
-  - TUTORIAL
-  - CD
-  - INSTALL
-  - NETSTAT
-  - NETWORK
-  - RELOAD
-  - QUIT
+  id: network
+  argCount: 1
+  succResponse: []
   helpResponse:
-  - Returns a list of available commands
+  - Starts and pauses the wave
+  - NETWORK <INIT> to start the wave
+  - NETWORK <PAUSE> to pause the wave
   errorResponse: []
