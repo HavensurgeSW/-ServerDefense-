@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TerminalManager terminal;
     [SerializeField] private LevelManager levelManager;
 
-
     [SerializeField] private Tower prefab;
     [SerializeField] private Tower prefab2;
 
@@ -54,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
 
         if (!searchHit) {
-            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type \"help\" for a list of commands" });
+            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type CMDS for a list of commands" });
         }
 
     }
