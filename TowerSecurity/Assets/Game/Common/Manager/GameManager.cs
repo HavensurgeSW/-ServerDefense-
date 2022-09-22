@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TerminalManager terminal;
     [SerializeField] private LevelManager levelManager;
 
+
     [SerializeField] private Tower prefab;
     [SerializeField] private Tower prefab2;
 
@@ -17,8 +17,18 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Server.OnDeath += LoseGame;
         terminal.Init(InterpretCommand);
         currentLocation = null;
+    }
+
+    private void OnDisable()
+    {
+        Server.OnDeath -= LoseGame;
+    }
+
+    private void LoseGame() {
+        SceneManager.LoadScene(0);
     }
 
     private void InterpretCommand(string text)
