@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Server.OnDeath += LoseGame;
-        terminal.Init(InterpretCommand);
+        terminal.Init(InterpretTerminalText);
         currentLocation = null;
     }
 
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void InterpretCommand(string text)
+    private void InterpretTerminalText(string text)
     {
         text = text.ToLower();
         string[] arguments = text.Split(' ');
@@ -41,51 +41,66 @@ public class GameManager : MonoBehaviour
             if (cmd.INFO.ID == arguments[0])
             {
                 searchHit = true;
-                string[] tempArg = new string[arguments.Length - 1];
-                for (int i = 1; i <= tempArg.Length; i++)
-                {
-                    tempArg[i - 1] = arguments[i];
-                }
-                cmd.CALLBACK?.Invoke(tempArg, cmd.INFO);
+                ProcessCommand(cmd, arguments);
                 break;
-            }
-     
+            }     
         }
 
         if (!searchHit) {
             terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type CMDS for a list of commands" });
         }
+    }
 
+    private void TriggerSuccessResponse(CommandInfo info)
+    {
+        terminal.AddInterpreterLines(info.SUCCRESPONSE);
+    }
+    
+    private void TriggerHelpResponse(CommandInfo info)
+    {
+        terminal.AddInterpreterLines(info.HELPRESPONSE);
+
+    }
+    private void TriggerErrorResponse(CommandInfo info)
+    {
+        terminal.AddInterpreterLines(info.ERRORRESPONSE);
+    }
+
+    private void ProcessCommand(Command command, string[] fullArguments)
+    {
+        string[] commandArg = new string[fullArguments.Length - 1];
+
+        for (int i = 1; i <= commandArg.Length; i++)
+        {
+            commandArg[i - 1] = fullArguments[i];
+        }
+
+        if (commandManager.CheckHelpCommand(commandArg))
+        {
+            TriggerHelpResponse(command.INFO);
+            return;
+        }
+
+        command.CALLBACK?.Invoke(commandArg, command.INFO);
     }
 
     #region COMMAND_IMPLEMENTATIONS
     public void Command_ReturnCommands(string[] arg, CommandInfo cmdi)
     {
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-            return;
-        }
-        terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+        TriggerSuccessResponse(cmdi);
     }
 
     public void Command_NetworkController(string[] arg, CommandInfo cmdi)
     {
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-            return;
-        }
-
         if (arg[0] == "init") {
             levelManager.BeginWave();
-            terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+            TriggerSuccessResponse(cmdi);
         }
 
         if (arg[0] == "pause")
         {
             levelManager.PauseWave();
-            terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+            TriggerSuccessResponse(cmdi);
         }
     }
     public void Command_ReturnLocations(string[] arg, CommandInfo cmdi)
@@ -96,26 +111,16 @@ public class GameManager : MonoBehaviour
         {
             locList.Add(levelManager.LOCATIONS[i].ID);
         }
-            terminal.AddInterpreterLines(locList);
 
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-        }
+        terminal.AddInterpreterLines(locList);
     }
+
     public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi) {
-        //arguments.length-1 != argCountSO
+
         string locName = arg[0];
         bool searchHit = false;
         foreach (Location loc in levelManager.LOCATIONS)
         {
-            if (commandManager.CheckHelpCommand(arg))
-            {
-                terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-                searchHit = true;
-                break;
-            }
-
             if (loc.ID == locName)
             {
                 currentLocation = loc;
@@ -131,31 +136,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
-
         if (!searchHit) {
-            terminal.AddInterpreterLines(cmdi.ERRORRESPONSE);
+            TriggerErrorResponse(cmdi);
         }
     }
     public void Command_Hello(string[] arg, CommandInfo cmdi) {
 
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-            return;
-        }
-
-        terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+        TriggerSuccessResponse(cmdi);
     }
     public void Command_InstallTower(string[] arg, CommandInfo cmdi){
 
         terminal.ClearCmdEntries();
-
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-            return;
-        }
 
         if (currentLocation != null && currentLocation.CheckForLocationAvailability())
         {
@@ -169,32 +160,27 @@ public class GameManager : MonoBehaviour
                     tower = prefab2;
                     break;
                 default:
-                    terminal.AddInterpreterLines(cmdi.ERRORRESPONSE);
+                    TriggerErrorResponse(cmdi);
                     return;
             }
 
             currentLocation.SetAvailable(false);
             Instantiate(tower, currentLocation.transform);
-            terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+            TriggerSuccessResponse(cmdi);
         }
     }
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
     {
-        terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+        TriggerSuccessResponse(cmdi);
     }
     public void Command_ReloadScene(string[] arg, CommandInfo cmdi) {
         SceneManager.LoadScene(1);
     }
     public void Command_QuitGame(string[] arg, CommandInfo cmdi)
     {
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-        }
-
         if (arg[0] == "application") {
 #if !UNITY_EDITOR
-        Application.Quit();
+            Application.Quit();
 #else
             UnityEditor.EditorApplication.isPlaying = false;
 #endif

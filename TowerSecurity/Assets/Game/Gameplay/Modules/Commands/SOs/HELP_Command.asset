@@ -15,7 +15,8 @@ MonoBehaviour:
   id: help
   argCount: 0
   succResponse: []
-  helpResponse: []
+  helpResponse:
+  - WIP
   errorResponse: []
   helpKeywords:
   - help

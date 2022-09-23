@@ -15,5 +15,6 @@ MonoBehaviour:
   id: reload
   argCount: 0
   succResponse: []
-  helpResponse: []
+  helpResponse:
+  - WIP
   errorResponse: []
