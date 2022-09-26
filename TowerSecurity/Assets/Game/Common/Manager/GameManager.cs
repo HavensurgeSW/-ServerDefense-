@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -186,6 +188,25 @@ public class GameManager : MonoBehaviour
 #endif
         }
     }
+    #endregion
+
+    #region DEBUG_COMMANDS
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] GameObject Debug1;
+
+    public void Command_Debug1(string[] arg, CommandInfo cmdi) 
+    {
+
+        Vector3Int cellPos = tilemap.WorldToCell(Debug1.transform.position);
+        Tile t = tilemap.GetTile<Tile>(cellPos);
+
+        //TileData reloco;
+        //TileData tiledata =  t.GetTileData(Vector3Int.CeilToInt(Debug1.transform.position), tilemap, ref reloco);
+        Debug.Log(t);
+
+        TriggerSuccessResponse(cmdi);
+
+    }       
     #endregion
 
 }
