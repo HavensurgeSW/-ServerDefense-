@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Tower prefab;
     [SerializeField] private Tower prefab2;
 
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] TileBase selectedLocation;
+    [SerializeField] TileBase defaultLocation;
+
     private Location currentLocation;
 
     private void Awake()
@@ -127,14 +131,17 @@ public class GameManager : MonoBehaviour
             {
                 currentLocation = loc;
                 loc.ToggleSelected(true);
-                loc.ToggleColor(Color.red);
+                Vector3Int cellPos = tilemap.WorldToCell(loc.transform.position);
+                tilemap.SetTile(cellPos, selectedLocation);
+
                 searchHit = true;
                 terminal.ClearCmdEntries();
             }
             else
             {
                 loc.ToggleSelected(false);
-                loc.ToggleColor(Color.white);
+                Vector3Int cellPos = tilemap.WorldToCell(loc.transform.position);
+                tilemap.SetTile(cellPos, defaultLocation);
             }
         }
 
@@ -191,18 +198,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region DEBUG_COMMANDS
-    [SerializeField] Tilemap tilemap;
-    [SerializeField] GameObject Debug1;
+   
 
     public void Command_Debug1(string[] arg, CommandInfo cmdi) 
     {
 
-        Vector3Int cellPos = tilemap.WorldToCell(Debug1.transform.position);
-        Tile t = tilemap.GetTile<Tile>(cellPos);
-
-        //TileData reloco;
-        //TileData tiledata =  t.GetTileData(Vector3Int.CeilToInt(Debug1.transform.position), tilemap, ref reloco);
-        Debug.Log(t);
+        
 
         TriggerSuccessResponse(cmdi);
 
