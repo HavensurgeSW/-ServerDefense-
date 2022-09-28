@@ -176,6 +176,11 @@ public class GameManager : MonoBehaviour
             Instantiate(tower, currentLocation.transform);
             TriggerSuccessResponse(cmdi);
         }
+        else {
+            List<string> strings = new List<string>();
+            strings.Add("No location selected");
+            terminal.AddInterpreterLines(strings);
+        }
     }
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
     {
