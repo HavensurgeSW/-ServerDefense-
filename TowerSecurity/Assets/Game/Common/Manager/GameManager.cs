@@ -133,7 +133,6 @@ public class GameManager : MonoBehaviour
                 loc.ToggleSelected(true);
                 Vector3Int cellPos = tilemap.WorldToCell(loc.transform.position);
                 tilemap.SetTile(cellPos, selectedLocation);
-
                 searchHit = true;
                 terminal.ClearCmdEntries();
             }

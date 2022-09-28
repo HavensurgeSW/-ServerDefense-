@@ -7,6 +7,7 @@ public class Server : MonoBehaviour
 {
     [SerializeField] private int hp;
     public static Action OnDeath;
+    public int HEALTH { get => hp; }
 
     void DealDamageToServer(int dmg) 
     {
