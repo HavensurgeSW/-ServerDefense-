@@ -7,21 +7,16 @@ using UnityEngine.UIElements;
 public class EnemyHandler : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private int enemyCount = 10;
-    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] WaypointManager waypoints;
     [SerializeField] Transform spawnPoint;
 
-    [Header("Fixed Delay")]
-    [SerializeField] private float delayBtwSpawns;
-
+    [SerializeField]LevelManager levelManager;
     private float spawnTimer;
     private int enemiesSpawned;
-    [SerializeField]LevelManager levelManager;
 
     private bool waveEnabled = false;
 
-    // Update is called once per frame
+
     void Update()
     {
         if (waveEnabled)
@@ -30,7 +25,7 @@ public class EnemyHandler : MonoBehaviour
             if (spawnTimer < 0)
             {
                 spawnTimer = levelManager.GetSpawnTimerData();
-                //spawnTimer = delayBtwSpawns;
+                
                 if (enemiesSpawned < levelManager.GetEnemyCount())
                 {
                     enemiesSpawned++;
@@ -38,17 +33,15 @@ public class EnemyHandler : MonoBehaviour
                 }
                 else if (enemiesSpawned == levelManager.GetEnemyCount())
                 {
-
-                }
-                
-                
+                    levelManager.OnWaveEnd?.Invoke();
+                }                
             }
         }
     }
 
     private void SpawnEnemy()
     {
-        GameObject newInstance = Instantiate(enemyPrefab, spawnPoint);
+        GameObject newInstance = Instantiate(levelManager.GetEnemyPrefab(), spawnPoint);
         newInstance.GetComponent<Enemy>().Init(waypoints.WAYPOINTS);
         newInstance.SetActive(true);
     }

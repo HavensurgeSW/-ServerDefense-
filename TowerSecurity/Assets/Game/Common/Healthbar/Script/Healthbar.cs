@@ -13,7 +13,6 @@ public class Healthbar : MonoBehaviour
         MAXHEALTH = health;
     }
     public void SetHealthbarFill(int health){
-        Debug.Log(health / MAXHEALTH);
         healthBar.fillAmount = health / MAXHEALTH;
     }
 
