@@ -733,6 +733,8 @@ MonoBehaviour:
   - {fileID: 911802244}
   - {fileID: 189131090}
   - {fileID: 1673100119}
+  waveTemplates:
+  - {fileID: 11400000, guid: 2c6f36118d819da45afe6e9d232e85b3, type: 2}
 --- !u!4 &983216370
 Transform:
   m_ObjectHideFlags: 0

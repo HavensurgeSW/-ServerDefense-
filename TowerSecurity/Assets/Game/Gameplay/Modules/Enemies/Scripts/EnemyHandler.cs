@@ -17,6 +17,7 @@ public class EnemyHandler : MonoBehaviour
 
     private float spawnTimer;
     private int enemiesSpawned;
+    LevelManager levelManager;
 
     private bool waveEnabled = false;
 
@@ -28,8 +29,8 @@ public class EnemyHandler : MonoBehaviour
             spawnTimer -= Time.deltaTime;
             if (spawnTimer < 0)
             {
-                spawnTimer = delayBtwSpawns;
-                if (enemiesSpawned < enemyCount)
+                spawnTimer = levelManager.GetSpawnTimerData();
+                if (enemiesSpawned < levelManager.GetEnemyCount())
                 {
                     enemiesSpawned++;
                     SpawnEnemy();
