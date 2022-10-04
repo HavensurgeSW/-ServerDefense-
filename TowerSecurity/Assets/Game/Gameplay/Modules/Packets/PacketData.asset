@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb8e4e81b584f641ba0a64d501e71d1, type: 3}
   m_Name: PacketData
   m_EditorClassIdentifier: 
-  packetPrefab: {fileID: 0}
-  KBWorth: 1024
+  packetPrefab: {fileID: 8009344086421671401, guid: 53b84723d103ca5459ed62ce153ed07e, type: 3}
+  KBWorth: 1
   spawnDelay: 0.6
-  speed: 1.2
+  speed: 1
   targetChangeDist: 0.1
