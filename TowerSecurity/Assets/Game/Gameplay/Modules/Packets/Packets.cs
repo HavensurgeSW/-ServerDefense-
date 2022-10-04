@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Packets : MonoBehaviour
 {
-    public PacketData PACKETDATA;
+    [SerializeField] private PacketData packetData = null;
 
-    int targetIndex;
-    Transform[] wpPath;
+    private int targetIndex;
+    private Transform[] wpPath;
+
+    public PacketData PACKET_DATA => packetData;
 
     public void Init(Transform[] wpList)
     {
@@ -17,10 +17,11 @@ public class Packets : MonoBehaviour
 
     private void Update()
     {
-        float step = PACKETDATA.SPEED * Time.deltaTime;
+        float step = packetData.SPEED * Time.deltaTime;
+
         transform.position = Vector2.MoveTowards(transform.position, wpPath[targetIndex].transform.position, step);
 
-        if (Vector2.Distance(transform.position, wpPath[targetIndex].transform.position) < PACKETDATA.TARGETCHANGEDIST)
+        if (Vector2.Distance(transform.position, wpPath[targetIndex].transform.position) < packetData.TARGET_CHANGE_DISTANCE)
         {
             UpdateTargetWP();
         }
@@ -29,7 +30,9 @@ public class Packets : MonoBehaviour
     public void UpdateTargetWP()
     {
         if (targetIndex < wpPath.Length - 1)
+        {
             targetIndex++;
+        }
     }
 
     public void Die()

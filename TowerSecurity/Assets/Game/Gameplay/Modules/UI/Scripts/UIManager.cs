@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Server server;
-    [SerializeField] TMP_Text svrhp;
-  
+    [SerializeField] private TMP_Text serverHealth = null;  
+    [SerializeField] private TMP_Text packetPointsText = null;  
 
-    private void Update()
+    public void Init()
     {
-        svrhp.text = "Server Health: " + server.HEALTH.ToString();
+
     }
 
+    private void OnEnable()
+    {
+        Server.OnDamaged += UpdateServerHealthText;
+    }
 
+    private void OnDisable()
+    {
+        Server.OnDamaged -= UpdateServerHealthText;        
+    }
+
+    public void UpdatePacketPointsText(int points)
+    {
+        packetPointsText.text = "Packet Points: " + points.ToString();
+    }
+
+    private void UpdateServerHealthText(int health)
+    {
+        serverHealth.text = "Server Health: " + health.ToString();
+    }
 }

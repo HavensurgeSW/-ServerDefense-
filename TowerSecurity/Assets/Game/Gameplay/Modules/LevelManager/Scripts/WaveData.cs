@@ -6,11 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Wave")]
 public class WaveData : ScriptableObject
 {
-    [SerializeField] GameObject spiders;
-    [SerializeField] int spiderCount;
-    [SerializeField] float spawnDelay;
+    [SerializeField] private GameObject spiders;
+    [SerializeField] private int spiderCount;
+    [SerializeField] private float spawnDelay;
 
     public GameObject SPIDERS => spiders;
-    public int SPIDERCOUNT => spiderCount;
-    public float SPAWNDELAY => spawnDelay;
+    public int SPIDER_COUNT => spiderCount;
+    public float SPAWN_DELAY => spawnDelay;
 }

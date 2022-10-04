@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -8,11 +8,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Command> commands = new List<Command>();
     [SerializeField] private CommandManager commandManager = null;
+    [SerializeField] private UIManager uiManager;
     [SerializeField] private TerminalManager terminal;
     [SerializeField] private LevelManager levelManager;
-
-    private int packetScore;
-    PacketData PACKETDATA;
+    [SerializeField] private PacketData packetData;
 
     [SerializeField] private Tower prefab;
     [SerializeField] private Tower prefab2;
@@ -21,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TileBase selectedLocation;
     [SerializeField] TileBase defaultLocation;
 
+    private int packetScore;
     private Location currentLocation;
 
     private void Awake()
@@ -28,15 +28,19 @@ public class GameManager : MonoBehaviour
         packetScore = 0;
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
-        
+
+        uiManager.Init();
         terminal.Init(InterpretTerminalText);
         currentLocation = null;
     }
 
     private void UpdatePacketScore(int i)
     {
-        packetScore += PACKETDATA.KBWORTH;
+        // DUDA: aca se le suma KB_WORTH y aparte un "i", que viendo los llamados tambien es KB_WORTH, esto es correcto?
+        packetScore += packetData.KB_WORTH;
         packetScore += i;
+
+        uiManager.UpdatePacketPointsText(packetScore);
     }
 
     private void OnDisable()
@@ -45,7 +49,8 @@ public class GameManager : MonoBehaviour
         Server.OnPacketEntry -= UpdatePacketScore;
     }
 
-    private void LoseGame() {
+    private void LoseGame()
+    {
         SceneManager.LoadScene(0);
     }
 
@@ -55,7 +60,7 @@ public class GameManager : MonoBehaviour
         text = text.ToLower();
         string[] arguments = text.Split(' ');
         bool searchHit = false;
-       
+
         foreach (Command cmd in commands)
         {
             if (cmd.INFO.ID == arguments[0])
@@ -63,27 +68,28 @@ public class GameManager : MonoBehaviour
                 searchHit = true;
                 ProcessCommand(cmd, arguments);
                 break;
-            }     
+            }
         }
 
-        if (!searchHit) {
+        if (!searchHit)
+        {
             terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type CMDS for a list of commands" });
         }
     }
 
     private void TriggerSuccessResponse(CommandInfo info)
     {
-        terminal.AddInterpreterLines(info.SUCCRESPONSE);
+        terminal.AddInterpreterLines(info.SUCC_RESPONSE);
     }
-    
+
     private void TriggerHelpResponse(CommandInfo info)
     {
-        terminal.AddInterpreterLines(info.HELPRESPONSE);
+        terminal.AddInterpreterLines(info.HELP_RESPONSE);
 
     }
     private void TriggerErrorResponse(CommandInfo info)
     {
-        terminal.AddInterpreterLines(info.ERRORRESPONSE);
+        terminal.AddInterpreterLines(info.ERROR_RESPONSE);
     }
 
     private void ProcessCommand(Command command, string[] fullArguments)
@@ -113,7 +119,8 @@ public class GameManager : MonoBehaviour
 
     public void Command_NetworkController(string[] arg, CommandInfo cmdi)
     {
-        if (arg[0] == "init") {
+        if (arg[0] == "init")
+        {
             levelManager.BeginWave();
             TriggerSuccessResponse(cmdi);
         }
@@ -128,7 +135,7 @@ public class GameManager : MonoBehaviour
     {
         List<string> locList = new List<string>();
 
-        for (int i = 0; i <levelManager.LOCATIONS.Length; i++)
+        for (int i = 0; i < levelManager.LOCATIONS.Length; i++)
         {
             locList.Add(levelManager.LOCATIONS[i].ID);
         }
@@ -136,7 +143,8 @@ public class GameManager : MonoBehaviour
         terminal.AddInterpreterLines(locList);
     }
 
-    public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi) {
+    public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi)
+    {
 
         string locName = arg[0];
         bool searchHit = false;
@@ -159,15 +167,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (!searchHit) {
+        if (!searchHit)
+        {
             TriggerErrorResponse(cmdi);
         }
     }
-    public void Command_Hello(string[] arg, CommandInfo cmdi) {
+    public void Command_Hello(string[] arg, CommandInfo cmdi)
+    {
 
         TriggerSuccessResponse(cmdi);
     }
-    public void Command_InstallTower(string[] arg, CommandInfo cmdi){
+    public void Command_InstallTower(string[] arg, CommandInfo cmdi)
+    {
 
         terminal.ClearCmdEntries();
 
@@ -191,7 +202,8 @@ public class GameManager : MonoBehaviour
             Instantiate(tower, currentLocation.transform);
             TriggerSuccessResponse(cmdi);
         }
-        else {
+        else
+        {
             List<string> strings = new List<string>();
             strings.Add("No location selected");
             terminal.AddInterpreterLines(strings);
@@ -201,12 +213,14 @@ public class GameManager : MonoBehaviour
     {
         TriggerSuccessResponse(cmdi);
     }
-    public void Command_ReloadScene(string[] arg, CommandInfo cmdi) {
+    public void Command_ReloadScene(string[] arg, CommandInfo cmdi)
+    {
         SceneManager.LoadScene(1);
     }
     public void Command_QuitGame(string[] arg, CommandInfo cmdi)
     {
-        if (arg[0] == "application") {
+        if (arg[0] == "application")
+        {
 #if !UNITY_EDITOR
             Application.Quit();
 #else
@@ -217,16 +231,13 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region DEBUG_COMMANDS
-   
-
-    public void Command_Debug1(string[] arg, CommandInfo cmdi) 
+    public void Command_Debug1(string[] arg, CommandInfo cmdi)
     {
 
-        
+
 
         TriggerSuccessResponse(cmdi);
 
-    }       
+    }
     #endregion
-
 }

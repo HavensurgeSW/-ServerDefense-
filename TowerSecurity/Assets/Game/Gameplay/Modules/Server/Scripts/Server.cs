@@ -1,18 +1,22 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Server : MonoBehaviour
 {
+    public static Action<int> OnDamaged = null;
+    public static Action OnDeath = null;
+    public static Action<int> OnPacketEntry = null;
+
     [SerializeField] private int hp;
-    public static Action OnDeath;
-    public static Action<int> OnPacketEntry;
+    
     public int HEALTH { get => hp; }
 
-    void DealDamageToServer(int dmg) 
+    private void DealDamageToServer(int dmg) 
     {
-        hp = hp - dmg;
+        hp -= dmg;
+        OnDamaged?.Invoke(hp);
+
         if (hp <= 0) 
         {
             OnDeath?.Invoke();   
@@ -29,12 +33,8 @@ public class Server : MonoBehaviour
 
         if (other.TryGetComponent(out Packets packet))
         {
-            OnPacketEntry?.Invoke(packet.PACKETDATA.KBWORTH);
+            OnPacketEntry?.Invoke(packet.PACKET_DATA.KB_WORTH);
             packet.Die();
         }
-
     }
-
- 
-
 }

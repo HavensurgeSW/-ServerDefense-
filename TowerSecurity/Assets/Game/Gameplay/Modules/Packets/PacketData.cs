@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Packet")]
 public class PacketData : ScriptableObject
 {
-    [SerializeField] GameObject packetPrefab;
-    [SerializeField] int KBWorth;
-    [SerializeField] float spawnDelay;
-    [SerializeField] float speed;
-    [SerializeField] float targetChangeDist;
+    [SerializeField] private GameObject packetPrefab;
+    [SerializeField] private int KBWorth;
+    [SerializeField] private float spawnDelay;
+    [SerializeField] private float speed;
+    [SerializeField] private float targetChangeDist;
 
-    public GameObject PACKETPREFAB => packetPrefab;
-    public int KBWORTH => KBWorth;
-    public float SPAWNDELAY => spawnDelay;
+    public GameObject PACKET_PREFAB => packetPrefab;
+    public int KB_WORTH => KBWorth;
+    public float SPAWN_DELAY => spawnDelay;
     public float SPEED => speed;
-    public float TARGETCHANGEDIST => targetChangeDist;
+    public float TARGET_CHANGE_DISTANCE => targetChangeDist;
 }

@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyHandler : MonoBehaviour
 {
@@ -11,6 +7,7 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] Transform spawnPoint;
 
     [SerializeField]LevelManager levelManager;
+
     private float enemySpawnTimer;
     private float packetSpawnTimer;
 
@@ -19,7 +16,7 @@ public class EnemyHandler : MonoBehaviour
     private bool waveEnabled = false;
 
 
-    void Update()
+    private void Update()
     {
         if (waveEnabled)
         {

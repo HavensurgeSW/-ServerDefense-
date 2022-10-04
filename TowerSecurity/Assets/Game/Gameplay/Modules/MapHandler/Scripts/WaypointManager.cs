@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WaypointManager : MonoBehaviour
 {
     [SerializeField] private Transform[] points;
+
     public Transform[] WAYPOINTS => points;
 
     private void OnDrawGizmos()

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d185a23decc1f4fbe9a7138cecead2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PACKETDATA: {fileID: 11400000, guid: 8cbfe329a3a107944889dff9b67cedb4, type: 2}
+  packetData: {fileID: 11400000, guid: 8cbfe329a3a107944889dff9b67cedb4, type: 2}
 --- !u!58 &8009344086421671413
 CircleCollider2D:
   m_ObjectHideFlags: 0

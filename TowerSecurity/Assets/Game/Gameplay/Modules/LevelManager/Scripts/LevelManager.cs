@@ -4,16 +4,18 @@ using System;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] private EnemyHandler enemyHandler;
+    [SerializeField] private Location[] locations;
+    [SerializeField] private WaveData[] waveTemplates;
+    [SerializeField] private PacketData packetData;
 
-    [SerializeField]EnemyHandler enemyHandler;
-    [SerializeField]Location[] locations;
-    [SerializeField]WaveData[] waveTemplates;
-    int waveIndex = 0;
-    [SerializeField]WaveData activeWave;
-    [SerializeField]PacketData packetData;
-    public Location[] LOCATIONS => locations; 
 
+    private int waveIndex = 0;
+    private WaveData activeWave;
     public Action OnWaveEnd;
+
+    public Location[] LOCATIONS => locations;
+
 
     private void Awake()
     {
@@ -29,16 +31,17 @@ public class LevelManager : MonoBehaviour
         OnWaveEnd -= QueueWave;
     }
 
-    void LoadNextWave() 
-    {  
-        if (waveIndex < waveTemplates.Length-1)
+    void LoadNextWave()
+    {
+        if (waveIndex < waveTemplates.Length - 1)
         {
             waveIndex++;
             activeWave = waveTemplates[waveIndex];
             enemyHandler.ToggleWave(true);
         }
     }
-    public void BeginWave() {
+    public void BeginWave()
+    {
         enemyHandler.ToggleWave(true);
     }
     public void PauseWave()
@@ -46,34 +49,37 @@ public class LevelManager : MonoBehaviour
         enemyHandler.ToggleWave(false);
     }
 
-    public float GetEnemySpawnTimerData() {
-        return activeWave.SPAWNDELAY;
+    public float GetEnemySpawnTimerData()
+    {
+        return activeWave.SPAWN_DELAY;
     }
-    public GameObject GetEnemyPrefab() {
+    public GameObject GetEnemyPrefab()
+    {
         return activeWave.SPIDERS;
     }
-    public int GetEnemyCount() {
-        return activeWave.SPIDERCOUNT;
+    public int GetEnemyCount()
+    {
+        return activeWave.SPIDER_COUNT;
     }
 
     public float GetPacketSpawnTimerData()
     {
-        return packetData.SPAWNDELAY;
+        return packetData.SPAWN_DELAY;
     }
     public GameObject GetPacketPrefab()
     {
-        return packetData.PACKETPREFAB;
-           
+        return packetData.PACKET_PREFAB;
+
     }
 
-    IEnumerator DelayBetweenWaves(int n) 
+    IEnumerator DelayBetweenWaves(int n)
     {
         yield return new WaitForSeconds(n);
         LoadNextWave();
     }
 
-    void QueueWave() {   
+    void QueueWave()
+    {
         StartCoroutine(DelayBetweenWaves(10));
     }
-
 }
