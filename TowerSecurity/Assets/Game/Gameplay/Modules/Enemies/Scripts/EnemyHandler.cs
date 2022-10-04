@@ -11,7 +11,9 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] Transform spawnPoint;
 
     [SerializeField]LevelManager levelManager;
-    private float spawnTimer;
+    private float enemySpawnTimer;
+    private float packetSpawnTimer;
+
     private int enemiesSpawned;
 
     private bool waveEnabled = false;
@@ -21,10 +23,10 @@ public class EnemyHandler : MonoBehaviour
     {
         if (waveEnabled)
         {
-            spawnTimer -= Time.deltaTime;
-            if (spawnTimer < 0)
+            enemySpawnTimer -= Time.deltaTime;
+            if (enemySpawnTimer < 0)
             {
-                spawnTimer = levelManager.GetSpawnTimerData();
+                enemySpawnTimer = levelManager.GetEnemySpawnTimerData();
                 
                 if (enemiesSpawned < levelManager.GetEnemyCount())
                 {
@@ -38,6 +40,13 @@ public class EnemyHandler : MonoBehaviour
                     levelManager.OnWaveEnd?.Invoke();
                 }                
             }
+
+            packetSpawnTimer -= Time.deltaTime;
+            if (packetSpawnTimer < 0) 
+            {
+                packetSpawnTimer = levelManager.GetPacketSpawnTimerData();
+                SpawnPacket();
+            }
         }
     }
 
@@ -50,7 +59,9 @@ public class EnemyHandler : MonoBehaviour
 
     private void SpawnPacket() 
     {
-        
+        GameObject newInstance = Instantiate(levelManager.GetPacketPrefab(), spawnPoint);
+        newInstance.GetComponent<Packets>().Init(waypoints.WAYPOINTS);
+        newInstance.SetActive(true);
     }
 
     public void ToggleWave(bool b) {

@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]WaveData[] waveTemplates;
     int waveIndex = 0;
     [SerializeField]WaveData activeWave;
+    [SerializeField]PacketData packetData;
     public Location[] LOCATIONS => locations; 
 
     public Action OnWaveEnd;
@@ -45,7 +46,7 @@ public class LevelManager : MonoBehaviour
         enemyHandler.ToggleWave(false);
     }
 
-    public float GetSpawnTimerData() {
+    public float GetEnemySpawnTimerData() {
         return activeWave.SPAWNDELAY;
     }
     public GameObject GetEnemyPrefab() {
@@ -53,6 +54,16 @@ public class LevelManager : MonoBehaviour
     }
     public int GetEnemyCount() {
         return activeWave.SPIDERCOUNT;
+    }
+
+    public float GetPacketSpawnTimerData()
+    {
+        return packetData.SPAWNDELAY;
+    }
+    public GameObject GetPacketPrefab()
+    {
+        return packetData.PACKETPREFAB;
+           
     }
 
     IEnumerator DelayBetweenWaves(int n) 

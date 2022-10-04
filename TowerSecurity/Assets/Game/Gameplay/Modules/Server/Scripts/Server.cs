@@ -30,6 +30,7 @@ public class Server : MonoBehaviour
         if (other.TryGetComponent(out Packets packet))
         {
             OnPacketEntry?.Invoke(packet.PACKETDATA.KBWORTH);
+            packet.Die();
         }
 
     }
