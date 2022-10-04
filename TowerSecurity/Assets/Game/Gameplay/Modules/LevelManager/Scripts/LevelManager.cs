@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
     public int GetEnemyCount() {
         return activeWave.SPIDERCOUNT;
     }
+
     IEnumerator DelayBetweenWaves(int n) 
     {
         yield return new WaitForSeconds(n);

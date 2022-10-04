@@ -48,6 +48,11 @@ public class EnemyHandler : MonoBehaviour
         newInstance.SetActive(true);
     }
 
+    private void SpawnPacket() 
+    {
+        
+    }
+
     public void ToggleWave(bool b) {
         waveEnabled = b;
     }

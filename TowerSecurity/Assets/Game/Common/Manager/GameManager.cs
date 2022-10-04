@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TerminalManager terminal;
     [SerializeField] private LevelManager levelManager;
 
+    private int packetScore;
+    PacketData PACKETDATA;
+
     [SerializeField] private Tower prefab;
     [SerializeField] private Tower prefab2;
 
@@ -22,20 +25,31 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        packetScore = 0;
         Server.OnDeath += LoseGame;
+        Server.OnPacketEntry += UpdatePacketScore;
+        
         terminal.Init(InterpretTerminalText);
         currentLocation = null;
+    }
+
+    private void UpdatePacketScore(int i)
+    {
+        packetScore += PACKETDATA.KBWORTH;
+        packetScore += i;
     }
 
     private void OnDisable()
     {
         Server.OnDeath -= LoseGame;
+        Server.OnPacketEntry -= UpdatePacketScore;
     }
 
     private void LoseGame() {
         SceneManager.LoadScene(0);
     }
 
+    #region TerminalInteractions
     private void InterpretTerminalText(string text)
     {
         text = text.ToLower();
@@ -89,6 +103,7 @@ public class GameManager : MonoBehaviour
 
         command.CALLBACK?.Invoke(commandArg, command.INFO);
     }
+    #endregion
 
     #region COMMAND_IMPLEMENTATIONS
     public void Command_ReturnCommands(string[] arg, CommandInfo cmdi)

@@ -7,6 +7,7 @@ public class Server : MonoBehaviour
 {
     [SerializeField] private int hp;
     public static Action OnDeath;
+    public static Action<int> OnPacketEntry;
     public int HEALTH { get => hp; }
 
     void DealDamageToServer(int dmg) 
@@ -25,6 +26,12 @@ public class Server : MonoBehaviour
             DealDamageToServer(enemy.DAMAGE);
             enemy.Die();
         }
+
+        if (other.TryGetComponent(out Packets packet))
+        {
+            OnPacketEntry?.Invoke(packet.PACKETDATA.KBWORTH);
+        }
+
     }
 
  
