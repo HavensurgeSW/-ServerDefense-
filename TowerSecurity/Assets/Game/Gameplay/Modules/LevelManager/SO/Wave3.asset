@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wave3
   m_EditorClassIdentifier: 
   spiders: {fileID: 1546752201628287827, guid: 2f4ec1f10e3a1794bb1f8e15f3253b2c, type: 3}
-  spiderCount: 0
-  spawnDelay: 0
+  spiderCount: 10
+  spawnDelay: 1

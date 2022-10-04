@@ -736,6 +736,7 @@ MonoBehaviour:
   waveTemplates:
   - {fileID: 11400000, guid: 2c6f36118d819da45afe6e9d232e85b3, type: 2}
   - {fileID: 11400000, guid: 3eea3a2eb85725f4bb1042611aa5c0d4, type: 2}
+  - {fileID: 11400000, guid: 8bb835de87126a944b4e7b470950c38a, type: 2}
   activeWave: {fileID: 0}
 --- !u!4 &983216370
 Transform:

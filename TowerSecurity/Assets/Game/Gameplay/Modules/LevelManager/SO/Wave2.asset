@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636b138e28cbd874a9b03f67f0a8b0c2, type: 3}
   m_Name: Wave2
   m_EditorClassIdentifier: 
-  spiders: {fileID: 0}
+  spiders: {fileID: 1546752201628287827, guid: 2f4ec1f10e3a1794bb1f8e15f3253b2c, type: 3}
   spiderCount: 5
   spawnDelay: 2
