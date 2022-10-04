@@ -29,7 +29,6 @@ public class EnemyHandler : MonoBehaviour
                 if (enemiesSpawned < levelManager.GetEnemyCount())
                 {
                     enemiesSpawned++;
-                    Debug.Log(enemiesSpawned);
                     SpawnEnemy();
                 }
                 else if (enemiesSpawned == levelManager.GetEnemyCount())

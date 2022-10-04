@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
     }
 
     void QueueWave() {   
-        StartCoroutine(DelayBetweenWaves(3));
+        StartCoroutine(DelayBetweenWaves(10));
     }
 
 }

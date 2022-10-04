@@ -1,3 +1,4 @@
+using System.Data.SqlTypes;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -19,6 +20,7 @@ public class Tower : MonoBehaviour
     {
         if (timer >= firerate)
         {
+           
             if (aimbot.ContainsTargets())
             {
                 if (aimbot.TryGetTargetComponent(out Enemy enemy))

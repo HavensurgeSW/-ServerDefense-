@@ -21,6 +21,7 @@ public class Aimbot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Enemy has entered the radius");
         if (targetTags == null)
         {
             TryAddTarget(collision.gameObject);
