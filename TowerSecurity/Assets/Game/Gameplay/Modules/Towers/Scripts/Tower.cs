@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] private float range = 3f;
-    [SerializeField] private int damage = 2;
+    [SerializeField] private float range;
+    [SerializeField] private int damage;
     [SerializeField] private Aimbot aimbot;
 
-    [SerializeField] private float firerate = 1f;
+    [SerializeField] private float firerate;
     float timer = 0f;
 
     private void Awake()

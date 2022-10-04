@@ -1,6 +1,6 @@
 using UnityEngine;
+using System.Collections;
 using System;
-using UnityEditor;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]WaveData[] waveTemplates;
     int waveIndex = 0;
     [SerializeField]WaveData activeWave;
-    public Location[] LOCATIONS => locations;
+    public Location[] LOCATIONS => locations; 
 
     public Action OnWaveEnd;
 
@@ -21,17 +21,21 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
-        OnWaveEnd += LoadNextWave;
+        OnWaveEnd += QueueWave;
     }
     private void OnDisable()
     {
-        OnWaveEnd -= LoadNextWave;
+        OnWaveEnd -= QueueWave;
     }
 
     void LoadNextWave() 
-    {
-        if(waveIndex<waveTemplates.Length-1)
-            activeWave = waveTemplates[waveIndex++];
+    {  
+        if (waveIndex < waveTemplates.Length-1)
+        {
+            waveIndex++;
+            activeWave = waveTemplates[waveIndex];
+            enemyHandler.ToggleWave(true);
+        }
     }
     public void BeginWave() {
         enemyHandler.ToggleWave(true);
@@ -49,6 +53,15 @@ public class LevelManager : MonoBehaviour
     }
     public int GetEnemyCount() {
         return activeWave.SPIDERCOUNT;
+    }
+    IEnumerator DelayBetweenWaves(int n) 
+    {
+        yield return new WaitForSeconds(n);
+        LoadNextWave();
+    }
+
+    void QueueWave() {   
+        StartCoroutine(DelayBetweenWaves(3));
     }
 
 }
