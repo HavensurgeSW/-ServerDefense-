@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdatePacketPointsText(int points)
     {
-        packetPointsText.text = "Packet Points: " + points.ToString();
+        packetPointsText.text = "Current KB: " + points.ToString();
     }
 
     private void UpdateServerHealthText(int health)

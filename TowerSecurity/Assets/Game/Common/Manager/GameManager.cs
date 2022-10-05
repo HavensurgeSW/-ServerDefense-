@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        packetScore = 0;
+        packetScore = 10;
+        uiManager.UpdatePacketPointsText(packetScore);
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
 
@@ -36,10 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdatePacketScore(int i)
     {
-        // DUDA: aca se le suma KB_WORTH y aparte un "i", que viendo los llamados tambien es KB_WORTH, esto es correcto?
-        packetScore += packetData.KB_WORTH;
         packetScore += i;
-
         uiManager.UpdatePacketPointsText(packetScore);
     }
 
@@ -185,13 +183,32 @@ public class GameManager : MonoBehaviour
         if (currentLocation != null && currentLocation.CheckForLocationAvailability())
         {
             Tower tower = null;
+            List<string> response = new List<string>();
             switch (arg[0])
             {
                 case "antivirus":
-                    tower = prefab;
+                    if (packetScore >= 8) //Add cost through DataAsset to pull from
+                    {
+                        UpdatePacketScore(-8);
+                        tower = prefab;
+                    }
+                    else {
+                        response.Add("Insufficient funds to install program");
+                        terminal.AddInterpreterLines(response);
+                    }
                     break;
                 case "firewall":
-                    tower = prefab2;
+                    
+                    if (packetScore >= 16)
+                    {
+                        UpdatePacketScore(-16);
+                        tower = prefab2;
+                    }
+                    else
+                    {
+                        response.Add("Insufficient funds to install program");
+                        terminal.AddInterpreterLines(response);
+                    }
                     break;
                 default:
                     TriggerErrorResponse(cmdi);
