@@ -1,13 +1,12 @@
-using System.Data.SqlTypes;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class BaseTower : MonoBehaviour
 {
     [SerializeField] private float range;
     [SerializeField] private int damage;
     [SerializeField] private Aimbot aimbot;
 
-    [SerializeField] private float firerate;
+    [SerializeField] private float fireRate;
     float timer = 0f;
 
     private void Awake()
@@ -18,9 +17,8 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-        if (timer >= firerate)
-        {
-           
+        if (timer >= fireRate)
+        {           
             if (aimbot.ContainsTargets())
             {
                 if (aimbot.TryGetTargetComponent(out Enemy enemy))

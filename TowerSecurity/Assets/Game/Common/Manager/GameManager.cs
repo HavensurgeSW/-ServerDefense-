@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MapHandler mapHandler;
     [SerializeField] private PacketData packetData;
 
-    [SerializeField] private Tower prefab;
-    [SerializeField] private Tower prefab2;
+    [SerializeField] private BaseTower prefab;
+    [SerializeField] private BaseTower prefab2;
 
     private int packetScore;
 
@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
 
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
-            Tower tower = null;
+            BaseTower tower = null;
             List<string> response = new List<string>();
             switch (arg[0])
             {
