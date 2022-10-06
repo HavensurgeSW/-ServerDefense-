@@ -25,7 +25,7 @@ public class Location : MonoBehaviour
         sr.color = clr;
     }
 
-    public bool CheckForLocationAvailability() {
+    public bool GetAvailability() {
         return availability;
     }
 

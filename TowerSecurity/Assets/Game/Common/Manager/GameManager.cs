@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,17 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] private TerminalManager terminal;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private MapHandler mapHandler;
     [SerializeField] private PacketData packetData;
 
     [SerializeField] private Tower prefab;
     [SerializeField] private Tower prefab2;
 
-    [SerializeField] Tilemap tilemap;
-    [SerializeField] TileBase selectedLocation;
-    [SerializeField] TileBase defaultLocation;
-
     private int packetScore;
-    private Location currentLocation;
 
     private void Awake()
     {
@@ -31,8 +26,8 @@ public class GameManager : MonoBehaviour
         Server.OnPacketEntry += UpdatePacketScore;
 
         uiManager.Init();
+        mapHandler.Init();
         terminal.Init(InterpretTerminalText);
-        currentLocation = null;
     }
 
     private void UpdatePacketScore(int i)
@@ -143,25 +138,25 @@ public class GameManager : MonoBehaviour
 
     public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi)
     {
-
         string locName = arg[0];
         bool searchHit = false;
+     
         foreach (Location loc in levelManager.LOCATIONS)
         {
             if (loc.ID == locName)
             {
-                currentLocation = loc;
+                if (mapHandler.CURRENT_LOCATION != null)
+                {
+                    mapHandler.CURRENT_LOCATION.ToggleSelected(false);
+                    mapHandler.SetTileToDefault(mapHandler.CURRENT_LOCATION.transform.position);
+                }
+
+                mapHandler.SetCurrentLocation(loc);
                 loc.ToggleSelected(true);
-                Vector3Int cellPos = tilemap.WorldToCell(loc.transform.position);
-                tilemap.SetTile(cellPos, selectedLocation);
+                mapHandler.SetTileToSelected(loc.transform.position);
                 searchHit = true;
                 terminal.ClearCmdEntries();
-            }
-            else
-            {
-                loc.ToggleSelected(false);
-                Vector3Int cellPos = tilemap.WorldToCell(loc.transform.position);
-                tilemap.SetTile(cellPos, defaultLocation);
+                break;
             }
         }
 
@@ -172,15 +167,14 @@ public class GameManager : MonoBehaviour
     }
     public void Command_Hello(string[] arg, CommandInfo cmdi)
     {
-
         TriggerSuccessResponse(cmdi);
     }
+
     public void Command_InstallTower(string[] arg, CommandInfo cmdi)
     {
-
         terminal.ClearCmdEntries();
 
-        if (currentLocation != null && currentLocation.CheckForLocationAvailability())
+        if (mapHandler.GetIsCurrentLocationAvailable())
         {
             Tower tower = null;
             List<string> response = new List<string>();
@@ -215,8 +209,9 @@ public class GameManager : MonoBehaviour
                     return;
             }
 
-            currentLocation.SetAvailable(false);
-            Instantiate(tower, currentLocation.transform);
+            Location currentLoc = mapHandler.CURRENT_LOCATION;
+            currentLoc.SetAvailable(false);
+            Instantiate(tower, currentLoc.transform);
             TriggerSuccessResponse(cmdi);
         }
         else
@@ -258,8 +253,6 @@ public class GameManager : MonoBehaviour
         }
 
         terminal.AddInterpreterLines(tutorialOutput);
-        //TriggerSuccessResponse(cmdi);
-
     }
     public void Command_ReloadScene(string[] arg, CommandInfo cmdi)
     {
