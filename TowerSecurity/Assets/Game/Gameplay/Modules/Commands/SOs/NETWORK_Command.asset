@@ -16,7 +16,6 @@ MonoBehaviour:
   argCount: 1
   succResponse: []
   helpResponse:
-  - Starts and pauses the wave
-  - NETWORK <INIT> to start the wave
-  - NETWORK <PAUSE> to pause the wave
+  - NETWORK INIT
+  - Opens the network and starts the wave
   errorResponse: []

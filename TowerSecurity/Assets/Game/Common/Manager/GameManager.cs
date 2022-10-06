@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case "firewall":
                     
-                    if (packetScore >= 16)
+                    if (packetScore >= 16) //Add cost through DataAsset to pull from
                     {
                         UpdatePacketScore(-16);
                         tower = prefab2;
@@ -228,7 +228,38 @@ public class GameManager : MonoBehaviour
     }
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
     {
-        TriggerSuccessResponse(cmdi);
+        List<string> tutorialOutput = new List<string>();
+        if (arg[0] == "1")
+        {
+            tutorialOutput.Add("Welcome to the Network");
+            tutorialOutput.Add("Your job is to protect the server from viruses");
+            tutorialOutput.Add("To do this, deploy towers on the <locations> available");
+            tutorialOutput.Add("Begin by writing CD LOC1 on the terminal");
+            tutorialOutput.Add("Then go ahead and run TUTORIAL 2 to continue");
+        }
+        
+        if (arg[0] == "2") 
+        {
+            tutorialOutput.Add("You can use NETSTAT to find the name of all available locations");
+            tutorialOutput.Add("Most commands can take <Arguments>. These are parameters that change the behaviour");
+            tutorialOutput.Add("All commands have a HELP argument. EG: CD HELP, INSTALL HELP");
+            tutorialOutput.Add("Use the HELP argument to find out more about the command");
+            tutorialOutput.Add("Run TUTORIAL 3 to continue");
+        }
+        if (arg[0] == "3")
+        {
+            tutorialOutput.Add("Deploying towers costs Kilobytes, noted as KB on the left");
+            tutorialOutput.Add("Packets reaching your server will increase your current KB");
+            tutorialOutput.Add("With a selected <location>, run the INSTALL command");
+            tutorialOutput.Add("You might want to add the HELP argument to learn how to use it");
+            tutorialOutput.Add("All available commands can be seen by running CMDS");
+            tutorialOutput.Add("When you're ready, open up your network by running NETWORK INIT");
+
+        }
+
+        terminal.AddInterpreterLines(tutorialOutput);
+        //TriggerSuccessResponse(cmdi);
+
     }
     public void Command_ReloadScene(string[] arg, CommandInfo cmdi)
     {

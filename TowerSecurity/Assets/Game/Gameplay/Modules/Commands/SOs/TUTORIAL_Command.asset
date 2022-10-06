@@ -13,16 +13,10 @@ MonoBehaviour:
   m_Name: TUTORIAL_Command
   m_EditorClassIdentifier: 
   id: tutorial
-  argCount: 0
-  succResponse:
-  - You can use the <HELP> argument on any command for more info
-  - 'EG: "cd help" or "install help"'
-  - Use NETSTAT to find existing locations
-  - Locations are the spaces to deploy towers
-  - Use CD <Location> to move between locations
-  - INSTALL ANTIVIRUS will deploy a Tower in selected location
-  - Use CMDS to get a list of all commands
-  - Use NETWORK INIT to begin the wave
+  argCount: 1
+  succResponse: []
   helpResponse:
-  - You need god m8
+  - TUTORIAL <Num. of page>
+  - Prints out tutorial logs.
+  - 'NUMS OF PAGE: 1, 2, 3'
   errorResponse: []

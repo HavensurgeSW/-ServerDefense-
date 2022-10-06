@@ -16,5 +16,6 @@ MonoBehaviour:
   argCount: 0
   succResponse: []
   helpResponse:
-  - WIP
+  - RELOAD
+  - Reloads the level
   errorResponse: []
