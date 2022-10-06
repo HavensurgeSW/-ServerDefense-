@@ -20,5 +20,6 @@ MonoBehaviour:
   - INSTALL <Program>
   - Install a program on an available location
   - 'Current available PROGRAMS: antivirus'
+  - 'ANTIVIRUS cost: 8 KB'
   errorResponse:
   - Location unavailable or tower type does not exist

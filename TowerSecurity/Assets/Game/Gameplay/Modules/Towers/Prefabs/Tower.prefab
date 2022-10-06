@@ -103,7 +103,7 @@ MonoBehaviour:
   range: 1.8
   damage: 2
   aimbot: {fileID: 228316106}
-  firerate: 1
+  firerate: 1.2
 --- !u!58 &228316105
 CircleCollider2D:
   m_ObjectHideFlags: 0
