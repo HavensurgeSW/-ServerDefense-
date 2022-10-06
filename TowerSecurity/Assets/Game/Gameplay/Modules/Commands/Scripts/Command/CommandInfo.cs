@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Commands/BaseCommandInfo")]
 public class CommandInfo : ScriptableObject
 {
+    [Header("Base Command Configuration")]
     [SerializeField] private string id;
     [SerializeField] private int argCount;
     [SerializeField] private List<string> succResponse = new List<string>();

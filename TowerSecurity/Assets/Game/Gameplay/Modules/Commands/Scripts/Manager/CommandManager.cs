@@ -4,19 +4,17 @@ public class CommandManager : MonoBehaviour
 {
     [SerializeField] private HelpCommandInfo helpInfo = null;
 
-    public bool CheckCommandArguments(string[] args, int argumentCount)
+    public bool CheckCommandArguments(string[] args, CommandInfo info)
     {
-        if (args == null && argumentCount == 0)
+        if (args != null)
         {
-            return true;
+            if (args.Length == info.ARG_COUNT)
+            {
+                return true;
+            }
         }
 
-        if (args == null && argumentCount > 0)
-        {
-            return false;
-        }
-
-        if (args.Length == argumentCount)
+        if (args == null && info.ARG_COUNT == 0)
         {
             return true;
         }

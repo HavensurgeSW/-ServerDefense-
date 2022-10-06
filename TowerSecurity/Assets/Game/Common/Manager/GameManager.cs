@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
     private void TriggerHelpResponse(CommandInfo info)
     {
         terminal.AddInterpreterLines(info.HELP_RESPONSE);
-
     }
+
     private void TriggerErrorResponse(CommandInfo info)
     {
         terminal.AddInterpreterLines(info.ERROR_RESPONSE);
@@ -97,6 +97,12 @@ public class GameManager : MonoBehaviour
         if (commandManager.CheckHelpCommand(commandArg))
         {
             TriggerHelpResponse(command.INFO);
+            return;
+        }
+
+        if (!commandManager.CheckCommandArguments(commandArg, command.INFO))
+        {
+            terminal.AddInterpreterLines(new List<string> { "Invalid argument amount" });
             return;
         }
 
@@ -226,37 +232,21 @@ public class GameManager : MonoBehaviour
     }
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
     {
-        List<string> tutorialOutput = new List<string>();
-        if (arg[0] == "1")
-        {
-            tutorialOutput.Add("Welcome to the Network");
-            tutorialOutput.Add("Your job is to protect the server from viruses");
-            tutorialOutput.Add("To do this, deploy towers on the <locations> available");
-            tutorialOutput.Add("Begin by writing CD LOC1 on the terminal");
-            tutorialOutput.Add("Then go ahead and run TUTORIAL 2 to continue");
-        }
-        
-        if (arg[0] == "2") 
-        {
-            tutorialOutput.Add("You can use NETSTAT to find the name of all available locations");
-            tutorialOutput.Add("Most commands can take <Arguments>. These are parameters that change the behaviour");
-            tutorialOutput.Add("All commands have a HELP argument. EG: CD HELP, INSTALL HELP");
-            tutorialOutput.Add("Use the HELP argument to find out more about the command");
-            tutorialOutput.Add("Run TUTORIAL 3 to continue");
-        }
-        if (arg[0] == "3")
-        {
-            tutorialOutput.Add("Deploying towers costs Kilobytes, noted as KB on the left");
-            tutorialOutput.Add("Packets reaching your server will increase your current KB");
-            tutorialOutput.Add("With a selected <location>, run the INSTALL command");
-            tutorialOutput.Add("You might want to add the HELP argument to learn how to use it");
-            tutorialOutput.Add("All available commands can be seen by running CMDS");
-            tutorialOutput.Add("When you're ready, open up your network by running NETWORK INIT");
+        TutorialCommandInfo info = cmdi as TutorialCommandInfo;
 
+        string tutorialId = arg[0];
+        for (int i = 0; i < info.TUTORIALS.Length; i++)
+        {
+            if (info.TUTORIALS[i].TUTORIAL_ID == tutorialId)
+            {
+                terminal.AddInterpreterLines(info.TUTORIALS[i].TUTORIAL_LINES);
+                return;
+            }
         }
 
-        terminal.AddInterpreterLines(tutorialOutput);
+        TriggerErrorResponse(info);
     }
+
     public void Command_ReloadScene(string[] arg, CommandInfo cmdi)
     {
         SceneManager.LoadScene(1);
@@ -277,11 +267,7 @@ public class GameManager : MonoBehaviour
     #region DEBUG_COMMANDS
     public void Command_Debug1(string[] arg, CommandInfo cmdi)
     {
-
-
-
         TriggerSuccessResponse(cmdi);
-
     }
     #endregion
 }

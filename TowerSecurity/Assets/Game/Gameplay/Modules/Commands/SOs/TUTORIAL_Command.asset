@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
+  m_Script: {fileID: 11500000, guid: a3bdb66b8e349c747b7717e798de5fca, type: 3}
   m_Name: TUTORIAL_Command
   m_EditorClassIdentifier: 
   id: tutorial
@@ -19,4 +19,28 @@ MonoBehaviour:
   - TUTORIAL <Num. of page>
   - Prints out tutorial logs.
   - 'NUMS OF PAGE: 1, 2, 3'
-  errorResponse: []
+  errorResponse:
+  - No tutorial with matching id found
+  tutorials:
+  - tutorialId: 1
+    tutorialLines:
+    - Welcome to the Network
+    - Your job is to protect the server from viruses
+    - To do this, deploy towers on the <locations> available
+    - Begin by writing CD LOC1 on the terminal
+    - Then go ahead and run TUTORIAL 2 to continue
+  - tutorialId: 2
+    tutorialLines:
+    - You can use NETSTAT to find the name of all available locations
+    - Most commands can take <Arguments>. These are parameters that change the behaviour
+    - 'All commands have a HELP argument. EG: CD HELP, INSTALL HELP'
+    - Use the HELP argument to find out more about the command
+    - Run TUTORIAL 3 to continue
+  - tutorialId: 3
+    tutorialLines:
+    - Deploying towers costs Kilobytes, noted as KB on the left
+    - Packets reaching your server will increase your current KB
+    - With a selected <location>, run the INSTALL command
+    - You might want to add the HELP argument to learn how to use it
+    - All available commands can be seen by running CMDS
+    - When you're ready, open up your network by running NETWORK INIT
