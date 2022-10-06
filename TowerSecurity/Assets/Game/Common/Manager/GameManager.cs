@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
             TriggerSuccessResponse(cmdi);
         }
     }
+
     public void Command_ReturnLocations(string[] arg, CommandInfo cmdi)
     {
         List<string> locList = new List<string>();
@@ -189,6 +190,7 @@ public class GameManager : MonoBehaviour
                     else {
                         response.Add("Insufficient funds to install program");
                         terminal.AddInterpreterLines(response);
+                        return;
                     }
                     break;
                 case "firewall":
@@ -202,6 +204,7 @@ public class GameManager : MonoBehaviour
                     {
                         response.Add("Insufficient funds to install program");
                         terminal.AddInterpreterLines(response);
+                        return;
                     }
                     break;
                 default:
@@ -217,7 +220,7 @@ public class GameManager : MonoBehaviour
         else
         {
             List<string> strings = new List<string>();
-            strings.Add("No location selected");
+            strings.Add("Invalid location selected");
             terminal.AddInterpreterLines(strings);
         }
     }
