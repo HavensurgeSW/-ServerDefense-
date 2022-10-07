@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class BaseTower : MonoBehaviour
+public abstract class BaseTower : MonoBehaviour
 {
-    [SerializeField] private Aimbot aimbot = null;
-    [SerializeField] private float rangeRadius = 1.0f;
-    [SerializeField] private int damage = 1;
-
-    [SerializeField] private float fireRate = 1.0f;
+    [Header("Main Configuration")]
+    [SerializeField] protected Aimbot aimbot = null;
+    [SerializeField] protected float rangeRadius = 1.0f;
+    [SerializeField] protected int damage = 1;
+    [SerializeField] protected float fireRate = 1.0f;
 
     private float timer = 0.0f;
 
-    public void Init(int damage, float radius, float fireRate)
+    public virtual void Init(int damage, float radius, float fireRate)
     {
         this.damage = damage;
         rangeRadius = radius;
@@ -18,22 +18,23 @@ public class BaseTower : MonoBehaviour
         this.fireRate = fireRate;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         timer += Time.deltaTime;
 
         if (timer >= fireRate)
-        {           
-            if (aimbot.ContainsTargets())
-            {
-                if (aimbot.TryGetTargetComponent(out Enemy enemy))
-                {
-                    DealDamage(enemy);
-                }
-            }
+        {
+            HandleAttackingBehaviour();
 
             timer = 0;
         }
+    }
+
+    protected abstract void HandleAttackingBehaviour();
+
+    protected void DealDamage(Enemy enemy)
+    {
+        enemy.ReceiveDamage(damage);
     }
 
     private void OnDrawGizmos()
@@ -55,10 +56,5 @@ public class BaseTower : MonoBehaviour
     public void SetParent(Transform parent)
     {
         transform.SetParent(parent);
-    }
-
-    private void DealDamage(Enemy enemy)
-    {
-        enemy.ReceiveDamage(damage);
     }
 }

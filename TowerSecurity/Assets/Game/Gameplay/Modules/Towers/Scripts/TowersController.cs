@@ -40,12 +40,6 @@ public class TowersController : MonoBehaviour
         return false;
     }
 
-    public bool CanPurchase(string id, int currentMoney)
-    {
-        TowerData data = towersDictionary[id];
-        return currentMoney >= data.PRICE;
-    }
-
     public TowerData GetTowerData(string towerId)
     {
         if (towersDictionary.ContainsKey(towerId))
@@ -56,6 +50,7 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
+    // Lo dejo para acordarme como sacar towers de forma correcta
     public void TestRelease(string id)
     {
         BaseTower tower = towersListsDictionary[id][0];
@@ -73,11 +68,11 @@ public class TowersController : MonoBehaviour
 
     private BaseTower SpawnTower(string towerId)
     {
-        BaseTower tower = Instantiate(towersDictionary[towerId].TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
-
         TowerData data = towersDictionary[towerId];
+        BaseTower tower = Instantiate(data.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
+
         tower.Init(data.DAMAGE, data.RANGE, data.FIRE_RATE);
-        tower.SetFocusTargets(data.TARGETS);
+        tower.SetFocusTargets(data.TARGETS); // nunca va a entrar en NULL porque esta serialziado desde el inspector. Si no le pongo nada va a ser un array de 0, cosa que puede cagar la busqueda del AIMBOT
         return tower;
     }
 

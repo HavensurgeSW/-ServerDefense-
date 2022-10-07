@@ -12,10 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TowersController towersController = null;
     [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
-    [SerializeField] private PacketData packetData = null;
-
-    [SerializeField] private BaseTower prefab = null;
-    [SerializeField] private BaseTower prefab2 = null;
 
     private int packetScore;
 
@@ -155,7 +151,7 @@ public class GameManager : MonoBehaviour
     {
         string locName = arg[0];
         bool searchHit = false;
-     
+
         foreach (Location loc in levelManager.LOCATIONS)
         {
             if (loc.ID == locName)
