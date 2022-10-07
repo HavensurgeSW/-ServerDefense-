@@ -184,9 +184,11 @@ public class GameManager : MonoBehaviour
     {
         terminal.ClearCmdEntries();
 
+        InstallCommandInfo info = cmdi as InstallCommandInfo;
+
         if (!mapHandler.GetIsCurrentLocationAvailable())
         {
-            terminal.AddInterpreterLines(new List<string>() { "Invalid location selected" });
+            terminal.AddInterpreterLines(info.INVALID_LOCATION_RESPONSE);
             return;
         }
 
@@ -194,7 +196,7 @@ public class GameManager : MonoBehaviour
 
         if (!towersController.DoesTowerIdExist(towerId))
         {
-            terminal.AddInterpreterLines(new List<string>() { "Invalid installation id" });
+            terminal.AddInterpreterLines(info.INVALID_TOWER_ID_RESPONSE);
             return;
         }
 
@@ -202,11 +204,12 @@ public class GameManager : MonoBehaviour
 
         if (packetScore < data.PRICE)
         {
-            terminal.AddInterpreterLines(new List<string>() { "Insufficient funds to install program" });
+            terminal.AddInterpreterLines(info.INSUFFICIENT_FUNDS_RESPONSE);
             return;
         }
 
         UpdatePacketScore(-data.PRICE);
+
         BaseTower actualTower = towersController.GenerateTower(towerId);
 
         Location currentLoc = mapHandler.CURRENT_LOCATION;

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
+  m_Script: {fileID: 11500000, guid: a1937cda24f2e314f8e9a9a52293bc12, type: 3}
   m_Name: INSTALL_Command
   m_EditorClassIdentifier: 
   id: install
@@ -23,3 +23,9 @@ MonoBehaviour:
   - 'ANTIVIRUS cost: 8 KB'
   errorResponse:
   - Location unavailable or tower type does not exist
+  invalidLocationResponse:
+  - Invalid location selected
+  invalidTowerIdResponse:
+  - Invalid installation id
+  insufficientFundsResponse:
+  - Insufficient funds to install program

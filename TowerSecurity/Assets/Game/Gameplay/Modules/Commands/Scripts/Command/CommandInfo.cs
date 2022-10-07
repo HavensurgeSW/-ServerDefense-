@@ -8,9 +8,9 @@ public class CommandInfo : ScriptableObject
     [Header("Base Command Configuration")]
     [SerializeField] private string id;
     [SerializeField] private int argCount;
-    [SerializeField] private List<string> succResponse = new List<string>();
-    [SerializeField] private List<string> helpResponse = new List<string>();
-    [SerializeField] private List<string> errorResponse = new List<string>();
+    [SerializeField] private List<string> succResponse = null;
+    [SerializeField] private List<string> helpResponse = null;
+    [SerializeField] private List<string> errorResponse = null;
 
     public string ID { get => id; }
     public int ARG_COUNT { get => argCount; }
