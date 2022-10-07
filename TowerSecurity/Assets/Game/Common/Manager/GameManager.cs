@@ -69,23 +69,28 @@ public class GameManager : MonoBehaviour
 
         if (!searchHit)
         {
-            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type CMDS for a list of commands" });
+            ShowTerminalLines(new List<string> { "Command not recognized. Type CMDS for a list of commands" });
         }
     }
 
     private void TriggerSuccessResponse(CommandInfo info)
     {
-        terminal.AddInterpreterLines(info.SUCC_RESPONSE);
+        ShowTerminalLines(info.SUCC_RESPONSE);
     }
 
     private void TriggerHelpResponse(CommandInfo info)
     {
-        terminal.AddInterpreterLines(info.HELP_RESPONSE);
+        ShowTerminalLines(info.HELP_RESPONSE);
     }
 
     private void TriggerErrorResponse(CommandInfo info)
     {
-        terminal.AddInterpreterLines(info.ERROR_RESPONSE);
+        ShowTerminalLines(info.ERROR_RESPONSE);
+    }
+
+    private void ShowTerminalLines(List<string> lines)
+    {
+        terminal.AddInterpreterLines(lines);
     }
 
     private void ProcessCommand(Command command, string[] fullArguments)
@@ -105,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         if (!commandManager.CheckCommandArguments(commandArg, command.INFO))
         {
-            terminal.AddInterpreterLines(new List<string> { "Invalid argument amount" });
+            ShowTerminalLines(new List<string> { "Invalid argument amount" });
             return;
         }
 
@@ -143,7 +148,7 @@ public class GameManager : MonoBehaviour
             locList.Add(levelManager.LOCATIONS[i].ID);
         }
 
-        terminal.AddInterpreterLines(locList);
+        ShowTerminalLines(locList);
     }
 
     public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi)
@@ -188,7 +193,7 @@ public class GameManager : MonoBehaviour
 
         if (!mapHandler.GetIsCurrentLocationAvailable())
         {
-            terminal.AddInterpreterLines(info.INVALID_LOCATION_RESPONSE);
+            ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
             return;
         }
 
@@ -196,7 +201,7 @@ public class GameManager : MonoBehaviour
 
         if (!towersController.DoesTowerIdExist(towerId))
         {
-            terminal.AddInterpreterLines(info.INVALID_TOWER_ID_RESPONSE);
+            ShowTerminalLines(info.INVALID_TOWER_ID_RESPONSE);
             return;
         }
 
@@ -204,18 +209,18 @@ public class GameManager : MonoBehaviour
 
         if (packetScore < data.PRICE)
         {
-            terminal.AddInterpreterLines(info.INSUFFICIENT_FUNDS_RESPONSE);
+            ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
             return;
         }
 
         UpdatePacketScore(-data.PRICE);
 
-        BaseTower actualTower = towersController.GenerateTower(towerId);
-
         Location currentLoc = mapHandler.CURRENT_LOCATION;
+        BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);
+
         actualTower.SetPosition(currentLoc.transform.position);
-        actualTower.SetParent(currentLoc.transform);
         currentLoc.SetAvailable(false);
+
         TriggerSuccessResponse(cmdi);
     }
 
@@ -228,7 +233,7 @@ public class GameManager : MonoBehaviour
         {
             if (info.TUTORIALS[i].TUTORIAL_ID == tutorialId)
             {
-                terminal.AddInterpreterLines(info.TUTORIALS[i].TUTORIAL_LINES);
+                ShowTerminalLines(info.TUTORIALS[i].TUTORIAL_LINES);
                 return;
             }
         }

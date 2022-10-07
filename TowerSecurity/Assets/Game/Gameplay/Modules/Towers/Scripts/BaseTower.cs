@@ -18,21 +18,6 @@ public class BaseTower : MonoBehaviour
         this.fireRate = fireRate;
     }
 
-    public void SetFocusTargets(params string[] targetTags)
-    {
-        aimbot.Init(targetTags);
-    }
-
-    public void SetPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
-
-    public void SetParent(Transform parent)
-    {
-        transform.SetParent(parent);
-    }
-
     private void Update()
     {
         timer += Time.deltaTime;
@@ -55,6 +40,21 @@ public class BaseTower : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, rangeRadius);
+    }
+
+    public void SetFocusTargets(params string[] targetTags)
+    {
+        aimbot.Init(targetTags);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    public void SetParent(Transform parent)
+    {
+        transform.SetParent(parent);
     }
 
     private void DealDamage(Enemy enemy)

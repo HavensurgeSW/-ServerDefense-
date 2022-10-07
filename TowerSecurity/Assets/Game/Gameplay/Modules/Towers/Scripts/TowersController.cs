@@ -63,10 +63,11 @@ public class TowersController : MonoBehaviour
         towerPools[id].Release(tower);
     }
 
-    public BaseTower GenerateTower(string towerId)
+    public BaseTower GenerateTower(string towerId, Transform holder)
     {
         BaseTower tower = towerPools[towerId].Get();
-        towersListsDictionary[towerId].Add(tower); 
+        towersListsDictionary[towerId].Add(tower);
+        tower.SetParent(holder);
         return tower;
     }
 
