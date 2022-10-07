@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba001571eea74d842b434972fd88a466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  damage: 10
+  range: 1.8
+  damage: 2
   aimbot: {fileID: 228316106}
-  fireRate: 2
+  fireRate: 1.2
 --- !u!58 &228316105
 CircleCollider2D:
   m_ObjectHideFlags: 0

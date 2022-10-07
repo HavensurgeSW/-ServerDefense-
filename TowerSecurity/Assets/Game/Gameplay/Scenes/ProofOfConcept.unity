@@ -27716,6 +27716,7 @@ MonoBehaviour:
   towersData:
   - {fileID: 11400000, guid: 29b1e51f3f0211f4d932fd86e62c3af7, type: 2}
   - {fileID: 11400000, guid: fa57b375d0cc46a42b607bf44bf95149, type: 2}
+  towersHolder: {fileID: 1758878459}
 --- !u!1 &1761297922
 GameObject:
   m_ObjectHideFlags: 0
@@ -36255,6 +36256,7 @@ MonoBehaviour:
   commandManager: {fileID: 1308555774}
   uiManager: {fileID: 2065976854}
   terminal: {fileID: 1966694203}
+  towersController: {fileID: 1758878460}
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
   packetData: {fileID: 11400000, guid: 8cbfe329a3a107944889dff9b67cedb4, type: 2}

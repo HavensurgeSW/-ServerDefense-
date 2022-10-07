@@ -7,14 +7,15 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Command> commands = new List<Command>();
     [SerializeField] private CommandManager commandManager = null;
-    [SerializeField] private UIManager uiManager;
-    [SerializeField] private TerminalManager terminal;
-    [SerializeField] private LevelManager levelManager;
-    [SerializeField] private MapHandler mapHandler;
-    [SerializeField] private PacketData packetData;
+    [SerializeField] private UIManager uiManager = null;
+    [SerializeField] private TerminalManager terminal = null;
+    [SerializeField] private TowersController towersController = null;
+    [SerializeField] private LevelManager levelManager = null;
+    [SerializeField] private MapHandler mapHandler = null;
+    [SerializeField] private PacketData packetData = null;
 
-    [SerializeField] private BaseTower prefab;
-    [SerializeField] private BaseTower prefab2;
+    [SerializeField] private BaseTower prefab = null;
+    [SerializeField] private BaseTower prefab2 = null;
 
     private int packetScore;
 
@@ -22,10 +23,12 @@ public class GameManager : MonoBehaviour
     {
         packetScore = 10;
         uiManager.UpdatePacketPointsText(packetScore);
+
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
 
         uiManager.Init();
+        towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
     }
@@ -181,55 +184,38 @@ public class GameManager : MonoBehaviour
     {
         terminal.ClearCmdEntries();
 
-        if (mapHandler.GetIsCurrentLocationAvailable())
+        if (!mapHandler.GetIsCurrentLocationAvailable())
         {
-            BaseTower tower = null;
-            List<string> response = new List<string>();
-            switch (arg[0])
-            {
-                case "antivirus":
-                    if (packetScore >= 8) //Add cost through DataAsset to pull from
-                    {
-                        UpdatePacketScore(-8);
-                        tower = prefab;
-                    }
-                    else {
-                        response.Add("Insufficient funds to install program");
-                        terminal.AddInterpreterLines(response);
-                        return;
-                    }
-                    break;
-                case "firewall":
-                    
-                    if (packetScore >= 16) //Add cost through DataAsset to pull from
-                    {
-                        UpdatePacketScore(-16);
-                        tower = prefab2;
-                    }
-                    else
-                    {
-                        response.Add("Insufficient funds to install program");
-                        terminal.AddInterpreterLines(response);
-                        return;
-                    }
-                    break;
-                default:
-                    TriggerErrorResponse(cmdi);
-                    return;
-            }
+            terminal.AddInterpreterLines(new List<string>() { "Invalid location selected" });
+            return;
+        }
 
-            Location currentLoc = mapHandler.CURRENT_LOCATION;
-            currentLoc.SetAvailable(false);
-            Instantiate(tower, currentLoc.transform);
-            TriggerSuccessResponse(cmdi);
-        }
-        else
+        string towerId = arg[0];
+
+        if (!towersController.DoesTowerIdExist(towerId))
         {
-            List<string> strings = new List<string>();
-            strings.Add("Invalid location selected");
-            terminal.AddInterpreterLines(strings);
+            terminal.AddInterpreterLines(new List<string>() { "Invalid installation id" });
+            return;
         }
+
+        TowerData data = towersController.GetTowerData(towerId);
+
+        if (packetScore < data.PRICE)
+        {
+            terminal.AddInterpreterLines(new List<string>() { "Insufficient funds to install program" });
+            return;
+        }
+
+        UpdatePacketScore(-data.PRICE);
+        BaseTower actualTower = towersController.GenerateTower(towerId);
+
+        Location currentLoc = mapHandler.CURRENT_LOCATION;
+        actualTower.SetPosition(currentLoc.transform.position);
+        actualTower.SetParent(currentLoc.transform);
+        currentLoc.SetAvailable(false);
+        TriggerSuccessResponse(cmdi);
     }
+
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
     {
         TutorialCommandInfo info = cmdi as TutorialCommandInfo;

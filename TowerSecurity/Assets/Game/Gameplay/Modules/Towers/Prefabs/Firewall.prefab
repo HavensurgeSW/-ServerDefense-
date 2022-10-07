@@ -97,13 +97,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2447185751727838718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e8da716e8a6f2e48a9abd6f35f14311, type: 3}
+  m_Script: {fileID: 11500000, guid: ba001571eea74d842b434972fd88a466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  damage: 2
   aimbot: {fileID: 1094151088146952505}
-  firerate: 1
+  rangeRadius: 1
+  damage: 0
+  fireRate: 0
 --- !u!58 &6097502181980172665
 CircleCollider2D:
   m_ObjectHideFlags: 0

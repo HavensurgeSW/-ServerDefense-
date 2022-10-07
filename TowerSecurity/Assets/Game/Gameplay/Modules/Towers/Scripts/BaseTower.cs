@@ -2,21 +2,41 @@ using UnityEngine;
 
 public class BaseTower : MonoBehaviour
 {
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
-    [SerializeField] private Aimbot aimbot;
+    [SerializeField] private Aimbot aimbot = null;
+    [SerializeField] private float rangeRadius = 1.0f;
+    [SerializeField] private int damage = 1;
 
-    [SerializeField] private float fireRate;
-    float timer = 0f;
+    [SerializeField] private float fireRate = 1.0f;
 
-    private void Awake()
+    private float timer = 0.0f;
+
+    public void Init(int damage, float radius, float fireRate)
     {
-        aimbot.Init("Enemy");
-        aimbot.SetRange(range);
+        this.damage = damage;
+        rangeRadius = radius;
+        aimbot.SetRange(rangeRadius);
+        this.fireRate = fireRate;
+    }
+
+    public void SetFocusTargets(params string[] targetTags)
+    {
+        aimbot.Init(targetTags);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    public void SetParent(Transform parent)
+    {
+        transform.SetParent(parent);
     }
 
     private void Update()
     {
+        timer += Time.deltaTime;
+
         if (timer >= fireRate)
         {           
             if (aimbot.ContainsTargets())
@@ -29,19 +49,15 @@ public class BaseTower : MonoBehaviour
 
             timer = 0;
         }
-        else
-        {
-            timer += Time.deltaTime;
-        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, rangeRadius);
     }
 
-    void DealDamage(Enemy enemy)
+    private void DealDamage(Enemy enemy)
     {
         enemy.ReceiveDamage(damage);
     }
