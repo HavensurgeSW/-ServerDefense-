@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -218,6 +218,16 @@ public class GameManager : MonoBehaviour
         currentLoc.SetAvailable(false);
 
         TriggerSuccessResponse(cmdi);
+    }
+
+    public void Command_UninstallTower(string[] arg, CommandInfo cmdi) 
+    {
+        Location currentLoc = mapHandler.CURRENT_LOCATION;
+        if (mapHandler.GetIsCurrentLocationAvailable())
+        {
+            Transform currentTower = currentLoc.gameObject.transform.GetChild(0);
+            GameObject.Destroy(currentTower);
+        }
     }
 
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
