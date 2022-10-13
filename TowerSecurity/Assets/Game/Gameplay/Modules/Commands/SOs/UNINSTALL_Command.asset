@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: UNINSTALL_Command
   m_EditorClassIdentifier: 
   id: uninstall
-  argCount: 0
+  argCount: 1
   succResponse:
   - Program removed from Location
   helpResponse: []
-  errorResponse: []
+  errorResponse:
+  - Invalid location OR location contains no program

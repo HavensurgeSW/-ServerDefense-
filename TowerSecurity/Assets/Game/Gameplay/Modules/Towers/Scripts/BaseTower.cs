@@ -8,10 +8,14 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float fireRate = 1.0f;
 
+    private string id = string.Empty;
     private float timer = 0.0f;
 
-    public virtual void Init(int damage, float radius, float fireRate)
+    public string ID { get => id; }
+
+    public virtual void Init(string id, int damage, float radius, float fireRate)
     {
+        this.id = id;
         this.damage = damage;
         rangeRadius = radius;
         aimbot.SetRange(rangeRadius);

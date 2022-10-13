@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
 
-    private int packetScore;
+    [Header("Debug")]
+    [SerializeField] private bool debug = false;
+
+    private int packetScore = 0;
 
     private void Awake()
     {
-        packetScore = 10;
+        packetScore = debug ? 10000 : 10;
         uiManager.UpdatePacketPointsText(packetScore);
 
         Server.OnDeath += LoseGame;
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    #region TerminalInteractions
+    #region TERMINAL_INTERACTIONS
     private void InterpretTerminalText(string text)
     {
         text = text.ToLower();
@@ -215,6 +218,8 @@ public class GameManager : MonoBehaviour
         BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);
 
         actualTower.SetPosition(currentLoc.transform.position);
+        actualTower.SetPosition(currentLoc.transform.position);
+        currentLoc.SetTower(actualTower);
         currentLoc.SetAvailable(false);
 
         TriggerSuccessResponse(cmdi);
@@ -222,12 +227,27 @@ public class GameManager : MonoBehaviour
 
     public void Command_UninstallTower(string[] arg, CommandInfo cmdi) 
     {
-        Location currentLoc = mapHandler.CURRENT_LOCATION;
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
-            Transform currentTower = currentLoc.gameObject.transform.GetChild(0);
-            GameObject.Destroy(currentTower);
+            TriggerErrorResponse(cmdi);
+            return;
         }
+
+        string inputTowerId = arg[0];
+        Location currentLoc = mapHandler.CURRENT_LOCATION;
+
+        BaseTower selectedTower = currentLoc.TOWER;
+
+        if (inputTowerId != selectedTower.ID)
+        {
+            TriggerErrorResponse(cmdi);
+            return;
+        }
+
+        towersController.ReleaseActiveTower(selectedTower);
+        currentLoc.SetTower(null);
+        currentLoc.SetAvailable(true);
+        TriggerSuccessResponse(cmdi);
     }
 
     public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
