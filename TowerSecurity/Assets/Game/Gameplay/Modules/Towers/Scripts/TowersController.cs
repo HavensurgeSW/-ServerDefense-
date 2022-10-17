@@ -50,9 +50,10 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
-    public void ReleaseActiveTower(BaseTower tower)
+    // Lo dejo para acordarme como sacar towers de forma correcta
+    public void TestRelease(string id)
     {
-        string id = tower.ID;
+        BaseTower tower = towersListsDictionary[id][0];
         towersListsDictionary[id].Remove(tower);
         towerPools[id].Release(tower);
     }
@@ -70,7 +71,7 @@ public class TowersController : MonoBehaviour
         TowerData data = towersDictionary[towerId];
         BaseTower tower = Instantiate(data.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
 
-        tower.Init(data.ID, data.DAMAGE, data.RANGE, data.FIRE_RATE);
+        tower.Init(data.DAMAGE, data.RANGE, data.FIRE_RATE);
         tower.SetFocusTargets(data.TARGETS); // nunca va a entrar en NULL porque esta serialziado desde el inspector. Si no le pongo nada va a ser un array de 0, cosa que puede cagar la busqueda del AIMBOT
         return tower;
     }
