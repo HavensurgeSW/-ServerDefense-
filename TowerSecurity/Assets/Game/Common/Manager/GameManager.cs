@@ -223,6 +223,8 @@ public class GameManager : MonoBehaviour
 
     public void Command_UpdateTower(string[] arg, CommandInfo cmdi) 
     {
+        UpdateCommandInfo info = cmdi as UpdateCommandInfo;
+
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
             return;
@@ -230,11 +232,24 @@ public class GameManager : MonoBehaviour
 
         Location currentLoc = mapHandler.CURRENT_LOCATION;
         BaseTower selectedTower = currentLoc.TOWER;
-        TowerData test = towersController.GetTowerData(selectedTower.ID);
+        if (mapHandler.CURRENT_LOCATION == null || selectedTower == null) {
+            ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
+            return;
+        }
+        TowerData data = towersController.GetTowerData(selectedTower.ID);
         int nextLevel = selectedTower.CURRENT_LEVEL + 1;
 
-        selectedTower.CURRENT_LEVEL++;
-        selectedTower.SetData(test.LEVELS[nextLevel].DAMAGE, test.LEVELS[nextLevel].RANGE, test.LEVELS[nextLevel].FIRE_RATE, test.LEVELS[nextLevel].TARGET_COUNT);
+        if (packetScore >= data.LEVELS[nextLevel].PRICE)
+        {
+            UpdatePacketScore(-data.LEVELS[nextLevel].PRICE);
+            selectedTower.CURRENT_LEVEL++;
+            selectedTower.SetData(data.LEVELS[nextLevel].DAMAGE, data.LEVELS[nextLevel].RANGE, data.LEVELS[nextLevel].FIRE_RATE, data.LEVELS[nextLevel].TARGET_COUNT);
+
+        }
+        else {
+            ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
+        }
+       
 
 
     }

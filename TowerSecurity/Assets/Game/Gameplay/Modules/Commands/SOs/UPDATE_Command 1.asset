@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241c2dfc60078c54d881e58d7feaee2e, type: 3}
+  m_Name: UPDATE_Command 1
+  m_EditorClassIdentifier: 
+  id: update
+  argCount: 1
+  succResponse:
+  - Program updated
+  helpResponse:
+  - UPDATE <Info / Deploy>
+  - Upgrades program on selected location, costs KB
+  - Use <INFO> argument for upgrade information
+  - Use <DEPLOY> argument to upgrade the program to its next version
+  errorResponse:
+  - Argument not recognized
+  - Use UPDATE HELP for more information
+  invalidLocationResponse:
+  - No location selected or no program installed on location
+  insufficientFundsResponse:
+  - Insufficient KBs for upgrade
