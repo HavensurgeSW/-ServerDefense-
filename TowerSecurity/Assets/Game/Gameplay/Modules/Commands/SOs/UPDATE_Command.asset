@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
   m_Name: UPDATE_Command
   m_EditorClassIdentifier: 
-  id: 
+  id: update
   argCount: 0
-  succResponse: []
+  succResponse:
+  - Program updated!
   helpResponse: []
   errorResponse: []

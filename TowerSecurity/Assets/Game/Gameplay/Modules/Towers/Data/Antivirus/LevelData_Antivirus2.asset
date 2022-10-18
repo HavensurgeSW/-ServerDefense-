@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LevelData_Antivirus2
   m_EditorClassIdentifier: 
   currentLevel: 2
-  upgradeCost: 10
+  price: 6
   damage: 3
-  firerate: 1
+  fireRate: 1
+  range: 5
+  targets: []
   targetCount: 1
