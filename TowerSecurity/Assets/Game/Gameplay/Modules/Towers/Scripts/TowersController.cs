@@ -71,8 +71,8 @@ public class TowersController : MonoBehaviour
         TowerData data = towersDictionary[towerId];
         BaseTower tower = Instantiate(data.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
 
-        tower.Init(data.DAMAGE, data.RANGE, data.FIRE_RATE);
-        tower.SetFocusTargets(data.TARGETS); // nunca va a entrar en NULL porque esta serialziado desde el inspector. Si no le pongo nada va a ser un array de 0, cosa que puede cagar la busqueda del AIMBOT
+        tower.Init(data.LEVELS[0].DAMAGE, data.LEVELS[0].RANGE, data.LEVELS[0].FIRE_RATE);
+        tower.SetFocusTargets(data.LEVELS[0].TARGETS); 
         return tower;
     }
 

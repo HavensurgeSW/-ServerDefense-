@@ -203,13 +203,13 @@ public class GameManager : MonoBehaviour
 
         TowerData data = towersController.GetTowerData(towerId);
 
-        if (packetScore < data.PRICE)
+        if (packetScore < data.LEVELS[0].PRICE)
         {
             ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
             return;
         }
 
-        UpdatePacketScore(-data.PRICE);
+        UpdatePacketScore(-data.LEVELS[0].PRICE);
 
         Location currentLoc = mapHandler.CURRENT_LOCATION;
         BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);

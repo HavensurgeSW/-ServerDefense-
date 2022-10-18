@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d23f6f14e40384f80320404fe926ac, type: 3}
-  m_Name: TowerData_Antivirus
+  m_Script: {fileID: 11500000, guid: 4ff4762ae0bc9294caf574588b26366c, type: 3}
+  m_Name: LevelData_Firewall1
   m_EditorClassIdentifier: 
-  id: antivirus
-  towerPrefab: {fileID: 2447185751727838718, guid: 73cf3649d8aca5d418cb9101dd424837, type: 3}
-  price: 8
-  damage: 2
-  fireRate: 1.2
-  range: 1.8
-  targets:
-  - Enemy
+  currentLevel: 0
+  price: 0
+  damage: 0
+  fireRate: 0
+  range: 1
+  targets: []
+  targetCount: 0
