@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241c2dfc60078c54d881e58d7feaee2e, type: 3}
-  m_Name: UPDATE_Command 1
+  m_Name: UPDATE_Command
   m_EditorClassIdentifier: 
   id: update
   argCount: 1
