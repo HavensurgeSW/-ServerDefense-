@@ -2606,6 +2606,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - info: {fileID: 11400000, guid: 5bed26d5a47d72245b0f569a37d3128b, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1899149029}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Command_UpdateTower
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - info: {fileID: 11400000, guid: 122ec6c859a305f45b893a25f4494eb2, type: 2}
     callback:
       m_PersistentCalls:

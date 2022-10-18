@@ -4,33 +4,44 @@ using UnityEngine;
 
 public class Location : MonoBehaviour
 {
-    bool isSelected;
-    public SpriteRenderer sr;
+    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private string id;
     [SerializeField] private bool availability;
 
-    public string ID => id;
+    private BaseTower tower = null;
+    private bool isSelected = false;
+
+    public string ID { get => id; }
+    public BaseTower TOWER { get => tower; }
 
     private void Start()
     {
         isSelected = false;
         availability = true;
+
+    }
+    public void SetTower(BaseTower tower)
+    {
+        this.tower = tower;
     }
 
-    public void ToggleSelected(bool b) {
+    public void ToggleSelected(bool b)
+    {
         isSelected = b;
     }
 
-    public void ToggleColor(Color clr) {
+    public void ToggleColor(Color clr)
+    {
         sr.color = clr;
     }
 
-    public bool GetAvailability() {
+    public bool GetAvailability()
+    {
         return availability;
     }
 
-    public void SetAvailable(bool b) {
-        availability = b;   
+    public void SetAvailable(bool b)
+    {
+        availability = b;
     }
-
 }

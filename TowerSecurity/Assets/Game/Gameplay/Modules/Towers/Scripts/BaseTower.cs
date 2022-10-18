@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public abstract class BaseTower : MonoBehaviour
@@ -7,11 +8,18 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float fireRate = 1.0f;
-
+    
+    private string id = string.Empty;
+    private int level = 0;
     private float timer = 0.0f;
 
-    public virtual void Init(int damage, float radius, float fireRate)
+    public string ID { get => id;}
+    public int CURRENT_LEVEL { get => level; set => level = value; }
+
+
+    public virtual void Init(string id, int damage, float radius, float fireRate)
     {
+        this.id = id;
         this.damage = damage;
         rangeRadius = radius;
         aimbot.SetRange(rangeRadius);
@@ -56,5 +64,16 @@ public abstract class BaseTower : MonoBehaviour
     public void SetParent(Transform parent)
     {
         transform.SetParent(parent);
+    }
+
+    public void SetData(int damage, float radius, float fireRate, int targetCount) 
+    {
+      
+        this.damage = damage;
+        rangeRadius = radius;
+        aimbot.SetRange(rangeRadius);
+        this.fireRate = fireRate;
+        
+        //TargetCount contra el aimbot aca
     }
 }

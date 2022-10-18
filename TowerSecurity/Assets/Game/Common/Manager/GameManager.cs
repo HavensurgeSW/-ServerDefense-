@@ -215,8 +215,52 @@ public class GameManager : MonoBehaviour
         BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);
 
         actualTower.SetPosition(currentLoc.transform.position);
+        currentLoc.SetTower(actualTower);
         currentLoc.SetAvailable(false);
 
+        TriggerSuccessResponse(cmdi);
+    }
+
+    public void Command_UpdateTower(string[] arg, CommandInfo cmdi) 
+    {
+        if (mapHandler.GetIsCurrentLocationAvailable())
+        {
+            return;
+        }
+
+        Location currentLoc = mapHandler.CURRENT_LOCATION;
+        BaseTower selectedTower = currentLoc.TOWER;
+        TowerData test = towersController.GetTowerData(selectedTower.ID);
+        int nextLevel = selectedTower.CURRENT_LEVEL + 1;
+
+        selectedTower.CURRENT_LEVEL++;
+        selectedTower.SetData(test.LEVELS[nextLevel].DAMAGE, test.LEVELS[nextLevel].RANGE, test.LEVELS[nextLevel].FIRE_RATE, test.LEVELS[nextLevel].TARGET_COUNT);
+
+
+    }
+
+    public void Command_UninstallTower(string[] arg, CommandInfo cmdi)
+    {
+        if (mapHandler.GetIsCurrentLocationAvailable())
+        {
+            TriggerErrorResponse(cmdi);
+            return;
+        }
+
+        string inputTowerId = arg[0];
+        Location currentLoc = mapHandler.CURRENT_LOCATION;
+
+        BaseTower selectedTower = currentLoc.TOWER;
+
+        if (inputTowerId != selectedTower.ID)
+        {
+            TriggerErrorResponse(cmdi);
+            return;
+        }
+
+        towersController.ReleaseActiveTower(selectedTower);
+        currentLoc.SetTower(null);
+        currentLoc.SetAvailable(true);
         TriggerSuccessResponse(cmdi);
     }
 

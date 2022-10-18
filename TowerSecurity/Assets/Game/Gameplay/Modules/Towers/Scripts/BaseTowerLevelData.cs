@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Towers/LevelData", fileName = "LevelData_")]
 public class BaseTowerLevelData : ScriptableObject
@@ -16,6 +14,7 @@ public class BaseTowerLevelData : ScriptableObject
     [SerializeField] string[] targets = null;
     [SerializeField] int targetCount = 0;
 
+    public int CURRENT_LEVEL { get => currentLevel;}
     public int PRICE { get => price; }
     public int DAMAGE { get => damage; }
     public float FIRE_RATE { get => fireRate; }

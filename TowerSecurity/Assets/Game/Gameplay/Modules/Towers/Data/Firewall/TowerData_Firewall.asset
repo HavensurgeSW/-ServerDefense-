@@ -14,9 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: firewall
   towerPrefab: {fileID: 2447185751727838718, guid: 086838ff4aab8ea4f98019e2ed2bd6a1, type: 3}
-  price: 10
-  damage: 1
-  fireRate: 2
-  range: 1.8
-  targets:
-  - Enemy
+  levels:
+  - {fileID: 11400000, guid: c779594c5a3ad974b8582cff7f03ed60, type: 2}

@@ -51,9 +51,9 @@ public class TowersController : MonoBehaviour
     }
 
     // Lo dejo para acordarme como sacar towers de forma correcta
-    public void TestRelease(string id)
+    public void ReleaseActiveTower(BaseTower tower)
     {
-        BaseTower tower = towersListsDictionary[id][0];
+        string id = tower.ID;
         towersListsDictionary[id].Remove(tower);
         towerPools[id].Release(tower);
     }
@@ -71,7 +71,7 @@ public class TowersController : MonoBehaviour
         TowerData data = towersDictionary[towerId];
         BaseTower tower = Instantiate(data.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
 
-        tower.Init(data.LEVELS[0].DAMAGE, data.LEVELS[0].RANGE, data.LEVELS[0].FIRE_RATE);
+        tower.Init(data.ID, data.LEVELS[0].DAMAGE, data.LEVELS[0].RANGE, data.LEVELS[0].FIRE_RATE);
         tower.SetFocusTargets(data.LEVELS[0].TARGETS); 
         return tower;
     }
