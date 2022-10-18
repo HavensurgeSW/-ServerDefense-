@@ -24,7 +24,11 @@ MonoBehaviour:
   errorResponse:
   - Argument not recognized
   - Use UPDATE HELP for more information
+  deployId: deploy
+  infoId: info
   invalidLocationResponse:
   - No location selected or no program installed on location
   insufficientFundsResponse:
   - Insufficient KBs for upgrade
+  maxLevelResponse:
+  - Program has latest update

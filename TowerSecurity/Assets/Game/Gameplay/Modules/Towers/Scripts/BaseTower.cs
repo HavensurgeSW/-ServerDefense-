@@ -5,8 +5,8 @@ public abstract class BaseTower : MonoBehaviour
 {
     [Header("Main Configuration")]
     [SerializeField] protected Aimbot aimbot = null;
-    [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected int damage = 1;
+    [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected float fireRate = 1.0f;
     
     private string id = string.Empty;
@@ -14,16 +14,16 @@ public abstract class BaseTower : MonoBehaviour
     private float timer = 0.0f;
 
     public string ID { get => id;}
+    public int DAMAGE { get => damage; }
+    public float RANGE { get => rangeRadius; }
+    public float FIRE_RATE { get => fireRate; }
     public int CURRENT_LEVEL { get => level; set => level = value; }
-
+    public int NEXT_LEVEL { get => level + 1; }
 
     public virtual void Init(string id, int damage, float radius, float fireRate)
     {
         this.id = id;
-        this.damage = damage;
-        rangeRadius = radius;
-        aimbot.SetRange(rangeRadius);
-        this.fireRate = fireRate;
+        SetData(damage, radius, fireRate, 0);
     }
 
     protected virtual void Update()
@@ -67,8 +67,7 @@ public abstract class BaseTower : MonoBehaviour
     }
 
     public void SetData(int damage, float radius, float fireRate, int targetCount) 
-    {
-      
+    {      
         this.damage = damage;
         rangeRadius = radius;
         aimbot.SetRange(rangeRadius);

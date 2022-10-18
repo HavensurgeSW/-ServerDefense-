@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
 
-    private int packetScore;
+    [Header("Debugging")]
+    [SerializeField] private bool debugScore = false;
+
+    private int packetScore = 0;
 
     private void Awake()
     {
-        packetScore = 10;
+        packetScore = debugScore ? 10000 : 10;
         uiManager.UpdatePacketPointsText(packetScore);
 
         Server.OnDeath += LoseGame;
@@ -221,37 +224,66 @@ public class GameManager : MonoBehaviour
         TriggerSuccessResponse(cmdi);
     }
 
-    public void Command_UpdateTower(string[] arg, CommandInfo cmdi) 
+    public void Command_UpdateTower(string[] arg, CommandInfo cmdi)
     {
+        string keyword = arg[0];
         UpdateCommandInfo info = cmdi as UpdateCommandInfo;
+
+        if (keyword != info.InfoId && keyword != info.DeployId)
+        {
+            TriggerErrorResponse(info);
+            return;
+        }
 
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
-            return;
-        }
-
-        Location currentLoc = mapHandler.CURRENT_LOCATION;
-        BaseTower selectedTower = currentLoc.TOWER;
-        if (mapHandler.CURRENT_LOCATION == null || selectedTower == null) {
             ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
             return;
         }
-        TowerData data = towersController.GetTowerData(selectedTower.ID);
-        int nextLevel = selectedTower.CURRENT_LEVEL + 1;
 
-        if (packetScore >= data.LEVELS[nextLevel].PRICE)
+        BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
+        if (selectedTower == null)
         {
-            UpdatePacketScore(-data.LEVELS[nextLevel].PRICE);
-            selectedTower.CURRENT_LEVEL++;
-            selectedTower.SetData(data.LEVELS[nextLevel].DAMAGE, data.LEVELS[nextLevel].RANGE, data.LEVELS[nextLevel].FIRE_RATE, data.LEVELS[nextLevel].TARGET_COUNT);
-
+            ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
+            return;
         }
-        else {
+
+        BaseTowerLevelData nextLevelData = towersController.GetTowerLevelData(selectedTower.ID, selectedTower.NEXT_LEVEL);
+
+        if (nextLevelData == null)
+        {
+            ShowTerminalLines(info.MAX_LEVEL_RESPONSE);
+            return;
+        }
+
+        if (keyword == info.InfoId)
+        {
+            TriggerUpdateCommandInfo(info, selectedTower, nextLevelData);
+        }
+        else if (keyword == info.DeployId)
+        {
+            TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData);
+        }
+
+        TriggerSuccessResponse(info);
+    }
+
+    private void TriggerUpdateCommandInfo(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData)
+    {
+        ShowTerminalLines(info.GetNextUpdateData(tower, nextLevelData));
+    }
+
+    private void TriggerUpdateCommandDeploy(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData)
+    {
+        if (packetScore < nextLevelData.PRICE)
+        {
             ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
+            return;
         }
-       
 
-
+        UpdatePacketScore(-nextLevelData.PRICE);
+        tower.CURRENT_LEVEL++;
+        tower.SetData(nextLevelData.DAMAGE, nextLevelData.RANGE, nextLevelData.FIRE_RATE, nextLevelData.TARGET_COUNT);
     }
 
     public void Command_UninstallTower(string[] arg, CommandInfo cmdi)

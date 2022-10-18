@@ -6,8 +6,8 @@ using UnityEngine;
 public class CommandInfo : ScriptableObject
 {
     [Header("Base Command Configuration")]
-    [SerializeField] private string id;
-    [SerializeField] private int argCount;
+    [SerializeField] private string id = string.Empty;
+    [SerializeField] private int argCount = 0;
     [SerializeField] private List<string> succResponse = null;
     [SerializeField] private List<string> helpResponse = null;
     [SerializeField] private List<string> errorResponse = null;

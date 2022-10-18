@@ -50,7 +50,24 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
-    // Lo dejo para acordarme como sacar towers de forma correcta
+    public BaseTowerLevelData GetTowerLevelData(string towerId, int level)
+    {
+        TowerData data = GetTowerData(towerId);
+
+        if (data != null)
+        {
+            for (int i = 0; i < data.LEVELS.Count; i++)
+            {
+                if (data.LEVELS[i].CURRENT_LEVEL == level)
+                {
+                    return data.LEVELS[i];
+                }
+            }       
+        }
+
+        return null;
+    }
+
     public void ReleaseActiveTower(BaseTower tower)
     {
         string id = tower.ID;
@@ -68,11 +85,15 @@ public class TowersController : MonoBehaviour
 
     private BaseTower SpawnTower(string towerId)
     {
-        TowerData data = towersDictionary[towerId];
-        BaseTower tower = Instantiate(data.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
+        TowerData towerData = towersDictionary[towerId];
+        BaseTower tower = Instantiate(towerData.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
 
-        tower.Init(data.ID, data.LEVELS[0].DAMAGE, data.LEVELS[0].RANGE, data.LEVELS[0].FIRE_RATE);
-        tower.SetFocusTargets(data.LEVELS[0].TARGETS); 
+        BaseTowerLevelData levelData = towerData.LEVELS[0];
+
+        tower.Init(towerData.ID, levelData.DAMAGE, levelData.RANGE, levelData.FIRE_RATE);
+        tower.CURRENT_LEVEL = 1;
+        tower.SetFocusTargets(levelData.TARGETS); 
+
         return tower;
     }
 
