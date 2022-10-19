@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff4762ae0bc9294caf574588b26366c, type: 3}
   m_Name: LevelData_Antivirus2
   m_EditorClassIdentifier: 
-  currentLevel: 2
+  level: 2
   price: 6
   damage: 3
   fireRate: 1

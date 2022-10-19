@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff4762ae0bc9294caf574588b26366c, type: 3}
   m_Name: LevelData_Firewall1
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  level: 1
   price: 0
   damage: 0
   fireRate: 0

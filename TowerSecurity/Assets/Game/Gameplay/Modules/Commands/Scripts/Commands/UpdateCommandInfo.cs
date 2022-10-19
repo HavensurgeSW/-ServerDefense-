@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Commands/UpdateCommandInfo", fileName = "UPDATE_Command")]
-
 public class UpdateCommandInfo : CommandInfo
 {
     [Header("Update Command Configuration")]
@@ -14,13 +13,13 @@ public class UpdateCommandInfo : CommandInfo
     [SerializeField] private List<string> insufficientFundsResponse = null;
     [SerializeField] private List<string> maxLevelResponse = null;
 
-    public string DeployId { get => deployId; }
-    public string InfoId { get => infoId; }
+    public string DEPLOY_ID { get => deployId; }
+    public string INFO_ID { get => infoId; }
     public List<string> INVALID_LOCATION_RESPONSE { get => invalidLocationResponse; }
     public List<string> INSUFFICIENT_FUNDS_RESPONSE { get => insufficientFundsResponse; }
     public List<string> MAX_LEVEL_RESPONSE { get => maxLevelResponse; }
 
-    public List<string> GetNextUpdateData(BaseTower tower, BaseTowerLevelData nextLevel)
+    public List<string> GetNextUpdateInfo(BaseTower tower, BaseTowerLevelData nextLevel)
     {
         List<string> toReturn = new List<string>();
         

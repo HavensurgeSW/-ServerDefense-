@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -118,27 +119,27 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region COMMAND_IMPLEMENTATIONS
-    public void Command_ReturnCommands(string[] arg, CommandInfo cmdi)
+    public void Command_ReturnCommands(string[] args, CommandInfo cmdi)
     {
         TriggerSuccessResponse(cmdi);
     }
 
-    public void Command_NetworkController(string[] arg, CommandInfo cmdi)
+    public void Command_NetworkController(string[] args, CommandInfo cmdi)
     {
-        if (arg[0] == "init")
+        if (args[0] == "init")
         {
             levelManager.BeginWave();
             TriggerSuccessResponse(cmdi);
         }
 
-        if (arg[0] == "pause")
+        if (args[0] == "pause")
         {
             levelManager.PauseWave();
             TriggerSuccessResponse(cmdi);
         }
     }
 
-    public void Command_ReturnLocations(string[] arg, CommandInfo cmdi)
+    public void Command_ReturnLocations(string[] args, CommandInfo cmdi)
     {
         List<string> locList = new List<string>();
 
@@ -150,9 +151,9 @@ public class GameManager : MonoBehaviour
         ShowTerminalLines(locList);
     }
 
-    public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi)
+    public void Command_ChangeDirectory(string[] args, CommandInfo cmdi)
     {
-        string locName = arg[0];
+        string locName = args[0];
         bool searchHit = false;
 
         foreach (Location loc in levelManager.LOCATIONS)
@@ -179,12 +180,12 @@ public class GameManager : MonoBehaviour
             TriggerErrorResponse(cmdi);
         }
     }
-    public void Command_Hello(string[] arg, CommandInfo cmdi)
+    public void Command_Hello(string[] args, CommandInfo cmdi)
     {
         TriggerSuccessResponse(cmdi);
     }
 
-    public void Command_InstallTower(string[] arg, CommandInfo cmdi)
+    public void Command_InstallTower(string[] args, CommandInfo cmdi)
     {
         terminal.ClearCmdEntries();
 
@@ -196,7 +197,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        string towerId = arg[0];
+        string towerId = args[0];
 
         if (!towersController.DoesTowerIdExist(towerId))
         {
@@ -224,12 +225,12 @@ public class GameManager : MonoBehaviour
         TriggerSuccessResponse(cmdi);
     }
 
-    public void Command_UpdateTower(string[] arg, CommandInfo cmdi)
+    public void Command_UpdateTower(string[] args, CommandInfo cmdi)
     {
-        string keyword = arg[0];
+        string keyword = args[0];
         UpdateCommandInfo info = cmdi as UpdateCommandInfo;
 
-        if (keyword != info.InfoId && keyword != info.DeployId)
+        if (keyword != info.INFO_ID && keyword != info.DEPLOY_ID)
         {
             TriggerErrorResponse(info);
             return;
@@ -248,32 +249,33 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        BaseTowerLevelData nextLevelData = towersController.GetTowerLevelData(selectedTower.ID, selectedTower.NEXT_LEVEL);
+        List<BaseTowerLevelData> towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
 
-        if (nextLevelData == null)
+        if (selectedTower.NEXT_LEVEL > towerLevelsData.Count)
         {
             ShowTerminalLines(info.MAX_LEVEL_RESPONSE);
             return;
         }
 
-        if (keyword == info.InfoId)
+        BaseTowerLevelData nextLevelData = towerLevelsData[selectedTower.NEXT_LEVEL - 1];
+
+        if (keyword == info.INFO_ID)
         {
             TriggerUpdateCommandInfo(info, selectedTower, nextLevelData);
         }
-        else if (keyword == info.DeployId)
+        else if (keyword == info.DEPLOY_ID)
         {
-            TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData);
-        }
-
-        TriggerSuccessResponse(info);
+            TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData, () => TriggerSuccessResponse(info));
+        }        
     }
 
     private void TriggerUpdateCommandInfo(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData)
     {
-        ShowTerminalLines(info.GetNextUpdateData(tower, nextLevelData));
+        List<string> updateInfoLines = info.GetNextUpdateInfo(tower, nextLevelData);
+        ShowTerminalLines(updateInfoLines);
     }
 
-    private void TriggerUpdateCommandDeploy(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData)
+    private void TriggerUpdateCommandDeploy(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData, Action onSuccess)
     {
         if (packetScore < nextLevelData.PRICE)
         {
@@ -284,9 +286,10 @@ public class GameManager : MonoBehaviour
         UpdatePacketScore(-nextLevelData.PRICE);
         tower.CURRENT_LEVEL++;
         tower.SetData(nextLevelData.DAMAGE, nextLevelData.RANGE, nextLevelData.FIRE_RATE, nextLevelData.TARGET_COUNT);
+        onSuccess?.Invoke();
     }
 
-    public void Command_UninstallTower(string[] arg, CommandInfo cmdi)
+    public void Command_UninstallTower(string[] args, CommandInfo cmdi)
     {
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
@@ -294,7 +297,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        string inputTowerId = arg[0];
+        string inputTowerId = args[0];
         Location currentLoc = mapHandler.CURRENT_LOCATION;
 
         BaseTower selectedTower = currentLoc.TOWER;
@@ -311,11 +314,11 @@ public class GameManager : MonoBehaviour
         TriggerSuccessResponse(cmdi);
     }
 
-    public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
+    public void Command_WriteTutorial(string[] args, CommandInfo cmdi)
     {
         TutorialCommandInfo info = cmdi as TutorialCommandInfo;
 
-        string tutorialId = arg[0];
+        string tutorialId = args[0];
         for (int i = 0; i < info.TUTORIALS.Length; i++)
         {
             if (info.TUTORIALS[i].TUTORIAL_ID == tutorialId)
@@ -328,13 +331,13 @@ public class GameManager : MonoBehaviour
         TriggerErrorResponse(info);
     }
 
-    public void Command_ReloadScene(string[] arg, CommandInfo cmdi)
+    public void Command_ReloadScene(string[] args, CommandInfo cmdi)
     {
         SceneManager.LoadScene(1);
     }
-    public void Command_QuitGame(string[] arg, CommandInfo cmdi)
+    public void Command_QuitGame(string[] args, CommandInfo cmdi)
     {
-        if (arg[0] == "application")
+        if (args[0] == "application")
         {
 #if !UNITY_EDITOR
             Application.Quit();
@@ -346,7 +349,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region DEBUG_COMMANDS
-    public void Command_Debug1(string[] arg, CommandInfo cmdi)
+    public void Command_Debug1(string[] args, CommandInfo cmdi)
     {
         TriggerSuccessResponse(cmdi);
     }

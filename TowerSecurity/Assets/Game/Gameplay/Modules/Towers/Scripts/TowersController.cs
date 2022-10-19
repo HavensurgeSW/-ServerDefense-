@@ -50,7 +50,7 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
-    public BaseTowerLevelData GetTowerLevelData(string towerId, int level)
+    public BaseTowerLevelData GetLevelDataFromIndex(string towerId, int levelIndex)
     {
         TowerData data = GetTowerData(towerId);
 
@@ -58,11 +58,23 @@ public class TowersController : MonoBehaviour
         {
             for (int i = 0; i < data.LEVELS.Count; i++)
             {
-                if (data.LEVELS[i].CURRENT_LEVEL == level)
+                if (data.LEVELS[i].LEVEL == levelIndex)
                 {
                     return data.LEVELS[i];
                 }
             }       
+        }
+
+        return null;
+    }
+
+    public List<BaseTowerLevelData> GetTowerLevelsData(string towerId)
+    {
+        TowerData data = GetTowerData(towerId);
+
+        if (data != null)
+        {
+            return data.LEVELS;
         }
 
         return null;
@@ -91,7 +103,7 @@ public class TowersController : MonoBehaviour
         BaseTowerLevelData levelData = towerData.LEVELS[0];
 
         tower.Init(towerData.ID, levelData.DAMAGE, levelData.RANGE, levelData.FIRE_RATE);
-        tower.CURRENT_LEVEL = 1;
+        tower.CURRENT_LEVEL = levelData.LEVEL;
         tower.SetFocusTargets(levelData.TARGETS); 
 
         return tower;

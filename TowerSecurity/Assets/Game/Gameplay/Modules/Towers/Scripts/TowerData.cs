@@ -6,7 +6,8 @@ public class TowerData : ScriptableObject
 {
     [SerializeField] private string id = string.Empty;
     [SerializeField] private GameObject towerPrefab = null;
-    [SerializeField] private List<BaseTowerLevelData> levels;
+    [SerializeField] private List<BaseTowerLevelData> levels = null;
+
     public string ID { get => id; }
     public GameObject TOWER_PREFAB { get => towerPrefab; }
     public List<BaseTowerLevelData> LEVELS { get => levels; }
