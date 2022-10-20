@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6c4249303387094fad30905eb2732e2, type: 2}
+  - {fileID: 2100000, guid: 02cb9611c9ff5c941859c403d820356e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -106795747
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1650048819907527874, guid: ea757cbe4925b584f985ea921c4c7e29, type: 3}
+  m_Sprite: {fileID: 559906109, guid: 90dc0c94172282c45abd34ddeccad520, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimbot: {fileID: 228316106}
-  rangeRadius: 1
   damage: 1
+  rangeRadius: 2
   fireRate: 1
 --- !u!58 &228316105
 CircleCollider2D:
@@ -166,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 2447185751727838718}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: afad6e8edf7804d4f9962e29c422a8eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 863dbe8d63ebac74bbce525363d225e0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

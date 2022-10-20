@@ -33,12 +33,13 @@ public class LaserTut : MonoBehaviour
         {
             DisableLaser();
         }
+
+        //Cambiar por el target registrado de la torre (active)
     }
 
     void EnableLaser()
     {
         lineRenderer.enabled = true;
-
 
         for(int i=0; i<particles.Count; i++)
             particles[i].Play();
