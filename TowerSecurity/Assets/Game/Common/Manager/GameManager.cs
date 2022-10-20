@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
 
-        uiManager.Init();
+        uiManager.Init(levelManager.TIMEBTWWAVES);
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);

@@ -1,25 +1,35 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text serverHealth = null;  
-    [SerializeField] private TMP_Text packetPointsText = null;  
+    [SerializeField] private TMP_Text packetPointsText = null;
 
-    public void Init()
+    public static Action<bool> OnWaveEnd;
+    [SerializeField] private Image timerBar;
+    bool isTimerEnabled = false;
+    float timeLeft = 0;
+    float maxTime = 0;
+
+    public void Init(float f)
     {
-
+        maxTime = f;
+        timeLeft = maxTime;
     }
 
     private void OnEnable()
     {
         Server.OnDamaged += UpdateServerHealthText;
+        OnWaveEnd += ToggleTimer;
     }
 
     private void OnDisable()
     {
-        Server.OnDamaged -= UpdateServerHealthText;        
+        Server.OnDamaged -= UpdateServerHealthText;
+        OnWaveEnd -= ToggleTimer;
     }
 
     public void UpdatePacketPointsText(int points)
@@ -31,4 +41,29 @@ public class UIManager : MonoBehaviour
     {
         serverHealth.text = "Server Health: " + health.ToString();
     }
+
+    private void Update()
+    {
+        if (isTimerEnabled) {
+            if (timeLeft > 0) 
+            {
+                timeLeft -= Time.deltaTime;
+                timerBar.fillAmount = timeLeft / maxTime;
+
+                if (timeLeft <= 0)
+                {
+                    timeLeft = maxTime;
+                    isTimerEnabled = false;
+                }
+            }
+        }
+    }
+
+    private void ToggleTimer(bool b)
+    {
+        Debug.Log("ah re loco");
+        isTimerEnabled = b;
+    }
+
+
 }

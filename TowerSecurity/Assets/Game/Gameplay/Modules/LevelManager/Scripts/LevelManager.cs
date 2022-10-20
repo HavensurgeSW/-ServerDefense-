@@ -13,9 +13,11 @@ public class LevelManager : MonoBehaviour
     private int waveIndex = 0;
     private WaveData activeWave;
     public Action OnWaveEnd;
+    [SerializeField]private float timeBtwWaves = 10;
+    
 
     public Location[] LOCATIONS => locations;
-
+    public float TIMEBTWWAVES=> timeBtwWaves;
 
     private void Awake()
     {
@@ -72,7 +74,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    IEnumerator DelayBetweenWaves(int n)
+    IEnumerator DelayBetweenWaves(float n)
     {
         yield return new WaitForSeconds(n);
         LoadNextWave();
@@ -80,6 +82,6 @@ public class LevelManager : MonoBehaviour
 
     void QueueWave()
     {
-        StartCoroutine(DelayBetweenWaves(10));
+        StartCoroutine(DelayBetweenWaves(timeBtwWaves));
     }
 }

@@ -826,8 +826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -119}
-  m_SizeDelta: {x: 146.6929, y: 146.6929}
+  m_AnchoredPosition: {x: -8, y: -50}
+  m_SizeDelta: {x: 344.828, y: 40.0047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755874941
 MonoBehaviour:
@@ -842,18 +842,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3864535, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.61689365, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 11311f4d20ed0864aa46f4a6d34f2ab9, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 2e88427eeff28d740b58446ff08063eb, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -879,12 +879,12 @@ GameObject:
   - component: {fileID: 810518390}
   - component: {fileID: 810518389}
   m_Layer: 5
-  m_Name: WaveData
+  m_Name: WaveTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &810518388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1867,7 +1867,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1308555774
 MonoBehaviour:
@@ -2782,7 +2782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1966694203 stripped
 MonoBehaviour:
@@ -2914,6 +2914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverHealth: {fileID: 664365810}
   packetPointsText: {fileID: 940357935}
+  barTimer: {fileID: 0}
 --- !u!1001 &3350162340252679551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3265,7 +3266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3669464417268274647, guid: 91d4ba02ce927d44da7db873aec99f2c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3669464417268274647, guid: 91d4ba02ce927d44da7db873aec99f2c, type: 3}
       propertyPath: m_AnchorMax.x

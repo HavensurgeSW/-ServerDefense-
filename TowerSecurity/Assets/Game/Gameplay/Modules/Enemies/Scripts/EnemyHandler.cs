@@ -7,6 +7,7 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] Transform spawnPoint;
 
     [SerializeField]LevelManager levelManager;
+    
 
     private float enemySpawnTimer;
     private float packetSpawnTimer;
@@ -35,6 +36,8 @@ public class EnemyHandler : MonoBehaviour
                     ToggleWave(false);
                     enemiesSpawned = 0;
                     levelManager.OnWaveEnd?.Invoke();
+                    UIManager.OnWaveEnd?.Invoke(true);
+                    
                 }                
             }
 
