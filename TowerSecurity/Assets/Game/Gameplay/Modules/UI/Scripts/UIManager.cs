@@ -61,8 +61,8 @@ public class UIManager : MonoBehaviour
 
     private void ToggleTimer(bool b)
     {
-        Debug.Log("ah re loco");
         isTimerEnabled = b;
+        timeLeft = maxTime;
     }
 
 
