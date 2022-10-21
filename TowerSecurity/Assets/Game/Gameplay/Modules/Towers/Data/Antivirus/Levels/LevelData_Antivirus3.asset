@@ -16,6 +16,6 @@ MonoBehaviour:
   price: 10
   damage: 4
   fireRate: 0.9
-  range: 5
+  range: 7.5
   targets: []
   targetCount: 2

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
   m_Name: CMDS_Command
   m_EditorClassIdentifier: 
-  id: cmds
+  id: help
   argCount: 0
   succResponse:
   - HELLO
   - TUTORIAL
+  - NETSTAT
   - CD
   - INSTALL
-  - NETSTAT
+  - UPDATE
+  - UNINSTALL
   - NETWORK
   - RELOAD
   - QUIT
