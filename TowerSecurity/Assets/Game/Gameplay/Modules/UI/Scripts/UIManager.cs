@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text serverHealth = null;  
     [SerializeField] private TMP_Text packetPointsText = null;
 
+    [SerializeField]Server server;
+
     public static Action<bool> OnWaveEnd;
     [SerializeField] private Image timerBar;
     bool isTimerEnabled = false;
@@ -18,6 +20,7 @@ public class UIManager : MonoBehaviour
     {
         maxTime = f;
         timeLeft = maxTime;
+        UpdateServerHealthText(server.HEALTH);
     }
 
     private void OnEnable()

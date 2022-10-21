@@ -22,7 +22,8 @@ public class UpdateCommandInfo : CommandInfo
     public List<string> GetNextUpdateInfo(BaseTower tower, BaseTowerLevelData nextLevel)
     {
         List<string> toReturn = new List<string>();
-        
+
+        toReturn.Add("KB Cost: " + nextLevel.PRICE);
         toReturn.Add("Damage: " + tower.DAMAGE + " -> " + nextLevel.DAMAGE);
         toReturn.Add("Range: " + tower.RANGE + " -> " + nextLevel.RANGE);
         toReturn.Add("Fire Rate: " + tower.FIRE_RATE + " -> " + nextLevel.FIRE_RATE);
