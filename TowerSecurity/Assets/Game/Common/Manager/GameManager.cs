@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
         if (!searchHit)
         {
-            ShowTerminalLines(new List<string> { "Command not recognized. Type CMDS for a list of commands" });
+            ShowTerminalLines(new List<string> { "Command not recognized. Type HELP for a list of commands" });
         }
     }
 
@@ -218,7 +218,7 @@ public class GameManager : MonoBehaviour
         Location currentLoc = mapHandler.CURRENT_LOCATION;
         BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);
 
-        actualTower.SetPosition(currentLoc.transform.position);
+        actualTower.SetPosition(currentLoc.transform.position + (Vector3)data.OFFSET);
         currentLoc.SetTower(actualTower);
         currentLoc.SetAvailable(false);
 

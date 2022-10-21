@@ -99,6 +99,7 @@ public class TowersController : MonoBehaviour
     {
         TowerData towerData = towersDictionary[towerId];
         BaseTower tower = Instantiate(towerData.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
+        tower.gameObject.transform.localPosition += new Vector3(0, towerData.OFFSET.y,0);
 
         BaseTowerLevelData levelData = towerData.LEVELS[0];
 

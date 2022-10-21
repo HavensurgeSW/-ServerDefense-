@@ -18,9 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d34016bfeef10142a3e2544018d9707, type: 2}
   - {fileID: 11400000, guid: 7da0c39995f6f6b4397673a410a2190d, type: 2}
   - {fileID: 11400000, guid: 0c3081b0572cd2140a0233f9b6da7b32, type: 2}
-  price: 8
-  damage: 2
-  fireRate: 1.2
-  range: 1.8
-  targets:
-  - Enemy
+  offset: {x: 0.1, y: 0.45}
