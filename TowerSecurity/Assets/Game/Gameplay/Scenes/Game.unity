@@ -3260,6 +3260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverHealth: {fileID: 664365810}
   packetPointsText: {fileID: 940357935}
+  popUpPrefab: {fileID: 5754507825141779710, guid: 46a1076cfa262fe449b531b8a0def356, type: 3}
+  popUpsHolder: {fileID: 2065976853}
   server: {fileID: 1512477086}
   timerBar: {fileID: 755874941}
 --- !u!1001 &3350162340252679551

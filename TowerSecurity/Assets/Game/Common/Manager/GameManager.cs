@@ -17,10 +17,13 @@ public class GameManager : MonoBehaviour
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
 
+    private Camera mainCamera = null;
     private int packetScore = 0;
 
     private void Awake()
     {
+        mainCamera = Camera.main;
+
         packetScore = debugScore ? 10000 : 10;
         uiManager.UpdatePacketPointsText(packetScore);
 
@@ -145,7 +148,9 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < levelManager.LOCATIONS.Length; i++)
         {
-            locList.Add(levelManager.LOCATIONS[i].ID);
+            Location loc = levelManager.LOCATIONS[i];
+            locList.Add(loc.ID);
+            uiManager.GeneratePopUp(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
         }
 
         ShowTerminalLines(locList);
