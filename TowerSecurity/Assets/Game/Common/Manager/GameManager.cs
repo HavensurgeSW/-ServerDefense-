@@ -339,11 +339,7 @@ public class GameManager : MonoBehaviour
     {
         if (args[0] == "application")
         {
-#if !UNITY_EDITOR
-            Application.Quit();
-#else
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
+            SceneManager.LoadScene(1);
         }
     }
     #endregion
