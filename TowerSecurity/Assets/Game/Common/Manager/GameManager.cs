@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public event Action<string> OnChangeDirectory;
+    public event Action<string> OnInstallTower;
+
     [SerializeField] private List<Command> commands = new List<Command>();
     [SerializeField] private CommandManager commandManager = null;
     [SerializeField] private UIManager uiManager = null;
@@ -176,6 +179,10 @@ public class GameManager : MonoBehaviour
                 mapHandler.SetTileToSelected(loc.transform.position);
                 searchHit = true;
                 terminal.ClearCmdEntries();
+
+                //Action callout
+                OnChangeDirectory?.Invoke(locName);
+
                 break;
             }
         }
@@ -227,7 +234,10 @@ public class GameManager : MonoBehaviour
         currentLoc.SetTower(actualTower);
         currentLoc.SetAvailable(false);
 
+        OnInstallTower?.Invoke(towerId);
+
         TriggerSuccessResponse(cmdi);
+
     }
 
     public void Command_UpdateTower(string[] args, CommandInfo cmdi)
