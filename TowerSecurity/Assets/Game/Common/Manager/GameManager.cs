@@ -134,7 +134,15 @@ public class GameManager : MonoBehaviour
     public void Command_ReturnCommands(string[] args, CommandInfo cmdi)
     {
         OnHelpCommand?.Invoke();
-        TriggerSuccessResponse(cmdi);
+
+        List<string> commandIds = new List<string>();
+
+        for (int i = 0; i < commands.Count; i++)
+        {
+            commandIds.Add(commands[i].INFO.ID.ToUpperInvariant());
+        }
+
+        ShowTerminalLines(commandIds);
     }
 
     public void Command_NetworkController(string[] args, CommandInfo cmdi)
@@ -200,10 +208,6 @@ public class GameManager : MonoBehaviour
         {
             TriggerErrorResponse(cmdi);
         }
-    }
-    public void Command_Hello(string[] args, CommandInfo cmdi)
-    {
-        TriggerSuccessResponse(cmdi);
     }
 
     public void Command_InstallTower(string[] args, CommandInfo cmdi)
@@ -366,13 +370,6 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-    }
-    #endregion
-
-    #region DEBUG_COMMANDS
-    public void Command_Debug1(string[] args, CommandInfo cmdi)
-    {
-        TriggerSuccessResponse(cmdi);
     }
     #endregion
 }
