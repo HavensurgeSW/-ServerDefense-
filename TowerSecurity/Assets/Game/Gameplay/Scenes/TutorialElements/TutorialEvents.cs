@@ -15,6 +15,9 @@ public class TutorialEvents : MonoBehaviour
     [SerializeField] string[] sentences;
     [SerializeField] string criteria0to1;
     [SerializeField] string criteria1to2;
+    [SerializeField] string criteria2to3;
+    [SerializeField] string criteria3to4;
+    //Criteria 4 to 5 is just calling a HELP argument
 
     private void OnEnable()
     {
@@ -34,8 +37,6 @@ public class TutorialEvents : MonoBehaviour
 
     void Tutorial0(string locName) 
     {
-        Debug.Log("Tutorial 0 running");
-
         if (locName == criteria0to1) {
             tutorialText.text = sentences[1];
             gameManager.OnChangeDirectory += Tutorial1;
@@ -51,14 +52,32 @@ public class TutorialEvents : MonoBehaviour
             {
                 tutorialText.text = sentences[2];
                 gameManager.OnChangeDirectory -= Tutorial1;
-                
-
+                gameManager.OnInstallTower += Tutorial2;   
             }
         }
     }
 
-    void tutorial2() {
-    
+    void Tutorial2(string towerId) {
+        if (towerId == criteria2to3) {
+            tutorialText.text = sentences[3];
+            gameManager.OnInstallTower -= Tutorial2;
+            gameManager.OnInstallTower += Tutorial3;
+        }
+    }
+
+    void Tutorial3(string towerId)
+    {
+        if (towerId == criteria3to4)
+        {
+            tutorialText.text = sentences[4];
+            gameManager.OnInstallTower -= Tutorial3;
+            gameManager.OnHelpArgument += Tutorial4;
+        }
+    }
+
+    void Tutorial4()
+    {
+        
     }
 
 }

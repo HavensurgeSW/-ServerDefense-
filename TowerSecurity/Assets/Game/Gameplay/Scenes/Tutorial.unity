@@ -400,10 +400,33 @@ MonoBehaviour:
 
     Run CD <Location> with one of the names
     you found.'
-  - Text[2]
-  - Text[3]
+  - 'You are going to need some actual defenses on these locations.
+
+    Installing
+    a <Program> will cost you Kilobytes (KB)
+
+    On any empty location, run INSTALL
+    ANTIVIRUS'
+  - 'Add the HELP argument to any command for more information.
+
+    EG: CD HELP,
+    INSTALL HELP, NETSTAT HELP
+
+    There are different <Programs> you can install.
+
+    Run
+    INSTALL HELP to find the name of another <Program> and then install it.
+
+'
+  - 'If you need to clear a <Location> to install another <Program>, use the UNINSTALL
+    command. You might want to get its HELP to learn how to use it.
+
+
+'
   criteria0to1: loc1
   criteria1to2: loc1
+  criteria2to3: antivirus
+  criteria3to4: firewall
 --- !u!114 &174371919 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
@@ -3322,6 +3345,7 @@ MonoBehaviour:
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
   debugScore: 0
+  startingPackets: 20
 --- !u!4 &1899149030
 Transform:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public event Action<string> OnChangeDirectory;
     public event Action<string> OnInstallTower;
+    public event Action OnHelpArgument;
 
     [SerializeField] private List<Command> commands = new List<Command>();
     [SerializeField] private CommandManager commandManager = null;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
+    [SerializeField] private int startingPackets;
 
     private Camera mainCamera = null;
     private int packetScore = 0;
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        packetScore = debugScore ? 10000 : 10;
+        packetScore = debugScore ? 10000 : startingPackets;
         uiManager.UpdatePacketPointsText(packetScore);
 
         Server.OnDeath += LoseGame;
@@ -111,6 +113,7 @@ public class GameManager : MonoBehaviour
         if (commandManager.CheckHelpCommand(commandArg))
         {
             TriggerHelpResponse(command.INFO);
+            OnHelpArgument?.Invoke();
             return;
         }
 

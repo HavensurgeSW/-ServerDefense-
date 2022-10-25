@@ -16,6 +16,8 @@ MonoBehaviour:
   argCount: 1
   succResponse:
   - Program removed from Location
-  helpResponse: []
+  helpResponse:
+  - UNINSTALL <Program>
+  - Removes the specified <Program> from the selected location
   errorResponse:
   - Invalid location OR location contains no program
