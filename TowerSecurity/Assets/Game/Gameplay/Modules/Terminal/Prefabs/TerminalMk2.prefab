@@ -281,8 +281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1000.69025, y: 128.45119}
-  m_SizeDelta: {x: 1152.6421, y: 256.9116}
+  m_AnchoredPosition: {x: 998.9053, y: 128.32312}
+  m_SizeDelta: {x: 1147.8538, y: 256.6555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3669464417359405926
 CanvasRenderer:
@@ -394,10 +394,10 @@ RectTransform:
   m_Father: {fileID: 3669464418586062679}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -17}
+  m_AnchorMin: {x: 0.9741293, y: 0.06432228}
+  m_AnchorMax: {x: 0.99148285, y: 0.9908389}
+  m_AnchoredPosition: {x: -0.2000122, y: -0.5999985}
+  m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3669464417629480871
 CanvasRenderer:
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3669464416730373755}
   m_HandleRect: {fileID: 3669464416730373754}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -510,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3669464417745207049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -993, y: -540, z: 0}
+  m_LocalPosition: {x: -999, y: -540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -780,10 +780,10 @@ RectTransform:
   m_Father: {fileID: 3669464418296505794}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.18940063, y: 0.816287}
+  m_AnchorMin: {x: 0.17913355, y: 0.816287}
   m_AnchorMax: {x: 0.97186655, y: 0.9666915}
-  m_AnchoredPosition: {x: -0.7354126, y: 0.09213257}
-  m_SizeDelta: {x: -0.83810043, y: -0.18422985}
+  m_AnchoredPosition: {x: -0.5730896, y: 0.09213257}
+  m_SizeDelta: {x: -1.1626997, y: -0.18423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3669464417996186108
 CanvasRenderer:
@@ -1091,7 +1091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00036621094, y: -0.0008392334}
+  m_AnchoredPosition: {x: -0.00036621094, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &3669464418174885047
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter "Tutorial 1" + Enter
+  m_text: Run HELP to list all commands
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 979559960ce1141429066188220ab33a, type: 2}
   m_sharedMaterial: {fileID: -1145304132125109715, guid: 979559960ce1141429066188220ab33a, type: 2}

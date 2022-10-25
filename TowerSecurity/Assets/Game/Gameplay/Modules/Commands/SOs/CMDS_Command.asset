@@ -15,13 +15,11 @@ MonoBehaviour:
   id: help
   argCount: 0
   succResponse:
-  - HELLO
-  - TUTORIAL
-  - NETSTAT
   - CD
+  - NETSTAT
   - INSTALL
-  - UPDATE
   - UNINSTALL
+  - UPDATE
   - NETWORK
   - RELOAD
   - QUIT

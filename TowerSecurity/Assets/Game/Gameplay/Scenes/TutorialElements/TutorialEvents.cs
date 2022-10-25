@@ -31,6 +31,12 @@ public class TutorialEvents : MonoBehaviour
     {
         gameManager.OnChangeDirectory -= Tutorial0;
         gameManager.OnChangeDirectory -= Tutorial1;
+        gameManager.OnInstallTower -= Tutorial2;
+        gameManager.OnInstallTower -= Tutorial3;
+        gameManager.OnHelpArgument -= Tutorial4;
+        levelManager.OnWaveEnd -= Tutorial5;
+        gameManager.OnUpdateTower -= Tutorial6;
+
     }
 
     private void Start()
@@ -95,7 +101,7 @@ public class TutorialEvents : MonoBehaviour
     void Tutorial6(string towerName){
         if (towerName == criteria6to7) { 
             tutorialText.text = sentences[7];
-            
+            gameManager.OnUpdateTower -= Tutorial6;
         }
     }
 
