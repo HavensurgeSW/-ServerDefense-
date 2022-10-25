@@ -2904,23 +2904,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commands:
-  - name: HELLO
-    info: {fileID: 11400000, guid: 144dff1f7b0e516488ae6d359d7bff20, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_Hello
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - name: CD
     info: {fileID: 11400000, guid: feccb80dd99d840459f64345a4328f9b, type: 2}
     callback:
@@ -3082,23 +3065,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1899149029}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
           m_MethodName: Command_UpdateTower
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: DEBUG
-    info: {fileID: 11400000, guid: 122ec6c859a305f45b893a25f4494eb2, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_Debug1
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

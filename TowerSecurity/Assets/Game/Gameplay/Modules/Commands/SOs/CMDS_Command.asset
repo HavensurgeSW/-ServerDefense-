@@ -15,16 +15,7 @@ MonoBehaviour:
   id: help
   argCount: 0
   succResponse:
-  - HELLO
-  - TUTORIAL
-  - NETSTAT
-  - CD
-  - INSTALL
-  - UPDATE
-  - UNINSTALL
-  - NETWORK
-  - RELOAD
-  - QUIT
+  - 
   helpResponse:
   - Returns a list of available commands
   errorResponse: []
