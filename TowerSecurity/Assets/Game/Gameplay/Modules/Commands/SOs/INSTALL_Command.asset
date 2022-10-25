@@ -19,13 +19,14 @@ MonoBehaviour:
   helpResponse:
   - INSTALL <Program>
   - Install a program on an available location
-  - 'Current available PROGRAMS: antivirus'
+  - 'Current available PROGRAMS: antivirus, firewall'
   - 'ANTIVIRUS cost: 8 KB'
+  - 'FIREWALL cost: 12 KB'
   errorResponse:
   - Location unavailable or tower type does not exist
   invalidLocationResponse:
   - Invalid location selected
   invalidTowerIdResponse:
-  - Invalid installation id
+  - Invalid installation ID
   insufficientFundsResponse:
   - Insufficient funds to install program
