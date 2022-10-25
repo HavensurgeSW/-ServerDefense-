@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public event Action<string> OnChangeDirectory;
     public event Action<string> OnInstallTower;
     public event Action OnHelpArgument;
+    public event Action OnNetworkInit;
+    public event Action<string> OnUpdateTower;
+    public event Action OnHelpCommand;
 
     [SerializeField] private List<Command> commands = new List<Command>();
     [SerializeField] private CommandManager commandManager = null;
@@ -130,6 +133,7 @@ public class GameManager : MonoBehaviour
     #region COMMAND_IMPLEMENTATIONS
     public void Command_ReturnCommands(string[] args, CommandInfo cmdi)
     {
+        OnHelpCommand?.Invoke();
         TriggerSuccessResponse(cmdi);
     }
 
@@ -139,6 +143,8 @@ public class GameManager : MonoBehaviour
         {
             levelManager.BeginWave();
             TriggerSuccessResponse(cmdi);
+            OnNetworkInit?.Invoke();
+
         }
 
         if (args[0] == "pause")
@@ -283,6 +289,7 @@ public class GameManager : MonoBehaviour
         }
         else if (keyword == info.DEPLOY_ID)
         {
+            OnUpdateTower?.Invoke(selectedTower.ID);
             TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData, () => TriggerSuccessResponse(info));
         }        
     }
