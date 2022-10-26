@@ -1,20 +1,26 @@
-using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.UI;
-using TMPro;
 using System;
+using System.Collections.Generic;
+
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Pool;
+
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public static Action<bool> OnWaveEnd;
+
+    [Header("Server Configuration")]
+    [SerializeField] private Server server = null;
     [SerializeField] private TMP_Text serverHealth = null;  
     [SerializeField] private TMP_Text packetPointsText = null;
 
+    [Header("Popups Configuration")]
     [SerializeField] private GameObject popUpPrefab = null;  
+    [SerializeField] private Vector2 offset = Vector2.zero;  
     [SerializeField] private Transform popUpsHolder = null;  
 
-    [SerializeField] private Server server = null;
-
-    public static Action<bool> OnWaveEnd;
     [SerializeField] private Image timerBar;
 
     bool isTimerEnabled = false;
@@ -22,6 +28,7 @@ public class UIManager : MonoBehaviour
     float maxTime = 0;
 
     private ObjectPool<PopUp> popUpPool = null;
+    private List<PopUp> activePopUps = null;
 
     public void Init(float f)
     {
@@ -29,19 +36,37 @@ public class UIManager : MonoBehaviour
         timeLeft = maxTime;
         UpdateServerHealthText(server.HEALTH);
 
+        activePopUps = new List<PopUp>();
         popUpPool = new ObjectPool<PopUp>(CreatePopUp, GetPopUp, ReleasePopUp);
     }
 
     public void GeneratePopUp(string id, Vector3 position)
     {
         PopUp popUp = popUpPool.Get();
-        popUp.SetPosition(position);
-        popUp.SetText(id);
+        activePopUps.Add(popUp);
+        popUp.SetPosition(position + (Vector3)offset);
+        popUp.SetLocationIdText(id);
+        popUp.ToggleTowerDataText(false);
+    }
+
+    public void ClearAllPopUps()
+    {
+        for (int i = 0; i < activePopUps.Count; i++)
+        {
+            popUpPool.Release(activePopUps[i]);
+        }
+
+        activePopUps.Clear();
     }
 
     public void RemovePopUp(PopUp item)
     {
         item.Release();
+
+        if (activePopUps.Contains(item))
+        {
+            activePopUps.Remove(item);
+        }
     }
 
     private void OnEnable()

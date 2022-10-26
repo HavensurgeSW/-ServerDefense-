@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
 
     private void ProcessCommand(Command command, string[] fullArguments)
     {
+        uiManager.ClearAllPopUps();
+
         string[] commandArg = new string[fullArguments.Length - 1];
 
         for (int i = 1; i <= commandArg.Length; i++)
@@ -190,6 +192,8 @@ public class GameManager : MonoBehaviour
                     mapHandler.CURRENT_LOCATION.ToggleSelected(false);
                     mapHandler.SetTileToDefault(mapHandler.CURRENT_LOCATION.transform.position);
                 }
+
+                uiManager.GeneratePopUp(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
 
                 mapHandler.SetCurrentLocation(loc);
                 loc.ToggleSelected(true);

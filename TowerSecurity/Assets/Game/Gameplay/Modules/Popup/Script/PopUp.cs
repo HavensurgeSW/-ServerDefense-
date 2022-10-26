@@ -8,7 +8,8 @@ using TMPro;
 public class PopUp : MonoBehaviour
 {
     [SerializeField] private Image background = null;
-    [SerializeField] private TMP_Text text = null;
+    [SerializeField] private TMP_Text locationText = null;
+    [SerializeField] private TMP_Text towerDataText = null;
 
     private Action<PopUp> OnRelease = null;
 
@@ -22,9 +23,19 @@ public class PopUp : MonoBehaviour
         transform.position = position;
     }
 
-    public void SetText(string text)
+    public void SetLocationIdText(string id)
     {
-        this.text.text = text;
+        locationText.text = id;
+    }
+
+    public void ToggleTowerDataText(bool status)
+    {
+        towerDataText.gameObject.SetActive(status);
+    }
+
+    public void SetTowerDataText(string towerId, int level)
+    {
+        towerDataText.text = towerId + ": " + $"V{level}.0";
     }
 
     public void Release()
