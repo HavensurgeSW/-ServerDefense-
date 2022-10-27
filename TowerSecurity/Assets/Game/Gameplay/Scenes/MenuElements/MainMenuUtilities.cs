@@ -8,6 +8,12 @@ public class MainMenuUtilities : MonoBehaviour
     public void StartButton() {
         SceneManager.LoadScene(2);
     }
+
+    public void TutorialButton()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void ExitButton()
     {  
 #if !UNITY_EDITOR
