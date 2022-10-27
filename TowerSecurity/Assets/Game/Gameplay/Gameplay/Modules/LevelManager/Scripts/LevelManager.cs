@@ -4,24 +4,21 @@ using System;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private EnemyHandler enemyHandler;
-    [SerializeField] private Location[] locations;
-    [SerializeField] private WaveData[] waveTemplates;
-    [SerializeField] private PacketData packetData;
-
+    [SerializeField] private EnemyHandler enemyHandler = null;
+    [SerializeField] private Location[] locations = null;
+    [SerializeField] private WaveData[] waveTemplates = null;
+    [SerializeField] private PacketData packetData = null;
+    [SerializeField] private float timeBtwWaves = 10;
 
     private int waveIndex = 0;
-    private WaveData activeWave;
-    public Action OnWaveEnd;
-    [SerializeField]private float timeBtwWaves = 10;
-    
+    public Action OnWaveEnd;    
 
     public Location[] LOCATIONS => locations;
     public float TIMEBTWWAVES=> timeBtwWaves;
 
     private void Awake()
     {
-        activeWave = waveTemplates[waveIndex];
+        //activeWave = waveTemplates[waveIndex];
     }
 
     private void OnEnable()
@@ -38,7 +35,7 @@ public class LevelManager : MonoBehaviour
         if (waveIndex < waveTemplates.Length - 1)
         {
             waveIndex++;
-            activeWave = waveTemplates[waveIndex];
+            //activeWave = waveTemplates[waveIndex];
             enemyHandler.ToggleWave(true);
         }
     }
@@ -53,15 +50,15 @@ public class LevelManager : MonoBehaviour
 
     public float GetEnemySpawnTimerData()
     {
-        return activeWave.SPAWN_DELAY;
+        return 0;
     }
     public GameObject GetEnemyPrefab()
     {
-        return activeWave.SPIDERS;
+        return null;
     }
     public int GetEnemyCount()
     {
-        return activeWave.SPIDER_COUNT;
+        return 0;
     }
 
     public float GetPacketSpawnTimerData()

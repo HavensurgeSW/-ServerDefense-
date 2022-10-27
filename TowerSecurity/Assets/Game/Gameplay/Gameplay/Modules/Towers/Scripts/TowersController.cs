@@ -21,7 +21,7 @@ public class TowersController : MonoBehaviour
         for (int i = 0; i < towersData.Length; i++)
         {
             string id = towersData[i].ID;
-            towersDictionary.Add(towersData[i].ID, towersData[i]);
+            towersDictionary.Add(id, towersData[i]);
             towerPools.Add(id, new ObjectPool<BaseTower>(() => SpawnTower(id), GetTower, ReleaseTower));
             towersListsDictionary.Add(id, new List<BaseTower>());
         }

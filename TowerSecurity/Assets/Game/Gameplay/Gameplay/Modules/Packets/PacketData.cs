@@ -3,11 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Packet")]
 public class PacketData : ScriptableObject
 {
-    [SerializeField] private GameObject packetPrefab;
-    [SerializeField] private int KBWorth;
-    [SerializeField] private float spawnDelay;
-    [SerializeField] private float speed;
-    [SerializeField] private float targetChangeDist;
+    [SerializeField] private GameObject packetPrefab = null;
+    [SerializeField] private int KBWorth = 1;
+    [SerializeField] private float spawnDelay = 0.5f;
+    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private float targetChangeDist = 0.1f;
 
     public GameObject PACKET_PREFAB => packetPrefab;
     public int KB_WORTH => KBWorth;
