@@ -2637,7 +2637,7 @@ MonoBehaviour:
   towersController: {fileID: 1758878460}
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
-  debugScore: 0
+  debugScore: 1
   startingPackets: 10
 --- !u!4 &1899149030
 Transform:
@@ -3156,7 +3156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 495b1ec2534966b4b92b4eab72ac99ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d2a4c1a5d195ce4ab5db24b9fee0b64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3269,11 +3269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e344e7e9157614d811382d3840f8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  server: {fileID: 1729821785}
   serverHealth: {fileID: 738427899963372502}
   packetPointsText: {fileID: 738427899502665739}
   popUpPrefab: {fileID: 5754507825141779710, guid: 46a1076cfa262fe449b531b8a0def356, type: 3}
+  offset: {x: 0, y: 0}
   popUpsHolder: {fileID: 738427900561250097}
-  server: {fileID: 1729821785}
   timerBar: {fileID: 738427899855054169}
 --- !u!1 &738427900561250101
 GameObject:
@@ -3466,26 +3467,6 @@ PrefabInstance:
     - target: {fileID: 6415365734769283797, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
       propertyPath: m_Name
       value: Location
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882560430668491249, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
-      propertyPath: m_Color.a
-      value: 0.15686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882560430668491249, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882560430668491249, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882560430668491249, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1406378073
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798324743336754657, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
-      propertyPath: id
-      value: loc1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3671c20c4e7d974b8ebbb5d0cdf2cfa, type: 3}
