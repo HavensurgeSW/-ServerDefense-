@@ -63,3 +63,6 @@ TagManager:
   - name: Spider
     uniqueID: 2768570039
     locked: 0
+  - name: Server
+    uniqueID: 2336177135
+    locked: 0
