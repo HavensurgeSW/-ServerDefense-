@@ -3035,7 +3035,7 @@ MonoBehaviour:
   towersController: {fileID: 1758878460}
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
-  debugScore: 1
+  debugScore: 0
   startingPackets: 10
 --- !u!4 &1899149030
 Transform:
