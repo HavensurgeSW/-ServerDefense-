@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private Camera mainCamera = null;
     private int packetScore = 0;
+    private int currentWave = 0;
 
     private void Awake()
     {
@@ -38,7 +39,8 @@ public class GameManager : MonoBehaviour
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
 
-        uiManager.Init(levelManager.TIMEBTWWAVES);
+        levelManager.Init();
+        uiManager.Init(levelManager.TIME_BETWEEN_WAVES);
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
@@ -151,16 +153,9 @@ public class GameManager : MonoBehaviour
     {
         if (args[0] == "init")
         {
-            levelManager.BeginWave();
+            levelManager.BeginWave(currentWave);
             TriggerSuccessResponse(cmdi);
             OnNetworkInit?.Invoke();
-
-        }
-
-        if (args[0] == "pause")
-        {
-            levelManager.PauseWave();
-            TriggerSuccessResponse(cmdi);
         }
     }
 

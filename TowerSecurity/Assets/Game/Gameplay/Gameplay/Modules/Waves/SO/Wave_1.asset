@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 636b138e28cbd874a9b03f67f0a8b0c2, type: 3}
-  m_Name: Wave4
+  m_Name: Wave_1
   m_EditorClassIdentifier: 
-  spiders: {fileID: 1546752201628287827, guid: 2f4ec1f10e3a1794bb1f8e15f3253b2c, type: 3}
-  spiderCount: 15
-  spawnDelay: 0.8
+  waveSpawnData:
+  - enemyId: spider
+    enemyCount: 5
+    spawnDelayPerEnemy: 0.5

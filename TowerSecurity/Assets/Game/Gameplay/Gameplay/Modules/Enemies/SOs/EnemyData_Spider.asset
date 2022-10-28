@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spider
   enemyPrefab: {fileID: 1546752201628287827, guid: 2f4ec1f10e3a1794bb1f8e15f3253b2c, type: 3}
-  speed: 0.5
+  speed: 7
   damage: 1
   hp: 5

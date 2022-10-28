@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -16,13 +17,6 @@ public class EnemyHandler : MonoBehaviour
     private Dictionary<string, ObjectPool<Enemy>> enemyPools = null;
     private Dictionary<string, List<Enemy>> enemyListsDictionary = null;
 
-    private float enemySpawnTimer;
-    private float packetSpawnTimer;
-
-    private int enemiesSpawned;
-
-    private bool waveEnabled = false;
-
     public void Init()
     {
         enemiesDictionary = new Dictionary<string, EnemyData>();
@@ -38,46 +32,18 @@ public class EnemyHandler : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (!waveEnabled)
-        {
-            return;
-        }
-
-        enemySpawnTimer -= Time.deltaTime;
-        if (enemySpawnTimer < 0)
-        {
-            enemySpawnTimer = levelManager.GetEnemySpawnTimerData();
-
-            if (enemiesSpawned < levelManager.GetEnemyCount())
-            {
-                enemiesSpawned++;
-                //SpawnEnemy();
-            }
-            else if (enemiesSpawned == levelManager.GetEnemyCount())
-            {
-                ToggleWave(false);
-                enemiesSpawned = 0;
-                levelManager.OnWaveEnd?.Invoke();
-                UIManager.OnWaveEnd?.Invoke(true);
-            }
-        }
-
-        packetSpawnTimer -= Time.deltaTime;
-        if (packetSpawnTimer < 0)
-        {
-            packetSpawnTimer = levelManager.GetPacketSpawnTimerData();
-            SpawnPacket();
-        }
-    }
-
-    public Enemy GenerateEnemy(string enemyId)
+    public void GenerateEnemy(string enemyId, Action onDeath)
     {
         Enemy enemy = enemyPools[enemyId].Get();
         enemyListsDictionary[enemyId].Add(enemy);
         enemy.transform.SetParent(enemiesHolder);
-        return enemy;
+
+        enemy.Init(enemiesDictionary[enemyId], waypoints.WAYPOINTS, 
+            (enemy) =>
+            {
+                ReleaseActiveEnemy(enemy);
+                onDeath?.Invoke();
+            });
     }
 
     private Enemy SpawnEnemy(string enemyId)
@@ -97,15 +63,17 @@ public class EnemyHandler : MonoBehaviour
         item.gameObject.SetActive(false);
     }
 
+    public void ReleaseActiveEnemy(Enemy enemy)
+    {
+        string id = enemy.ID;
+        enemyListsDictionary[id].Remove(enemy);
+        enemyPools[id].Release(enemy);
+    }
+
     private void SpawnPacket()
     {
         GameObject newInstance = Instantiate(levelManager.GetPacketPrefab(), spawnPoint);
         newInstance.GetComponent<Packets>().Init(waypoints.WAYPOINTS);
         newInstance.SetActive(true);
-    }
-
-    public void ToggleWave(bool b)
-    {
-        waveEnabled = b;
     }
 }

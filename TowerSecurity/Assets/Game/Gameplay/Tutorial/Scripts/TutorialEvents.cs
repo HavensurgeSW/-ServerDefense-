@@ -36,7 +36,6 @@ public class TutorialEvents : MonoBehaviour
         gameManager.OnHelpArgument -= Tutorial4;
         levelManager.OnWaveEnd -= Tutorial5;
         gameManager.OnUpdateTower -= Tutorial6;
-
     }
 
     private void Start()
@@ -93,7 +92,7 @@ public class TutorialEvents : MonoBehaviour
 
     void Tutorial5(){
         tutorialText.text = sentences[6];
-        levelManager.PauseWave();
+        //levelManager.PauseWave();
         levelManager.OnWaveEnd -= Tutorial5;
         gameManager.OnUpdateTower += Tutorial6;
     }
