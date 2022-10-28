@@ -31,7 +31,7 @@ public class WavesController : MonoBehaviour
             return;
         }
 
-        if (index >= waves.Length - 1)
+        if (index >= waves.Length)
         {
             return;
         }
