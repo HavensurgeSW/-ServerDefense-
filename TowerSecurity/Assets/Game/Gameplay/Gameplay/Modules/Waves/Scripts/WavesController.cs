@@ -37,7 +37,7 @@ public class WavesController : MonoBehaviour
         }
 
         SetActiveWave(waves[index]);
-        BeginWave(null);
+        BeginWave(activeWave, null);
     }
 
     private void DecreaseEnemyCountOnEnemyDeath()
@@ -56,14 +56,14 @@ public class WavesController : MonoBehaviour
         activeWave = wave;
     }
 
-    private void BeginWave(Action onWaveSpawnEnd)
+    private void BeginWave(WaveData wave, Action onWaveSpawnEnd)
     {
         isWaveSpawning = true;
         isInWave = true;
         onWaveSpawnEnd += () => isWaveSpawning = false;
 
-        currentWaveEnemyCount = GetWaveEnemyCount(activeWave);
-        StartCoroutine(IBeginWave(activeWave, onWaveSpawnEnd));
+        currentWaveEnemyCount = GetWaveEnemyCount(wave);
+        StartCoroutine(IBeginWave(wave, onWaveSpawnEnd));
     }
 
     private int GetWaveEnemyCount(WaveData wave)

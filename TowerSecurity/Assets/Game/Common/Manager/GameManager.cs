@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
 
-        levelManager.Init();
-        levelManager.OnWaveEnd += IncreaseCurrentWaveValue;
+        levelManager.Init(IncreaseCurrentWaveValue);
         uiManager.Init(/*levelManager.TIME_BETWEEN_WAVES*/0);
         towersController.Init();
         mapHandler.Init();

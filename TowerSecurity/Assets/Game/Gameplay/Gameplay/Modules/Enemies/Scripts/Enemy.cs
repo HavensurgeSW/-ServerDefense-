@@ -25,10 +25,11 @@ public class Enemy : MonoBehaviour
         wpPath = wpList;
         
         id = data.ID;
+        hp = data.HP;
         damage = data.DAMAGE;
         speed = data.SPEED;
-        hp = data.HP;
         enemyHP.SetMaxHP(hp);
+        enemyHP.SetHealthbarFill(hp);
 
         OnDeath = onDeath;
 
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
     {
         hp -= dmg;
         enemyHP.SetHealthbarFill(hp);
+
         if (hp <= 0) 
         {
             Die();

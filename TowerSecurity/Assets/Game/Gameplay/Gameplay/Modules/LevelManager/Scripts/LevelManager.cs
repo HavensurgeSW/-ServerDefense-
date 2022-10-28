@@ -10,12 +10,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private WavesController wavesController = null;
     [SerializeField] private PacketsHandler packetsHandler = null;
 
-    public Action OnWaveEnd = null;
+    private Action OnWaveEnd = null;
 
     public Location[] LOCATIONS { get => locations; }
 
-    public void Init()
+    public void Init(Action onWaveEnd)
     {
+        OnWaveEnd = onWaveEnd;
+
         enemyHandler.Init(waypoints.WAYPOINTS);
         
         packetsHandler.Init(waypoints.WAYPOINTS);
@@ -32,5 +34,15 @@ public class LevelManager : MonoBehaviour
     {
         wavesController.StartWave(index);
         packetsHandler.StartPacketsWave();
+    }
+
+    public void AddOnWaveEndCallback(Action callback)
+    {
+        OnWaveEnd += callback;
+    }
+
+    public void RemoveOnWaveEndCallback(Action callback)
+    {
+        OnWaveEnd -= callback;
     }
 }

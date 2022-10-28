@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2df12d48210d974cab8fb34bb5481a6, type: 3}
-  m_Name: EnemyData_Spider
+  m_Script: {fileID: 11500000, guid: 636b138e28cbd874a9b03f67f0a8b0c2, type: 3}
+  m_Name: Wave_5
   m_EditorClassIdentifier: 
-  id: spider
-  enemyPrefab: {fileID: 1546752201628287827, guid: 2f4ec1f10e3a1794bb1f8e15f3253b2c, type: 3}
-  hp: 5
-  damage: 1
-  speed: 0.75
+  waveSpawnData:
+  - enemyId: spider
+    enemyCount: 25
+    spawnDelayPerEnemy: 0.2

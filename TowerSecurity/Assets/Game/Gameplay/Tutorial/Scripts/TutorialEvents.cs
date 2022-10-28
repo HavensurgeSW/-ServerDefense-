@@ -34,7 +34,7 @@ public class TutorialEvents : MonoBehaviour
         gameManager.OnInstallTower -= Tutorial2;
         gameManager.OnInstallTower -= Tutorial3;
         gameManager.OnHelpArgument -= Tutorial4;
-        levelManager.OnWaveEnd -= Tutorial5;
+        levelManager.RemoveOnWaveEndCallback(Tutorial5);
         gameManager.OnUpdateTower -= Tutorial6;
     }
 
@@ -87,13 +87,13 @@ public class TutorialEvents : MonoBehaviour
     {
         tutorialText.text = sentences[5];
         gameManager.OnHelpArgument -= Tutorial4;
-        levelManager.OnWaveEnd += Tutorial5;
+        levelManager.AddOnWaveEndCallback(Tutorial5);
     }
 
     void Tutorial5(){
         tutorialText.text = sentences[6];
         //levelManager.PauseWave();
-        levelManager.OnWaveEnd -= Tutorial5;
+        levelManager.RemoveOnWaveEndCallback(Tutorial5);
         gameManager.OnUpdateTower += Tutorial6;
     }
 
