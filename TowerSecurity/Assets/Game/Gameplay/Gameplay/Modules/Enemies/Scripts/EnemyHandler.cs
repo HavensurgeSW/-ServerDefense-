@@ -9,16 +9,17 @@ public class EnemyHandler : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private EnemyData[] enemiesData = null;
     [SerializeField] private Transform enemiesHolder = null;
-    [SerializeField] private LevelManager levelManager = null;
-    [SerializeField] private WaypointManager waypoints = null;
-    [SerializeField] private Transform spawnPoint = null;
 
     private Dictionary<string, EnemyData> enemiesDictionary = null;
     private Dictionary<string, ObjectPool<Enemy>> enemyPools = null;
     private Dictionary<string, List<Enemy>> enemyListsDictionary = null;
 
-    public void Init()
+    private Transform[] waypoints = null;
+
+    public void Init(Transform[] waypoints)
     {
+        this.waypoints = waypoints;
+
         enemiesDictionary = new Dictionary<string, EnemyData>();
         enemyPools = new Dictionary<string, ObjectPool<Enemy>>();
         enemyListsDictionary = new Dictionary<string, List<Enemy>>();
@@ -38,7 +39,7 @@ public class EnemyHandler : MonoBehaviour
         enemyListsDictionary[enemyId].Add(enemy);
         enemy.transform.SetParent(enemiesHolder);
 
-        enemy.Init(enemiesDictionary[enemyId], waypoints.WAYPOINTS, 
+        enemy.Init(enemiesDictionary[enemyId], waypoints, 
             (enemy) =>
             {
                 ReleaseActiveEnemy(enemy);
@@ -68,12 +69,5 @@ public class EnemyHandler : MonoBehaviour
         string id = enemy.ID;
         enemyListsDictionary[id].Remove(enemy);
         enemyPools[id].Release(enemy);
-    }
-
-    private void SpawnPacket()
-    {
-        GameObject newInstance = Instantiate(levelManager.GetPacketPrefab(), spawnPoint);
-        newInstance.GetComponent<Packets>().Init(waypoints.WAYPOINTS);
-        newInstance.SetActive(true);
     }
 }

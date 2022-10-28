@@ -1,27 +1,33 @@
+using System;
+
 using UnityEngine;
 
-public class Packets : MonoBehaviour
+public class Packet : MonoBehaviour
 {
     [SerializeField] private PacketData packetData = null;
 
     private int targetIndex;
     private Transform[] wpPath;
 
+    private Action<Packet> OnDeath = null;
+
     public PacketData PACKET_DATA => packetData;
 
-    public void Init(Transform[] wpList)
+    public void Init(Transform[] wpList, Action<Packet> onDeath)
     {
         wpPath = wpList;
+        OnDeath = onDeath;
         targetIndex = 0;
+        transform.position = wpPath[targetIndex].position;
     }
 
     private void Update()
     {
         float step = packetData.SPEED * Time.deltaTime;
 
-        transform.position = Vector2.MoveTowards(transform.position, wpPath[targetIndex].transform.position, step);
+        transform.position = Vector2.MoveTowards(transform.position, wpPath[targetIndex].position, step);
 
-        if (Vector2.Distance(transform.position, wpPath[targetIndex].transform.position) < packetData.TARGET_CHANGE_DISTANCE)
+        if (Vector2.Distance(transform.position, wpPath[targetIndex].position) < packetData.TARGET_CHANGE_DISTANCE)
         {
             UpdateTargetWP();
         }
@@ -37,6 +43,6 @@ public class Packets : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        OnDeath?.Invoke(this);
     }
 }

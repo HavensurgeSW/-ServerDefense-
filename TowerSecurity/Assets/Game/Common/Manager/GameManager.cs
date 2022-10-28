@@ -40,10 +40,16 @@ public class GameManager : MonoBehaviour
         Server.OnPacketEntry += UpdatePacketScore;
 
         levelManager.Init();
-        uiManager.Init(levelManager.TIME_BETWEEN_WAVES);
+        levelManager.OnWaveEnd += IncreaseCurrentWaveValue;
+        uiManager.Init(/*levelManager.TIME_BETWEEN_WAVES*/0);
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
+    }
+
+    private void IncreaseCurrentWaveValue()
+    {
+        currentWave++;
     }
 
     private void UpdatePacketScore(int i)

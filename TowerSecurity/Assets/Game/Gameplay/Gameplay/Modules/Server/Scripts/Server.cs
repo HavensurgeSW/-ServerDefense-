@@ -31,7 +31,7 @@ public class Server : MonoBehaviour
             enemy.Die();
         }
 
-        if (other.TryGetComponent(out Packets packet))
+        if (other.TryGetComponent(out Packet packet))
         {
             OnPacketEntry?.Invoke(packet.PACKET_DATA.KB_WORTH);
             packet.Die();
