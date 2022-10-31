@@ -18,13 +18,12 @@ public class WavesController : MonoBehaviour
     public bool IS_WAVE_SPAWNING { get => isWaveSpawning; }
     public bool IS_IN_WAVE { get => isInWave; }
 
-    public void Init(Action<string, Action> onEnemySpawned, Action onWaveCompleted)
+    public void Init(Action<string, Action> onEnemySpawned)
     {
         OnEnemySpawned = onEnemySpawned;
-        OnWaveCompleted = onWaveCompleted;
     }
 
-    public void StartWave(int index)
+    public void StartWave(int index, Action onWaveCompleted)
     {
         if (isWaveSpawning || isInWave)
         {
@@ -35,6 +34,8 @@ public class WavesController : MonoBehaviour
         {
             return;
         }
+
+        OnWaveCompleted = onWaveCompleted;
 
         SetActiveWave(waves[index]);
         BeginWave(activeWave, null);

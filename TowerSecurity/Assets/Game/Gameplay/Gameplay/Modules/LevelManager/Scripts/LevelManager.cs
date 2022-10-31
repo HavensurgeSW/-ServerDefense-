@@ -1,5 +1,5 @@
 using System;
-
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -22,17 +22,20 @@ public class LevelManager : MonoBehaviour
         
         packetsHandler.Init(waypoints.WAYPOINTS);
 
-        wavesController.Init(
-            (id, onDeath) =>
-            {
-                enemyHandler.GenerateEnemy(id, onDeath);
-            },
-            OnWaveEnd);
+        //wavesController.Init(
+        //    (id, onDeath) =>
+        //    {
+        //        enemyHandler.GenerateEnemy(id, onDeath);
+        //    },
+        //    OnWaveEnd);
+
+        wavesController.Init(enemyHandler.GenerateEnemy);
+
     }
 
     public void BeginWave(int index)
     {
-        wavesController.StartWave(index);
+        wavesController.StartWave(index, OnWaveEnd);
         packetsHandler.StartPacketsWave();
     }
 
