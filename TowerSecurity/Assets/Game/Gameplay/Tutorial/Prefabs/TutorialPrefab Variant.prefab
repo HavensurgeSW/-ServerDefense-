@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5418080207950658871
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5754507824921808613, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -61.7262
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808613, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -23.9746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808613, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808613, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_text
+      value: '1
+
+        2
+
+        3
+
+        4
+
+        5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_margin.w
+      value: 6.393799
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_margin.y
+      value: 0.28881836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_margin.z
+      value: 19.71582
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 979559960ce1141429066188220ab33a, type: 2}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1145304132125109715, guid: 979559960ce1141429066188220ab33a, type: 2}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779708, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779708, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89d5a889c94d6cb43bcb982ea4b42874, type: 3}
+    - target: {fileID: 5754507825141779710, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_Name
+      value: TutorialPrefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.78616667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.9767778
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.016395833
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.81585187
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -7.1235046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -2.5459003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.2729492
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754507825141779711, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4722449355177540836, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+--- !u!114 &354937054696747997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5754507824921808618, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+  m_PrefabInstance: {fileID: 5418080207950658871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &354937055013319113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5754507825141779710, guid: 4b10bd13c4545344aabc536420f59ec7, type: 3}
+  m_PrefabInstance: {fileID: 5418080207950658871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &738427900227939562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354937055013319113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e0de59f0e50c1488c99bef7561909a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialText: {fileID: 354937054696747997}
+  gameManager: {fileID: 0}
+  levelManager: {fileID: 0}
+  sentences:
+  - 'Welcome to the Network, Administrator.
+
+    Your job is to protect the server
+    from viruses.
+
+    To do this, deploy <Programs> on the selected <Locations>
+
+    Try
+    running CD LOC1 on the terminal to move to that <Location>'
+  - 'Well done.
+
+    Run the NETSTAT command to learn the names of the other <Locations>
+
+    Now
+    try switching to another <Location>
+
+    Run CD <Location> with one of the names
+    you found.'
+  - 'You are going to need some actual defenses on these locations.
+
+    Installing
+    a <Program> will cost you Kilobytes (KB)
+
+    On any empty location, run INSTALL
+    ANTIVIRUS'
+  - 'Add the HELP argument to any command for more information.
+
+    EG: CD HELP,
+    INSTALL HELP, NETSTAT HELP
+
+    There are different <Programs> you can install.
+
+    Run
+    INSTALL HELP to find the name of another <Program> and then install it.
+
+'
+  - 'If you need to clear a <Location> to install another <Program>, use the UNINSTALL
+    command. You might want to get its HELP to learn how to use it.
+
+
+'
+  - 'Seems your network is secure enough.
+
+    Run NETWORK INIT to initiate the traffic.
+
+
+'
+  - 'You can also upgrade your programs by running UPDATE.
+
+    Learn how to use
+    it by using its HELP argument.
+
+    Upgrade your ANTIVIRUS Program to continue.
+
+'
+  - 'Looks like you are good to go.
+
+    Run QUIT APPLICATION to return to the main
+    menu.'
+  criteria0to1: loc1
+  criteria1to2: loc1
+  criteria2to3: antivirus
+  criteria3to4: firewall
+  criteria6to7: antivirus

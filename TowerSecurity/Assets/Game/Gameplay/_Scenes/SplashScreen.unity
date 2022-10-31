@@ -365,7 +365,7 @@ VideoPlayer:
   m_RenderMode: 0
   m_AspectRatio: 2
   m_DataSource: 0
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 1.8
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
@@ -493,4 +493,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac2608ed462b994a8c2a18396eed436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 9
+  waitTime: 5

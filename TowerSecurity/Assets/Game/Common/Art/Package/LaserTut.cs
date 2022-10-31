@@ -10,6 +10,7 @@ public class LaserTut : MonoBehaviour
     public GameObject StartVFX;
     public GameObject EndVFX;
     private List<ParticleSystem> particles = new List<ParticleSystem>();
+    [SerializeField] private Aimbot aimbot;
 
     void Start()
     {
@@ -19,21 +20,7 @@ public class LaserTut : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            EnableLaser();
-        }
-
-        if (Input.GetButton("Fire1"))
-        {
-            UpdateLaser();
-        }
-
-        if (Input.GetButtonUp("Fire1"))
-        {
-            DisableLaser();
-        }
-
+           
         //Cambiar por el target registrado de la torre (active)
     }
 
