@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
 
+    [Header("Gameplay Values")]
+    [SerializeField] private float timerSeconds = 0;
+
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
     [SerializeField] private int startingPackets;
@@ -39,12 +42,15 @@ public class GameManager : MonoBehaviour
         Server.OnPacketEntry += UpdatePacketScore;
 
         levelManager.Init(IncreaseCurrentWaveValue);
-        uiManager.Init(/*levelManager.TIME_BETWEEN_WAVES*/0);
+        uiManager.Init(/*levelManager.TIME_BETWEEN_WAVES*/timerSeconds);
+
+        uiManager.AddOnTimerEndCallback(() => levelManager.BeginWave(currentWave));
+
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
     }
-
+ 
     private void IncreaseCurrentWaveValue()
     {
         currentWave++;
@@ -64,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void LoseGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     #region TerminalInteractions

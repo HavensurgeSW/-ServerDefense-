@@ -10,6 +10,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static Action<bool> OnWaveEnd;
+    Action OnTimerEnd;
 
     [Header("Server Configuration")]
     [SerializeField] private Server server = null;
@@ -69,6 +70,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void AddOnTimerEndCallback(Action callback) {
+        OnTimerEnd += callback;
+    }
+
+    public void RemoveOnTimerEndCallback(Action callback)
+    {
+        OnTimerEnd -= callback;
+    }
+
     private void OnEnable()
     {
         Server.OnDamaged += UpdateServerHealthText;
@@ -103,6 +113,7 @@ public class UIManager : MonoBehaviour
                 {
                     timeLeft = maxTime;
                     isTimerEnabled = false;
+                    OnTimerEnd?.Invoke();
                 }
             }
         }

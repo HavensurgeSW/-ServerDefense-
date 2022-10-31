@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
     public void BeginWave(int index)
     {
         wavesController.StartWave(index, OnWaveEnd);
+        //UIManager.OnWaveEnd?.Invoke(true);
         packetsHandler.StartPacketsWave();
     }
 

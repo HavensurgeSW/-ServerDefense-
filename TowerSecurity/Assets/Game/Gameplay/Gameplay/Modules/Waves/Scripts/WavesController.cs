@@ -49,6 +49,7 @@ public class WavesController : MonoBehaviour
         {
             isInWave = false;
             OnWaveCompleted?.Invoke();
+            UIManager.OnWaveEnd?.Invoke(true);
         }
     }
 
