@@ -259,7 +259,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 780272465
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c203f35bbd64a5940b8e3cb651628266, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3272,7 +3272,7 @@ MonoBehaviour:
   towersController: {fileID: 1758878460}
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
-  debugScore: 1
+  debugScore: 0
   startingPackets: 10
 --- !u!4 &1899149030
 Transform:

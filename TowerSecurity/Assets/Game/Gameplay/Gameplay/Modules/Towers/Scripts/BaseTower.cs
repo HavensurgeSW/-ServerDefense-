@@ -5,6 +5,7 @@ public abstract class BaseTower : MonoBehaviour
 {
     [Header("Main Configuration")]
     [SerializeField] protected Aimbot aimbot = null;
+    [SerializeField] protected LaserLine laser = null;
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected float fireRate = 1.0f;
@@ -36,6 +37,7 @@ public abstract class BaseTower : MonoBehaviour
 
             timer = 0;
         }
+
     }
 
     protected abstract void HandleAttackingBehaviour();

@@ -51,17 +51,17 @@ TagManager:
   - name: Enviroment
     uniqueID: 3964090859
     locked: 0
-  - name: KB
-    uniqueID: 3212353265
-    locked: 0
   - name: RunwayLights
     uniqueID: 780272465
     locked: 0
+  - name: KB
+    uniqueID: 3212353265
+    locked: 0
+  - name: Enemies
+    uniqueID: 2768570039
+    locked: 0
   - name: Towers
     uniqueID: 4188171549
-    locked: 0
-  - name: Spider
-    uniqueID: 2768570039
     locked: 0
   - name: Server
     uniqueID: 2336177135

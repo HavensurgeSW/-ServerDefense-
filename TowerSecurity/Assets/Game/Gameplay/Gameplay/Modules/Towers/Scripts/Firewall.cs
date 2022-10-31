@@ -27,4 +27,26 @@ public class Firewall : BaseTower
             }
         }
     }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (aimbot.ContainsTargets())
+        {
+
+            for (int i = 0; i < maxTargets; i++)
+            {
+                if (i < aimbot.TARGETS.Count)
+                {
+                    laser.DrawLaser(this.transform, aimbot.TARGETS[i].transform);
+                }
+            }
+
+        }
+        else
+        {
+            laser.ClearLaser();
+        }
+    }
 }
