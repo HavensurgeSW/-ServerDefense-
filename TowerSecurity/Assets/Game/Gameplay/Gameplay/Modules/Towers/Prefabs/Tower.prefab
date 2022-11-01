@@ -104,7 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimbot: {fileID: 228316106}
-  laser: {fileID: 888794227964699890}
+  laser:
+  - {fileID: 888794227964699890}
   damage: 1
   rangeRadius: 2
   fireRate: 1
@@ -192,8 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lr: {fileID: -4882443187008317567}
-  points: []
-  aimbot: {fileID: 228316106}
 --- !u!120 &-4882443187008317567
 LineRenderer:
   m_ObjectHideFlags: 0

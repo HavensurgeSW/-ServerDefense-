@@ -4,6 +4,10 @@ public class Firewall : BaseTower
 {
     [Header("Firewall Configuration")]
     [SerializeField] private int maxTargets = 1;
+    [SerializeField] private LineRenderer LRPrefab;
+    [SerializeField] private LineRenderer[] lr;
+   
+
 
     protected override void HandleAttackingBehaviour()
     {
@@ -39,14 +43,29 @@ public class Firewall : BaseTower
             {
                 if (i < aimbot.TARGETS.Count)
                 {
-                    laser.DrawLaser(this.transform, aimbot.TARGETS[i].transform);
+                    laser.DrawLaser(this.transform, aimbot.TARGETS[i].transform, lr[i]);
                 }
             }
 
         }
         else
         {
-            laser.ClearLaser();
+
+            for (int i = 0; i < maxTargets; i++)
+            {
+                if (i < aimbot.TARGETS.Count)
+                {
+                    laser.ClearLaser(); 
+                }
+            }
+        }
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < lr.Length; i++)
+        {
+            lr[i] = Instantiate(LRPrefab, transform);
         }
     }
 }

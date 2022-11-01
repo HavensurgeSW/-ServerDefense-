@@ -105,11 +105,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimbot: {fileID: 1094151088146952505}
-  laser: {fileID: 905408871329326771}
+  laser: {fileID: 0}
   damage: 1
   rangeRadius: 2
   fireRate: 1
   maxTargets: 3
+  LRPrefab: {fileID: 571909827534771325}
+  lr:
+  - {fileID: 571909827534771325}
+  - {fileID: 571909827534771325}
+  - {fileID: 571909827534771325}
 --- !u!58 &6097502181980172665
 CircleCollider2D:
   m_ObjectHideFlags: 0
