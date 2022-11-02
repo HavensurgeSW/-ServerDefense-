@@ -73,4 +73,8 @@ public class Enemy : MonoBehaviour
             targetIndex++;
         }
     }
+
+    private void RotateTexture() {
+        
+    }
 }

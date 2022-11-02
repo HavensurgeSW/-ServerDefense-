@@ -41,29 +41,29 @@ public class Firewall : BaseTower
 
             for (int i = 0; i < maxTargets; i++)
             {
-                if (i < aimbot.TARGETS.Count)
-                {
+                //if (i < aimbot.TARGETS.Count)
                     laser.DrawLaser(this.transform, aimbot.TARGETS[i].transform, lr[i]);
-                }
             }
 
         }
-        else
-        {
 
-            for (int i = 0; i < maxTargets; i++)
-            {
-                if (i < aimbot.TARGETS.Count)
-                {
-                    laser.ClearLaser(); 
-                }
-            }
-        }
+        laser.DrawLaser(this.transform, aimbot.TARGETS[0].transform, lr[0]);
+        //else
+        //{
+
+        //    for (int i = 0; i < maxTargets; i++)
+        //    {
+        //        if (i < aimbot.TARGETS.Count)
+        //        {
+        //            laser.ClearLaser(); 
+        //        }
+        //    }
+        //}
     }
 
     private void Start()
     {
-        for (int i = 0; i < lr.Length; i++)
+        for (int i = 0; i < maxTargets; i++)
         {
             lr[i] = Instantiate(LRPrefab, transform);
         }

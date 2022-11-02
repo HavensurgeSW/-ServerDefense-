@@ -11,6 +11,7 @@ public class LaserLine : MonoBehaviour
     {
         LR.SetPosition(0, self.position);
         LR.SetPosition(1, target.position);
+        Debug.Log("Drawing 3 arg laser");
     }
     public void DrawLaser(Transform self, Transform target)
     {
