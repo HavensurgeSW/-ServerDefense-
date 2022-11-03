@@ -3113,6 +3113,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commands:
+  - name: HELP
+    info: {fileID: 11400000, guid: 3b36f8ae055a66645b9e69a7f3211ab7, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1899149029}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Command_ReturnCommands
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: CD
     info: {fileID: 11400000, guid: feccb80dd99d840459f64345a4328f9b, type: 2}
     callback:
@@ -3164,74 +3181,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: RELOAD
-    info: {fileID: 11400000, guid: 52a52a1f7156cf547adb82bcf3963ca2, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_ReloadScene
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: QUIT
-    info: {fileID: 11400000, guid: a7a0537280b112648b3d7fef86eb5e48, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_QuitGame
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: CMDS
-    info: {fileID: 11400000, guid: 3b36f8ae055a66645b9e69a7f3211ab7, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_ReturnCommands
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: NETWORK
-    info: {fileID: 11400000, guid: a71252c8d42a93b459bdb59a21f5f4a8, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_NetworkController
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - name: UNINSTALL
     info: {fileID: 11400000, guid: 297abdc9d9e0e3c4293c86659ffb0f11, type: 2}
     callback:
@@ -3266,6 +3215,40 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - name: NETWORK
+    info: {fileID: 11400000, guid: a71252c8d42a93b459bdb59a21f5f4a8, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1899149029}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Command_NetworkController
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: QUIT
+    info: {fileID: 11400000, guid: a7a0537280b112648b3d7fef86eb5e48, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1899149029}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Command_QuitGame
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   commandManager: {fileID: 1308555774}
   uiManager: {fileID: 204355053609884078}
   terminal: {fileID: 225311706}
@@ -3273,7 +3256,7 @@ MonoBehaviour:
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
   timerSeconds: 10
-  debugScore: 1
+  debugScore: 0
   startingPackets: 10
 --- !u!4 &1899149030
 Transform:
@@ -4314,7 +4297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9202163451807312619, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: hp
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202163451807312622, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: m_Name

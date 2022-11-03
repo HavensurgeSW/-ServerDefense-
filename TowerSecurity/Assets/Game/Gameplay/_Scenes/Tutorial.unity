@@ -4012,10 +4012,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9202163451807312619, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
-      propertyPath: hp
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 9202163451807312622, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: m_Name
       value: Server
