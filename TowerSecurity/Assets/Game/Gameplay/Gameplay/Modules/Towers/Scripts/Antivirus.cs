@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class Antivirus : BaseTower
 {
-
     [Header("Antivirus Configuration")]
     [SerializeField] private int maxTargets = 1;
-    protected override void HandleAttackingBehaviour()
+
+    private TowerLaser laser = null;
+
+    public override void Init(string id, int damage, float radius, float fireRate)
+    {
+        base.Init(id, damage, radius, fireRate);
+        laser = laserPool.Get();
+        laser.SetPositionCount(maxTargets + 1);
+    }
+
+    protected override void HandleTimedAttack()
     {
         if (aimbot.ContainsTargets())
         {
@@ -22,26 +31,12 @@ public class Antivirus : BaseTower
 
         if (aimbot.ContainsTargets())
         {
-
-            for (int i = 0; i < maxTargets; i++)
-            {
-                if (i < aimbot.TARGETS.Count)
-                {
-                    laser.DrawLaser(this.transform, aimbot.TARGETS[i].transform);
-                }
-            }
-
+            laser.SetPositionCount(maxTargets + 1);
+            laser.DrawLine(transform.position, aimbot.TARGETS[0].transform.position);
         }
         else
         {
-
-            for (int i = 0; i < maxTargets; i++)
-            {
-                if (i < aimbot.TARGETS.Count)
-                {
-                    laser.ClearLaser(); 
-                }
-            }
+            laser.ClearLine();
         }
     }
 }

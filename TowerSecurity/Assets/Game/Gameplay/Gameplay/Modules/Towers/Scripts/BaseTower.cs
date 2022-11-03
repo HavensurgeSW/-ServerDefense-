@@ -1,15 +1,18 @@
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public abstract class BaseTower : MonoBehaviour
 {
     [Header("Main Configuration")]
     [SerializeField] protected Aimbot aimbot = null;
-    [SerializeField] protected LaserLine laser = null;
+    [SerializeField] protected GameObject towerLaserPrefab = null;
+    [SerializeField] protected Transform towerLasersHolder = null;
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected float fireRate = 1.0f;
-    
+
+    protected ObjectPool<TowerLaser> laserPool = null;
+
     private string id = string.Empty;
     private int level = 0;
     private float timer = 0.0f;
@@ -25,6 +28,7 @@ public abstract class BaseTower : MonoBehaviour
     {
         this.id = id;
         SetData(damage, radius, fireRate, 0);
+        laserPool = new ObjectPool<TowerLaser>(GenerateLaser, GetLaser, ReleaseLaser);
     }
 
     protected virtual void Update()
@@ -33,18 +37,32 @@ public abstract class BaseTower : MonoBehaviour
 
         if (timer >= fireRate)
         {
-            HandleAttackingBehaviour();
+            HandleTimedAttack();
 
             timer = 0;
         }
-
     }
 
-    protected abstract void HandleAttackingBehaviour();
+    protected abstract void HandleTimedAttack();
 
     protected void DealDamage(Enemy enemy)
     {
         enemy.ReceiveDamage(damage);
+    }
+
+    protected TowerLaser GenerateLaser()
+    {
+        return Instantiate(towerLaserPrefab, towerLasersHolder).GetComponent<TowerLaser>();
+    }
+
+    protected void GetLaser(TowerLaser item)
+    {
+        item.gameObject.SetActive(true);
+    }
+
+    protected void ReleaseLaser(TowerLaser item)
+    {
+        item.gameObject.SetActive(false);
     }
 
     private void OnDrawGizmos()

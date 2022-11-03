@@ -3256,7 +3256,7 @@ MonoBehaviour:
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
   timerSeconds: 10
-  debugScore: 0
+  debugScore: 1
   startingPackets: 10
 --- !u!4 &1899149030
 Transform:

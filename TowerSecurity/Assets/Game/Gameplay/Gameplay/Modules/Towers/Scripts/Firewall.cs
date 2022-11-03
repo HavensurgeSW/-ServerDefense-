@@ -1,15 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Firewall : BaseTower
 {
     [Header("Firewall Configuration")]
     [SerializeField] private int maxTargets = 1;
-    [SerializeField] private LineRenderer LRPrefab;
-    [SerializeField] private LineRenderer[] lr;
-   
 
+    private List<TowerLaser> lasersList = null;
 
-    protected override void HandleAttackingBehaviour()
+    public override void Init(string id, int damage, float radius, float fireRate)
+    {
+        base.Init(id, damage, radius, fireRate);
+        lasersList = new List<TowerLaser>();
+
+        SetLasers(maxTargets);
+    }
+
+    protected override void HandleTimedAttack()
     {
         int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
 
@@ -36,36 +43,58 @@ public class Firewall : BaseTower
     {
         base.Update();
 
-        if (aimbot.ContainsTargets())
-        {
+        int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
 
-            for (int i = 0; i < maxTargets; i++)
+        if(lasersList == null || lasersList.Count <= 0)
+        {
+            return;
+        }
+
+        if (currentMaxTargets > 0)
+        {
+            for (int i = 0; i < lasersList.Count; i++)
             {
-                //if (i < aimbot.TARGETS.Count)
-                    laser.DrawLaser(this.transform, aimbot.TARGETS[i].transform, lr[i]);
+                lasersList[i].ClearLine();
+            }
+            Vector3[] positions = new Vector3[currentMaxTargets];
+
+            for (int i = 0; i < currentMaxTargets; i++)
+            {
+                positions[i] = aimbot.TARGETS[i].transform.position;
             }
 
+            for (int i = 0; i < positions.Length; i++)
+            {
+                lasersList[i].SetPositionCount(2);
+                lasersList[i].DrawLine(transform.position, positions[i]);
+            }
         }
-
-        laser.DrawLaser(this.transform, aimbot.TARGETS[0].transform, lr[0]);
-        //else
-        //{
-
-        //    for (int i = 0; i < maxTargets; i++)
-        //    {
-        //        if (i < aimbot.TARGETS.Count)
-        //        {
-        //            laser.ClearLaser(); 
-        //        }
-        //    }
-        //}
+        else
+        {
+            for (int i = 0; i < lasersList.Count; i++)
+            {
+                lasersList[i].ClearLine();
+            }
+        }
     }
 
-    private void Start()
+    private void SetLasers(int count)
     {
-        for (int i = 0; i < maxTargets; i++)
+        int diff = Mathf.Abs(lasersList.Count - count);
+        if(lasersList.Count < count)
         {
-            lr[i] = Instantiate(LRPrefab, transform);
+            for (int i = 0; i < diff; i++)
+            {
+                lasersList.Add(laserPool.Get());
+            }
         }
+        else if(lasersList.Count > count)
+        {
+            for (int i = 0; i < diff; i++)
+            {
+                laserPool.Release(lasersList[i]);
+                lasersList.RemoveAt(i);
+            }
+        }        
     }
 }
