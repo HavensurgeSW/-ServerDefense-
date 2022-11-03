@@ -16,6 +16,6 @@ MonoBehaviour:
   argCount: 1
   succResponse: []
   helpResponse:
-  - Closes SERVERDEFENSE.exe (Quit game)
-  - Use QUIT APPLICATION
+  - QUIT APPLICATION
+  - Closes current session (returns to main menu)
   errorResponse: []

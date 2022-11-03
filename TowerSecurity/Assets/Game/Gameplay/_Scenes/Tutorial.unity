@@ -1083,6 +1083,12 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 983216369}
+    - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
+      propertyPath: sentences.Array.data[4]
+      value: "If you need to clear a <Location> to install another <Program>, use
+        the UNINSTALL command. \n\nUse UNINSTALL HELP for more information about
+        it.\n\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
 --- !u!1 &610749279
@@ -2901,6 +2907,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commands:
+  - name: HELP
+    info: {fileID: 11400000, guid: 3b36f8ae055a66645b9e69a7f3211ab7, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1899149029}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Command_ReturnCommands
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: CD
     info: {fileID: 11400000, guid: feccb80dd99d840459f64345a4328f9b, type: 2}
     callback:
@@ -2952,14 +2975,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: RELOAD
-    info: {fileID: 11400000, guid: 52a52a1f7156cf547adb82bcf3963ca2, type: 2}
+  - name: UNINSTALL
+    info: {fileID: 11400000, guid: 297abdc9d9e0e3c4293c86659ffb0f11, type: 2}
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1899149029}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_ReloadScene
+          m_MethodName: Command_UninstallTower
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2969,31 +2992,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: QUIT
-    info: {fileID: 11400000, guid: a7a0537280b112648b3d7fef86eb5e48, type: 2}
+  - name: UPDATE
+    info: {fileID: 11400000, guid: f7d42c451dd03484f910dababf6a80bb, type: 2}
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1899149029}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_QuitGame
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: CMDS
-    info: {fileID: 11400000, guid: 3b36f8ae055a66645b9e69a7f3211ab7, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_ReturnCommands
+          m_MethodName: Command_UpdateTower
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3020,31 +3026,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: UNINSTALL
-    info: {fileID: 11400000, guid: 297abdc9d9e0e3c4293c86659ffb0f11, type: 2}
+  - name: QUIT
+    info: {fileID: 11400000, guid: a7a0537280b112648b3d7fef86eb5e48, type: 2}
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1899149029}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_UninstallTower
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: UPDATE
-    info: {fileID: 11400000, guid: f7d42c451dd03484f910dababf6a80bb, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1899149029}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: Command_UpdateTower
+          m_MethodName: Command_QuitGame
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
