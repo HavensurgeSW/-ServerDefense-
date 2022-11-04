@@ -3548,7 +3548,7 @@ MonoBehaviour:
   serverHealth: {fileID: 204355054889876810}
   packetPointsText: {fileID: 204355054664281751}
   popUpPrefab: {fileID: 5754507825141779710, guid: 46a1076cfa262fe449b531b8a0def356, type: 3}
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: -69}
   popUpsHolder: {fileID: 204355053609884077}
   timerBar: {fileID: 204355054982982597}
 --- !u!1 &204355054525927627
