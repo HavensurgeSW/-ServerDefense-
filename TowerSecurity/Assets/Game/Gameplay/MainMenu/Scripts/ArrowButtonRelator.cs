@@ -1,28 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] Animator[] animator;
- 
+    [SerializeField] private Animator[] animator = null;
+
+    private int isSelectedHash = Animator.StringToHash("isSelected");
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         for (int i = 0; i < animator.Length; i++)
         {
-            animator[i].Play("ArrowSelected");
-        }
-
-       
+            //animator[i].Play("ArrowSelected");
+            animator[i].SetBool(isSelectedHash, true);
+        }       
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         for (int i = 0; i < animator.Length; i++)
         {
-            animator[i].Play("ArrowUnselected");
+            //animator[i].Play("ArrowUnselected");
+            animator[i].SetBool(isSelectedHash, false);
         }
     }
 }
