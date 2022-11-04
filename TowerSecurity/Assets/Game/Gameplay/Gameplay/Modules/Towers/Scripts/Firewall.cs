@@ -8,11 +8,18 @@ public class Firewall : BaseTower
 
     private List<TowerLaser> lasersList = null;
 
-    public override void Init(string id, int damage, float radius, float fireRate)
+    public override void Init(string id, int damage, float radius, int targets, float fireRate)
     {
-        base.Init(id, damage, radius, fireRate);
+        base.Init(id, damage, radius, targets, fireRate);
         lasersList = new List<TowerLaser>();
+        maxTargets = targets;
+        SetLasers(maxTargets);
+    }
 
+    public override void SetData(int damage, float radius, float fireRate, int targetCount)
+    {
+        base.SetData(damage, radius, fireRate, targetCount);
+        maxTargets = targetCount;
         SetLasers(maxTargets);
     }
 
@@ -80,6 +87,11 @@ public class Firewall : BaseTower
 
     private void SetLasers(int count)
     {
+        if (lasersList.Count == count)
+        {
+            return;
+        }
+
         int diff = Mathf.Abs(lasersList.Count - count);
         if(lasersList.Count < count)
         {
