@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packetPrefab: {fileID: 8009344086421671401, guid: 53b84723d103ca5459ed62ce153ed07e, type: 3}
   KBWorth: 1
-  spawnDelay: 1
+  spawnDelay: 0.5
   speed: 3
   targetChangeDist: 0.1
