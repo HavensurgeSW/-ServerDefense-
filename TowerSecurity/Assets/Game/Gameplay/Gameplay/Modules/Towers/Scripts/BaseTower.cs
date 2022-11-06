@@ -24,15 +24,15 @@ public abstract class BaseTower : MonoBehaviour
     public int CURRENT_LEVEL { get => level; set => level = value; }
     public int NEXT_LEVEL { get => level + 1; }
 
-    public virtual void Init(string id, int damage, float radius, int targets, float fireRate)
+    public virtual void Init(string id, TowerStatsData stats)
     {
         this.id = id;
         laserPool = new ObjectPool<TowerLaser>(GenerateLaser, GetLaser, ReleaseLaser);
 
-        this.damage = damage;
-        rangeRadius = radius;
+        this.damage = stats.DAMAGE;
+        rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
-        this.fireRate = fireRate;
+        this.fireRate = stats.FIRE_RATE;
     }
 
     protected virtual void Update()
@@ -90,12 +90,12 @@ public abstract class BaseTower : MonoBehaviour
         transform.SetParent(parent);
     }
 
-    public virtual void SetData(int damage, float radius, float fireRate, int targetCount) 
+    public virtual void SetData(TowerStatsData stats) 
     {      
-        this.damage = damage;
-        rangeRadius = radius;
+        damage = stats.DAMAGE;
+        rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
-        this.fireRate = fireRate;
+        fireRate = stats.FIRE_RATE;
         
         //TargetCount contra el aimbot aca
     }

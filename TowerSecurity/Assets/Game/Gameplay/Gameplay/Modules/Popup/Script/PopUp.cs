@@ -10,6 +10,7 @@ public class PopUp : MonoBehaviour
     [SerializeField] private Image background = null;
     [SerializeField] private TMP_Text locationText = null;
     [SerializeField] private TMP_Text towerDataText = null;
+
     private Action<PopUp> OnRelease = null;
 
     public void Init(Action<PopUp> onRelease)

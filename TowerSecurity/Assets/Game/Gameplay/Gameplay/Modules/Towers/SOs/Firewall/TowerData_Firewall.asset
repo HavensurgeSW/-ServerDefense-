@@ -15,7 +15,13 @@ MonoBehaviour:
   id: firewall
   towerPrefab: {fileID: 2447185751727838718, guid: 086838ff4aab8ea4f98019e2ed2bd6a1, type: 3}
   levels:
-  - {fileID: 11400000, guid: c779594c5a3ad974b8582cff7f03ed60, type: 2}
-  - {fileID: 11400000, guid: 87ad80840a5c0b540a68e57be60ca01b, type: 2}
-  - {fileID: 11400000, guid: 710c743f9b5365645b28af82fec37f7d, type: 2}
+  - level: 1
+    price: 8
+    stats: {fileID: 11400000, guid: 047b350f0ff450c47ab189fd0351b247, type: 2}
+  - level: 2
+    price: 9
+    stats: {fileID: 11400000, guid: 1d5bbd99c8632dd4ea1acdb0e870e72c, type: 2}
+  - level: 3
+    price: 10
+    stats: {fileID: 11400000, guid: 8c43314c950e58e4e8ce690f9ef3024e, type: 2}
   offset: {x: 0, y: 0.45}

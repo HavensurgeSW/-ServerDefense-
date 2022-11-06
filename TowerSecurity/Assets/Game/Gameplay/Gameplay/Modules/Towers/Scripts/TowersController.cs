@@ -50,25 +50,25 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
-    public BaseTowerLevelData GetLevelDataFromIndex(string towerId, int levelIndex)
+    public TowerLevelData GetLevelDataFromIndex(string towerId, int levelIndex)
     {
         TowerData data = GetTowerData(towerId);
 
         if (data != null)
         {
-            for (int i = 0; i < data.LEVELS.Count; i++)
+            for (int i = 0; i < data.LEVELS.Length; i++)
             {
                 if (data.LEVELS[i].LEVEL == levelIndex)
                 {
                     return data.LEVELS[i];
                 }
-            }       
+            }
         }
 
         return null;
     }
 
-    public List<BaseTowerLevelData> GetTowerLevelsData(string towerId)
+    public TowerLevelData[] GetTowerLevelsData(string towerId)
     {
         TowerData data = GetTowerData(towerId);
 
@@ -99,13 +99,13 @@ public class TowersController : MonoBehaviour
     {
         TowerData towerData = towersDictionary[towerId];
         BaseTower tower = Instantiate(towerData.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
-        tower.gameObject.transform.localPosition += new Vector3(0, towerData.OFFSET.y,0);
+        tower.gameObject.transform.localPosition += new Vector3(0, towerData.OFFSET.y, 0);
 
-        BaseTowerLevelData levelData = towerData.LEVELS[0];
+        TowerLevelData levelData = towerData.LEVELS[0];
 
-        tower.Init(towerData.ID, levelData.DAMAGE, levelData.RANGE, levelData.TARGET_COUNT, levelData.FIRE_RATE);
+        tower.Init(towerData.ID, levelData.STATS);
         tower.CURRENT_LEVEL = levelData.LEVEL;
-        tower.SetFocusTargets(levelData.TARGETS); 
+        tower.SetFocusTargets(levelData.STATS.TARGETS);
 
         return tower;
     }

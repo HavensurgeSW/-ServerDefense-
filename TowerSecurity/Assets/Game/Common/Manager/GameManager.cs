@@ -259,7 +259,6 @@ public class GameManager : MonoBehaviour
         OnInstallTower?.Invoke(towerId);
 
         TriggerSuccessResponse(cmdi);
-
     }
 
     public void Command_UpdateTower(string[] args, CommandInfo cmdi)
@@ -286,15 +285,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        List<BaseTowerLevelData> towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
+        TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
 
-        if (selectedTower.NEXT_LEVEL > towerLevelsData.Count)
+        if (selectedTower.NEXT_LEVEL > towerLevelsData.Length)
         {
             ShowTerminalLines(info.MAX_LEVEL_RESPONSE);
             return;
         }
 
-        BaseTowerLevelData nextLevelData = towerLevelsData[selectedTower.NEXT_LEVEL - 1];
+        TowerLevelData nextLevelData = towerLevelsData[selectedTower.NEXT_LEVEL - 1];
 
         if (keyword == info.INFO_ID)
         {
@@ -307,13 +306,13 @@ public class GameManager : MonoBehaviour
         }        
     }
 
-    private void TriggerUpdateCommandInfo(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData)
+    private void TriggerUpdateCommandInfo(UpdateCommandInfo info, BaseTower tower, TowerLevelData nextLevelData)
     {
         List<string> updateInfoLines = info.GetNextUpdateInfo(tower, nextLevelData);
         ShowTerminalLines(updateInfoLines);
     }
 
-    private void TriggerUpdateCommandDeploy(UpdateCommandInfo info, BaseTower tower, BaseTowerLevelData nextLevelData, Action onSuccess)
+    private void TriggerUpdateCommandDeploy(UpdateCommandInfo info, BaseTower tower, TowerLevelData nextLevelData, Action onSuccess)
     {
         if (packetScore < nextLevelData.PRICE)
         {
@@ -323,7 +322,7 @@ public class GameManager : MonoBehaviour
 
         UpdatePacketScore(-nextLevelData.PRICE);
         tower.CURRENT_LEVEL++;
-        tower.SetData(nextLevelData.DAMAGE, nextLevelData.RANGE, nextLevelData.FIRE_RATE, nextLevelData.TARGET_COUNT);
+        tower.SetData(nextLevelData.STATS);
         onSuccess?.Invoke();
     }
 

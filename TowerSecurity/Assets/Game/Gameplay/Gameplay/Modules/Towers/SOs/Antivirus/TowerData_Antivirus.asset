@@ -15,7 +15,13 @@ MonoBehaviour:
   id: antivirus
   towerPrefab: {fileID: 2447185751727838718, guid: 73cf3649d8aca5d418cb9101dd424837, type: 3}
   levels:
-  - {fileID: 11400000, guid: 5d34016bfeef10142a3e2544018d9707, type: 2}
-  - {fileID: 11400000, guid: 7da0c39995f6f6b4397673a410a2190d, type: 2}
-  - {fileID: 11400000, guid: 0c3081b0572cd2140a0233f9b6da7b32, type: 2}
+  - level: 1
+    price: 8
+    stats: {fileID: 11400000, guid: 98ae814baff8dea488fb27c9d944455e, type: 2}
+  - level: 2
+    price: 9
+    stats: {fileID: 11400000, guid: 736310cb00374b44ebedead1b65cff90, type: 2}
+  - level: 3
+    price: 10
+    stats: {fileID: 11400000, guid: cd0ab3de644b8e34d969b264f2f27d5a, type: 2}
   offset: {x: 0.01, y: 0.45}

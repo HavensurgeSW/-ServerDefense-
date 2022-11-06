@@ -19,14 +19,14 @@ public class UpdateCommandInfo : CommandInfo
     public List<string> INSUFFICIENT_FUNDS_RESPONSE { get => insufficientFundsResponse; }
     public List<string> MAX_LEVEL_RESPONSE { get => maxLevelResponse; }
 
-    public List<string> GetNextUpdateInfo(BaseTower tower, BaseTowerLevelData nextLevel)
+    public List<string> GetNextUpdateInfo(BaseTower tower, TowerLevelData nextLevel)
     {
         List<string> toReturn = new List<string>();
 
         toReturn.Add("KB Cost: " + nextLevel.PRICE);
-        toReturn.Add("Damage: " + tower.DAMAGE + " -> " + nextLevel.DAMAGE);
-        toReturn.Add("Range: " + tower.RANGE + " -> " + nextLevel.RANGE);
-        toReturn.Add("Fire Rate: " + tower.FIRE_RATE + " -> " + nextLevel.FIRE_RATE);
+        toReturn.Add("Damage: " + tower.DAMAGE + " -> " + nextLevel.STATS.DAMAGE);
+        toReturn.Add("Range: " + tower.RANGE + " -> " + nextLevel.STATS.RANGE);
+        toReturn.Add("Fire Rate: " + tower.FIRE_RATE + " -> " + nextLevel.STATS.FIRE_RATE);
 
         return toReturn;
     }

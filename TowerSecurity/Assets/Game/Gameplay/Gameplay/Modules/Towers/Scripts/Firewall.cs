@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Firewall : BaseTower
@@ -8,18 +9,18 @@ public class Firewall : BaseTower
 
     private List<TowerLaser> lasersList = null;
 
-    public override void Init(string id, int damage, float radius, int targets, float fireRate)
+    public override void Init(string id, TowerStatsData stats)
     {
-        base.Init(id, damage, radius, targets, fireRate);
+        base.Init(id, stats);
         lasersList = new List<TowerLaser>();
-        maxTargets = targets;
+        maxTargets = stats.TARGET_COUNT;
         SetLasers(maxTargets);
     }
 
-    public override void SetData(int damage, float radius, float fireRate, int targetCount)
+    public override void SetData(TowerStatsData stats)
     {
-        base.SetData(damage, radius, fireRate, targetCount);
-        maxTargets = targetCount;
+        base.SetData(stats);
+        maxTargets = stats.TARGET_COUNT;
         SetLasers(maxTargets);
     }
 
@@ -41,7 +42,7 @@ public class Firewall : BaseTower
                 if (objs[i].TryGetComponent(out Enemy enemy))
                 {
                     DealDamage(enemy);
-                }                
+                }
             }
         }
     }
@@ -52,7 +53,7 @@ public class Firewall : BaseTower
 
         int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
 
-        if(lasersList == null || lasersList.Count <= 0)
+        if (lasersList == null || lasersList.Count <= 0)
         {
             return;
         }
@@ -93,20 +94,20 @@ public class Firewall : BaseTower
         }
 
         int diff = Mathf.Abs(lasersList.Count - count);
-        if(lasersList.Count < count)
+        if (lasersList.Count < count)
         {
             for (int i = 0; i < diff; i++)
             {
                 lasersList.Add(laserPool.Get());
             }
         }
-        else if(lasersList.Count > count)
+        else if (lasersList.Count > count)
         {
             for (int i = 0; i < diff; i++)
             {
                 laserPool.Release(lasersList[i]);
                 lasersList.RemoveAt(i);
             }
-        }        
+        }
     }
 }
