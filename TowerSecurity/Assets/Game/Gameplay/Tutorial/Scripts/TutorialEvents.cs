@@ -12,7 +12,7 @@ public class TutorialEvents : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] LevelManager levelManager;
 
-    [TextArea(3, 6)]
+    [TextArea(3, 10)]
     [SerializeField] string[] sentences;
     [SerializeField] string criteria0to1;
     [SerializeField] string criteria1to2;
