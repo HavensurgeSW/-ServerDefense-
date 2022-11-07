@@ -19,4 +19,4 @@ MonoBehaviour:
   - 'CD <Location>. '
   - Use NETSTAT to find a list of locations.
   errorResponse:
-  - '<CD>: Location not found'
+  - Location not found

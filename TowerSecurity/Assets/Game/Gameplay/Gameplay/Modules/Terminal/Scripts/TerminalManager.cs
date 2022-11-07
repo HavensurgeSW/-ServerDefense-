@@ -20,6 +20,16 @@ public class TerminalManager : MonoBehaviour
 
     private Action<string> OnInputCommand = null;
 
+    private void OnEnable()
+    {
+        GameManager.OnHistoryInput += UpdateInputField;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnHistoryInput -= UpdateInputField;
+    }
+
     public void Init(Action<string> onInputCommand)
     {
         OnInputCommand = onInputCommand;
@@ -61,6 +71,10 @@ public class TerminalManager : MonoBehaviour
     private void ClearInputField()
     {
         terminalInput.text = string.Empty;
+    }
+
+    private void UpdateInputField(string userInput) {
+        terminalInput.text = userInput;
     }
 
     private void GenerateCmdEntries(List<string> userInput)

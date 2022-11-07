@@ -19,8 +19,8 @@ MonoBehaviour:
   helpResponse:
   - UPDATE <Info / Deploy>
   - Upgrades program on selected location, costs KB
-  - Use <INFO> argument for upgrade information
-  - Use <DEPLOY> argument to upgrade the program to its next version
+  - Use UPDATE INFO  for update information
+  - Use UPDATE DEPLOY update the program to its next version
   errorResponse:
   - Argument not recognized
   - Use UPDATE HELP for more information

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad478cffb607878449fa80ac6b28ddf9, type: 3}
   m_Name: StatsData_Antivirus_3
   m_EditorClassIdentifier: 
-  damage: 7
-  fireRate: 0.9
+  damage: 4
+  fireRate: 0.8
   range: 7.5
   targets:
   - Enemy
-  targetCount: 1
+  targetCount: 2
