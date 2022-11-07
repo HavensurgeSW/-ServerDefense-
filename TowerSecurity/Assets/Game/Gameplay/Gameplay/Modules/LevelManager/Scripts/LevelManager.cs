@@ -35,6 +35,11 @@ public class LevelManager : MonoBehaviour
 
     public void BeginWave(int index)
     {
+        if (wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
+        {
+            return;
+        }
+
         wavesController.StartWave(index, OnWaveEnd);
         //UIManager.OnWaveEnd?.Invoke(true);
         packetsHandler.StartPacketsWave();

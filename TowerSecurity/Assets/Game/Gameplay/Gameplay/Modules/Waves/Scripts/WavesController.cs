@@ -25,10 +25,6 @@ public class WavesController : MonoBehaviour
 
     public void StartWave(int index, Action onWaveCompleted)
     {
-        if (isWaveSpawning || isInWave)
-        {
-            return;
-        }
 
         if (index >= waves.Length)
         {

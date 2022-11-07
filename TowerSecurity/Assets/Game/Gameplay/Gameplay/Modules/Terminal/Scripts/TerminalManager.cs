@@ -54,12 +54,14 @@ public class TerminalManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return)||Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             OnInputCommand(terminalInput.text);
             ClearInputField();
             SelectInputField();
         }
+
+        
     }
 
     private void SelectInputField()
