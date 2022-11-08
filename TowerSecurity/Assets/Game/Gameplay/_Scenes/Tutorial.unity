@@ -2198,6 +2198,143 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2392eda9d4ab7d40a520a6f0ba830a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commands:
+  - name: CMDS
+    info: {fileID: 11400000, guid: 3b36f8ae055a66645b9e69a7f3211ab7, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_ReturnCommands
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: CD
+    info: {fileID: 11400000, guid: feccb80dd99d840459f64345a4328f9b, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_ChangeDirectory
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: NETSTAT
+    info: {fileID: 11400000, guid: 9e43c83807ba3104e810e474087e4809, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_ReturnLocations
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: INSTALL
+    info: {fileID: 11400000, guid: d942b080306bcfe40897db17c3fe4f9c, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_InstallTower
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: UNINSTALL
+    info: {fileID: 11400000, guid: 297abdc9d9e0e3c4293c86659ffb0f11, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_UninstallTower
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: UPDATE
+    info: {fileID: 11400000, guid: f7d42c451dd03484f910dababf6a80bb, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_UpdateTower
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: NETWORK
+    info: {fileID: 11400000, guid: a71252c8d42a93b459bdb59a21f5f4a8, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_NetworkController
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: QUIT
+    info: {fileID: 11400000, guid: a7a0537280b112648b3d7fef86eb5e48, type: 2}
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1308555774}
+          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
+          m_MethodName: Command_QuitGame
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   helpInfo: {fileID: 11400000, guid: b773addd88fd7884b98c8070c86bb2ef, type: 2}
 --- !u!1 &1324258151
 GameObject:
