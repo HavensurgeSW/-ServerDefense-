@@ -61,7 +61,7 @@ public class TerminalManager : MonoBehaviour
             InputTerminalText(terminalInput.text);
             ClearInputField();
             SelectInputField();
-        }
+        }        
     }
 
     private void HandleUserHistory()
@@ -134,6 +134,7 @@ public class TerminalManager : MonoBehaviour
     private void UpdateInputField(string userInput) 
     {
         terminalInput.text = userInput;
+        terminalInput.MoveTextEnd(false);
     }
 
     private void GenerateCmdEntries(List<string> userInput)

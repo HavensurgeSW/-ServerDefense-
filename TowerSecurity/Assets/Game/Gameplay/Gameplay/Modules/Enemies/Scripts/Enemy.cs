@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Healthbar enemyHP = null;
     [SerializeField] private float targetChangeDist = 0.1f;
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField]private bool initialFlip = false;
 
     private Transform[] wpPath = null;
 
@@ -36,6 +37,8 @@ public class Enemy : MonoBehaviour
         OnDeath = onDeath;
 
         targetIndex = 0;
+
+        sr.flipX = initialFlip;
 
         transform.position = wpPath[targetIndex].position;
     }
@@ -72,22 +75,15 @@ public class Enemy : MonoBehaviour
     {
         if (targetIndex < wpPath.Length - 1)
         {
-            FlipTexture();
+            if (targetIndex!=0)
+                FlipTexture();
             targetIndex++;
         }
     }
 
     private void FlipTexture() {
-
-
-        if (isFlipped)
-        {
-            sr.flipX = true;
-            isFlipped = false;
-        }
-        else { 
-            sr.flipX = false;
-            isFlipped = true;
-        }
+        
+        sr.flipX = isFlipped;
+        isFlipped = !isFlipped;
     }
 }
