@@ -28,12 +28,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool debugScore = false;
     [SerializeField] private int startingPackets;
 
-    [Header("History List")]
-    [SerializeField] private List<String> userHistory = new List<String>();  //command list for the player to cycle through with arrowkeys
-    public static Action<string> OnHistoryInput;
-    [SerializeField]private int currentHistoryIndex = 0;
-
-
     private Camera mainCamera = null;
     private int packetScore = 0;
     private int currentWave = 0;
@@ -75,33 +69,6 @@ public class GameManager : MonoBehaviour
         Server.OnPacketEntry -= UpdatePacketScore;
     }
 
-
-    private void Update()
-    {
-        if (userHistory.Count == 0) {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
-            if (currentHistoryIndex == userHistory.Count)
-            { 
-                return;
-            }
-            if (currentHistoryIndex < userHistory.Count-1) { 
-                 currentHistoryIndex++;
-            }
-            OnHistoryInput?.Invoke(userHistory[currentHistoryIndex]);
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            currentHistoryIndex--;
-            if (currentHistoryIndex <= 0) {
-                currentHistoryIndex = 0;
-            }
-            OnHistoryInput?.Invoke(userHistory[currentHistoryIndex]);
-        }
-    }
     private void LoseGame()
     {
         SceneManager.LoadScene(1);
@@ -113,9 +80,6 @@ public class GameManager : MonoBehaviour
         text = text.ToLower();
         string[] arguments = text.Split(' ');
         bool searchHit = false;
-
-        userHistory.Add(text);
-        currentHistoryIndex = userHistory.Count;
 
         foreach (Command cmd in commands)
         {

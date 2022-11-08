@@ -8,32 +8,28 @@ using TMPro;
 
 public class TerminalManager : MonoBehaviour
 {
-    [Header("Prefabs")]
-    [SerializeField] private GameObject cmdEntryPrefab = null;
-
-    [Header("Required components")]
+    [Header("Main Configuration")]
     [SerializeField] private TMP_InputField terminalInput = null;
+    [SerializeField] private GameObject cmdEntryPrefab = null;
     [SerializeField] private Transform logHolder = null;
+    
+    [Header("History Configuration")]
+    [SerializeField] private int maxCachedInputsCount = 5;
 
     private List<CmdEntry> activeEntries = null;
     private ObjectPool<CmdEntry> entriesPool = null;
+    private List<string> userHistory = null;
+    private int currentHistoryIndex = 0;
 
+    private Action<string> OnHistoryInput = null;
     private Action<string> OnInputCommand = null;
-
-    private void OnEnable()
-    {
-        GameManager.OnHistoryInput += UpdateInputField;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.OnHistoryInput -= UpdateInputField;
-    }
 
     public void Init(Action<string> onInputCommand)
     {
         OnInputCommand = onInputCommand;
+        OnHistoryInput = UpdateInputField;
 
+        userHistory = new List<string>();
         activeEntries = new List<CmdEntry>();
         entriesPool = new ObjectPool<CmdEntry>(CreateEntry, GetEntry, ReleaseEntry);
 
@@ -48,18 +44,80 @@ public class TerminalManager : MonoBehaviour
 
     private void Update()
     {
+        HandleTerminalInput();
+        HandleUserHistory();       
+    }
+
+    private void HandleTerminalInput()
+    {
         if (string.IsNullOrEmpty(terminalInput.text))
         {
             SelectInputField();
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.Return))
+        
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            OnInputCommand(terminalInput.text);
+            InputTerminalText(terminalInput.text);
             ClearInputField();
             SelectInputField();
         }
+    }
+
+    private void HandleUserHistory()
+    {
+        if (userHistory.Count == 0)
+        {
+            return;
+        }
+
+        bool updateText = false;
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (currentHistoryIndex >= userHistory.Count)
+            {
+                return;
+            }
+
+            if (currentHistoryIndex < userHistory.Count - 1)
+            {
+                currentHistoryIndex++;
+            }
+
+            updateText = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            currentHistoryIndex--;
+
+            if (currentHistoryIndex <= 0)
+            {
+                currentHistoryIndex = 0;
+            }
+
+            updateText = true;
+        }
+
+        if (updateText)
+        {
+            OnHistoryInput?.Invoke(userHistory[currentHistoryIndex]);
+        }
+    }
+
+    private void InputTerminalText(string text)
+    {
+        OnInputCommand(text);
+
+        userHistory.Add(text);
+
+        if (userHistory.Count > maxCachedInputsCount)
+        {
+            userHistory.RemoveAt(0);
+        }
+
+        currentHistoryIndex = userHistory.Count;
     }
 
     private void SelectInputField()
@@ -73,7 +131,8 @@ public class TerminalManager : MonoBehaviour
         terminalInput.text = string.Empty;
     }
 
-    private void UpdateInputField(string userInput) {
+    private void UpdateInputField(string userInput) 
+    {
         terminalInput.text = userInput;
     }
 
