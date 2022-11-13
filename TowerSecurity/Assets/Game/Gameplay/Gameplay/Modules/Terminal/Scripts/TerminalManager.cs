@@ -66,7 +66,7 @@ public class TerminalManager : MonoBehaviour
 
     private void HandleUserHistory()
     {
-        if (userHistory.Count == 0)
+        if (userHistory == null || userHistory.Count == 0)
         {
             return;
         }

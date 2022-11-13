@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Gameplay Values")]
     [SerializeField] private float timerSeconds = 0;
+    [SerializeField] private int startingPackets = 0;
 
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
-    [SerializeField] private int startingPackets;
 
     private int packetScore = 0;
     private int currentWave = 0;
@@ -33,22 +33,39 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         packetScore = debugScore ? 10000 : startingPackets;
+        
+        uiManager.Init(timerSeconds);
         uiManager.UpdatePacketPointsText(packetScore);
 
-        Server.OnDeath += LoseGame;
-        Server.OnPacketEntry += UpdatePacketScore;
-
-        commandManager.Init(uiManager, terminal, levelManager, mapHandler, towersController);
-        commandManager.SetCallbacks(UpdatePacketScore, GetCurrentWaveIndex, GetPacketScore);
+        commandManager.Init(terminal, levelManager, mapHandler, towersController);
+        commandManager.SetCallbacks(UpdatePacketScore, GetCurrentWaveIndex, GetPacketScore, uiManager.GeneratePopUp);
 
         levelManager.Init(IncreaseCurrentWaveValue);
-        uiManager.Init(timerSeconds);
-
-        uiManager.AddOnTimerEndCallback(() => levelManager.BeginWave(currentWave));
 
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
+    }
+
+    private void OnEnable()
+    {
+        Server.OnDeath += LoseGame;
+        Server.OnPacketEntry += UpdatePacketScore;
+
+        uiManager.AddOnTimerEndCallback(BeginCurrentWave);
+    }
+
+    private void OnDisable()
+    {
+        Server.OnDeath -= LoseGame;
+        Server.OnPacketEntry -= UpdatePacketScore;
+
+        uiManager.RemoveOnTimerEndCallback(BeginCurrentWave);
+    }
+
+    private void BeginCurrentWave()
+    {
+        levelManager.BeginWave(currentWave);
     }
 
     private int GetPacketScore()
@@ -72,12 +89,6 @@ public class GameManager : MonoBehaviour
         uiManager.UpdatePacketPointsText(packetScore);
     }
 
-    private void OnDisable()
-    {
-        Server.OnDeath -= LoseGame;
-        Server.OnPacketEntry -= UpdatePacketScore;
-    }
-
     private void LoseGame()
     {
         SceneManager.LoadScene(1);
@@ -87,21 +98,17 @@ public class GameManager : MonoBehaviour
     {
         text = text.ToLower();
         string[] arguments = text.Split(' ');
-        bool searchHit = false;
+        string commandId = arguments[0];
 
-        foreach (Command cmd in commandManager.COMMANDS)
-        {
-            if (cmd.INFO.ID == arguments[0])
-            {
-                searchHit = true;
-                commandManager.ProcessCommand(cmd, arguments);
-                break;
-            }
-        }
+        Command command = commandManager.GetCommand(commandId);
 
-        if (!searchHit)
+        if (command == null)
         {
             terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type HELP for a list of commands" });
+            return;
         }
+
+        uiManager.ClearAllPopUps();
+        commandManager.ProcessCommand(command, arguments);
     }
 }

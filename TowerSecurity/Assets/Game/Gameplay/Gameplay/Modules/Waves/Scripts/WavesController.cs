@@ -9,14 +9,17 @@ public class WavesController : MonoBehaviour
 
     private WaveData activeWave = null;
     private int currentWaveEnemyCount = 0;
+
     private bool isWaveSpawning = false;
     private bool isInWave = false;
+    private bool allWavesComplete = false;
 
     private Action<string, Action> OnEnemySpawned = null;
     private Action OnWaveCompleted = null;
 
     public bool IS_WAVE_SPAWNING { get => isWaveSpawning; }
     public bool IS_IN_WAVE { get => isInWave; }
+    public bool ALL_WAVES_COMPLETE { get => allWavesComplete; }
 
     public void Init(Action<string, Action> onEnemySpawned)
     {
@@ -25,7 +28,6 @@ public class WavesController : MonoBehaviour
 
     public void StartWave(int index, Action onWaveCompleted)
     {
-
         if (index >= waves.Length)
         {
             return;

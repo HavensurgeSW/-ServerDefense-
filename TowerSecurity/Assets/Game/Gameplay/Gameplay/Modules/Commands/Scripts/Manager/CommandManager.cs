@@ -6,39 +6,78 @@ using UnityEngine.SceneManagement;
 
 public class CommandManager : MonoBehaviour
 {
+    [Header("Main Configuration")]
     [SerializeField] private List<Command> commands = new List<Command>();
+    
+    [Header("Helper commands Configuration")]
     [SerializeField] private HelpCommandInfo helpInfo = null;
 
     private Camera mainCamera = null;
 
-    private UIManager uiManager = null;
     private TerminalManager terminal = null;
     private MapHandler mapHandler = null;
     private LevelManager levelManager = null;
     private TowersController towersController = null;
 
-    public List<Command> COMMANDS { get => commands; }
-
     private Action<int> OnUpdatePacketScore = null;
+    private Action<string, Vector3> OnGeneratePopup = null;
     private Func<int> OnGetCurrentWaveIndex = null;
     private Func<int> OnGetPacketScore = null;
 
-    public void Init(UIManager uiManager, TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController)
+    public void Init(TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController)
     {
         mainCamera = Camera.main;
 
-        this.uiManager = uiManager;
         this.terminal = terminal;
         this.levelManager = levelManager;
         this.mapHandler = mapHandler;
         this.towersController = towersController;
     }
 
-    public void SetCallbacks(Action<int> onUpdatePacketScore, Func<int> onGetCurrentWaveIndex, Func<int> onGetPacketScore)
+    public void SetCallbacks(Action<int> onUpdatePacketScore, Func<int> onGetCurrentWaveIndex, Func<int> onGetPacketScore, Action<string, Vector3> onGeneratePopup)
     {
         OnUpdatePacketScore = onUpdatePacketScore;
         OnGetCurrentWaveIndex = onGetCurrentWaveIndex;
         OnGetPacketScore = onGetPacketScore;
+        OnGeneratePopup = onGeneratePopup;
+    }
+
+    public void ProcessCommand(Command command, string[] fullArguments)
+    {
+        string[] commandArg = new string[fullArguments.Length - 1];
+
+        for (int i = 1; i <= commandArg.Length; i++)
+        {
+            commandArg[i - 1] = fullArguments[i];
+        }
+
+        if (CheckHelpCommand(commandArg))
+        {
+            TriggerHelpResponse(command.INFO);
+            //OnHelpArgument?.Invoke();  USED
+            return;
+        }
+
+        if (!CheckCommandArguments(commandArg, command.INFO))
+        {
+            ShowTerminalLines(new List<string> { "Invalid argument amount" });
+            return;
+        }
+
+        command.CALLBACK?.Invoke(commandArg, command.INFO);
+    }
+
+    public Command GetCommand(string id)
+    {
+        foreach (Command cmd in commands)
+        {
+            if (cmd.INFO.ID == id)
+            {
+                return cmd;
+            }
+        }
+
+        return null;
     }
 
     private bool CheckCommandArguments(string[] args, CommandInfo info)
@@ -95,33 +134,7 @@ public class CommandManager : MonoBehaviour
         terminal.AddInterpreterLines(lines);
     }
 
-    public void ProcessCommand(Command command, string[] fullArguments)
-    {
-        uiManager.ClearAllPopUps();
-
-        string[] commandArg = new string[fullArguments.Length - 1];
-
-        for (int i = 1; i <= commandArg.Length; i++)
-        {
-            commandArg[i - 1] = fullArguments[i];
-        }
-
-        if (CheckHelpCommand(commandArg))
-        {
-            TriggerHelpResponse(command.INFO);
-            //OnHelpArgument?.Invoke();  USED
-            return;
-        }
-
-        if (!CheckCommandArguments(commandArg, command.INFO))
-        {
-            ShowTerminalLines(new List<string> { "Invalid argument amount" });
-            return;
-        }
-
-        command.CALLBACK?.Invoke(commandArg, command.INFO);
-    }
-
+    #region COMMANDS
     public void Command_ReturnCommands(string[] args, CommandInfo cmdi)
     {
         //OnHelpCommand?.Invoke();
@@ -154,7 +167,7 @@ public class CommandManager : MonoBehaviour
         {
             Location loc = levelManager.LOCATIONS[i];
             locList.Add(loc.ID);
-            uiManager.GeneratePopUp(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
+            OnGeneratePopup?.Invoke(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
         }
 
         ShowTerminalLines(locList);
@@ -175,7 +188,7 @@ public class CommandManager : MonoBehaviour
                     mapHandler.SetTileToDefault(mapHandler.CURRENT_LOCATION.transform.position);
                 }
 
-                uiManager.GeneratePopUp(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
+                OnGeneratePopup?.Invoke(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
 
                 mapHandler.SetCurrentLocation(loc);
                 loc.ToggleSelected(true);
@@ -357,4 +370,5 @@ public class CommandManager : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+    #endregion
 }

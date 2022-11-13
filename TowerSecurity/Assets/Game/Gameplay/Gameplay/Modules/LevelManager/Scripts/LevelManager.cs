@@ -1,14 +1,17 @@
 using System;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Main Configuration")]
     [SerializeField] private EnemyHandler enemyHandler = null;
-    [SerializeField] private WaypointManager waypoints = null;
-    [SerializeField] private Location[] locations = null;
     [SerializeField] private WavesController wavesController = null;
     [SerializeField] private PacketsHandler packetsHandler = null;
+    [SerializeField] private WaypointManager waypointManager = null;
+    
+    [Header("Locations Configuration")]
+    [SerializeField] private Location[] locations = null;
 
     private Action OnWaveEnd = null;
 
@@ -18,19 +21,11 @@ public class LevelManager : MonoBehaviour
     {
         OnWaveEnd = onWaveEnd;
 
-        enemyHandler.Init(waypoints.WAYPOINTS);
+        enemyHandler.Init(waypointManager.WAYPOINTS);
         
-        packetsHandler.Init(waypoints.WAYPOINTS);
-
-        //wavesController.Init(
-        //    (id, onDeath) =>
-        //    {
-        //        enemyHandler.GenerateEnemy(id, onDeath);
-        //    },
-        //    OnWaveEnd);
+        packetsHandler.Init(waypointManager.WAYPOINTS);
 
         wavesController.Init(enemyHandler.GenerateEnemy);
-
     }
 
     public void BeginWave(int index)

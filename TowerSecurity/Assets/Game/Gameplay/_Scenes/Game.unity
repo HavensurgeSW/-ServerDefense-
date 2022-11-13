@@ -1530,7 +1530,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHandler: {fileID: 1812599583}
-  waypoints: {fileID: 1215247150}
+  wavesController: {fileID: 1555728289}
+  packetsHandler: {fileID: 1245370529}
+  waypointManager: {fileID: 1215247150}
   locations:
   - {fileID: 993120161}
   - {fileID: 1631644291}
@@ -1538,8 +1540,6 @@ MonoBehaviour:
   - {fileID: 1833167171}
   - {fileID: 2079476870}
   - {fileID: 1217322578}
-  wavesController: {fileID: 1555728289}
-  packetsHandler: {fileID: 1245370529}
 --- !u!4 &983216370
 Transform:
   m_ObjectHideFlags: 0
@@ -3276,7 +3276,7 @@ MonoBehaviour:
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
   timerSeconds: 12
-  debugScore: 0
+  debugScore: 1
   startingPackets: 10
 --- !u!4 &1899149030
 Transform:

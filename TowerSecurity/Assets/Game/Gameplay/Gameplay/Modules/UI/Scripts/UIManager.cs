@@ -9,8 +9,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static Action<bool> OnWaveEnd;
-    Action OnTimerEnd;
+    public static Action<bool> OnWaveEnd = null;
 
     [Header("Server Configuration")]
     [SerializeField] private Server server = null;
@@ -22,14 +21,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Vector2 offset = Vector2.zero;  
     [SerializeField] private Transform popUpsHolder = null;  
 
-    [SerializeField] private Image timerBar;
+    [SerializeField] private Image timerBar = null;
 
-    bool isTimerEnabled = false;
-    float timeLeft = 0;
-    float maxTime = 0;
+    private bool isTimerEnabled = false;
+    private float timeLeft = 0;
+    private float maxTime = 0;
 
     private ObjectPool<PopUp> popUpPool = null;
     private List<PopUp> activePopUps = null;
+
+    private Action OnTimerEnd = null;
 
     public void Init(float f)
     {
@@ -70,7 +71,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void AddOnTimerEndCallback(Action callback) {
+    public void AddOnTimerEndCallback(Action callback) 
+    {
         OnTimerEnd += callback;
     }
 
@@ -103,18 +105,21 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (isTimerEnabled) {
-            if (timeLeft > 0) 
-            {
-                timeLeft -= Time.deltaTime;
-                timerBar.fillAmount = timeLeft / maxTime;
+        if (!isTimerEnabled)
+        {
+            return;
+        }
 
-                if (timeLeft <= 0)
-                {
-                    timeLeft = maxTime;
-                    isTimerEnabled = false;
-                    OnTimerEnd?.Invoke();
-                }
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            timerBar.fillAmount = timeLeft / maxTime;
+
+            if (timeLeft <= 0)
+            {
+                timeLeft = maxTime;
+                isTimerEnabled = false;
+                OnTimerEnd?.Invoke();
             }
         }
     }
