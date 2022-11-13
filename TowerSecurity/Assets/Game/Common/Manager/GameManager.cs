@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public event Action<string> OnChangeDirectory;
-    public event Action<string> OnInstallTower;
-    public event Action OnHelpArgument;
-    //public event Action OnNetworkInit;
-    public event Action<string> OnUpdateTower;
-    //public event Action OnHelpCommand;
-
     [SerializeField] private CommandManager commandManager = null;
     [SerializeField] private UIManager uiManager = null;
     [SerializeField] private TerminalManager terminal = null;

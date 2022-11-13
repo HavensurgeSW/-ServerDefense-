@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class CommandManager : MonoBehaviour
 {
+    // TEMPORARY
+    public event Action<string> OnChangeDirectory = null;
+    public event Action<string> OnInstallTower = null;
+    public event Action OnHelpArgument = null;
+    public event Action<string> OnUpdateTower = null;
+    //public event Action OnNetworkInit;
+    //public event Action OnHelpCommand;
+
+
     [Header("Main Configuration")]
     [SerializeField] private List<Command> commands = new List<Command>();
     
@@ -54,7 +63,7 @@ public class CommandManager : MonoBehaviour
         if (CheckHelpCommand(commandArg))
         {
             TriggerHelpResponse(command.INFO);
-            //OnHelpArgument?.Invoke();  USED
+            OnHelpArgument?.Invoke();
             return;
         }
 
@@ -137,7 +146,7 @@ public class CommandManager : MonoBehaviour
     #region COMMANDS
     public void Command_ReturnCommands(string[] args, CommandInfo cmdi)
     {
-        //OnHelpCommand?.Invoke();
+        //OnHelpCommand?.Invoke(); UNUSED
 
         List<string> commandIds = new List<string>();
 
@@ -155,7 +164,7 @@ public class CommandManager : MonoBehaviour
         {
             levelManager.BeginWave(OnGetCurrentWaveIndex());
             TriggerSuccessResponse(cmdi);
-            //OnNetworkInit?.Invoke();
+            //OnNetworkInit?.Invoke(); UNUSED
         }
     }
 
@@ -197,7 +206,7 @@ public class CommandManager : MonoBehaviour
                 terminal.ClearCmdEntries();
 
                 //Action callout
-                //OnChangeDirectory?.Invoke(locName);
+                OnChangeDirectory?.Invoke(locName);
 
                 break;
             }
@@ -246,7 +255,7 @@ public class CommandManager : MonoBehaviour
         currentLoc.SetTower(actualTower);
         currentLoc.SetAvailable(false);
 
-        //OnInstallTower?.Invoke(towerId);
+        OnInstallTower?.Invoke(towerId);
 
         TriggerSuccessResponse(cmdi);
     }
@@ -291,7 +300,7 @@ public class CommandManager : MonoBehaviour
         }
         else if (keyword == info.DEPLOY_ID)
         {
-            //OnUpdateTower?.Invoke(selectedTower.ID);
+            OnUpdateTower?.Invoke(selectedTower.ID);
             TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData, () => TriggerSuccessResponse(info));
         }
     }
