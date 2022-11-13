@@ -21,16 +21,14 @@ public class LevelManager : MonoBehaviour
     {
         OnWaveEnd = onWaveEnd;
 
-        enemyHandler.Init(waypointManager.WAYPOINTS);
-        
+        enemyHandler.Init(waypointManager.WAYPOINTS);        
         packetsHandler.Init(waypointManager.WAYPOINTS);
-
         wavesController.Init(enemyHandler.GenerateEnemy);
     }
 
     public void BeginWave(int index)
     {
-        if (wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
+        if (wavesController.ALL_WAVES_COMPLETE || wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
         {
             return;
         }

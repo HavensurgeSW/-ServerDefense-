@@ -48,6 +48,8 @@ public class WavesController : MonoBehaviour
             isInWave = false;
             OnWaveCompleted?.Invoke();
             UIManager.OnWaveEnd?.Invoke(true);
+
+            allWavesComplete = activeWave == waves[waves.Length - 1];
         }
     }
 
