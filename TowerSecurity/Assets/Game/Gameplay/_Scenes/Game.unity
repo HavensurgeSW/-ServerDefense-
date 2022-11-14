@@ -3292,8 +3292,6 @@ MonoBehaviour:
   timerSeconds: 12
   debugScore: 0
   startingPackets: 10
-  userHistory: []
-  currentHistoryIndex: 0
 --- !u!4 &1899149030
 Transform:
   m_ObjectHideFlags: 0

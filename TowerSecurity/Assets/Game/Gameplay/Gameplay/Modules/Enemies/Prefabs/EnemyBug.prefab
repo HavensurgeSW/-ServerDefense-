@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7186722502032833128}
   - component: {fileID: -3775736196231666436}
   m_Layer: 0
-  m_Name: EnemyVirus
+  m_Name: EnemyBug
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546752201628287827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0402, y: -0.0402, z: 0}
-  m_LocalScale: {x: 0.062139, y: 0.062139, z: 0.062139}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.07000001, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6983392614677083972}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f4f337dc4582aa45929255ab8809468, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: -1526397257
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -560976782, guid: 214f3e298fbba9e478058ea91021a0ce, type: 3}
+  m_Sprite: {fileID: 855288607, guid: f5439456dc5e42848b7ebd847fab4f0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8828125}
+  m_Size: {x: 1.0002443, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

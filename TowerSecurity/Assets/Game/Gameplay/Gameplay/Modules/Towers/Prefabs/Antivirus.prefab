@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimbot: {fileID: 4162758365069447044}
-  towerLaserPrefab: {fileID: 7814268181205784194, guid: ece4064fb48adb844947c56e4b067175, type: 3}
+  towerLaserPrefab: {fileID: 7814268181205784194, guid: 584b1c24bea04294a932541ec9f5faf5, type: 3}
   towerLasersHolder: {fileID: 6280867541610574988}
   damage: 1
   rangeRadius: 2
