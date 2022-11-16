@@ -74,7 +74,8 @@ public class Firewall : BaseTower
             for (int i = 0; i < positions.Length; i++)
             {
                 lasersList[i].SetPositionCount(2);
-                lasersList[i].DrawLine(transform.position, positions[i]);
+                lasersList[i].DrawLine(towerLasersHolder.transform.position, positions[i]);
+                
             }
         }
         else

@@ -32,7 +32,7 @@ public class Antivirus : BaseTower
         if (aimbot.ContainsTargets())
         {
             laser.SetPositionCount(maxTargets + 1);
-            laser.DrawLine(transform.position, aimbot.TARGETS[0].transform.position);
+            laser.DrawLine(towerLasersHolder.transform.position, aimbot.TARGETS[0].transform.position);
         }
         else
         {
