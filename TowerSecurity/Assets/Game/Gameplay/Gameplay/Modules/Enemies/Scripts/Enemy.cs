@@ -23,6 +23,12 @@ public class Enemy : MonoBehaviour
     public string ID { get => id; }
     public int DAMAGE { get => damage; }
 
+    private void OnEnable()
+    {
+        sr.flipX = initialFlip;
+    }
+
+
     public void Init(EnemyData data, Transform[] wpList, Action<Enemy> onDeath)
     {
         wpPath = wpList;
@@ -75,7 +81,7 @@ public class Enemy : MonoBehaviour
     {
         if (targetIndex < wpPath.Length - 1)
         {
-            if (targetIndex!=0)
+            //if (targetIndex!=0)
                 FlipTexture();
             targetIndex++;
         }

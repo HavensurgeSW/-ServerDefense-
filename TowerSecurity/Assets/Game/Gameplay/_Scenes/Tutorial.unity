@@ -1079,6 +1079,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 354937055013319115, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 354937055013319115, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb7e901bd44f60c4582affb4af7fb870, type: 3}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: gameManager
       value: 
