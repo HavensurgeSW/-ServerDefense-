@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 8062796150195501830}
   - component: {fileID: 151229865600273899}
   - component: {fileID: -8934633230911298463}
-  - component: {fileID: 93587329}
   m_Layer: 0
   m_Name: Antivirus
   m_TagString: Tower
@@ -224,7 +223,11 @@ MonoBehaviour:
   damage: 1
   rangeRadius: 2
   fireRate: 1
-  HDR: {fileID: 93587329}
+  sr: {fileID: 8062796150195501830}
+  mtl:
+  - {fileID: 2100000, guid: deac4aa0f8a28684c87c3cecaf7c4bec, type: 2}
+  - {fileID: 2100000, guid: e968c3b956cdbdb4081e97541ff1886f, type: 2}
+  - {fileID: 2100000, guid: 6bb90fdb2dd11794e888fa334126cbfd, type: 2}
   maxTargets: 1
 --- !u!95 &-8934633230911298463
 Animator:
@@ -246,21 +249,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &93587329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2447185751727838718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083da75789baf324483f22ca613884a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mtl: {fileID: 2100000, guid: deac4aa0f8a28684c87c3cecaf7c4bec, type: 2}
-  mtlColor:
-  - {r: 0.9034149, g: 0.9150943, b: 0.19424175, a: 0}
 --- !u!1001 &4418419833217909743
 PrefabInstance:
   m_ObjectHideFlags: 0

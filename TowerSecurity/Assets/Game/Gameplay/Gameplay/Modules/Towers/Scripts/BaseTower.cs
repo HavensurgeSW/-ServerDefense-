@@ -10,7 +10,10 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected float fireRate = 1.0f;
-    [SerializeField] private HDRSwitcher HDR;
+
+    [Header("Visual Configuration")]
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Material[] mtl;
 
     protected ObjectPool<TowerLaser> laserPool = null;
 
@@ -97,8 +100,7 @@ public abstract class BaseTower : MonoBehaviour
         rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
         fireRate = stats.FIRE_RATE;
-        HDR.UpdateTowerColor();
-
+        sr.material = mtl[CURRENT_LEVEL];
         
         //TargetCount contra el aimbot aca
     }
