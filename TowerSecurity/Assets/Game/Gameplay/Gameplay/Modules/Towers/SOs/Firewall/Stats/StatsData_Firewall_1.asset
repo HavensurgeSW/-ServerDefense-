@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StatsData_Firewall_1
   m_EditorClassIdentifier: 
   damage: 2
-  fireRate: 2
+  fireRate: 2.5
   range: 7.5
   targets:
   - Enemy

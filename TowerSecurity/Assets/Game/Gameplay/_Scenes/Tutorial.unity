@@ -1128,8 +1128,8 @@ PrefabInstance:
         Installing
         a <Program> will cost you Kilobytes (KB)
 
-        On any empty location,
-        run <color=green>INSTALL ANTIVIRUS</color>'
+        On any <color=red>EMPTY</color>
+        location, run <color=green>INSTALL ANTIVIRUS</color>'
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[3]
@@ -1142,16 +1142,16 @@ PrefabInstance:
         There are different <Programs>
         you can install.
 
-        Run <color=green>INSTALL HELP</color> to find the
-        name of another <Program> and then INSTALL it.
+        Run <color=green>INSTALL</color><color=orange>
+        HELP</color> to find the name of another <Program> and then INSTALL it.
 
 '
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[4]
       value: "If you need to clear a <Location> to install another <Program>, use
-        the UNINSTALL command. \n\nUse <color=green>UNINSTALL HELP</color> for more
-        information about it."
+        the UNINSTALL command. \n\nUse <color=green>UNINSTALL</color><color=orange>
+        HELP</color> for more information about it."
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[5]
@@ -1174,7 +1174,7 @@ PrefabInstance:
       propertyPath: sentences.Array.data[7]
       value: 'Looks like you are good to go.
 
-        Run <color=green>QUIT APPLICATION</color>
+        Run <color=green>QUIT APP</color>
         to return to the main menu.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
