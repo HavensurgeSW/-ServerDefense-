@@ -21,7 +21,7 @@ MonoBehaviour:
   - Install a program on an available location
   - 'Current available PROGRAMS: antivirus, firewall'
   - 'ANTIVIRUS cost: 8 KB'
-  - 'FIREWALL cost: 12 KB'
+  - 'FIREWALL cost: 14 KB'
   errorResponse:
   - Location unavailable or tower type does not exist
   invalidLocationResponse:

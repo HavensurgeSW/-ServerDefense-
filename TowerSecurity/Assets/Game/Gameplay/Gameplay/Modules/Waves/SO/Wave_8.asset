@@ -15,4 +15,4 @@ MonoBehaviour:
   waveSpawnData:
   - enemyId: spider
     enemyCount: 25
-    spawnDelayPerEnemy: 0.2
+    spawnDelayPerEnemy: 0.45

@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveSpawnData:
   - enemyId: spider
-    enemyCount: 11
-    spawnDelayPerEnemy: 0.5
+    enemyCount: 5
+    spawnDelayPerEnemy: 1
+  - enemyId: bug
+    enemyCount: 3
+    spawnDelayPerEnemy: 0.7
+  - enemyId: spider
+    enemyCount: 2
+    spawnDelayPerEnemy: 1
+  - enemyId: spider
+    enemyCount: 1
+    spawnDelayPerEnemy: 1

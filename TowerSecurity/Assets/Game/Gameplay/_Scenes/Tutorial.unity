@@ -1079,6 +1079,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 354937055013319115, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 354937055013319115, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb7e901bd44f60c4582affb4af7fb870, type: 3}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: gameManager
       value: 
@@ -1124,8 +1132,8 @@ PrefabInstance:
         Installing
         a <Program> will cost you Kilobytes (KB)
 
-        On any empty location,
-        run <color=green>INSTALL ANTIVIRUS</color>'
+        On any <color=red>EMPTY</color>
+        location, run <color=green>INSTALL ANTIVIRUS</color>'
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[3]
@@ -1138,16 +1146,16 @@ PrefabInstance:
         There are different <Programs>
         you can install.
 
-        Run <color=green>INSTALL HELP</color> to find the
-        name of another <Program> and then INSTALL it.
+        Run <color=green>INSTALL</color><color=orange>
+        HELP</color> to find the name of another <Program> and then INSTALL it.
 
 '
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[4]
       value: "If you need to clear a <Location> to install another <Program>, use
-        the UNINSTALL command. \n\nUse <color=green>UNINSTALL HELP</color> for more
-        information about it."
+        the UNINSTALL command. \n\nUse <color=green>UNINSTALL</color><color=orange>
+        HELP</color> for more information about it."
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[5]
@@ -1170,7 +1178,7 @@ PrefabInstance:
       propertyPath: sentences.Array.data[7]
       value: 'Looks like you are good to go.
 
-        Run <color=green>QUIT APPLICATION</color>
+        Run <color=green>QUIT APP</color>
         to return to the main menu.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2382,6 +2390,7 @@ GameObject:
   - component: {fileID: 1374820844}
   - component: {fileID: 1374820843}
   - component: {fileID: 1374820842}
+  - component: {fileID: 1374820845}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2439,6 +2448,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1374820845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374820841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f769c7b5c358fc24291fbb3aae1b2f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showCursor: 0
 --- !u!1 &1426216113
 GameObject:
   m_ObjectHideFlags: 0

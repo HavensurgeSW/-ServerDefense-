@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AntivirusShaderMaterial
+  m_Name: AntivirusShaderMaterial2
   m_Shader: {fileID: -6465566751694194690, guid: 5d86d12cc74aaff4ea3239af2c8196b1, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,5 +43,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.06140983, g: 1, b: 0, a: 0}
+    - _Color: {r: 7.87451, g: 0.4392157, b: 0, a: 1}
   m_BuildTextureStacks: []

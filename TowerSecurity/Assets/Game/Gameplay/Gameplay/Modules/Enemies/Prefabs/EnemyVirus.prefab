@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546752201628287827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalPosition: {x: -0.0402, y: -0.0402, z: 0}
+  m_LocalScale: {x: 0.062139, y: 0.062139, z: 0.062139}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6983392614677083972}
@@ -119,6 +119,7 @@ MonoBehaviour:
   enemyHP: {fileID: 7480410776335054080}
   targetChangeDist: 0.01
   sr: {fileID: 5047868136145892314}
+  initialFlip: 0
 --- !u!95 &-3775736196231666436
 Animator:
   serializedVersion: 4
