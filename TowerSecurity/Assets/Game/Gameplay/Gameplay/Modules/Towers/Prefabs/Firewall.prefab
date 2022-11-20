@@ -137,6 +137,8 @@ MonoBehaviour:
   damage: 1
   rangeRadius: 2
   fireRate: 1
+  sr: {fileID: 8062796150195501830}
+  mtl: []
   maxTargets: 3
 --- !u!95 &-3806430238278940669
 Animator:

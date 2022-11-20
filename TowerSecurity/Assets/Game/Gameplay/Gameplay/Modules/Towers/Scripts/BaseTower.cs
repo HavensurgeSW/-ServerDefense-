@@ -100,7 +100,11 @@ public abstract class BaseTower : MonoBehaviour
         rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
         fireRate = stats.FIRE_RATE;
-        sr.material = mtl[CURRENT_LEVEL-1];
+
+        if (mtl != null && mtl.Length > 0)
+        {
+            sr.material = mtl[level - 1];
+        }
         
         //TargetCount contra el aimbot aca
     }
