@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 // Tile that repeats two sprites in checkerboard pattern
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "DebugTile", menuName = "DebugTile")]
 public class Debugging : TileBase
 {
     public Sprite spriteA;
