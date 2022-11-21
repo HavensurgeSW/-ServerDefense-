@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SceneController
 {
     [SerializeField] private CommandManager commandManager = null;
     [SerializeField] private UIManager uiManager = null;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private int packetScore = 0;
     private int currentWave = 0;
 
-    private void Awake()
+    protected override void Awake()
     {
         packetScore = debugScore ? 10000 : startingPackets;
         
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         terminal.Init(InterpretTerminalText);
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         uiManager.AddOnTimerEndCallback(BeginCurrentWave);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         Server.OnDeath -= LoseGame;
         Server.OnPacketEntry -= UpdatePacketScore;
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     private void LoseGame()
     {
-        SceneManager.LoadScene(1);
+        ChangeScene(CommonUtils.SCENE.MAIN_MENU);
     }
 
     private void InterpretTerminalText(string text)
