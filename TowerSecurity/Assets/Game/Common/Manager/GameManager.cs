@@ -84,7 +84,7 @@ public class GameManager : SceneController
 
     private void LoseGame()
     {
-        ChangeScene(CommonUtils.SCENE.MAIN_MENU);
+        ChangeScene(CommonUtils.SCENE.MAIN_MENU, false);
     }
 
     private void InterpretTerminalText(string text)

@@ -259,31 +259,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8358339427891592735}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenuUtilities, Assembly-CSharp
-        m_MethodName: StartButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8358339427515363315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,9 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebca7d49773551b489970392c1548920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator:
-  - {fileID: 8358339427891592733}
-  - {fileID: 0}
+  currentAnimator: {fileID: 8358339427891592733}
+  animator: []
 --- !u!1 &8358339427891592729
 GameObject:
   m_ObjectHideFlags: 0

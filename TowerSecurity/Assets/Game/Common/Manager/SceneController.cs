@@ -9,9 +9,16 @@ public abstract class SceneController : MonoBehaviour
     protected abstract void OnEnable();
     protected abstract void OnDisable();
 
-    protected void ChangeScene(SCENE scene)
+    protected void ChangeScene(SCENE scene, bool async)
     {
-        SceneManager.LoadScene((int)scene);
+        if (async)
+        {
+            SceneManager.LoadSceneAsync((int)scene);
+        }
+        else
+        {
+            SceneManager.LoadScene((int)scene);
+        }
     }
 
     protected void QuitApplication()

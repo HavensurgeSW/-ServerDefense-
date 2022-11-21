@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,10 +14,10 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private Button creditsButton = null;
     [SerializeField] private Button exitButton = null;
 
-    public void Init(Action onSwitchToCredits, Action<SCENE> onChangeScene, Action onExitGame)
+    public void Init(Action onSwitchToCredits, Action<SCENE, bool> onChangeScene, Action onExitGame)
     {
-        startGameButton.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.TOWER_DEFENSE));
-        tutorialButton.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.TUTORIAL));
+        startGameButton.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.TOWER_DEFENSE, true));
+        tutorialButton.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.TUTORIAL, true));
         creditsButton.onClick.AddListener(() => onSwitchToCredits?.Invoke());
         exitButton.onClick.AddListener(() => onExitGame?.Invoke());
     }

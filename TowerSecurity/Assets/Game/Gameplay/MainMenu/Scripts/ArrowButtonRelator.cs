@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
-public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Animator[] animator = null;
+    [SerializeField] private Animator currentAnimator = null;
+    [SerializeField] private Animator[] recursiveAnimator = null;
 
     private int isSelectedHash = Animator.StringToHash("isSelected");
 
@@ -18,20 +18,13 @@ public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerE
         RunAnimatorLoop(false);
     }
 
-    public void OnSelect(BaseEventData eventData)
+    private void RunAnimatorLoop(bool b) 
     {
-        RunAnimatorLoop(true);
-    }
-
-    public void OnDeselect(BaseEventData eventData)
-    {
-        RunAnimatorLoop(false);
-    }
-
-    private void RunAnimatorLoop(bool b) {
-        for (int i = 0; i < animator.Length; i++)
+        currentAnimator.SetBool(isSelectedHash, b);
+    
+        for (int i = 0; i < recursiveAnimator.Length; i++)
         {
-            animator[i].SetBool(isSelectedHash, b);
+            recursiveAnimator[i].SetBool(isSelectedHash, b);
         }
     }
 }
