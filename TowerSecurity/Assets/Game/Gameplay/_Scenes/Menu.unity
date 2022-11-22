@@ -1677,6 +1677,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d7b9110e083b35438da2eefa661eda3, type: 2}
   departmentHolderPrefab: {fileID: 335426443064782321, guid: 6f92d8e873e31664497e9a9bdc217cba, type: 3}
   creditTextPrefab: {fileID: 4820834780878993939, guid: ee6df086cdceca545bb4d2b733f67aad, type: 3}
+  logoHolderPrefab: {fileID: 4024302709777629961, guid: 6ec4bc67b4cf14947a85dd80279f3e1e, type: 3}
 --- !u!1 &1230387322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000036239624}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1713467765

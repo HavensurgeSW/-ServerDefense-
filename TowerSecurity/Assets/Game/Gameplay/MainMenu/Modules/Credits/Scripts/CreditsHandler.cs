@@ -14,6 +14,7 @@ public class CreditsHandler : MonoBehaviour
     [SerializeField] private CreditDepartmentData[] creditsData = null;
     [SerializeField] private GameObject departmentHolderPrefab = null;
     [SerializeField] private GameObject creditTextPrefab = null;
+    [SerializeField] private GameObject logoHolderPrefab = null;
 
     public void Init(Action onSwitchToMenu)
     {
@@ -42,5 +43,7 @@ public class CreditsHandler : MonoBehaviour
                 credit.SetArrowStatus(isFirstNameFromDepartment);
             }
         }
+
+        Transform logoholder = Instantiate(logoHolderPrefab, creditsDataHolder).transform;
     }
 }

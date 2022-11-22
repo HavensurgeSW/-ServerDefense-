@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   department: DEV
   staffNames:
-  - Matias Pedro Karplus
   - "Ignacio Fern\xE1ndez Lemos"
+  - Matias Pedro Karplus
