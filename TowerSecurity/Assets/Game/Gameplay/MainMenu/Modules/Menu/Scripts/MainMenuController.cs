@@ -12,8 +12,8 @@ public class MainMenuController : SceneController
         menuHandler.Init(SwitchToCredits, 
             (scene, isAsync) => 
             {
-                ChangeScene(scene, isAsync);
                 loadingPanel.SetActive(true);
+                ChangeScene(scene, isAsync);
             }, 
             QuitApplication);
 
