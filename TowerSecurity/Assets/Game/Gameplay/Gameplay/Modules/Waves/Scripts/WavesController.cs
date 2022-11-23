@@ -46,10 +46,9 @@ public class WavesController : MonoBehaviour
         if (currentWaveEnemyCount <= 0)
         {
             isInWave = false;
+            allWavesComplete = activeWave == waves[waves.Length - 1];
             OnWaveCompleted?.Invoke();
             UIManager.OnWaveEnd?.Invoke(true);
-
-            allWavesComplete = activeWave == waves[waves.Length - 1];
         }
     }
 

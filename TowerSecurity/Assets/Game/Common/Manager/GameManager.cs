@@ -1,11 +1,11 @@
-using System;
 using System.Collections.Generic;
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : SceneController
 {
+    public static bool gameStatus = false;
+
     [SerializeField] private CommandManager commandManager = null;
     [SerializeField] private UIManager uiManager = null;
     [SerializeField] private TerminalManager terminal = null;
@@ -42,6 +42,7 @@ public class GameManager : SceneController
 
     protected override void OnEnable()
     {
+        LevelManager.OnAllWavesCompleted += WinGame;
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
 
@@ -50,6 +51,7 @@ public class GameManager : SceneController
 
     protected override void OnDisable()
     {
+        LevelManager.OnAllWavesCompleted -= WinGame;
         Server.OnDeath -= LoseGame;
         Server.OnPacketEntry -= UpdatePacketScore;
 
@@ -82,9 +84,16 @@ public class GameManager : SceneController
         uiManager.UpdatePacketPointsText(packetScore);
     }
 
+    private void WinGame()
+    {
+        gameStatus = true;
+        ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+    }
+
     private void LoseGame()
     {
-        ChangeScene(CommonUtils.SCENE.MAIN_MENU, false);
+        gameStatus = false;
+        ChangeScene(CommonUtils.SCENE.END_SCENE, true);
     }
 
     private void InterpretTerminalText(string text)

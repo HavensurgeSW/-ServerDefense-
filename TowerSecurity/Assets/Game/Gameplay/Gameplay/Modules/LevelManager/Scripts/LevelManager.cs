@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static Action OnAllWavesCompleted = null;
+
     [Header("Main Configuration")]
     [SerializeField] private EnemyHandler enemyHandler = null;
     [SerializeField] private WavesController wavesController = null;
@@ -28,12 +30,26 @@ public class LevelManager : MonoBehaviour
 
     public void BeginWave(int index)
     {
-        if (wavesController.ALL_WAVES_COMPLETE || wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
+        if (wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
         {
             return;
         }
 
-        wavesController.StartWave(index, OnWaveEnd);
+        if (wavesController.ALL_WAVES_COMPLETE)
+        {
+            OnAllWavesCompleted?.Invoke();
+            return;
+        }
+
+        wavesController.StartWave(index,
+            () =>
+            {
+                OnWaveEnd();
+                if (wavesController.ALL_WAVES_COMPLETE)
+                {
+                    OnAllWavesCompleted?.Invoke();
+                }
+            });
         //UIManager.OnWaveEnd?.Invoke(true);
         packetsHandler.StartPacketsWave();
     }

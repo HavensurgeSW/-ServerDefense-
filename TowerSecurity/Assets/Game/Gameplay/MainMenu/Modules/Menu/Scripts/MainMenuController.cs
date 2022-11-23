@@ -5,10 +5,18 @@ public class MainMenuController : SceneController
     [Header("Main Configuration")]
     [SerializeField] private MenuHandler menuHandler = null;
     [SerializeField] private CreditsHandler creditsHandler = null;
+    [SerializeField] private GameObject loadingPanel = null;
 
     protected override void Awake()
     {
-        menuHandler.Init(SwitchToCredits, ChangeScene, QuitApplication);
+        menuHandler.Init(SwitchToCredits, 
+            (scene, isAsync) => 
+            {
+                ChangeScene(scene, isAsync);
+                loadingPanel.SetActive(true);
+            }, 
+            QuitApplication);
+
         creditsHandler.Init(SwitchToMenu);
 
         SwitchToMenu();
