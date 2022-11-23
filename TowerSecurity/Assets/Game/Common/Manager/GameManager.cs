@@ -1,169 +1,116 @@
 using System.Collections.Generic;
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SceneController
 {
-    [SerializeField] private List<Command> commands = new List<Command>();
+    public static bool gameStatus = false;
+
     [SerializeField] private CommandManager commandManager = null;
-    [SerializeField] private TerminalManager terminal;
-    [SerializeField] private LevelManager levelManager;
+    [SerializeField] private UIManager uiManager = null;
+    [SerializeField] private TerminalManager terminal = null;
+    [SerializeField] private TowersController towersController = null;
+    [SerializeField] private LevelManager levelManager = null;
+    [SerializeField] private MapHandler mapHandler = null;
 
-    [SerializeField] private Tower prefab;
-    [SerializeField] private Tower prefab2;
+    [Header("Gameplay Values")]
+    [SerializeField] private float timerSeconds = 0;
+    [SerializeField] private int startingPackets = 0;
 
-    private Location currentLocation;
+    [Header("Debugging")]
+    [SerializeField] private bool debugScore = false;
 
-    private void Awake()
+    private int packetScore = 0;
+    private int currentWave = 0;
+
+    protected override void Awake()
     {
-        terminal.Init(InterpretCommand);
-        currentLocation = null;
+        packetScore = debugScore ? 10000 : startingPackets;
+        
+        uiManager.Init(timerSeconds);
+        uiManager.UpdatePacketPointsText(packetScore);
+
+        commandManager.Init(terminal, levelManager, mapHandler, towersController);
+        commandManager.SetCallbacks(UpdatePacketScore, GetCurrentWaveIndex, GetPacketScore, uiManager.GeneratePopUp);
+
+        levelManager.Init(IncreaseCurrentWaveValue);
+
+        towersController.Init();
+        mapHandler.Init();
+        terminal.Init(InterpretTerminalText);
     }
 
-    private void InterpretCommand(string text)
+    protected override void OnEnable()
+    {
+        LevelManager.OnAllWavesCompleted += WinGame;
+        Server.OnDeath += LoseGame;
+        Server.OnPacketEntry += UpdatePacketScore;
+
+        uiManager.AddOnTimerEndCallback(BeginCurrentWave);
+    }
+
+    protected override void OnDisable()
+    {
+        LevelManager.OnAllWavesCompleted -= WinGame;
+        Server.OnDeath -= LoseGame;
+        Server.OnPacketEntry -= UpdatePacketScore;
+
+        uiManager.RemoveOnTimerEndCallback(BeginCurrentWave);
+    }
+
+    private void BeginCurrentWave()
+    {
+        levelManager.BeginWave(currentWave);
+    }
+
+    private int GetPacketScore()
+    {
+        return packetScore;
+    }
+
+    private int GetCurrentWaveIndex()
+    {
+        return currentWave;
+    }
+
+    private void IncreaseCurrentWaveValue()
+    {
+        currentWave++;
+    }
+
+    private void UpdatePacketScore(int i)
+    {
+        packetScore += i;
+        uiManager.UpdatePacketPointsText(packetScore);
+    }
+
+    private void WinGame()
+    {
+        gameStatus = true;
+        ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+    }
+
+    private void LoseGame()
+    {
+        gameStatus = false;
+        ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+    }
+
+    private void InterpretTerminalText(string text)
     {
         text = text.ToLower();
         string[] arguments = text.Split(' ');
-        bool searchHit = false;
-       
-        foreach (Command cmd in commands)
+        string commandId = arguments[0];
+
+        Command command = commandManager.GetCommand(commandId);
+
+        if (command == null)
         {
-            if (cmd.INFO.ID == arguments[0])
-            {
-                searchHit = true;
-                string[] tempArg = new string[arguments.Length - 1];
-                for (int i = 1; i <= tempArg.Length; i++)
-                {
-                    tempArg[i - 1] = arguments[i];
-                }
-                cmd.CALLBACK?.Invoke(tempArg, cmd.INFO);
-                break;
-            }
-     
-        }
-
-        if (!searchHit) {
-            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type \"help\" for a list of commands" });
-        }
-
-    }
-
-    #region COMMAND_IMPLEMENTATIONS
-
-    public void Command_ReturnLocations(string[] arg, CommandInfo cmdi)
-    {
-        List<string> locList = new List<string>();
-
-        for (int i = 0; i <levelManager.LOCATIONS.Length; i++)
-        {
-            locList.Add(levelManager.LOCATIONS[i].ID);
-        }
-        terminal.AddInterpreterLines(locList);
-    }
-    public void Command_ChangeDirectory(string[] arg, CommandInfo cmdi) {
-        //arguments.length-1 != argCountSO
-        string locName = arg[0];
-        bool searchHit = false;
-        foreach (Location loc in levelManager.LOCATIONS)
-        {
-            if (commandManager.CheckHelpCommand(arg))
-            {
-                terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-                searchHit = true;
-                break;
-            }
-
-            if (loc.ID == locName)
-            {
-                currentLocation = loc;
-                loc.ToggleSelected(true);
-                loc.ToggleColor(Color.red);
-                searchHit = true;
-                terminal.ClearCmdEntries();
-            }
-            else
-            {
-                loc.ToggleSelected(false);
-                loc.ToggleColor(Color.white);
-            }
-        }
-
-
-
-        if (!searchHit) {
-            terminal.AddInterpreterLines(cmdi.ERRORRESPONSE);
-        }
-    }
-
-    public void Command_Hello(string[] arg, CommandInfo cmdi) {
-
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
+            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type HELP for a list of commands" });
             return;
         }
 
-        terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
+        uiManager.ClearAllPopUps();
+        commandManager.ProcessCommand(command, arguments);
     }
-
-    public void Command_InstallTower(string[] arg, CommandInfo cmdi){
-
-        terminal.ClearCmdEntries();
-
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-            return;
-        }
-
-        if (currentLocation != null && currentLocation.CheckForLocationAvailability())
-        {
-            Tower tower = null;
-            switch (arg[0])
-            {
-                case "antivirus":
-                    tower = prefab;
-                    break;
-                case "firewall":
-                    tower = prefab2;
-                    break;
-                default:
-                    terminal.AddInterpreterLines(cmdi.ERRORRESPONSE);
-                    return;
-            }
-
-            currentLocation.SetAvailable(false);
-            Instantiate(tower, currentLocation.transform);
-            terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
-        }
-    }
-
-    public void Command_WriteTutorial(string[] arg, CommandInfo cmdi)
-    {
-        terminal.AddInterpreterLines(cmdi.SUCCRESPONSE);
-    }
-
-    public void Command_ReloadScene(string[] arg, CommandInfo cmdi) {
-        SceneManager.LoadScene(1);
-    }
-
-    public void Command_QuitGame(string[] arg, CommandInfo cmdi)
-    {
-        if (commandManager.CheckHelpCommand(arg))
-        {
-            terminal.AddInterpreterLines(cmdi.HELPRESPONSE);
-        }
-
-        if (arg[0] == "application") {
-#if !UNITY_EDITOR
-        Application.Quit();
-#else
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        }
-    }
-
-    #endregion
-
 }

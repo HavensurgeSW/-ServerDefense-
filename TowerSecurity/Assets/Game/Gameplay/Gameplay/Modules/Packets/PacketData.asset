@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb8e4e81b584f641ba0a64d501e71d1, type: 3}
+  m_Name: PacketData
+  m_EditorClassIdentifier: 
+  packetPrefab: {fileID: 8009344086421671401, guid: 53b84723d103ca5459ed62ce153ed07e, type: 3}
+  KBWorth: 1
+  spawnDelay: 0.5
+  speed: 3
+  targetChangeDist: 0.1

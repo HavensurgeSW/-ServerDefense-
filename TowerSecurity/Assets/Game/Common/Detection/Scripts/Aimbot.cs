@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Aimbot : MonoBehaviour
 {
-    [SerializeField] List<GameObject> targets = new List<GameObject>();
-    [SerializeField] CircleCollider2D circleCollider;
+    [SerializeField] private List<GameObject> targets = new List<GameObject>();
+    [SerializeField] private CircleCollider2D circleCollider;
 
     private string[] targetTags = null;
+
+    public List<GameObject> TARGETS { get => targets; }
 
     public void Init(params string[] targetTags)
     {
@@ -60,12 +62,7 @@ public class Aimbot : MonoBehaviour
 
     public bool ContainsTargets()
     {
-        return (targets != null && targets.Count > 0);
-    }
-
-    public GameObject GetTarget(int i)
-    {
-        return targets[i];
+        return targets != null && targets.Count > 0;
     }
 
     public T GetTargetComponent<T>(int i) where T : Component
