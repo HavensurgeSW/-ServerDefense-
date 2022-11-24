@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Tower
+  - Server
+  - Enemy
+  - Packet
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: All
+    uniqueID: 866114353
+    locked: 0
+  - name: Enviroment
+    uniqueID: 3206826035
+    locked: 0
+  - name: RunwayLights
+    uniqueID: 1506362281
+    locked: 0
+  - name: KB
+    uniqueID: 581035907
+    locked: 0
+  - name: Enemies
+    uniqueID: 519620175
+    locked: 0
+  - name: Towers
+    uniqueID: 437944845
+    locked: 0
+  - name: Server
+    uniqueID: 2681669729
+    locked: 0
