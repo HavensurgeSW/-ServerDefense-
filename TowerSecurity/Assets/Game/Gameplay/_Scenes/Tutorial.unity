@@ -1109,7 +1109,7 @@ PrefabInstance:
         To do this, deploy <Programs> on the selected
         <Locations>
 
-        To CHANGE DIRECTORY to a location, try running <color=green>CD
+        To CHANGE DIRECTORY to a location, try running <color=green>CD</color><color=orange>
         LOC1</color> on the terminal'
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
@@ -1122,8 +1122,8 @@ PrefabInstance:
         Now try switching to another
         <Location>
 
-        Run <color=green>CD <Location></color> with one of the
-        names you found.'
+        Run <color=green>CD </color> <color=orange><Location></color>
+        with one of the names you found.'
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[2]
@@ -1133,7 +1133,7 @@ PrefabInstance:
         a <Program> will cost you Kilobytes (KB)
 
         On any <color=red>EMPTY</color>
-        location, run <color=green>INSTALL ANTIVIRUS</color>'
+        location, run <color=green>INSTALL</color> <color=orange>ANTIVIRUS</color>'
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[3]
@@ -1161,8 +1161,8 @@ PrefabInstance:
       propertyPath: sentences.Array.data[5]
       value: 'Seems your network is secure enough.
 
-        Run <color=green>NETWORK
-        INIT</color> to initiate the traffic.'
+        Run <color=green>NETWORK</color>
+        <color=orange> INIT</color> to initiate the traffic.'
       objectReference: {fileID: 0}
     - target: {fileID: 738427900227939562, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: sentences.Array.data[6]
@@ -1178,8 +1178,8 @@ PrefabInstance:
       propertyPath: sentences.Array.data[7]
       value: 'Looks like you are good to go.
 
-        Run <color=green>QUIT APP</color>
-        to return to the main menu.'
+        Run <color=green>QUIT</color>
+        <color=orange> APP</color> to return to the main menu.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
@@ -3157,6 +3157,7 @@ MonoBehaviour:
   mapHandler: {fileID: 414097743}
   timerSeconds: 0
   startingPackets: 10
+  tutorialScene: 1
   debugScore: 1
 --- !u!4 &1899149030
 Transform:

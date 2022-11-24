@@ -17,6 +17,9 @@ public class GameManager : SceneController
     [SerializeField] private float timerSeconds = 0;
     [SerializeField] private int startingPackets = 0;
 
+    [Header("Scene settings")]
+    [SerializeField] private bool tutorialScene;
+
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
 
@@ -80,20 +83,27 @@ public class GameManager : SceneController
 
     private void UpdatePacketScore(int i)
     {
+
         packetScore += i;
         uiManager.UpdatePacketPointsText(packetScore);
     }
 
     private void WinGame()
     {
-        gameStatus = true;
-        ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+        if (!tutorialScene)
+        {
+           gameStatus = true;
+            ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+        }
     }
 
     private void LoseGame()
     {
-        gameStatus = false;
-        ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+        if (!tutorialScene)
+        {
+            gameStatus = false;
+            ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+        }
     }
 
     private void InterpretTerminalText(string text)

@@ -374,7 +374,7 @@ public class CommandManager : MonoBehaviour
 
     public void Command_QuitGame(string[] args, CommandInfo cmdi)
     {
-        if (args[0] == "application")
+        if (args[0] == "application" || args[0] == "app")
         {
             SceneManager.LoadScene(1);
         }

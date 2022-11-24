@@ -2576,6 +2576,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: ffb15615a3b20b842b2c01a86a222bcd, type: 2}
+  - {fileID: 11400000, guid: 7aea568e395e6f64d886d253c2eb75b9, type: 2}
+  - {fileID: 11400000, guid: 046919b0e96b7c94d8cec3734c45eeb2, type: 2}
+  - {fileID: 11400000, guid: bca36d456d33b414d9c8986be1b3d9c2, type: 2}
+  - {fileID: 11400000, guid: 015760ddc42b4e54789242cc9e74efa2, type: 2}
+  - {fileID: 11400000, guid: ed2e143f659ba1b4bb2e3aae4e0eaf51, type: 2}
+  - {fileID: 11400000, guid: 8efd7f02b58915743b32f33ec07c0edd, type: 2}
+  - {fileID: 11400000, guid: bdc52040c7cb6de4297b9c5bd38f63c0, type: 2}
+  - {fileID: 11400000, guid: 741ad4ecfa41ea14a9cd875bd21c9927, type: 2}
+  - {fileID: 11400000, guid: e349bc8c12f8f0a4c8a417148528625e, type: 2}
+  - {fileID: 11400000, guid: 44df195fb4b25e24587a930b4cc75f4c, type: 2}
+  - {fileID: 11400000, guid: e984fa5ba89a94a498c742a7274e7695, type: 2}
 --- !u!1 &1609495006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,7 +3294,7 @@ MonoBehaviour:
   mapHandler: {fileID: 414097743}
   timerSeconds: 12
   startingPackets: 10
-  debugScore: 1
+  debugScore: 0
 --- !u!4 &1899149030
 Transform:
   m_ObjectHideFlags: 0
@@ -4323,7 +4334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9202163451807312619, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: hp
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202163451807312622, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: m_Name

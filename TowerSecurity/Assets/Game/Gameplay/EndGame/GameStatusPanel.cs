@@ -11,15 +11,15 @@ public class GameStatusPanel : MonoBehaviour
     {
         if (status)
         {
-            statusText.text = "You won";
+            statusText.text = "Operation succesful";
             statusText.color = Color.green;
-            subStatusText.text = "Good stuff king";
+            subStatusText.text = "This network is now secure";
         }
         else
         {
-            statusText.text = "You lost";
+            statusText.text = "Operation failure";
             statusText.color = Color.red;
-            subStatusText.text = "Git gud";
+            subStatusText.text = "The network is compromised";
         }
     }
 }
