@@ -5,6 +5,7 @@ using UnityEngine;
 public class Firewall : BaseTower
 {
     [Header("Firewall Configuration")]
+    [SerializeField] private Transform[] laserHolders = null;
     [SerializeField] private int maxTargets = 1;
 
     private List<TowerLaser> lasersList = null;
@@ -74,8 +75,7 @@ public class Firewall : BaseTower
             for (int i = 0; i < positions.Length; i++)
             {
                 lasersList[i].SetPositionCount(2);
-                lasersList[i].DrawLine(towerLasersHolder.transform.position, positions[i]);
-                
+                lasersList[i].DrawLine(laserHolders[i].transform.position, positions[i]);                
             }
         }
         else
@@ -100,6 +100,11 @@ public class Firewall : BaseTower
             for (int i = 0; i < diff; i++)
             {
                 lasersList.Add(laserPool.Get());
+            }
+
+            for (int i = 0; i < lasersList.Count; i++)
+            {
+                lasersList[i].transform.SetParent(laserHolders[i]);
             }
         }
         else if (lasersList.Count > count)
