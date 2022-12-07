@@ -22,9 +22,14 @@ This is a game being developed by students from <a href="https://www.imagecampus
 - **London Cruz** - *Art*
 - **Luciano Paladini** - *Art*
 - **Lucas Quiñones** - *Art*
-- **Nombre Apellido** - *Audio*
-- **Nombre Apellido** - *Testing*
-- **Nombre Apellido** - *Testing*
+- **Mariangeles Burgos** - *Audio*
+- **Matias Iannone** - *Audio*
+- **Patricio Spadavecchia** - *Audio*
+- **Nahuel Elias Coronel** - *Testing*
+- **Lucas Di Falco** - *Testing*
+- **Ignacio Ferrin** - *Testing*
+- **Facundo Perea Fernandez** - *Testing*
+- **Juan Ignacio Vera** - *Testing*
 
 
 This game was also possible thanks to the support of these professors:
