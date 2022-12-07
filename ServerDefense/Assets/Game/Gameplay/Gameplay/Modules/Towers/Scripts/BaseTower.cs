@@ -13,7 +13,6 @@ public abstract class BaseTower : MonoBehaviour
 
     [Header("Visual Configuration")]
     [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Material[] mtl;
 
     protected ObjectPool<TowerLaser> laserPool = null;
 
@@ -28,7 +27,7 @@ public abstract class BaseTower : MonoBehaviour
     public int CURRENT_LEVEL { get => level; set => level = value; }
     public int NEXT_LEVEL { get => level + 1; }
 
-    public virtual void Init(string id, TowerStatsData stats)
+    public virtual void Init(string id, TowerStatsData stats, Material levelMaterial)
     {
         this.id = id;
         laserPool = new ObjectPool<TowerLaser>(GenerateLaser, GetLaser, ReleaseLaser);
@@ -36,7 +35,16 @@ public abstract class BaseTower : MonoBehaviour
         this.damage = stats.DAMAGE;
         rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
-        this.fireRate = stats.FIRE_RATE;
+        fireRate = stats.FIRE_RATE;
+        SetLevelMaterial(levelMaterial);
+    }
+
+    public void SetLevelMaterial(Material material)
+    {
+        if (material != null)
+        {
+            sr.material = material;
+        }
     }
 
     protected virtual void Update()
@@ -100,11 +108,6 @@ public abstract class BaseTower : MonoBehaviour
         rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
         fireRate = stats.FIRE_RATE;
-
-        if (mtl != null && mtl.Length > 0)
-        {
-            sr.material = mtl[level - 1];
-        }
         
         //TargetCount contra el aimbot aca
     }

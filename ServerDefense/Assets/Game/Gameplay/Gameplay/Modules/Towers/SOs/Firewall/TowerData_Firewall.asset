@@ -17,11 +17,14 @@ MonoBehaviour:
   levels:
   - level: 1
     price: 14
+    towerLevelMaterial: {fileID: 2100000, guid: d6c4249303387094fad30905eb2732e2, type: 2}
     stats: {fileID: 11400000, guid: 047b350f0ff450c47ab189fd0351b247, type: 2}
   - level: 2
     price: 10
+    towerLevelMaterial: {fileID: 2100000, guid: cb1d6c350349503429c980942660717f, type: 2}
     stats: {fileID: 11400000, guid: 1d5bbd99c8632dd4ea1acdb0e870e72c, type: 2}
   - level: 3
     price: 12
+    towerLevelMaterial: {fileID: 2100000, guid: ba1b1bfa71492ed4398fae72fe5f961a, type: 2}
     stats: {fileID: 11400000, guid: 8c43314c950e58e4e8ce690f9ef3024e, type: 2}
   offset: {x: 0, y: 0.45}

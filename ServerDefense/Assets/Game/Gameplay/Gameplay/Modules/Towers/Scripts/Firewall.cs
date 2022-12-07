@@ -10,9 +10,9 @@ public class Firewall : BaseTower
 
     private List<TowerLaser> lasersList = null;
 
-    public override void Init(string id, TowerStatsData stats)
+    public override void Init(string id, TowerStatsData stats, Material levelMaterial)
     {
-        base.Init(id, stats);
+        base.Init(id, stats, levelMaterial);
         lasersList = new List<TowerLaser>();
         maxTargets = stats.TARGET_COUNT;
         SetLasers(maxTargets);

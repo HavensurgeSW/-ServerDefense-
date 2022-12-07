@@ -103,7 +103,7 @@ public class TowersController : MonoBehaviour
 
         TowerLevelData levelData = towerData.LEVELS[0];
 
-        tower.Init(towerData.ID, levelData.STATS);
+        tower.Init(towerData.ID, levelData.STATS, levelData.TOWER_LEVEL_MATERIAL);
         tower.CURRENT_LEVEL = levelData.LEVEL;
         tower.SetFocusTargets(levelData.STATS.TARGETS);
 

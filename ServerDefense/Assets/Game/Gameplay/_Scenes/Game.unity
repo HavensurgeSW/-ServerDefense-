@@ -2882,7 +2882,7 @@ MonoBehaviour:
   timerSeconds: 12
   startingPackets: 10
   tutorialScene: 0
-  debugScore: 0
+  debugScore: 1
 --- !u!4 &1899149030
 Transform:
   m_ObjectHideFlags: 0
