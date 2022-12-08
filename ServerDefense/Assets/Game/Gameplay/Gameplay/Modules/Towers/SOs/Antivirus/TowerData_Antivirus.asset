@@ -18,13 +18,16 @@ MonoBehaviour:
   - level: 1
     price: 8
     towerLevelMaterial: {fileID: 2100000, guid: deac4aa0f8a28684c87c3cecaf7c4bec, type: 2}
+    laserLevelMaterial: {fileID: 2100000, guid: 60648112a2c16af4daadc2807db33640, type: 2}
     stats: {fileID: 11400000, guid: 98ae814baff8dea488fb27c9d944455e, type: 2}
   - level: 2
     price: 6
     towerLevelMaterial: {fileID: 2100000, guid: e968c3b956cdbdb4081e97541ff1886f, type: 2}
+    laserLevelMaterial: {fileID: 2100000, guid: b1e4e2717f17db0468d5bd5771ff0515, type: 2}
     stats: {fileID: 11400000, guid: 736310cb00374b44ebedead1b65cff90, type: 2}
   - level: 3
     price: 10
     towerLevelMaterial: {fileID: 2100000, guid: 6bb90fdb2dd11794e888fa334126cbfd, type: 2}
+    laserLevelMaterial: {fileID: 2100000, guid: 0f88ac682995ccc4aa3a90baaa3ec8ef, type: 2}
     stats: {fileID: 11400000, guid: cd0ab3de644b8e34d969b264f2f27d5a, type: 2}
   offset: {x: 0.01, y: 0.45}

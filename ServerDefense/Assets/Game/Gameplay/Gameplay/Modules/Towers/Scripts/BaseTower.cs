@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -15,6 +17,7 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
 
     protected ObjectPool<TowerLaser> laserPool = null;
+    protected List<TowerLaser> lasersList = null;
 
     private string id = string.Empty;
     private int level = 0;
@@ -30,20 +33,36 @@ public abstract class BaseTower : MonoBehaviour
     public virtual void Init(string id, TowerStatsData stats, Material levelMaterial)
     {
         this.id = id;
+        lasersList = new List<TowerLaser>();
+
         laserPool = new ObjectPool<TowerLaser>(GenerateLaser, GetLaser, ReleaseLaser);
 
-        this.damage = stats.DAMAGE;
+        damage = stats.DAMAGE;
         rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
         fireRate = stats.FIRE_RATE;
-        SetLevelMaterial(levelMaterial);
+
+        SetTowerMaterial(levelMaterial);
     }
 
-    public void SetLevelMaterial(Material material)
+    public void SetTowerMaterial(Material material)
     {
         if (material != null)
         {
             sr.material = material;
+        }
+    }
+
+    public void SetLaserMaterial(Material material)
+    {
+        if (material == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < lasersList.Count; i++)
+        {
+            lasersList[i].SetLaserMaterial(material);
         }
     }
 

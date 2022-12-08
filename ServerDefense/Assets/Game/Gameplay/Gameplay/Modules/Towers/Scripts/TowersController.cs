@@ -106,6 +106,7 @@ public class TowersController : MonoBehaviour
         tower.Init(towerData.ID, levelData.STATS, levelData.TOWER_LEVEL_MATERIAL);
         tower.CURRENT_LEVEL = levelData.LEVEL;
         tower.SetFocusTargets(levelData.STATS.TARGETS);
+        tower.SetLaserMaterial(levelData.LASER_LEVEL_MATERIAL);
 
         return tower;
     }

@@ -8,12 +8,10 @@ public class Firewall : BaseTower
     [SerializeField] private Transform[] laserHolders = null;
     [SerializeField] private int maxTargets = 1;
 
-    private List<TowerLaser> lasersList = null;
-
     public override void Init(string id, TowerStatsData stats, Material levelMaterial)
     {
         base.Init(id, stats, levelMaterial);
-        lasersList = new List<TowerLaser>();
+
         maxTargets = stats.TARGET_COUNT;
         SetLasers(maxTargets);
     }
@@ -99,7 +97,8 @@ public class Firewall : BaseTower
         {
             for (int i = 0; i < diff; i++)
             {
-                lasersList.Add(laserPool.Get());
+                TowerLaser laser = laserPool.Get();
+                lasersList.Add(laser);
             }
 
             for (int i = 0; i < lasersList.Count; i++)

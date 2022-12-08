@@ -16,6 +16,11 @@ public class TowerLaser : MonoBehaviour
         lineRenderer.SetPosition(1, target);
     }
 
+    public void SetLaserMaterial(Material material)
+    {
+        lineRenderer.material = material;
+    }
+
     public void DrawChainedLines(Vector3 origin, Vector3[] target)
     {
         lineRenderer.SetPosition(0, origin);

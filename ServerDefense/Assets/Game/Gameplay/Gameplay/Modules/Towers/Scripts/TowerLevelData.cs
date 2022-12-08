@@ -9,6 +9,7 @@ public class TowerLevelData
 
     [Header("Visual Configuration")]
     [SerializeField] private Material towerLevelMaterial = null;
+    [SerializeField] private Material laserLevelMaterial = null;
 
     [Header("Tower Data Configuration")]
     [SerializeField] private TowerStatsData stats = null;
@@ -17,4 +18,5 @@ public class TowerLevelData
     public int PRICE { get => price; }
     public TowerStatsData STATS { get => stats; }
     public Material TOWER_LEVEL_MATERIAL { get => towerLevelMaterial; }
+    public Material LASER_LEVEL_MATERIAL { get => laserLevelMaterial; }
 }

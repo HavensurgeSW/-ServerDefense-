@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LASER_Antivirus
-  m_Shader: {fileID: -6465566751694194690, guid: 845a47af8bf09394fab557a03b9f5351, type: 3}
+  m_Name: FirewallMaterial3
+  m_Shader: {fileID: -6465566751694194690, guid: ecda394c9f639ae449b7d64e46f6290d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,6 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: 2362d8503dd747e4681f946958e9fe9d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: ea757cbe4925b584f985ea921c4c7e29, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -33,11 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _LaserEdgeSmoothness: 100
-    - _LaserScale: 5
-    - _LaserThickness: 45.84
+    m_Floats: []
     m_Colors:
-    - _Color: {r: 0.573844, g: 17.379267, b: 1.041525, a: 0.5686275}
-    - _LaserSpeed: {r: -1, g: -1, b: 0, a: 0}
+    - _Color: {r: 1024, g: 0, b: 269.051, a: 0}
   m_BuildTextureStacks: []
