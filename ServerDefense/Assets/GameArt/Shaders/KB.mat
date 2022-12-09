@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: KB
-  m_Shader: {fileID: -6465566751694194690, guid: 2278138e33fcbca4c8121d035d29141f, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2983a3c7fc01ed041bc9869a03b51872, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,6 +21,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Emission:
+        m_Texture: {fileID: 2800000, guid: c5ef5eb541ebcae4c9f5c13b3a53969c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveTexture:
         m_Texture: {fileID: 2800000, guid: c5ef5eb541ebcae4c9f5c13b3a53969c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -44,4 +48,5 @@ Material:
     m_Floats: []
     m_Colors:
     - _Color: {r: 1, g: 0.79383534, b: 0, a: 0}
+    - _EmissiveColor: {r: 1, g: 0.7921569, b: 0, a: 0}
   m_BuildTextureStacks: []
