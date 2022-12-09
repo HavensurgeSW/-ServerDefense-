@@ -9,12 +9,14 @@ public abstract class BaseTower : MonoBehaviour
     [SerializeField] protected Aimbot aimbot = null;
     [SerializeField] protected GameObject towerLaserPrefab = null;
     [SerializeField] protected Transform towerLasersHolder = null;
+    
+    [Header("Stats Configuration")]
     [SerializeField] protected int damage = 1;
     [SerializeField] protected float rangeRadius = 1.0f;
     [SerializeField] protected float fireRate = 1.0f;
 
     [Header("Visual Configuration")]
-    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private SpriteRenderer spriteRenderer = null;
 
     protected ObjectPool<TowerLaser> laserPool = null;
     protected List<TowerLaser> lasersList = null;
@@ -49,7 +51,7 @@ public abstract class BaseTower : MonoBehaviour
     {
         if (material != null)
         {
-            sr.material = material;
+            spriteRenderer.material = material;
         }
     }
 
@@ -85,6 +87,31 @@ public abstract class BaseTower : MonoBehaviour
         enemy.ReceiveDamage(damage);
     }
 
+    public virtual void SetData(TowerStatsData stats)
+    {
+        damage = stats.DAMAGE;
+        rangeRadius = stats.RANGE;
+        aimbot.SetRange(rangeRadius);
+        fireRate = stats.FIRE_RATE;
+
+        //TargetCount contra el aimbot aca
+    }
+
+    public void SetFocusTargets(params string[] targetTags)
+    {
+        aimbot.Init(targetTags);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    public void SetParent(Transform parent)
+    {
+        transform.SetParent(parent);
+    }
+
     protected TowerLaser GenerateLaser()
     {
         return Instantiate(towerLaserPrefab, towerLasersHolder).GetComponent<TowerLaser>();
@@ -104,30 +131,5 @@ public abstract class BaseTower : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, rangeRadius);
-    }
-
-    public void SetFocusTargets(params string[] targetTags)
-    {
-        aimbot.Init(targetTags);
-    }
-
-    public void SetPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
-
-    public void SetParent(Transform parent)
-    {
-        transform.SetParent(parent);
-    }
-
-    public virtual void SetData(TowerStatsData stats) 
-    {      
-        damage = stats.DAMAGE;
-        rangeRadius = stats.RANGE;
-        aimbot.SetRange(rangeRadius);
-        fireRate = stats.FIRE_RATE;
-        
-        //TargetCount contra el aimbot aca
     }
 }

@@ -164,13 +164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimbot: {fileID: 3117017719819708389}
-  towerLaserPrefab: {fileID: 7814268181205784194, guid: baa8171cd32723b4a9705c8c15b85ede, type: 3}
+  towerLaserPrefab: {fileID: 7814268181205784194, guid: ece4064fb48adb844947c56e4b067175, type: 3}
   towerLasersHolder: {fileID: 4870783690704036133}
   damage: 1
   rangeRadius: 2
   fireRate: 1
-  sr: {fileID: 8062796150195501830}
-  mtl: []
+  spriteRenderer: {fileID: 8062796150195501830}
   laserHolders:
   - {fileID: 2569532533392139423}
   - {fileID: 7747801759623413442}
