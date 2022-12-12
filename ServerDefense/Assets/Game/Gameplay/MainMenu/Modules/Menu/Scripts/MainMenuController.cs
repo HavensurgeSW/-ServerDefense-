@@ -1,7 +1,10 @@
 using UnityEngine;
+using static CommonUtils;
 
 public class MainMenuController : SceneController
 {
+    public static SCENE selectedLevel = default;
+
     [Header("Main Configuration")]
     [SerializeField] private MenuHandler menuHandler = null;
     [SerializeField] private CreditsHandler creditsHandler = null;
@@ -13,6 +16,7 @@ public class MainMenuController : SceneController
             (scene, isAsync) => 
             {
                 loadingPanel.SetActive(true);
+                selectedLevel = scene;
                 ChangeScene(scene, isAsync);
             }, 
             QuitApplication);

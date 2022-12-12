@@ -11,7 +11,7 @@ public class EndGameController : SceneController
     {
         gameStatusPanel.Init(GameManager.gameStatus);
 
-        //replayButton.onClick.AddListener(() => ChangeScene(CommonUtils.SCENE.TOWER_DEFENSE, true));
+        replayButton.onClick.AddListener(() => ChangeScene(MainMenuController.selectedLevel, true));
         mainMenuButton.onClick.AddListener(() => ChangeScene(CommonUtils.SCENE.MAIN_MENU, true));
     }
 
