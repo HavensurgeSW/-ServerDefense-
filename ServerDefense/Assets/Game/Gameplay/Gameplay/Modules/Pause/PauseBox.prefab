@@ -60,7 +60,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &3763575794549643988
 MonoBehaviour:
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ed52c50bca15c41a0064bc1571110e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorStatus: {fileID: 0}
   holder: {fileID: 3763575795819903772}
   resumeButton: {fileID: 5171294909716564417}
   menuButton: {fileID: 5171294909341325242}
@@ -344,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3763575795819903773
 RectTransform:
   m_ObjectHideFlags: 0

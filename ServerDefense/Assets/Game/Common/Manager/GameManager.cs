@@ -43,6 +43,7 @@ public class GameManager : SceneController
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
 
+        pauseHandler.AddOnPausedCallback((status) => terminal.ToggleTerminalInteraction(!status));
         pauseHandler.Init(() => ChangeScene(CommonUtils.SCENE.MAIN_MENU, false));
     }
 

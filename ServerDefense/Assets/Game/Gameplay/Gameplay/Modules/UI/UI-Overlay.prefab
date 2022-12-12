@@ -199,7 +199,7 @@ MonoBehaviour:
   serverHealth: {fileID: 738427900552753750}
   packetPointsText: {fileID: 738427901065224587}
   popUpPrefab: {fileID: 5754507825141779710, guid: 46a1076cfa262fe449b531b8a0def356, type: 3}
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: -69}
   popUpsHolder: {fileID: 738427899938477745}
   timerBar: {fileID: 738427900712969433}
 --- !u!1 &738427900552753748
@@ -854,6 +854,10 @@ PrefabInstance:
     - target: {fileID: 354937055013319113, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
       propertyPath: m_Name
       value: TutorialPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 354937055013319113, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc7af6172bd60754e9adc36f0333a41e, type: 3}

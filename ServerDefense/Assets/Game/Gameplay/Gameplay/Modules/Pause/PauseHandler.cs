@@ -13,6 +13,8 @@ public class PauseHandler : MonoBehaviour
 
     [SerializeField] private bool isPaused = false;
 
+    private Action<bool> OnPaused = null;
+
     public bool IS_PAUSED { get => isPaused; }
 
     public void Init(Action onMenuButtonClicked)
@@ -23,6 +25,11 @@ public class PauseHandler : MonoBehaviour
                 TogglePauseStatus(false);
                 onMenuButtonClicked?.Invoke();
             });
+    }
+
+    public void AddOnPausedCallback(Action<bool> onPaused)
+    {
+        OnPaused += onPaused;
     }
 
     public void TogglePauseStatus(bool status)
@@ -40,6 +47,8 @@ public class PauseHandler : MonoBehaviour
         {
             UnPause();
         }
+
+        OnPaused?.Invoke(status);
     }
 
     private void Pause()
