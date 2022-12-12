@@ -42,6 +42,8 @@ public class GameManager : SceneController
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
+
+        pauseHandler.Init(() => ChangeScene(CommonUtils.SCENE.MAIN_MENU, false));
     }
 
     protected override void OnEnable()
@@ -64,11 +66,9 @@ public class GameManager : SceneController
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape)) {
-            if (pauseHandler.IS_PAUSED)
-                pauseHandler.TogglePauseStatus(false);
-            else
-                pauseHandler.TogglePauseStatus(true); 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseHandler.TogglePauseStatus(!pauseHandler.IS_PAUSED);
         }
     }
 
@@ -104,7 +104,7 @@ public class GameManager : SceneController
         if (!tutorialScene)
         {
            gameStatus = true;
-            ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+           ChangeScene(CommonUtils.SCENE.END_SCENE, true);
         }
     }
 
