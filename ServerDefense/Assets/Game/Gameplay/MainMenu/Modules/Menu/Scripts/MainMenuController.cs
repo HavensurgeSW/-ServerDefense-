@@ -32,13 +32,12 @@ public class MainMenuController : SceneController
 
     private void SwitchToMenu()
     {
-        menuHandler.ToggleStatus(true);
+        menuHandler.ToggleMenuStatus(true);
         creditsHandler.ToggleStatus(false);
     }
-
     private void SwitchToCredits()
     {
-        menuHandler.ToggleStatus(false);
+        menuHandler.ToggleMenuStatus(false);
         creditsHandler.ToggleStatus(true);
     }
 }

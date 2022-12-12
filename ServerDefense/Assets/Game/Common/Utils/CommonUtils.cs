@@ -7,16 +7,18 @@ public static class CommonUtils
     {
         SPLASH_SCREEN = 0,
         MAIN_MENU = 1,
-        TOWER_DEFENSE = 2,
-        TUTORIAL = 3,
-        END_SCENE = 4
+        LEVEL_0 = 2,
+        LEVEL_1 = 3,
+        TUTORIAL = 4,
+        END_SCENE = 5
     }
 
     public static readonly Dictionary<string, SCENE> scenesEnumDictionary = new Dictionary<string, SCENE>
     {
         { "SplashScreen", SCENE.SPLASH_SCREEN },
         { "Menu", SCENE.MAIN_MENU },
-        { "Game", SCENE.TOWER_DEFENSE },
+        { "Level0", SCENE.LEVEL_0 },
+        { "Level1", SCENE.LEVEL_1 },
         { "Tutorial", SCENE.TUTORIAL },
         { "EndScene", SCENE.END_SCENE }
     };
@@ -25,7 +27,8 @@ public static class CommonUtils
     {
         { SCENE.SPLASH_SCREEN, "SplashScreen" },
         { SCENE.MAIN_MENU, "Menu" },
-        { SCENE.TOWER_DEFENSE, "Game" },
+        { SCENE.LEVEL_0, "Level0" },
+        { SCENE.LEVEL_1, "Level1" },
         { SCENE.TUTORIAL, "Tutorial" },
         { SCENE.END_SCENE, "EndScene" }
     };
