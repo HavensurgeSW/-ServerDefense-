@@ -35,6 +35,7 @@ public class MenuHandler : MonoBehaviour
         level1Button.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.LEVEL_1, true));
         tutorialButton.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.TUTORIAL, true));
         creditsButton.onClick.AddListener(() => onSwitchToCredits?.Invoke());
+
         exitButton.onClick.AddListener(() => onExitGame?.Invoke());
     }
 

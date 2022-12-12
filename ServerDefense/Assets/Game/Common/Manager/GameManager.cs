@@ -12,6 +12,7 @@ public class GameManager : SceneController
     [SerializeField] private TowersController towersController = null;
     [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
+    [SerializeField] private PauseHandler pauseHandler = null;
 
     [Header("Gameplay Values")]
     [SerializeField] private float timerSeconds = 0;
@@ -59,6 +60,16 @@ public class GameManager : SceneController
         Server.OnPacketEntry -= UpdatePacketScore;
 
         uiManager.RemoveOnTimerEndCallback(BeginCurrentWave);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape)) {
+            if (pauseHandler.IS_PAUSED)
+                pauseHandler.TogglePauseStatus(false);
+            else
+                pauseHandler.TogglePauseStatus(true); 
+        }
     }
 
     private void BeginCurrentWave()
