@@ -1,0 +1,1288 @@
+fileFormatVersion: 2
+guid: fbfa98662a06682469884843a0bc26e6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Turbina_prop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a00465506e03346428182456a1392b65
+      internalID: -962348924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_1
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a399c519ce22a49b23f47302c22489
+      internalID: -578038716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_2
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92db9a9fe64c08a4cb16253a15f65e37
+      internalID: 578942070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_3
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4fcdfdec961b2438d58e0cdb1ef477
+      internalID: 319449808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_4
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c5e2758703c374e9e5eaf636edff0c
+      internalID: -1110438078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_5
+      rect:
+        serializedVersion: 2
+        x: 9140
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c999f5112db6a4e8ab7898b0125786
+      internalID: 1004432783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_6
+      rect:
+        serializedVersion: 2
+        x: 10968
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18df6d553daa7e046948981a09dfdfb0
+      internalID: -1958071296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_7
+      rect:
+        serializedVersion: 2
+        x: 12796
+        y: 4386
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada1aeb4dc4cc074e89bd6c837b74a54
+      internalID: -1315476662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411c913571b1eaf43b2f8df7bc2af59b
+      internalID: 1755669311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_9
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a3ce3f63d49344eab08a83cd165286
+      internalID: -1238017517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_10
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc2c90bc3e26f941a171eb6577b95e3
+      internalID: 1141950100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_11
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec8013485a007449887ca4299394f3f
+      internalID: -723076287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_12
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713ff904d00f4ae4292b80f9b9fd5d99
+      internalID: -1327932329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_13
+      rect:
+        serializedVersion: 2
+        x: 9140
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d77c1fed0e085a4eb615e3ae5ed24e3
+      internalID: 264324276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_14
+      rect:
+        serializedVersion: 2
+        x: 10968
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431c1876ace34c24ea50471d5994a6fa
+      internalID: 916943693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_15
+      rect:
+        serializedVersion: 2
+        x: 12796
+        y: 3655
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cb92ad00d1aeb459faa996e578eaa7
+      internalID: -1319944135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbf50e8fca6a094989e0bf19ae84dd3
+      internalID: -1889389602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_17
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b62afce9d78eff41a2fa2c5a12bae61
+      internalID: 2026471153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_18
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502b91a9f630e154b83d2ad47cae558d
+      internalID: 295472894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_19
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe474794e229a584093af09628cced23
+      internalID: -1346392601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_20
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3c1bbbc78e4e7459a33aaa39e3db47
+      internalID: -1646958385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_21
+      rect:
+        serializedVersion: 2
+        x: 9140
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6949e33b1e6821e47a465edf343300ab
+      internalID: -902729977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_22
+      rect:
+        serializedVersion: 2
+        x: 10968
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862f2342d96f2e24ab8c1c4bdb885a38
+      internalID: -1550224430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_23
+      rect:
+        serializedVersion: 2
+        x: 12796
+        y: 2924
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a0bc6f757a5934b985e86dd8c6f2c1
+      internalID: -791983815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4eeb619dd01824fbe7731ecd3376b6
+      internalID: -1264642507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_25
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5905072312ac98e49b5032e8a70e28cf
+      internalID: 542311887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_26
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78477074b144ede4f88e18ee9bdc87d3
+      internalID: 1171891386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_27
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56cd3ba6b982a247987667b4c0487c3
+      internalID: -84938402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_28
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320c32bbe5440f04ba567555fac51fa8
+      internalID: -199612615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_29
+      rect:
+        serializedVersion: 2
+        x: 9140
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a5bc67385f9a44995cceb17cf1c229
+      internalID: -462258776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_30
+      rect:
+        serializedVersion: 2
+        x: 10968
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f931eed48044ed24cadf0499b1198232
+      internalID: 698155468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_31
+      rect:
+        serializedVersion: 2
+        x: 12796
+        y: 2193
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef485cd21fcde7b4d83085150cd980fd
+      internalID: -1606472658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c2205311f3c6c44846c3990e16c22c
+      internalID: 1361440322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_33
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a712dd604172304d998a0223ecd91a3
+      internalID: -1076666240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_34
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab5160a5085ee640932306f5ef80c31
+      internalID: -2265123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_35
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3500901247b0a414a9067182dce451dd
+      internalID: 835784596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_36
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc6b03ee0aac6249abee1776b28c5e3
+      internalID: 1425532817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_37
+      rect:
+        serializedVersion: 2
+        x: 9140
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bbeefa2a65c78d43b03dfdf80a8882b
+      internalID: 891005488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_38
+      rect:
+        serializedVersion: 2
+        x: 10968
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251227310c6db7e41953ca91004e80b8
+      internalID: 900604759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_39
+      rect:
+        serializedVersion: 2
+        x: 12796
+        y: 1462
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec089a3d0f5918488d2d90de5757e61
+      internalID: -1360848420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c68a64e01b1174d868dcf20fc23899
+      internalID: -938364522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_41
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d15369ccd9a20438473af1c7894db1
+      internalID: -1178445282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_42
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ce9f159541c0642a5fccfc1e0d2cfe
+      internalID: 633764338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_43
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07c6c4d4c44318458d06b9b6a8e3cd4
+      internalID: -1564189340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_44
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfd3cc2f8bb554488c055a33cfa9ade
+      internalID: 1665891295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_45
+      rect:
+        serializedVersion: 2
+        x: 9140
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f76106ffdfa0c49abad532279878b6
+      internalID: 267058981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_46
+      rect:
+        serializedVersion: 2
+        x: 10968
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5904ef557cc102b49acc96e896a5e510
+      internalID: -30712606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_47
+      rect:
+        serializedVersion: 2
+        x: 12796
+        y: 731
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db04cb4906da684cb885bdea0233de8
+      internalID: -1677142190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfe3b88c3de3a74b9e61e58e9cd9541
+      internalID: -5346421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_49
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 0
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8959807334230df479ab7b4733440eb2
+      internalID: 1385797051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_50
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 0
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d451d8c5002a307429ece647907d5939
+      internalID: -1768380654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_51
+      rect:
+        serializedVersion: 2
+        x: 5484
+        y: 0
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e934082c8a9814196201ffa7bd740a
+      internalID: -303350828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turbina_prop_52
+      rect:
+        serializedVersion: 2
+        x: 7312
+        y: 0
+        width: 1828
+        height: 731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c9a4f916f198c46b3834555f0993f0
+      internalID: 1077719963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Turbina_prop_46: -30712606
+      Turbina_prop_49: 1385797051
+      Turbina_prop_0: -962348924
+      Turbina_prop_16: -1889389602
+      Turbina_prop_38: 900604759
+      Turbina_prop_12: -1327932329
+      Turbina_prop_22: -1550224430
+      Turbina_prop_33: -1076666240
+      Turbina_prop_31: -1606472658
+      Turbina_prop_5: 1004432783
+      Turbina_prop_32: 1361440322
+      Turbina_prop_30: 698155468
+      Turbina_prop_35: 835784596
+      Turbina_prop_17: 2026471153
+      Turbina_prop_27: -84938402
+      Turbina_prop_2: 578942070
+      Turbina_prop_19: -1346392601
+      Turbina_prop_1: -578038716
+      Turbina_prop_48: -5346421
+      Turbina_prop_14: 916943693
+      Turbina_prop_50: -1768380654
+      Turbina_prop_7: -1315476662
+      Turbina_prop_11: -723076287
+      Turbina_prop_41: -1178445282
+      Turbina_prop_21: -902729977
+      Turbina_prop_29: -462258776
+      Turbina_prop_13: 264324276
+      Turbina_prop_18: 295472894
+      Turbina_prop_6: -1958071296
+      Turbina_prop_20: -1646958385
+      Turbina_prop_43: -1564189340
+      Turbina_prop_15: -1319944135
+      Turbina_prop_47: -1677142190
+      Turbina_prop_24: -1264642507
+      Turbina_prop_37: 891005488
+      Turbina_prop_4: -1110438078
+      Turbina_prop_39: -1360848420
+      Turbina_prop_8: 1755669311
+      Turbina_prop_3: 319449808
+      Turbina_prop_23: -791983815
+      Turbina_prop_25: 542311887
+      Turbina_prop_9: -1238017517
+      Turbina_prop_34: -2265123
+      Turbina_prop_51: -303350828
+      Turbina_prop_52: 1077719963
+      Turbina_prop_26: 1171891386
+      Turbina_prop_36: 1425532817
+      Turbina_prop_28: -199612615
+      Turbina_prop_10: 1141950100
+      Turbina_prop_42: 633764338
+      Turbina_prop_40: -938364522
+      Turbina_prop_44: 1665891295
+      Turbina_prop_45: 267058981
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
