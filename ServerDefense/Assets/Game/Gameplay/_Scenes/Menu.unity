@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719b6c8437202c940b2cb2430cba7308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
+  triggerList: 
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4
@@ -3104,7 +3104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5654172982895366329, guid: 3800948c4b358d2458db53aaa42c2762, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5654172982895366329, guid: 3800948c4b358d2458db53aaa42c2762, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4247,3 +4247,4 @@ MonoBehaviour:
   level0Button: {fileID: 1905615659}
   level1Button: {fileID: 1498599320}
   backButton: {fileID: 2049511687}
+  sfx_source: {fileID: 0}

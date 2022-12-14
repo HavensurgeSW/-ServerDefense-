@@ -22,7 +22,7 @@
 				<GameParameter Id="3912465185" Name="SFX_Terminal" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX_Terminal"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="2667268998">
+		<SoundBank Id="2228651116" Language="SFX" Hash="668849140">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_SoundBank</ObjectPath>
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
@@ -71,7 +71,14 @@
 				<Event Id="1910125964" Name="Play_SFX_Win" ObjectPath="\Events\Default Work Unit\Play_SFX_Win"/>
 				<Event Id="1484225356" Name="Play_Swarm_Dies" ObjectPath="\Events\Default Work Unit\Play_Swarm_Dies"/>
 				<Event Id="1662830590" Name="Play_Swarm_Pass" ObjectPath="\Events\Default Work Unit\Play_Swarm_Pass"/>
-				<Event Id="43599987" Name="Play_UI_Button" ObjectPath="\Events\Default Work Unit\Play_UI_Button"/>
+				<Event Id="43599987" Name="Play_UI_Button" ObjectPath="\Events\Default Work Unit\Play_UI_Button">
+					<IncludedMemoryFiles>
+						<File Id="804569988" Language="SFX">
+							<ShortName>smw_kick.wav</ShortName>
+							<Path>SFX\smw_kick_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1339559671" Name="Play_UI_Hover" ObjectPath="\Events\Default Work Unit\Play_UI_Hover">
 					<IncludedMemoryFiles>
 						<File Id="866438379" Language="SFX">

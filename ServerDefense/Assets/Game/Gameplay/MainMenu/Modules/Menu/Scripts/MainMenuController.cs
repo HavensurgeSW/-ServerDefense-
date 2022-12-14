@@ -40,6 +40,7 @@ public class MainMenuController : SceneController
     {
         menuHandler.ToggleMenuStatus(true);
         creditsHandler.ToggleStatus(false);
+
     }
     private void SwitchToCredits()
     {

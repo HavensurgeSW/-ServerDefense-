@@ -241,7 +241,19 @@
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0DC1FB09-3CF1-46EE-97C5-63F25760725F}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="smw_kick" ID="{3756F75D-69EE-416F-A000-64C6FA3831CD}">
+													<Language>SFX</Language>
+													<AudioFile>smw_kick.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="804569988"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
 											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="smw_kick" ID="{3756F75D-69EE-416F-A000-64C6FA3831CD}" Platform="Linked"/>
+											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
 									<ObjectLists/>

@@ -164,6 +164,7 @@ public class CommandManager : MonoBehaviour
         {
             levelManager.BeginWave(OnGetCurrentWaveIndex());
             TriggerSuccessResponse(cmdi);
+            AkSoundEngine.PostEvent("Play_Network_Init", gameObject);
             //OnNetworkInit?.Invoke(); UNUSED
         }
     }
@@ -179,6 +180,7 @@ public class CommandManager : MonoBehaviour
             OnGeneratePopup?.Invoke(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
         }
 
+        AkSoundEngine.PostEvent("Play_CD_LOC", gameObject);
         ShowTerminalLines(locList);
     }
 
@@ -228,6 +230,7 @@ public class CommandManager : MonoBehaviour
         if (!mapHandler.GetIsCurrentLocationAvailable())
         {
             ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -236,6 +239,7 @@ public class CommandManager : MonoBehaviour
         if (!towersController.DoesTowerIdExist(towerId))
         {
             ShowTerminalLines(info.INVALID_TOWER_ID_RESPONSE);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -244,6 +248,7 @@ public class CommandManager : MonoBehaviour
         if (OnGetPacketScore() < data.LEVELS[0].PRICE)
         {
             ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -269,12 +274,14 @@ public class CommandManager : MonoBehaviour
         if (keyword != info.INFO_ID && keyword != info.DEPLOY_ID)
         {
             TriggerErrorResponse(info);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
             ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -282,6 +289,7 @@ public class CommandManager : MonoBehaviour
         if (selectedTower == null)
         {
             ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -290,6 +298,7 @@ public class CommandManager : MonoBehaviour
         if (selectedTower.NEXT_LEVEL > towerLevelsData.Length)
         {
             ShowTerminalLines(info.MAX_LEVEL_RESPONSE);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -298,9 +307,11 @@ public class CommandManager : MonoBehaviour
         if (keyword == info.INFO_ID)
         {
             TriggerUpdateCommandInfo(info, selectedTower, nextLevelData);
+            AkSoundEngine.PostEvent("Play_Update_Info", gameObject);
         }
         else if (keyword == info.DEPLOY_ID)
         {
+            //SOUNDENGINE LINE HERE
             OnUpdateTower?.Invoke(selectedTower.ID);
             TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData, () => TriggerSuccessResponse(info));
         }
@@ -344,6 +355,7 @@ public class CommandManager : MonoBehaviour
         if (inputTowerId != selectedTower.ID)
         {
             TriggerErrorResponse(cmdi);
+            AkSoundEngine.PostEvent("Play_Wrong", gameObject);
             return;
         }
 
@@ -351,6 +363,7 @@ public class CommandManager : MonoBehaviour
         currentLoc.SetTower(null);
         currentLoc.SetAvailable(true);
         TriggerSuccessResponse(cmdi);
+        AkSoundEngine.PostEvent("Play_Uninstall_Anti", gameObject);
     }
 
     public void Command_WriteTutorial(string[] args, CommandInfo cmdi)
