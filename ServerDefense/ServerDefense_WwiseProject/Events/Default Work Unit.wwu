@@ -634,6 +634,56 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Tutorial_Mx" ID="{3BF92754-F278-4D87-8F1D-AA1F57AC5FD2}">
+					<ChildrenList>
+						<Action Name="" ID="{FDDC5978-CAD7-45F5-B5FF-7DC26EE17D6E}" ShortID="1071674491">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tutorial_Mx" ID="{29DE4B6E-9FD1-4EAD-BA92-5176D63FC335}" WorkUnitID="{4E0A152A-F8D7-4BF0-B303-436E0279D0A2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Tutorial_Mx" ID="{E85FB3F7-C648-488D-A315-C0D7246D7F22}">
+					<ChildrenList>
+						<Action Name="" ID="{7A464318-6144-4D24-978E-176F1B047919}" ShortID="761845104">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tutorial_Mx" ID="{29DE4B6E-9FD1-4EAD-BA92-5176D63FC335}" WorkUnitID="{4E0A152A-F8D7-4BF0-B303-436E0279D0A2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Game_Mx" ID="{C2C7B2AA-A5E2-4CD9-9985-C7787340353A}">
+					<ChildrenList>
+						<Action Name="" ID="{6CBFC67A-0B75-48DA-BA5F-DEEF3B6BEBAB}" ShortID="783877549">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Game_Mx" ID="{E556BFD3-BAFD-4FC1-9BD9-375CD6D6AEA7}" WorkUnitID="{4E0A152A-F8D7-4BF0-B303-436E0279D0A2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Game_Mx" ID="{FD212B9D-3B04-4DA5-BF03-2761635794E1}">
+					<ChildrenList>
+						<Action Name="" ID="{822ED4B4-4904-40F8-89E8-7A1895EDE0E5}" ShortID="591253774">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Game_Mx" ID="{E556BFD3-BAFD-4FC1-9BD9-375CD6D6AEA7}" WorkUnitID="{4E0A152A-F8D7-4BF0-B303-436E0279D0A2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
