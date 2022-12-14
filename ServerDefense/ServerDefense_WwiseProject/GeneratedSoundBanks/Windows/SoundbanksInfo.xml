@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1661337716">
+		<SoundBank Id="1355168291" Language="SFX" Hash="173472879">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -22,7 +22,7 @@
 				<GameParameter Id="3912465185" Name="SFX_Terminal" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX_Terminal"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="668849140">
+		<SoundBank Id="2228651116" Language="SFX" Hash="554727548">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_SoundBank</ObjectPath>
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
@@ -61,6 +61,154 @@
 				<Event Id="2005936881" Name="Play_Firewall_2_Laser" ObjectPath="\Events\Default Work Unit\Play_Firewall_2_Laser"/>
 				<Event Id="3225411671" Name="Play_Firewall_3_Blast" ObjectPath="\Events\Default Work Unit\Play_Firewall_3_Blast"/>
 				<Event Id="17370536" Name="Play_Firewall_3_Laser" ObjectPath="\Events\Default Work Unit\Play_Firewall_3_Laser"/>
+				<Event Id="231310820" Name="Play_Game_Mx" ObjectPath="\Events\Default Work Unit\Play_Game_Mx">
+					<IncludedMemoryFiles>
+						<File Id="39077449" Language="SFX">
+							<ShortName>Drums_Pt3_1.wav</ShortName>
+							<Path>SFX\Drums_Pt3_1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="49158499" Language="SFX">
+							<ShortName>Instr_Pt3_2.wav</ShortName>
+							<Path>SFX\Instr_Pt3_2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="79981792" Language="SFX">
+							<ShortName>Drums_Pt3_2.wav</ShortName>
+							<Path>SFX\Drums_Pt3_2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="102975456" Language="SFX">
+							<ShortName>Instr_Pt3_4.wav</ShortName>
+							<Path>SFX\Instr_Pt3_4_D79FB2B7.wem</Path>
+						</File>
+						<File Id="105375314" Language="SFX">
+							<ShortName>Drums_Pt3_3.wav</ShortName>
+							<Path>SFX\Drums_Pt3_3_D79FB2B7.wem</Path>
+						</File>
+						<File Id="119644721" Language="SFX">
+							<ShortName>Drums_Pt2_1_50.wav</ShortName>
+							<Path>SFX\Drums_Pt2_1_50_D79FB2B7.wem</Path>
+						</File>
+						<File Id="181353585" Language="SFX">
+							<ShortName>Instr_Pt2_1.wav</ShortName>
+							<Path>SFX\Instr_Pt2_1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="183020738" Language="SFX">
+							<ShortName>Drums_Pt1_4_10.wav</ShortName>
+							<Path>SFX\Drums_Pt1_4_10_D79FB2B7.wem</Path>
+						</File>
+						<File Id="198356048" Language="SFX">
+							<ShortName>Instr_Pt2_6.wav</ShortName>
+							<Path>SFX\Instr_Pt2_6_D79FB2B7.wem</Path>
+						</File>
+						<File Id="210145288" Language="SFX">
+							<ShortName>Instr_Pt2_5.wav</ShortName>
+							<Path>SFX\Instr_Pt2_5_D79FB2B7.wem</Path>
+						</File>
+						<File Id="262566963" Language="SFX">
+							<ShortName>Drums_Pt1_5_10.wav</ShortName>
+							<Path>SFX\Drums_Pt1_5_10_D79FB2B7.wem</Path>
+						</File>
+						<File Id="306460649" Language="SFX">
+							<ShortName>Synth_Pt1.wav</ShortName>
+							<Path>SFX\Synth_Pt1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="410921059" Language="SFX">
+							<ShortName>8BitBass_Pt1.wav</ShortName>
+							<Path>SFX\8BitBass_Pt1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="506728675" Language="SFX">
+							<ShortName>Instr_Pt3_3.wav</ShortName>
+							<Path>SFX\Instr_Pt3_3_D79FB2B7.wem</Path>
+						</File>
+						<File Id="521476059" Language="SFX">
+							<ShortName>Instr_Pt2_3.wav</ShortName>
+							<Path>SFX\Instr_Pt2_3_D79FB2B7.wem</Path>
+						</File>
+						<File Id="641948762" Language="SFX">
+							<ShortName>Instr_Pt2_2.wav</ShortName>
+							<Path>SFX\Instr_Pt2_2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="671293523" Language="SFX">
+							<ShortName>Drums_Pt1_1_60.wav</ShortName>
+							<Path>SFX\Drums_Pt1_1_60_D79FB2B7.wem</Path>
+						</File>
+						<File Id="721554156" Language="SFX">
+							<ShortName>Instr_Pt2_4.wav</ShortName>
+							<Path>SFX\Instr_Pt2_4_D79FB2B7.wem</Path>
+						</File>
+						<File Id="730887090" Language="SFX">
+							<ShortName>Drums_Pt1_3_30.wav</ShortName>
+							<Path>SFX\Drums_Pt1_3_30_D79FB2B7.wem</Path>
+						</File>
+						<File Id="741599082" Language="SFX">
+							<ShortName>Instr_Pt3_1.wav</ShortName>
+							<Path>SFX\Instr_Pt3_1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="857557370" Language="SFX">
+							<ShortName>Layer_Pt1.wav</ShortName>
+							<Path>SFX\Layer_Pt1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="885397637" Language="SFX">
+							<ShortName>Drums_Pt2_3_40.wav</ShortName>
+							<Path>SFX\Drums_Pt2_3_40_D79FB2B7.wem</Path>
+						</File>
+						<File Id="958767822" Language="SFX">
+							<ShortName>Drums_Pt1_2_30.wav</ShortName>
+							<Path>SFX\Drums_Pt1_2_30_D79FB2B7.wem</Path>
+						</File>
+						<File Id="976692489" Language="SFX">
+							<ShortName>Drums_Pt2_2_50.wav</ShortName>
+							<Path>SFX\Drums_Pt2_2_50_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1006692836" Language="SFX">
+							<ShortName>Drums_Pt3_4.wav</ShortName>
+							<Path>SFX\Drums_Pt3_4_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1063201100" Language="SFX">
+							<ShortName>Drums_Pt2_4_30.wav</ShortName>
+							<Path>SFX\Drums_Pt2_4_30_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{C59F7747-2C4B-4857-AA1D-0205B3D36411}">
+							<Media>
+								<File Id="183020738"/>
+								<File Id="262566963"/>
+								<File Id="306460649"/>
+								<File Id="410921059"/>
+								<File Id="671293523"/>
+								<File Id="730887090"/>
+								<File Id="857557370"/>
+								<File Id="958767822"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{2F2766F9-192D-4616-B6AF-3438C980AB3E}">
+							<Media>
+								<File Id="119644721"/>
+								<File Id="181353585"/>
+								<File Id="198356048"/>
+								<File Id="210145288"/>
+								<File Id="521476059"/>
+								<File Id="641948762"/>
+								<File Id="721554156"/>
+								<File Id="885397637"/>
+								<File Id="976692489"/>
+								<File Id="1063201100"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{7A2F5A9B-8B2E-4D15-AB60-DC47F68CF771}">
+							<Media>
+								<File Id="39077449"/>
+								<File Id="49158499"/>
+								<File Id="79981792"/>
+								<File Id="102975456"/>
+								<File Id="105375314"/>
+								<File Id="506728675"/>
+								<File Id="741599082"/>
+								<File Id="1006692836"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="725000905" Name="Play_Game_Over" ObjectPath="\Events\Default Work Unit\Play_Game_Over"/>
 				<Event Id="2454594115" Name="Play_Help" ObjectPath="\Events\Default Work Unit\Play_Help"/>
 				<Event Id="2006190918" Name="Play_Install_Anti" ObjectPath="\Events\Default Work Unit\Play_Install_Anti"/>
@@ -71,6 +219,14 @@
 				<Event Id="1910125964" Name="Play_SFX_Win" ObjectPath="\Events\Default Work Unit\Play_SFX_Win"/>
 				<Event Id="1484225356" Name="Play_Swarm_Dies" ObjectPath="\Events\Default Work Unit\Play_Swarm_Dies"/>
 				<Event Id="1662830590" Name="Play_Swarm_Pass" ObjectPath="\Events\Default Work Unit\Play_Swarm_Pass"/>
+				<Event Id="2717110312" Name="Play_Tutorial_Mx" ObjectPath="\Events\Default Work Unit\Play_Tutorial_Mx">
+					<IncludedMemoryFiles>
+						<File Id="45868283" Language="SFX">
+							<ShortName>MX_Tuto.wav</ShortName>
+							<Path>SFX\MX_Tuto_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="43599987" Name="Play_UI_Button" ObjectPath="\Events\Default Work Unit\Play_UI_Button">
 					<IncludedMemoryFiles>
 						<File Id="804569988" Language="SFX">
@@ -118,8 +274,20 @@
 				<Event Id="2834782679" Name="Stop_Firewall_2_Laser" ObjectPath="\Events\Default Work Unit\Stop_Firewall_2_Laser" MaxAttenuation="0."/>
 				<Event Id="1169078421" Name="Stop_Firewall_3_Blast" ObjectPath="\Events\Default Work Unit\Stop_Firewall_3_Blast" MaxAttenuation="0."/>
 				<Event Id="1131542710" Name="Stop_Firewall_3_Laser" ObjectPath="\Events\Default Work Unit\Stop_Firewall_3_Laser" MaxAttenuation="0."/>
+				<Event Id="3130083086" Name="Stop_Game_Mx" ObjectPath="\Events\Default Work Unit\Stop_Game_Mx" MaxAttenuation="0."/>
+				<Event Id="1359444894" Name="Stop_Tutorial_Mx" ObjectPath="\Events\Default Work Unit\Stop_Tutorial_Mx" MaxAttenuation="0."/>
 				<Event Id="2636698450" Name="Stop_VX_SD_Skull" ObjectPath="\Events\Default Work Unit\Stop_VX_SD_Skull" MaxAttenuation="0."/>
 			</IncludedEvents>
+			<StateGroups>
+				<StateGroup Id="2782712965" Name="Level" ObjectPath="\States\Default Work Unit\Level" GUID="{BF2CB268-1D76-4C80-BF4B-58EDF11579FE}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Level\None" GUID="{B526AD4C-5BE9-40AC-BBA9-38DC94D41C1F}"/>
+						<State Id="529018163" Name="Easy" ObjectPath="\States\Default Work Unit\Level\Easy" GUID="{C59F7747-2C4B-4857-AA1D-0205B3D36411}"/>
+						<State Id="2849147824" Name="Medium" ObjectPath="\States\Default Work Unit\Level\Medium" GUID="{2F2766F9-192D-4616-B6AF-3438C980AB3E}"/>
+						<State Id="3599861390" Name="Hard" ObjectPath="\States\Default Work Unit\Level\Hard" GUID="{7A2F5A9B-8B2E-4D15-AB60-DC47F68CF771}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

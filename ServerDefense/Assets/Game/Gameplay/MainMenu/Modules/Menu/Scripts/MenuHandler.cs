@@ -12,6 +12,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private Button startGameButton = null;
    
     [SerializeField] private Button tutorialButton = null;
+    [SerializeField] private Button optionsButton = null;
     [SerializeField] private Button creditsButton = null;
     [SerializeField] private Button exitButton = null;
 

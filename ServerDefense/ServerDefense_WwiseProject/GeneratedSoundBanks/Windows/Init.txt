@@ -1,3 +1,12 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	2782712965	Level			\Default Work Unit\Level	
+
+State	ID	Name	State Group			Notes
+	529018163	Easy	Level			
+	748895195	None	Level			
+	2849147824	Medium	Level			
+	3599861390	Hard	Level			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1685527054	MX			\Default Work Unit\Volume\MX	
 	1886858530	AX			\Default Work Unit\Volume\AX	

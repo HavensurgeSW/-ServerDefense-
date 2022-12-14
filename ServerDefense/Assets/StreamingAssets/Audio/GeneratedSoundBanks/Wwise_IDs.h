@@ -29,6 +29,7 @@ namespace AK
         static const AkUniqueID PLAY_FIREWALL_2_LASER = 2005936881U;
         static const AkUniqueID PLAY_FIREWALL_3_BLAST = 3225411671U;
         static const AkUniqueID PLAY_FIREWALL_3_LASER = 17370536U;
+        static const AkUniqueID PLAY_GAME_MX = 231310820U;
         static const AkUniqueID PLAY_GAME_OVER = 725000905U;
         static const AkUniqueID PLAY_HELP = 2454594115U;
         static const AkUniqueID PLAY_INSTALL_ANTI = 2006190918U;
@@ -39,6 +40,7 @@ namespace AK
         static const AkUniqueID PLAY_SFX_WIN = 1910125964U;
         static const AkUniqueID PLAY_SWARM_DIES = 1484225356U;
         static const AkUniqueID PLAY_SWARM_PASS = 1662830590U;
+        static const AkUniqueID PLAY_TUTORIAL_MX = 2717110312U;
         static const AkUniqueID PLAY_UI_BUTTON = 43599987U;
         static const AkUniqueID PLAY_UI_HOVER = 1339559671U;
         static const AkUniqueID PLAY_UNINSTALL_ANTI = 250668327U;
@@ -65,8 +67,27 @@ namespace AK
         static const AkUniqueID STOP_FIREWALL_2_LASER = 2834782679U;
         static const AkUniqueID STOP_FIREWALL_3_BLAST = 1169078421U;
         static const AkUniqueID STOP_FIREWALL_3_LASER = 1131542710U;
+        static const AkUniqueID STOP_GAME_MX = 3130083086U;
+        static const AkUniqueID STOP_TUTORIAL_MX = 1359444894U;
         static const AkUniqueID STOP_VX_SD_SKULL = 2636698450U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace LEVEL
+        {
+            static const AkUniqueID GROUP = 2782712965U;
+
+            namespace STATE
+            {
+                static const AkUniqueID EASY = 529018163U;
+                static const AkUniqueID HARD = 3599861390U;
+                static const AkUniqueID MEDIUM = 2849147824U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace LEVEL
+
+    } // namespace STATES
 
     namespace GAME_PARAMETERS
     {

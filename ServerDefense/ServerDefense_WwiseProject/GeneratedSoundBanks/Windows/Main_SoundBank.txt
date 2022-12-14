@@ -3,6 +3,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	22560834	Play_Antivirus_1_Blast			\Default Work Unit\Play_Antivirus_1_Blast	
 	43599987	Play_UI_Button			\Default Work Unit\Play_UI_Button	
 	92581801	Play_Wrong			\Default Work Unit\Play_Wrong	
+	231310820	Play_Game_Mx			\Default Work Unit\Play_Game_Mx	
 	250668327	Play_Uninstall_Anti			\Default Work Unit\Play_Uninstall_Anti	
 	327270693	Play_AX_Menu			\Default Work Unit\Play_AX_Menu	
 	427127591	Play_Virus_Pass			\Default Work Unit\Play_Virus_Pass	
@@ -13,6 +14,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1131542710	Stop_Firewall_3_Laser			\Default Work Unit\Stop_Firewall_3_Laser	
 	1169078421	Stop_Firewall_3_Blast			\Default Work Unit\Stop_Firewall_3_Blast	
 	1339559671	Play_UI_Hover			\Default Work Unit\Play_UI_Hover	
+	1359444894	Stop_Tutorial_Mx			\Default Work Unit\Stop_Tutorial_Mx	
 	1410437897	Play_Antivirus_2_Blast			\Default Work Unit\Play_Antivirus_2_Blast	
 	1484225356	Play_Swarm_Dies			\Default Work Unit\Play_Swarm_Dies	
 	1662830590	Play_Swarm_Pass			\Default Work Unit\Play_Swarm_Pass	
@@ -32,9 +34,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	2636698450	Stop_VX_SD_Skull			\Default Work Unit\Stop_VX_SD_Skull	
 	2643594368	Play_Antivirus_3_Blast			\Default Work Unit\Play_Antivirus_3_Blast	
 	2665061269	Play_Network_Init			\Default Work Unit\Play_Network_Init	
+	2717110312	Play_Tutorial_Mx			\Default Work Unit\Play_Tutorial_Mx	
 	2834782679	Stop_Firewall_2_Laser			\Default Work Unit\Stop_Firewall_2_Laser	
 	2932367912	Play_Update_Deploy_Fire			\Default Work Unit\Play_Update_Deploy_Fire	
 	3055448759	Play_Wave_Bar			\Default Work Unit\Play_Wave_Bar	
+	3130083086	Stop_Game_Mx			\Default Work Unit\Stop_Game_Mx	
 	3166435559	Stop_AX_Menu			\Default Work Unit\Stop_AX_Menu	
 	3225411671	Play_Firewall_3_Blast			\Default Work Unit\Play_Firewall_3_Blast	
 	3462881543	Stop_Firewall_1_Blast			\Default Work Unit\Stop_Firewall_1_Blast	
@@ -53,11 +57,47 @@ Event	ID	Name			Wwise Object Path	Notes
 	4045841438	Play_Firewall_2_Blast			\Default Work Unit\Play_Firewall_2_Blast	
 	4211330366	Stop_Antivirus_3_Blast			\Default Work Unit\Stop_Antivirus_3_Blast	
 
+State Group	ID	Name			Wwise Object Path	Notes
+	2782712965	Level			\Default Work Unit\Level	
+
+State	ID	Name	State Group			Notes
+	529018163	Easy	Level			
+	748895195	None	Level			
+	2849147824	Medium	Level			
+	3599861390	Hard	Level			
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	39077449	Drums_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt3_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Drums_Pt3		2048064
+	45868283	MX_Tuto	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\MX_Tuto_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Tutorial\Tutorial_Mx\MX_Tuto\MX_Tuto		16384064
+	49158499	Instr_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt3_2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Instr_Pt3		2048064
+	79981792	Drums_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt3_2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Drums_Pt3		2048064
+	102975456	Instr_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt3_4_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Instr_Pt3		2048064
+	105375314	Drums_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt3_3_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Drums_Pt3		2048064
+	119644721	Drums_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt2_1_50_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Drums_Pt2		2048064
 	179881847	C_CD_LOC	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_1-up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Terminal\Game_Scene\C_CD_LOC		21948
+	181353585	Instr_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt2_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Instr_Pt2		2048064
+	183020738	Drums_Pt11	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt1_4_10_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Drums_Pt11		2048064
+	198356048	Instr_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt2_6_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Instr_Pt2		2048064
+	210145288	Instr_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt2_5_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Instr_Pt2		2048064
+	262566963	Drums_Pt11	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt1_5_10_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Drums_Pt11		2048064
+	306460649	Synth_Pt1	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Synth_Pt1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Synth_Pt1		4096064
+	410921059	8BitBass_Pt1	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\8BitBass_Pt1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\8BitBass_Pt1		4096064
+	506728675	Instr_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt3_3_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Instr_Pt3		2048064
+	521476059	Instr_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt2_3_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Instr_Pt2		2048064
+	641948762	Instr_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt2_2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Instr_Pt2		2048064
+	671293523	Drums_Pt11	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt1_1_60_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Drums_Pt11		2048064
 	687271244	Neon_Ambient	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\BASE PARA SEBA_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\AX\Menu_AX\Neon_Ambient		6259292
+	721554156	Instr_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt2_4_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Instr_Pt2		2048064
+	730887090	Drums_Pt11	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt1_3_30_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Drums_Pt11		2048064
+	741599082	Instr_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Instr_Pt3_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Instr_Pt3		2048064
 	804569988	UI_Button (Duplicar)	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_kick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Terminal\Menu\UI_Button\UI_Button (Duplicar)		5882
 	831232091	Virus_Enters_1 (Duplicar)	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_blargg_no_echo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_World\Virus_Enters_Server\Virus_Enters_1 (Duplicar)		30070
+	857557370	Layer_Pt1	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Layer_Pt1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Layer_Pt1		4096064
 	866438379	UI_Hover1 (Duplicar)	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Terminal\Menu\UI_Hover\UI_Hover1 (Duplicar)		18546
+	885397637	Drums_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt2_3_40_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Drums_Pt2		2048064
+	958767822	Drums_Pt11	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt1_2_30_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Easy\Mx_Easy\Drums_Pt11		2048064
+	976692489	Drums_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt2_2_50_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Drums_Pt2		2048064
+	1006692836	Drums_Pt3	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt3_4_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Hard\Mx_Hard\Drums_Pt3		2048064
 	1026563163	Bb_Drone_Ambient	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\TheThang_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\AX\Menu_AX\Bb_Drone_Ambient		6174064
+	1063201100	Drums_Pt2	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\Drums_Pt2_4_30_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\SD_MX\Main_Game\Game_Mx\MX_Game_Medium\Mx_Medium\Drums_Pt2		2048064
 
