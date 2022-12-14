@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}" SchemaVersion="103">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Volume" ID="{A377A1B3-0442-43E3-AFF0-4BBDEB010138}" ShortID="575313348">
+					<ChildrenList>
+						<GameParameter Name="MX" ID="{A87B04B8-0942-4E5A-A1B0-BB570DDF0483}"/>
+						<GameParameter Name="AX" ID="{4E056ABC-A449-47A7-A881-664156C1AF57}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="SFX_World" ID="{CA681E7F-6C6D-43E7-8131-D363DBCA78D0}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="SFX_Terminal" ID="{44D2181D-0131-4A6F-911E-60F3730A383E}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

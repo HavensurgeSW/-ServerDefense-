@@ -1,6 +1,640 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E4A4AA9E-C8D5-40F8-8681-4B411C29981D}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{E4A4AA9E-C8D5-40F8-8681-4B411C29981D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E4A4AA9E-C8D5-40F8-8681-4B411C29981D}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_SD_Title" ID="{9C628174-2623-4DC4-AA87-8E565686E959}">
+					<ChildrenList>
+						<Action Name="" ID="{FB1BA0C1-3B7C-4A42-A3C3-64CAA2417238}" ShortID="894290140">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Intro_VX_Server_Defense" ID="{8F7E484B-24A7-49E1-9F9E-8BEFCA774DF2}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_SD_Logo" ID="{5BFB1DD0-9F73-4951-8A8F-2DCAE8E45D53}">
+					<ChildrenList>
+						<Action Name="" ID="{D4A28962-947A-48A5-8771-569746E7C6AA}" ShortID="260930064">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Logo_SD" ID="{02F55BCB-5260-4967-B13B-51DAB62EB204}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AX_Menu" ID="{96DA971C-6DE0-40D0-A2BD-6877A9716F5E}">
+					<ChildrenList>
+						<Action Name="" ID="{44AEDB26-FD80-43A2-82FC-3C80F066E35A}" ShortID="408857175">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_AX" ID="{1EA7738A-73F1-4A4C-B3AE-386984D160B3}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_AX_Menu" ID="{33F0749B-F561-463E-85DD-ACB500F5ED3F}">
+					<ChildrenList>
+						<Action Name="" ID="{165006EC-84E8-41AC-BA19-A0C374AFAD83}" ShortID="549752873">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_AX" ID="{1EA7738A-73F1-4A4C-B3AE-386984D160B3}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AX_GameScene" ID="{1A4562F1-B3CA-4FE4-BEDC-89A09AF910F6}">
+					<ChildrenList>
+						<Action Name="" ID="{1C374B4C-7607-4FE3-A6B6-576B37DE1C3B}" ShortID="43447093">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="GameScene_AX" ID="{472B45BD-9DDB-43BA-B9D4-74342BE28678}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_AX_GameScene" ID="{31B212F6-84EF-49DC-8895-9E75487C2DC9}">
+					<ChildrenList>
+						<Action Name="" ID="{3A185CF8-5AF7-4E77-B37E-6DBC1313B89F}" ShortID="27420482">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="GameScene_AX" ID="{472B45BD-9DDB-43BA-B9D4-74342BE28678}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AX_Tutorial" ID="{65D58D10-A034-4AE9-AE71-B42D4D9FFB0E}">
+					<ChildrenList>
+						<Action Name="" ID="{443F101B-786A-4032-B668-AD8CFAF8CC29}" ShortID="554415872">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tutorial_AX" ID="{1924FC7A-6329-491C-8077-2804A7BB4546}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_AX_Tutorial" ID="{0F83C8B7-9087-4C7C-A8D4-1E445F679034}">
+					<ChildrenList>
+						<Action Name="" ID="{0F34DF97-84AD-4B39-89A2-09515CCF3CF3}" ShortID="870718567">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tutorial_AX" ID="{1924FC7A-6329-491C-8077-2804A7BB4546}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_UI_Hover" ID="{65741663-175D-4560-9E6F-524E2E65EF79}">
+					<ChildrenList>
+						<Action Name="" ID="{9C58424F-ED7B-4A92-BFE5-A37890DC2C8B}" ShortID="580835513">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Hover" ID="{47E37B05-A121-42F2-B295-92273AFC41A0}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_UI_Button" ID="{2A3C3DEF-B058-4A06-ACDA-78E531A2A625}">
+					<ChildrenList>
+						<Action Name="" ID="{5AEF0420-79AF-4639-B433-EAEE7374E876}" ShortID="902426176">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Button" ID="{29F27048-083D-45CC-A250-0ADCBB191B2D}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_VX_SD_Skull" ID="{BBB11251-6D08-4BE5-A7AD-956C918E2B8D}">
+					<ChildrenList>
+						<Action Name="" ID="{F45A070A-8097-4F5F-B249-EDEDF0BC9969}" ShortID="897955166">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_VX_Skull_SFX" ID="{18D42BE9-9BB8-4FB6-887C-D44ADDF73A5D}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_CD_LOC" ID="{1755261F-00D5-45BD-A718-EEBAAB97E61A}">
+					<ChildrenList>
+						<Action Name="" ID="{7A1F4CE7-4ACB-4FFA-A43F-D2C09DDDD131}" ShortID="617469223">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_CD_LOC" ID="{5E92B9D6-E05B-49D4-9B4E-F2F197AAD078}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Install_Anti" ID="{E78AC3BE-0B85-46CF-ADB4-E15AA4E5B1E8}">
+					<ChildrenList>
+						<Action Name="" ID="{5186D7A7-FAA6-4B2C-8385-E2A9E50990C6}" ShortID="650174557">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Install_Antivirus" ID="{8F97E2DD-1427-42C7-BF3C-C20711BB6F79}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Install_Fire" ID="{9166042F-4742-45E3-BF29-4DB740206FCC}">
+					<ChildrenList>
+						<Action Name="" ID="{886EA63D-3E90-4980-9558-DC89E000B7F0}" ShortID="442517474">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Install_Firewall" ID="{C8468DAC-17E9-4C30-8B79-BF09CC07B4FB}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Network_Init" ID="{61CF6C7A-A5F2-4CFB-81E0-4A3F74E30415}">
+					<ChildrenList>
+						<Action Name="" ID="{03635019-551A-4692-83D2-25D31B07ACD1}" ShortID="298124675">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Network__Init" ID="{F8189054-3E1C-4BE1-AA5A-4D5158DF8199}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Wrong" ID="{3D76FC5D-E4BF-4BF4-BF7D-59B45C1C7F0A}">
+					<ChildrenList>
+						<Action Name="" ID="{14CBDBA6-B322-4322-9EBD-09C493E42C09}" ShortID="993556192">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Wrong_Entry" ID="{328099BE-AD75-46EE-A114-362ECC2C33CA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_VX_SD_Skull" ID="{BDB1EA56-CF9C-46A8-93F5-9EA5D334A009}">
+					<ChildrenList>
+						<Action Name="" ID="{D0FAAC01-2BC7-41DE-B97A-A57F64FC0D81}" ShortID="919590092">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_VX_Skull_SFX" ID="{18D42BE9-9BB8-4FB6-887C-D44ADDF73A5D}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Update_Info" ID="{8051C5C5-FCB8-46D6-935E-CCB313B4D8E2}">
+					<ChildrenList>
+						<Action Name="" ID="{9A5C4A62-B112-4F08-99FB-F9CA85221C0F}" ShortID="639760893">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Update_Info" ID="{93D5F498-ADD0-41DF-A9BE-60BC185AE28F}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Update_Deploy_Anti" ID="{488F8914-9324-4E32-BA39-3C1B233E5B4C}">
+					<ChildrenList>
+						<Action Name="" ID="{E516574D-1BE9-46BD-8FB1-CA2A45A430CD}" ShortID="1069213470">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Update_Deploy_Anti" ID="{1716801A-2CE7-4C42-B2B5-2E0B7904F203}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Update_Deploy_Fire" ID="{C075D0EF-5411-4EC7-A330-3E2BE71E4B4E}">
+					<ChildrenList>
+						<Action Name="" ID="{30AFC0D7-27C3-410B-9293-50F209C59719}" ShortID="638338787">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Update_Deploy_Fire" ID="{A7396D39-C4B3-4D82-B962-37CE93B96503}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Help" ID="{1E4DD3EB-9571-4BE0-B8DA-7F339E78F148}">
+					<ChildrenList>
+						<Action Name="" ID="{EFA8B4D3-9DAE-4F3D-BA30-71A12044B51C}" ShortID="746277056">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Help" ID="{5253ECDE-FDBA-4CD3-A7E6-9EEC11819DCE}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Uninstall_Anti" ID="{6D0FE201-A16A-455F-9D42-4F6830FB6FDD}">
+					<ChildrenList>
+						<Action Name="" ID="{0F956334-353F-4423-BB24-AF90B05A2661}" ShortID="15831260">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="C_Uninstall_Anti" ID="{7BBB63E1-B799-44F5-8A2D-6749234E1E34}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_SFX_Win" ID="{15363E06-B545-48E5-B251-33B3EA71EF16}">
+					<ChildrenList>
+						<Action Name="" ID="{91BD2447-4316-4567-8610-1EB1329D1FFD}" ShortID="413640398">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Operation_Succesfull_SFX" ID="{10CD3049-D6A2-48E3-9F62-F8E81D02513E}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Game_Over" ID="{0EADE881-8797-44FC-8082-9B91617C1A12}">
+					<ChildrenList>
+						<Action Name="" ID="{6509B931-D8A6-48CD-B79F-B74BB91D9C7B}" ShortID="774600526">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Game_Over_SFX" ID="{0C84D1B9-9BF7-4B83-80AF-505804C2B60A}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Virus_Dies" ID="{0953B2F4-8C57-432B-A33D-9AC86FEBE85E}">
+					<ChildrenList>
+						<Action Name="" ID="{EB2D1508-BA63-4056-8DA2-FAA9BB2B6824}" ShortID="625596204">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Virus_Dies" ID="{BD61CDDE-B113-4592-923B-7682509E9923}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Swarm_Dies" ID="{DD483D9E-86DE-4B06-8C2A-DBAEDF0DCA5B}">
+					<ChildrenList>
+						<Action Name="" ID="{455349AF-E636-487B-BA7E-9EE32EFE3BDA}" ShortID="619521508">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Swarm_Dies" ID="{C125F20C-964E-421F-B1F0-A00B133251CD}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Virus_Pass" ID="{A796BFFC-0A5D-4DEF-ADF5-B5208909C7E4}">
+					<ChildrenList>
+						<Action Name="" ID="{7371F0F1-11FB-4B27-BB65-1812F1C69EB4}" ShortID="604788638">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Virus_Enters_Server" ID="{95342A38-3246-4E85-8F2D-4B22DBFE7AD4}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Swarm_Pass" ID="{025ACDE6-251F-40A5-B169-F6F113727E71}">
+					<ChildrenList>
+						<Action Name="" ID="{B4E88076-618F-4649-A705-1C54AEE75B24}" ShortID="378947211">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Swarm_Enters_Server" ID="{24EF39FB-7BA0-46C2-911A-D4A23559F500}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Wave_Bar" ID="{208DA89E-E56E-4778-9FA6-46DDAA5A50ED}">
+					<ChildrenList>
+						<Action Name="" ID="{8D82D5D7-2919-4AB3-B39E-E18BAACB259B}" ShortID="431716576">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Time_to_next_wave" ID="{D5D19020-792C-4A13-92C7-8E2D91FBB747}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Antivirus_1_Blast" ID="{C4E54F41-6C75-4A55-802E-7C6FE4F2F72B}">
+					<ChildrenList>
+						<Action Name="" ID="{B1776ACB-7E78-47AD-82F9-D21951CCEE73}" ShortID="263191174">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L1_Blast" ID="{0D3587C5-B01F-483E-89F2-C28FA863C16B}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Antivirus_1_Blast" ID="{3F07CADC-F771-4F44-A0F4-A9EB20F9D164}">
+					<ChildrenList>
+						<Action Name="" ID="{C27B6386-2123-4321-AED0-045302AD7F9B}" ShortID="835612104">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L1_Blast" ID="{0D3587C5-B01F-483E-89F2-C28FA863C16B}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Antivirus_2_Blast" ID="{FACD9F0E-CC8A-4B1D-892B-16700175F3B0}">
+					<ChildrenList>
+						<Action Name="" ID="{ED27D53E-1F17-43EC-9F41-E713B124ED9B}" ShortID="873180667">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L2_Blast" ID="{1911A422-9906-4942-B7F1-89BDE853990F}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Antivirus_2_Blast" ID="{6AF5F2C2-2AA9-4B00-BAEA-1455E2854E6A}">
+					<ChildrenList>
+						<Action Name="" ID="{317538DA-73AA-4373-95C8-3C83C25B4D71}" ShortID="133261967">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L2_Blast" ID="{1911A422-9906-4942-B7F1-89BDE853990F}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Antivirus_3_Blast" ID="{81B44956-3BE0-4B4A-9132-0B66F5DECE53}">
+					<ChildrenList>
+						<Action Name="" ID="{81E3A6D1-8083-44E6-BD56-9849AF7D048D}" ShortID="576075666">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L3_Blast" ID="{66CB62A0-5FBC-4D53-95B8-31A8475AFDDA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Antivirus_3_Blast" ID="{FDC4BB98-ADC0-4A6C-98E6-DC5298B34639}">
+					<ChildrenList>
+						<Action Name="" ID="{48B1970A-8692-4D53-A2EE-D97EB6F14892}" ShortID="485897973">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L3_Blast" ID="{66CB62A0-5FBC-4D53-95B8-31A8475AFDDA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Antivirus_1_Laser" ID="{DF59FC3C-6B38-4259-AE44-865471EE171F}">
+					<ChildrenList>
+						<Action Name="" ID="{699650C7-DAE1-4117-893C-2F5EE62F4527}" ShortID="92373127">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L 1_Continuo" ID="{DE5AB366-1F75-4FE9-B31A-B0F09B087936}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Antivirus_1_Laser" ID="{75CFC3F8-54AD-4457-8664-D7D4EDCE5FCB}">
+					<ChildrenList>
+						<Action Name="" ID="{D2D33FEE-05D5-4D4C-BB2D-7223312C764F}" ShortID="236973993">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L 1_Continuo" ID="{DE5AB366-1F75-4FE9-B31A-B0F09B087936}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Antivirus_2_Laser" ID="{ACE3F3EB-AFA4-4818-9ABC-D1FED01F3613}">
+					<ChildrenList>
+						<Action Name="" ID="{F855838D-3A13-4B06-8548-5B5CB6721858}" ShortID="358456368">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L 2_Continuo" ID="{ACF8BFDC-7C1F-4E3F-8088-E4A28D8B6636}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Antivirus_2_Laser" ID="{CBC9B001-8843-4520-87E7-F5579E28E435}">
+					<ChildrenList>
+						<Action Name="" ID="{46607203-5BBE-48DD-8E04-9FA4DD31E6F7}" ShortID="666922719">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L 2_Continuo" ID="{ACF8BFDC-7C1F-4E3F-8088-E4A28D8B6636}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Antivirus_3_Laser" ID="{F94DD0A8-C7B9-435D-9317-4EC6A00B6502}">
+					<ChildrenList>
+						<Action Name="" ID="{2A989430-A293-4282-9BDD-656489A66839}" ShortID="645660273">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L 3_Continuo" ID="{1A36C3B1-92EB-41F0-A0D9-C2E5FFFADEFA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Antivirus_3_Laser" ID="{0086EB33-CA40-447E-B787-B9F1453C3C94}">
+					<ChildrenList>
+						<Action Name="" ID="{481DD9CA-6706-4A3E-A441-6AB5D91B3556}" ShortID="907402630">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Antivirus_L 3_Continuo" ID="{1A36C3B1-92EB-41F0-A0D9-C2E5FFFADEFA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Firewall_1_Blast" ID="{AD2EE10B-D01D-45AF-895D-6BEBB7C91BBB}">
+					<ChildrenList>
+						<Action Name="" ID="{F58345AA-5964-42BC-8C8D-102081748771}" ShortID="80465525">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L1_Blast" ID="{A4756444-28DD-40C6-BE4B-75CCEDEC4A30}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Firewall_1_Blast" ID="{D9867F21-C886-48A8-ADF3-A9C664A11A38}">
+					<ChildrenList>
+						<Action Name="" ID="{79F95895-ED33-4882-923B-BA72D3893DC9}" ShortID="560149261">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L1_Blast" ID="{A4756444-28DD-40C6-BE4B-75CCEDEC4A30}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Firewall_2_Blast" ID="{C1A84D49-1374-4269-9105-46AD16D553F1}">
+					<ChildrenList>
+						<Action Name="" ID="{97BA21AE-5E44-4FFE-A7A1-FA11BD106F84}" ShortID="661573221">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L2_Blast" ID="{CF4786D0-C817-4F3A-970E-F3A933888E89}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Firewall_2_Blast" ID="{D513FE58-01DE-4F9F-973E-9CD8413FEB26}">
+					<ChildrenList>
+						<Action Name="" ID="{313FB9AD-7255-4068-9A4F-14517B5A1C9C}" ShortID="757001057">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L2_Blast" ID="{CF4786D0-C817-4F3A-970E-F3A933888E89}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Firewall_3_Blast" ID="{10DD54DA-3A83-4E85-93D0-C5A4EBAA72AC}">
+					<ChildrenList>
+						<Action Name="" ID="{724C72FC-A010-4C02-92EB-84CBD2BF7E01}" ShortID="85411680">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L3_Blast" ID="{4DA702B3-63F6-4B5D-AAD1-C54873E049B9}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Firewall_3_Blast" ID="{005A833A-CCD8-4C4A-8E12-46759B2B4260}">
+					<ChildrenList>
+						<Action Name="" ID="{6105BC06-76E4-4B08-B891-E0870B37ADEC}" ShortID="228313422">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L3_Blast" ID="{4DA702B3-63F6-4B5D-AAD1-C54873E049B9}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Firewall_1_Laser" ID="{EBAA7CBD-8DEC-4E50-802E-B687AA030759}">
+					<ChildrenList>
+						<Action Name="" ID="{5426C234-4846-4388-B917-55864663F349}" ShortID="1010285014">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L 1_Continuo" ID="{73381E33-3859-4832-B5E4-66F5F3203F7D}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Firewall_1_Laser" ID="{2BB680CC-F239-4D33-87FC-8B7389FAC8F7}">
+					<ChildrenList>
+						<Action Name="" ID="{A6A21C5B-6B5E-484E-8EE2-B13B118E8749}" ShortID="268576876">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L 1_Continuo" ID="{73381E33-3859-4832-B5E4-66F5F3203F7D}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Firewall_2_Laser" ID="{4C079D74-3ADB-4D29-B534-C2D649038146}">
+					<ChildrenList>
+						<Action Name="" ID="{D61B8D0D-D644-4A2B-AC86-35A1BE4C42FD}" ShortID="299046007">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L 2_Continuo" ID="{FD7594EB-A152-44AC-9CF7-0C7AF37B1D9C}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Firewall_2_Laser" ID="{2429CB36-4A8C-4566-BEBB-DB9349D947CA}">
+					<ChildrenList>
+						<Action Name="" ID="{BB92D4DC-6C19-49D2-B6E4-78673A545C1F}" ShortID="595184991">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L 2_Continuo" ID="{FD7594EB-A152-44AC-9CF7-0C7AF37B1D9C}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Firewall_3_Laser" ID="{62F30EAE-5EC2-48B5-8715-E5855D854579}">
+					<ChildrenList>
+						<Action Name="" ID="{53FBC4A0-1BDD-4EA2-923D-EE6A7FB68FA4}" ShortID="524181689">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L 3_Continuo" ID="{042CD37F-0CBD-4C48-9C8C-11A0B75AACBA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Firewall_3_Laser" ID="{8EAB6D6C-44B4-4B18-8EC5-4FB6DCE44AAA}">
+					<ChildrenList>
+						<Action Name="" ID="{908719E4-0722-4323-9499-855F64B33066}" ShortID="331205221">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Laser_Firewall_L 3_Continuo" ID="{042CD37F-0CBD-4C48-9C8C-11A0B75AACBA}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

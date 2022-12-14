@@ -9,6 +9,140 @@
 							<ObjectRef Name="System" ID="{6B6423D1-AE8A-4A7D-A41C-B23F3BF41AF0}" WorkUnitID="{F1698738-54B5-4C13-A2BE-4C42647C910C}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="MX" ID="{4C866934-0502-4784-8A0A-374EBE6881F8}">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{679F4B99-18F3-4B0D-9D83-E14DB9061020}" ShortID="766644963">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="MX" ID="{A87B04B8-0942-4E5A-A1B0-BB570DDF0483}" WorkUnitID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{1C6F0730-CE40-414C-B023-ECA25C42E511}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="AX" ID="{3B7C4854-56D3-49C6-A443-23A0EA112FF4}">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{5204EFB8-390F-4521-B82E-83082B2CB0B9}" ShortID="121638868">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="AX" ID="{4E056ABC-A449-47A7-A881-664156C1AF57}" WorkUnitID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{FE768308-3E23-4036-A485-51536EC15284}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="SFX_Terminal" ID="{4BD348EF-52EC-49D8-A732-24A018DEC54E}">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{5EEE5628-0630-4901-BA8E-2F094C31FFED}" ShortID="541473071">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="SFX_Terminal" ID="{44D2181D-0131-4A6F-911E-60F3730A383E}" WorkUnitID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{476CB5DA-8A21-4D9B-B5C2-70171F799E2E}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="SFX_World" ID="{4F0AA293-44A8-4392-8D71-1A0F417F3CFC}">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{EE0CCFD6-1E13-43C8-9729-ADF9074DB7B6}" ShortID="689508221">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="SFX_World" ID="{CA681E7F-6C6D-43E7-8131-D363DBCA78D0}" WorkUnitID="{95EF72A4-812F-428F-B2BF-085CC6E9AECD}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{B0F0ECF1-CB1B-4D03-A313-52D49485DBE2}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+					</ChildrenList>
 					<ObjectLists/>
 				</Bus>
 			</ChildrenList>
