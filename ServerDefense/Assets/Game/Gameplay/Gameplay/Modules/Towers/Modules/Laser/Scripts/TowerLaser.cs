@@ -34,5 +34,6 @@ public class TowerLaser : MonoBehaviour
     public void ClearLine()
     {
         SetPositionCount(0);
+        Debug.Log("laser cleared");
     }
 }

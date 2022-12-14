@@ -68,6 +68,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0) 
         {
+            AkSoundEngine.PostEvent("Play_Virus_Pass", gameObject);
             Die();
         }
     }

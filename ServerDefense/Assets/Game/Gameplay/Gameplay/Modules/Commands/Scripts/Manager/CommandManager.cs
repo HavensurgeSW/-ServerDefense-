@@ -207,6 +207,7 @@ public class CommandManager : MonoBehaviour
 
                 //Action callout
                 OnChangeDirectory?.Invoke(locName);
+                AkSoundEngine.PostEvent("Play_CD_LOC", gameObject);
 
                 break;
             }

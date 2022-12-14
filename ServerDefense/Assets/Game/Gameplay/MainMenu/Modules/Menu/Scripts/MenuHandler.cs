@@ -37,6 +37,7 @@ public class MenuHandler : MonoBehaviour
         creditsButton.onClick.AddListener(() => onSwitchToCredits?.Invoke());
 
         exitButton.onClick.AddListener(() => onExitGame?.Invoke());
+        
     }
 
     public void ToggleMenuStatus(bool status)

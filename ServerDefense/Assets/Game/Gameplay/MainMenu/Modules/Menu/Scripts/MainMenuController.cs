@@ -8,6 +8,7 @@ public class MainMenuController : SceneController
     [Header("Main Configuration")]
     [SerializeField] private MenuHandler menuHandler = null;
     [SerializeField] private CreditsHandler creditsHandler = null;
+    [SerializeField] private GameObject sfx_source = null;
     [SerializeField] private GameObject loadingPanel = null;
 
     protected override void Awake()
@@ -15,6 +16,7 @@ public class MainMenuController : SceneController
         menuHandler.Init(SwitchToCredits, 
             (scene, isAsync) => 
             {
+                AkSoundEngine.PostEvent("Stop_AX_Menu", sfx_source);
                 loadingPanel.SetActive(true);
                 selectedLevel = scene;
                 ChangeScene(scene, isAsync);

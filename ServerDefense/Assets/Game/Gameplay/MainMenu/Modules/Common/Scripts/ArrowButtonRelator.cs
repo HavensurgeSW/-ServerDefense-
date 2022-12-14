@@ -10,7 +10,8 @@ public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        RunAnimatorLoop(true);     
+        RunAnimatorLoop(true);
+        AkSoundEngine.PostEvent("Play_UI_Hover", gameObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)

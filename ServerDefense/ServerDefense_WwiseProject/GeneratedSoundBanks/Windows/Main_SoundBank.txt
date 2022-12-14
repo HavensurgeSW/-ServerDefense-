@@ -1,0 +1,62 @@
+Event	ID	Name			Wwise Object Path	Notes
+	17370536	Play_Firewall_3_Laser			\Default Work Unit\Play_Firewall_3_Laser	
+	22560834	Play_Antivirus_1_Blast			\Default Work Unit\Play_Antivirus_1_Blast	
+	43599987	Play_UI_Button			\Default Work Unit\Play_UI_Button	
+	92581801	Play_Wrong			\Default Work Unit\Play_Wrong	
+	250668327	Play_Uninstall_Anti			\Default Work Unit\Play_Uninstall_Anti	
+	327270693	Play_AX_Menu			\Default Work Unit\Play_AX_Menu	
+	427127591	Play_Virus_Pass			\Default Work Unit\Play_Virus_Pass	
+	473703163	Play_Antivirus_3_Laser			\Default Work Unit\Play_Antivirus_3_Laser	
+	636914782	Play_AX_Tutorial			\Default Work Unit\Play_AX_Tutorial	
+	725000905	Play_Game_Over			\Default Work Unit\Play_Game_Over	
+	882063095	Stop_Antivirus_2_Blast			\Default Work Unit\Stop_Antivirus_2_Blast	
+	1131542710	Stop_Firewall_3_Laser			\Default Work Unit\Stop_Firewall_3_Laser	
+	1169078421	Stop_Firewall_3_Blast			\Default Work Unit\Stop_Firewall_3_Blast	
+	1339559671	Play_UI_Hover			\Default Work Unit\Play_UI_Hover	
+	1410437897	Play_Antivirus_2_Blast			\Default Work Unit\Play_Antivirus_2_Blast	
+	1484225356	Play_Swarm_Dies			\Default Work Unit\Play_Swarm_Dies	
+	1662830590	Play_Swarm_Pass			\Default Work Unit\Play_Swarm_Pass	
+	1910125964	Play_SFX_Win			\Default Work Unit\Play_SFX_Win	
+	1968882817	Play_Virus_Dies			\Default Work Unit\Play_Virus_Dies	
+	2005936881	Play_Firewall_2_Laser			\Default Work Unit\Play_Firewall_2_Laser	
+	2006190918	Play_Install_Anti			\Default Work Unit\Play_Install_Anti	
+	2010462792	Stop_Antivirus_2_Laser			\Default Work Unit\Stop_Antivirus_2_Laser	
+	2129848849	Stop_Antivirus_3_Laser			\Default Work Unit\Stop_Antivirus_3_Laser	
+	2192258458	Play_Antivirus_2_Laser			\Default Work Unit\Play_Antivirus_2_Laser	
+	2320647108	Play_CD_LOC			\Default Work Unit\Play_CD_LOC	
+	2336984686	Play_Install_Fire			\Default Work Unit\Play_Install_Fire	
+	2424970460	Stop_Antivirus_1_Blast			\Default Work Unit\Stop_Antivirus_1_Blast	
+	2454594115	Play_Help			\Default Work Unit\Play_Help	
+	2506060853	Play_Antivirus_1_Laser			\Default Work Unit\Play_Antivirus_1_Laser	
+	2516319623	Stop_Antivirus_1_Laser			\Default Work Unit\Stop_Antivirus_1_Laser	
+	2636698450	Stop_VX_SD_Skull			\Default Work Unit\Stop_VX_SD_Skull	
+	2643594368	Play_Antivirus_3_Blast			\Default Work Unit\Play_Antivirus_3_Blast	
+	2665061269	Play_Network_Init			\Default Work Unit\Play_Network_Init	
+	2834782679	Stop_Firewall_2_Laser			\Default Work Unit\Stop_Firewall_2_Laser	
+	2932367912	Play_Update_Deploy_Fire			\Default Work Unit\Play_Update_Deploy_Fire	
+	3055448759	Play_Wave_Bar			\Default Work Unit\Play_Wave_Bar	
+	3166435559	Stop_AX_Menu			\Default Work Unit\Stop_AX_Menu	
+	3225411671	Play_Firewall_3_Blast			\Default Work Unit\Play_Firewall_3_Blast	
+	3462881543	Stop_Firewall_1_Blast			\Default Work Unit\Stop_Firewall_1_Blast	
+	3541071973	Play_Firewall_1_Blast			\Default Work Unit\Play_Firewall_1_Blast	
+	3595651944	Play_VX_SD_Skull			\Default Work Unit\Play_VX_SD_Skull	
+	3618950782	Play_AX_GameScene			\Default Work Unit\Play_AX_GameScene	
+	3651786367	Play_SD_Logo			\Default Work Unit\Play_SD_Logo	
+	3709894380	Stop_Firewall_2_Blast			\Default Work Unit\Stop_Firewall_2_Blast	
+	3726213320	Stop_AX_GameScene			\Default Work Unit\Stop_AX_GameScene	
+	3792050540	Play_Update_Deploy_Anti			\Default Work Unit\Play_Update_Deploy_Anti	
+	3813994196	Play_Update_Info			\Default Work Unit\Play_Update_Info	
+	3824642668	Stop_AX_Tutorial			\Default Work Unit\Stop_AX_Tutorial	
+	3888294756	Play_SD_Title			\Default Work Unit\Play_SD_Title	
+	4004066118	Play_Firewall_1_Laser			\Default Work Unit\Play_Firewall_1_Laser	
+	4018147032	Stop_Firewall_1_Laser			\Default Work Unit\Stop_Firewall_1_Laser	
+	4045841438	Play_Firewall_2_Blast			\Default Work Unit\Play_Firewall_2_Blast	
+	4211330366	Stop_Antivirus_3_Blast			\Default Work Unit\Stop_Antivirus_3_Blast	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	179881847	C_CD_LOC	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_1-up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Terminal\Game_Scene\C_CD_LOC		21948
+	687271244	Neon_Ambient	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\BASE PARA SEBA_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\AX\Menu_AX\Neon_Ambient		6259292
+	831232091	Virus_Enters_1 (Duplicar)	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_blargg_no_echo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_World\Virus_Enters_Server\Virus_Enters_1 (Duplicar)		30070
+	866438379	UI_Hover1 (Duplicar)	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\smw_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Terminal\Menu\UI_Hover\UI_Hover1 (Duplicar)		18546
+	1026563163	Bb_Drone_Ambient	E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\SFX\TheThang_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\AX\Menu_AX\Bb_Drone_Ambient		6174064
+

@@ -16,6 +16,7 @@ public class Server : MonoBehaviour
     {
         hp -= dmg;
         OnDamaged?.Invoke(hp);
+        //AkSoundEngine.PostEvent("Play_Virus_Pass", gameObject);
 
         if (hp <= 0) 
         {

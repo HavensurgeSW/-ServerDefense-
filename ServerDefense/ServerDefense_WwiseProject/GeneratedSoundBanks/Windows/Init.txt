@@ -1,0 +1,17 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1685527054	MX			\Default Work Unit\Volume\MX	
+	1886858530	AX			\Default Work Unit\Volume\AX	
+	2607695663	SFX_World			\Default Work Unit\Volume\SFX_World	
+	3912465185	SFX_Terminal			\Default Work Unit\Volume\SFX_Terminal	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	1685527054	MX			\Default Work Unit\Master Audio Bus\MX	
+	1886858530	AX			\Default Work Unit\Master Audio Bus\AX	
+	2607695663	SFX_World			\Default Work Unit\Master Audio Bus\SFX_World	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3912465185	SFX_Terminal			\Default Work Unit\Master Audio Bus\SFX_Terminal	
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

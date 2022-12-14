@@ -27,7 +27,19 @@
 											<ObjectRef Name="AX" ID="{3B7C4854-56D3-49C6-A443-23A0EA112FF4}" WorkUnitID="{0DC1FB09-3CF1-46EE-97C5-63F25760725F}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="TheThang" ID="{D55850E3-15CD-4F40-9573-AF0F6C72D079}">
+											<Language>SFX</Language>
+											<AudioFile>TheThang.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1026563163"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
 									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="TheThang" ID="{D55850E3-15CD-4F40-9573-AF0F6C72D079}" Platform="Linked"/>
+									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Neon_Ambient" ID="{9BFB00A3-87B9-4F1A-97F8-505F31AC2ED2}" ShortID="337462905">
 									<PropertyList>
@@ -41,7 +53,19 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0DC1FB09-3CF1-46EE-97C5-63F25760725F}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BASE PARA SEBA" ID="{49087EC4-DE30-471B-91F3-D73098474266}">
+											<Language>SFX</Language>
+											<AudioFile>BASE PARA SEBA.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="687271244"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
 									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="BASE PARA SEBA" ID="{49087EC4-DE30-471B-91F3-D73098474266}" Platform="Linked"/>
+									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 							<ObjectLists/>
@@ -177,7 +201,19 @@
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0DC1FB09-3CF1-46EE-97C5-63F25760725F}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="smw_coin" ID="{9B870F04-DFED-4ACB-A328-EEC82C533449}">
+													<Language>SFX</Language>
+													<AudioFile>smw_coin.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="866438379"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
 											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="smw_coin" ID="{9B870F04-DFED-4ACB-A328-EEC82C533449}" Platform="Linked"/>
+											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
 									<ObjectLists/>
@@ -246,7 +282,19 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0DC1FB09-3CF1-46EE-97C5-63F25760725F}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="smw_1-up" ID="{7AFEB6D3-BB91-49C3-AFAA-83B0B00E8882}">
+											<Language>SFX</Language>
+											<AudioFile>smw_1-up.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="179881847"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
 									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="smw_1-up" ID="{7AFEB6D3-BB91-49C3-AFAA-83B0B00E8882}" Platform="Linked"/>
+									</ActiveSourceList>
 								</Sound>
 								<Sound Name="C_Install_Antivirus" ID="{8F97E2DD-1427-42C7-BF3C-C20711BB6F79}" ShortID="245211632">
 									<ReferenceList>
@@ -556,7 +604,19 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0DC1FB09-3CF1-46EE-97C5-63F25760725F}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="smw_blargg_no_echo" ID="{BEFDEC12-7F4E-486D-B5F9-935F52A43911}">
+											<Language>SFX</Language>
+											<AudioFile>smw_blargg_no_echo.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="831232091"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
 									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="smw_blargg_no_echo" ID="{BEFDEC12-7F4E-486D-B5F9-935F52A43911}" Platform="Linked"/>
+									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 							<ObjectLists/>
