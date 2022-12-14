@@ -20,6 +20,7 @@ public class TerminalManager : MonoBehaviour
     private ObjectPool<CmdEntry> entriesPool = null;
     private List<string> userHistory = null;
     private int currentHistoryIndex = 0;
+    private bool isEnabled = true;
 
     private Action<string> OnHistoryInput = null;
     private Action<string> OnInputCommand = null;
@@ -42,8 +43,30 @@ public class TerminalManager : MonoBehaviour
         GenerateCmdEntries(userInput);
     }
 
+    public void ToggleTerminalInteraction(bool status)
+    {
+        isEnabled = status;
+        terminalInput.enabled = status;
+        terminalInput.interactable = status;
+
+        if (status)
+        {
+            SelectInputField();
+            terminalInput.MoveTextEnd(false);
+        }
+        else
+        {
+            terminalInput.DeactivateInputField();
+        }
+    }
+
     private void Update()
     {
+        if (!isEnabled)
+        {
+            return;
+        }
+
         HandleTerminalInput();
         HandleUserHistory();       
     }

@@ -243,9 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce33868a9cb967e4f8cd6a4a6ec4c83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cmdEntryPrefab: {fileID: 3619965770762739309, guid: 088ab4a67160fbd4b9585d22c48cbd5c, type: 3}
   terminalInput: {fileID: 3669464417996186106}
+  cmdEntryPrefab: {fileID: 3619965770762739309, guid: 088ab4a67160fbd4b9585d22c48cbd5c, type: 3}
   logHolder: {fileID: 3669464418174885045}
+  maxCachedInputsCount: 15
 --- !u!1 &3669464417359405923
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,16 +909,16 @@ MonoBehaviour:
       m_Calls: []
   m_CaretColor: {r: 0.45750028, g: 1, b: 0.32156864, a: 1}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.45882353, g: 1, b: 0.32286733, a: 1}
+  m_SelectionColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
   m_GlobalFontAsset: {fileID: 11400000, guid: 979559960ce1141429066188220ab33a, type: 2}
-  m_OnFocusSelectAll: 1
+  m_OnFocusSelectAll: 0
   m_ResetOnDeActivation: 1
-  m_RestoreOriginalTextOnEscape: 1
+  m_RestoreOriginalTextOnEscape: 0
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}

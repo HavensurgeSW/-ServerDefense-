@@ -322,6 +322,8 @@ public class CommandManager : MonoBehaviour
         OnUpdatePacketScore?.Invoke(-nextLevelData.PRICE);
         tower.CURRENT_LEVEL++;
         tower.SetData(nextLevelData.STATS);
+        tower.SetTowerMaterial(nextLevelData.TOWER_LEVEL_MATERIAL);
+        tower.SetLaserMaterial(nextLevelData.LASER_LEVEL_MATERIAL);
         onSuccess?.Invoke();
     }
 

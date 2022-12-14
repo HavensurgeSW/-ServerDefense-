@@ -1,0 +1,1200 @@
+fileFormatVersion: 2
+guid: b2a9391d66f6a8b4d87053eb78cfd755
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: anillos_prop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b600d2747fa5b6142a8a5edb9e97a576
+      internalID: -760142021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_1
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfcbeb302aab4d141ab5a41fb42b29e3
+      internalID: 1983201715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_2
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a1b8cf18d385e4a9bd8f14c4b932bc
+      internalID: -1464676961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_3
+      rect:
+        serializedVersion: 2
+        x: 4740
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0d412dcc67bde4fbc6ef183748e74d
+      internalID: 1982400755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_4
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d546be33ea21bc48bf4d612b8caf651
+      internalID: 1216564272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_5
+      rect:
+        serializedVersion: 2
+        x: 7900
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2aa26bd2ed59954782728a1859f551d
+      internalID: -1257537981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_6
+      rect:
+        serializedVersion: 2
+        x: 9480
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13814d18ebae2cd49a4908e9b0671513
+      internalID: 1459517181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_7
+      rect:
+        serializedVersion: 2
+        x: 11060
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6defbe1a12be706459e2f36d7fa512f9
+      internalID: 1932304729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_8
+      rect:
+        serializedVersion: 2
+        x: 12640
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48eb5661170b3b84f821126c15981ec0
+      internalID: 1080251367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_9
+      rect:
+        serializedVersion: 2
+        x: 14220
+        y: 2924
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf379708840f8f945bc179247c5de438
+      internalID: -1495293110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdfad76aa659b5f409620d80f556d51b
+      internalID: -1805496526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_11
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49e3a0ad11b7994c9f550e20f7be308
+      internalID: 1769095917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_12
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c13c1cc9f915548a7f89af881334e7
+      internalID: 794152295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_13
+      rect:
+        serializedVersion: 2
+        x: 4740
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b0ad1bfcbb7c5342be04b5b6a5d1e63
+      internalID: -1020391132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_14
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811a8d28326b04f4e889e48538f77b11
+      internalID: 451485982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_15
+      rect:
+        serializedVersion: 2
+        x: 7900
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebfc61adcd0956445a2f72662ff93302
+      internalID: 1545889241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_16
+      rect:
+        serializedVersion: 2
+        x: 9480
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5024d32afc01c6343bb40e2909e17181
+      internalID: -777792943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_17
+      rect:
+        serializedVersion: 2
+        x: 11060
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb0b8ae30b333d4fae8c590024d9f14
+      internalID: -2032776787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_18
+      rect:
+        serializedVersion: 2
+        x: 12640
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68131c3f893b1e499be120172d42fc8
+      internalID: -521572478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_19
+      rect:
+        serializedVersion: 2
+        x: 14220
+        y: 2193
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2c292ee7878874ba3b8a22c70bca77
+      internalID: -786066660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8109e91f9dd0eab47b6700cb66b2cada
+      internalID: 1344900852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_21
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b36904c29adcc9a4081456671d571a3d
+      internalID: 259985943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_22
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c880f665a365d248a53e4b12ecc194f
+      internalID: -310093101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_23
+      rect:
+        serializedVersion: 2
+        x: 4740
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884353f9e2fc4ea459023b338b678341
+      internalID: -1853309209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_24
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bc21808418fa744b39273c2ceac131
+      internalID: 1850486614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_25
+      rect:
+        serializedVersion: 2
+        x: 7900
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a410781e2d748743a7d9fcb65d0388a
+      internalID: -1553723055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_26
+      rect:
+        serializedVersion: 2
+        x: 9480
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e13ce9c6f97374da490cbfef3bd80a
+      internalID: -796829909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_27
+      rect:
+        serializedVersion: 2
+        x: 11060
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95dee28e14eb996468811401277b3b61
+      internalID: -1086542280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_28
+      rect:
+        serializedVersion: 2
+        x: 12640
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d249af8668e64f0479708fcd8888e0e7
+      internalID: 1836343692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_29
+      rect:
+        serializedVersion: 2
+        x: 14220
+        y: 1462
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9572decb7642d2a40ac44a6b2537ffc9
+      internalID: -1042415424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f280570a3c22f544fb5f9d05ccddc0d3
+      internalID: -123266081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_31
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca3594f522892946a7dcaa1e5f5eafd
+      internalID: -895282527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_32
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12e0204bcdae6f44b6d368c5125fa71
+      internalID: 1150401225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_33
+      rect:
+        serializedVersion: 2
+        x: 4740
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c746fdf466d2194fb0cea71627dcf15
+      internalID: -857815266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_34
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45cdc8bd621e6734ba098821da3d70ff
+      internalID: 52145200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_35
+      rect:
+        serializedVersion: 2
+        x: 7900
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70c54fb7613b9742bac2cc758b2ddf6
+      internalID: 1187537025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_36
+      rect:
+        serializedVersion: 2
+        x: 9480
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fdb28d675709c41938a785c4d09656
+      internalID: -1580657580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_37
+      rect:
+        serializedVersion: 2
+        x: 11060
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50df97ab96a2445409e51bb41c528f3c
+      internalID: -1159137031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_38
+      rect:
+        serializedVersion: 2
+        x: 12640
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f22856b10e425845b10432b36b32bbb
+      internalID: -279802072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_39
+      rect:
+        serializedVersion: 2
+        x: 14220
+        y: 731
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e26ef58cf55ec4791739e4b7415e9f
+      internalID: -1134039765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7077a19c733005f418e9ff954132f998
+      internalID: -1248726579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_41
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8173d0521fa626d4e9c5b7d39f5164e9
+      internalID: 103188054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_42
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b21af95cf859a7489606350f8b803f0
+      internalID: 1322953988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_43
+      rect:
+        serializedVersion: 2
+        x: 4740
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc145cd7e86e46449d1a053dc097c95
+      internalID: 706397054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_44
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce94976e471e8e044989b44d26248f74
+      internalID: -1015304402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_45
+      rect:
+        serializedVersion: 2
+        x: 7900
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d608ed4100a0a41937ed2cfc3f9fd2
+      internalID: 1520775389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_46
+      rect:
+        serializedVersion: 2
+        x: 9480
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f50f36b14ee70c43b5564191ff70c70
+      internalID: -585552911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_47
+      rect:
+        serializedVersion: 2
+        x: 11060
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435387b0cd0a8fb448fac34cd536847e
+      internalID: -1252656463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anillos_prop_48
+      rect:
+        serializedVersion: 2
+        x: 12640
+        y: 0
+        width: 1580
+        height: 731
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31babaca7e0b5d1478c9f9fd4bbfbf6d
+      internalID: -2082315297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      anillos_prop_26: -796829909
+      anillos_prop_8: 1080251367
+      anillos_prop_22: -310093101
+      anillos_prop_46: -585552911
+      anillos_prop_48: -2082315297
+      anillos_prop_45: 1520775389
+      anillos_prop_17: -2032776787
+      anillos_prop_29: -1042415424
+      anillos_prop_43: 706397054
+      anillos_prop_13: -1020391132
+      anillos_prop_4: 1216564272
+      anillos_prop_34: 52145200
+      anillos_prop_12: 794152295
+      anillos_prop_6: 1459517181
+      anillos_prop_27: -1086542280
+      anillos_prop_42: 1322953988
+      anillos_prop_19: -786066660
+      anillos_prop_2: -1464676961
+      anillos_prop_23: -1853309209
+      anillos_prop_41: 103188054
+      anillos_prop_16: -777792943
+      anillos_prop_40: -1248726579
+      anillos_prop_47: -1252656463
+      anillos_prop_25: -1553723055
+      anillos_prop_11: 1769095917
+      anillos_prop_24: 1850486614
+      anillos_prop_35: 1187537025
+      anillos_prop_9: -1495293110
+      anillos_prop_1: 1983201715
+      anillos_prop_36: -1580657580
+      anillos_prop_5: -1257537981
+      anillos_prop_20: 1344900852
+      anillos_prop_28: 1836343692
+      anillos_prop_15: 1545889241
+      anillos_prop_30: -123266081
+      anillos_prop_38: -279802072
+      anillos_prop_0: -760142021
+      anillos_prop_31: -895282527
+      anillos_prop_10: -1805496526
+      anillos_prop_37: -1159137031
+      anillos_prop_44: -1015304402
+      anillos_prop_7: 1932304729
+      anillos_prop_14: 451485982
+      anillos_prop_32: 1150401225
+      anillos_prop_18: -521572478
+      anillos_prop_33: -857815266
+      anillos_prop_3: 1982400755
+      anillos_prop_21: 259985943
+      anillos_prop_39: -1134039765
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

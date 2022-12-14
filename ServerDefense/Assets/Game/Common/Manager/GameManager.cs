@@ -12,6 +12,7 @@ public class GameManager : SceneController
     [SerializeField] private TowersController towersController = null;
     [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
+    [SerializeField] private PauseHandler pauseHandler = null;
 
     [Header("Gameplay Values")]
     [SerializeField] private float timerSeconds = 0;
@@ -41,6 +42,9 @@ public class GameManager : SceneController
         towersController.Init();
         mapHandler.Init();
         terminal.Init(InterpretTerminalText);
+
+        pauseHandler.AddOnPausedCallback((status) => terminal.ToggleTerminalInteraction(!status));
+        pauseHandler.Init(() => ChangeScene(CommonUtils.SCENE.MAIN_MENU, false));
     }
 
     protected override void OnEnable()
@@ -59,6 +63,14 @@ public class GameManager : SceneController
         Server.OnPacketEntry -= UpdatePacketScore;
 
         uiManager.RemoveOnTimerEndCallback(BeginCurrentWave);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseHandler.TogglePauseStatus(!pauseHandler.IS_PAUSED);
+        }
     }
 
     private void BeginCurrentWave()
@@ -93,7 +105,7 @@ public class GameManager : SceneController
         if (!tutorialScene)
         {
            gameStatus = true;
-            ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+           ChangeScene(CommonUtils.SCENE.END_SCENE, true);
         }
     }
 
