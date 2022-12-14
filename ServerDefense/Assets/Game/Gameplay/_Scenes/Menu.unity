@@ -1923,7 +1923,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e1086d44bfbceca48a7b4ca16e3e2e41, type: 2}
   - {fileID: 11400000, guid: 77e5afb9447ba814e806a78bbec08bbd, type: 2}
   - {fileID: 11400000, guid: 9d7b9110e083b35438da2eefa661eda3, type: 2}
-  - {fileID: 11400000, guid: 9d7b9110e083b35438da2eefa661eda3, type: 2}
   - {fileID: 11400000, guid: b4bde8076ef73d748bd56a478f4fbe33, type: 2}
   departmentHolderPrefab: {fileID: 335426443064782321, guid: 6f92d8e873e31664497e9a9bdc217cba, type: 3}
   creditTextPrefab: {fileID: 4820834780878993939, guid: ee6df086cdceca545bb4d2b733f67aad, type: 3}

@@ -51,6 +51,9 @@ TagManager:
   - name: Enviroment
     uniqueID: 3206826035
     locked: 0
+  - name: Props
+    uniqueID: 859268519
+    locked: 0
   - name: RunwayLights
     uniqueID: 1506362281
     locked: 0
@@ -62,6 +65,9 @@ TagManager:
     locked: 0
   - name: Towers
     uniqueID: 437944845
+    locked: 0
+  - name: Lasers
+    uniqueID: 1926225953
     locked: 0
   - name: Server
     uniqueID: 2681669729
