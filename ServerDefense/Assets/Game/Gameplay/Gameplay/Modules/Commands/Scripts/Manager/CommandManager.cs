@@ -131,6 +131,7 @@ public class CommandManager : MonoBehaviour
     private void TriggerHelpResponse(CommandInfo info)
     {
         ShowTerminalLines(info.HELP_RESPONSE);
+        AkSoundEngine.PostEvent("C_Help", gameObject);
     }
 
     private void TriggerErrorResponse(CommandInfo info)
@@ -156,6 +157,7 @@ public class CommandManager : MonoBehaviour
         }
 
         ShowTerminalLines(commandIds);
+        AkSoundEngine.PostEvent("C_Help", gameObject);
     }
 
     public void Command_NetworkController(string[] args, CommandInfo cmdi)
@@ -312,6 +314,7 @@ public class CommandManager : MonoBehaviour
         else if (keyword == info.DEPLOY_ID)
         {
             //SOUNDENGINE LINE HERE
+            AkSoundEngine.PostEvent("C_Update_Deploy_Anti", gameObject);
             OnUpdateTower?.Invoke(selectedTower.ID);
             TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData, () => TriggerSuccessResponse(info));
         }
@@ -363,7 +366,6 @@ public class CommandManager : MonoBehaviour
         currentLoc.SetTower(null);
         currentLoc.SetAvailable(true);
         TriggerSuccessResponse(cmdi);
-        AkSoundEngine.PostEvent("Play_Uninstall_Anti", gameObject);
     }
 
     public void Command_WriteTutorial(string[] args, CommandInfo cmdi)

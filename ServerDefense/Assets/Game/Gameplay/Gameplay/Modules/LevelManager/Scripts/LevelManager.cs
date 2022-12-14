@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     [Header("Locations Configuration")]
     [SerializeField] private Location[] locations = null;
 
+    private string MXState = null;
+
     private Action OnWaveEnd = null;
 
     public Location[] LOCATIONS { get => locations; }
@@ -30,6 +32,13 @@ public class LevelManager : MonoBehaviour
 
     public void BeginWave(int index)
     {
+        if (MXState == null)
+        {
+            MXState = "Easy";
+            AkSoundEngine.SetState("Level", MXState);
+            Debug.Log(MXState);
+        }
+
         if (wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
         {
             return;
