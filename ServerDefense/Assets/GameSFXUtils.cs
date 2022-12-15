@@ -12,12 +12,13 @@ public class GameSFXUtils : MonoBehaviour
     [SerializeField] Slider wldSlider;
 
     [Header("Bus names")]
-    [SerializeField]string busAX = null;
-    [SerializeField]string busMX = null;
-    [SerializeField]string busTerminal = null;
-    [SerializeField]string busWorld = null;
+    [SerializeField] string busAX = null;
+    [SerializeField] string busMX = null;
+    [SerializeField] string busTerminal = null;
+    [SerializeField] string busWorld = null;
 
-    public void SetAudioLevels() {
+    public void SetAudioLevels()
+    {
         AkSoundEngine.SetRTPCValue(busAX, axSlider.value);
         AkSoundEngine.SetRTPCValue(busMX, mxSlider.value);
         AkSoundEngine.SetRTPCValue(busTerminal, tmlSlider.value);
@@ -27,12 +28,10 @@ public class GameSFXUtils : MonoBehaviour
         PlayerPrefs.SetFloat(busMX, axSlider.value);
         PlayerPrefs.SetFloat(busTerminal, axSlider.value);
         PlayerPrefs.SetFloat(busWorld, axSlider.value);
-
-        Debug.Log("Volviendo");
-    
     }
 
-    public void LoadAudioLevelsFromPrefs() {
+    public void LoadAudioLevelsFromPrefs()
+    {
         AkSoundEngine.SetRTPCValue(busAX, PlayerPrefs.GetFloat(busAX));
         AkSoundEngine.SetRTPCValue(busMX, PlayerPrefs.GetFloat(busMX));
         AkSoundEngine.SetRTPCValue(busTerminal, PlayerPrefs.GetFloat(busTerminal));
