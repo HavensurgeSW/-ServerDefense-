@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/GeneratedSoundBanks/Windows/</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\Programacion\DESARROLLO-3\-ServerDefense-\ServerDefense\ServerDefense_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1661337716">
+		<SoundBank Id="1355168291" Language="SFX" Hash="173472879">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -22,104 +22,10 @@
 				<GameParameter Id="3912465185" Name="SFX_Terminal" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX_Terminal"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="668849140">
+		<SoundBank Id="2228651116" Language="SFX" Hash="3659513767">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_SoundBank</ObjectPath>
 			<ShortName>Main_SoundBank</ShortName>
 			<Path>Main_SoundBank.bnk</Path>
-			<IncludedEvents>
-				<Event Id="22560834" Name="Play_Antivirus_1_Blast" ObjectPath="\Events\Default Work Unit\Play_Antivirus_1_Blast"/>
-				<Event Id="2506060853" Name="Play_Antivirus_1_Laser" ObjectPath="\Events\Default Work Unit\Play_Antivirus_1_Laser"/>
-				<Event Id="1410437897" Name="Play_Antivirus_2_Blast" ObjectPath="\Events\Default Work Unit\Play_Antivirus_2_Blast"/>
-				<Event Id="2192258458" Name="Play_Antivirus_2_Laser" ObjectPath="\Events\Default Work Unit\Play_Antivirus_2_Laser"/>
-				<Event Id="2643594368" Name="Play_Antivirus_3_Blast" ObjectPath="\Events\Default Work Unit\Play_Antivirus_3_Blast"/>
-				<Event Id="473703163" Name="Play_Antivirus_3_Laser" ObjectPath="\Events\Default Work Unit\Play_Antivirus_3_Laser"/>
-				<Event Id="3618950782" Name="Play_AX_GameScene" ObjectPath="\Events\Default Work Unit\Play_AX_GameScene"/>
-				<Event Id="327270693" Name="Play_AX_Menu" ObjectPath="\Events\Default Work Unit\Play_AX_Menu">
-					<IncludedMemoryFiles>
-						<File Id="687271244" Language="SFX">
-							<ShortName>BASE PARA SEBA.wav</ShortName>
-							<Path>SFX\BASE PARA SEBA_D79FB2B7.wem</Path>
-						</File>
-						<File Id="1026563163" Language="SFX">
-							<ShortName>TheThang.wav</ShortName>
-							<Path>SFX\TheThang_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="636914782" Name="Play_AX_Tutorial" ObjectPath="\Events\Default Work Unit\Play_AX_Tutorial"/>
-				<Event Id="2320647108" Name="Play_CD_LOC" ObjectPath="\Events\Default Work Unit\Play_CD_LOC">
-					<IncludedMemoryFiles>
-						<File Id="179881847" Language="SFX">
-							<ShortName>smw_1-up.wav</ShortName>
-							<Path>SFX\smw_1-up_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3541071973" Name="Play_Firewall_1_Blast" ObjectPath="\Events\Default Work Unit\Play_Firewall_1_Blast"/>
-				<Event Id="4004066118" Name="Play_Firewall_1_Laser" ObjectPath="\Events\Default Work Unit\Play_Firewall_1_Laser"/>
-				<Event Id="4045841438" Name="Play_Firewall_2_Blast" ObjectPath="\Events\Default Work Unit\Play_Firewall_2_Blast"/>
-				<Event Id="2005936881" Name="Play_Firewall_2_Laser" ObjectPath="\Events\Default Work Unit\Play_Firewall_2_Laser"/>
-				<Event Id="3225411671" Name="Play_Firewall_3_Blast" ObjectPath="\Events\Default Work Unit\Play_Firewall_3_Blast"/>
-				<Event Id="17370536" Name="Play_Firewall_3_Laser" ObjectPath="\Events\Default Work Unit\Play_Firewall_3_Laser"/>
-				<Event Id="725000905" Name="Play_Game_Over" ObjectPath="\Events\Default Work Unit\Play_Game_Over"/>
-				<Event Id="2454594115" Name="Play_Help" ObjectPath="\Events\Default Work Unit\Play_Help"/>
-				<Event Id="2006190918" Name="Play_Install_Anti" ObjectPath="\Events\Default Work Unit\Play_Install_Anti"/>
-				<Event Id="2336984686" Name="Play_Install_Fire" ObjectPath="\Events\Default Work Unit\Play_Install_Fire"/>
-				<Event Id="2665061269" Name="Play_Network_Init" ObjectPath="\Events\Default Work Unit\Play_Network_Init"/>
-				<Event Id="3651786367" Name="Play_SD_Logo" ObjectPath="\Events\Default Work Unit\Play_SD_Logo"/>
-				<Event Id="3888294756" Name="Play_SD_Title" ObjectPath="\Events\Default Work Unit\Play_SD_Title"/>
-				<Event Id="1910125964" Name="Play_SFX_Win" ObjectPath="\Events\Default Work Unit\Play_SFX_Win"/>
-				<Event Id="1484225356" Name="Play_Swarm_Dies" ObjectPath="\Events\Default Work Unit\Play_Swarm_Dies"/>
-				<Event Id="1662830590" Name="Play_Swarm_Pass" ObjectPath="\Events\Default Work Unit\Play_Swarm_Pass"/>
-				<Event Id="43599987" Name="Play_UI_Button" ObjectPath="\Events\Default Work Unit\Play_UI_Button">
-					<IncludedMemoryFiles>
-						<File Id="804569988" Language="SFX">
-							<ShortName>smw_kick.wav</ShortName>
-							<Path>SFX\smw_kick_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1339559671" Name="Play_UI_Hover" ObjectPath="\Events\Default Work Unit\Play_UI_Hover">
-					<IncludedMemoryFiles>
-						<File Id="866438379" Language="SFX">
-							<ShortName>smw_coin.wav</ShortName>
-							<Path>SFX\smw_coin_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="250668327" Name="Play_Uninstall_Anti" ObjectPath="\Events\Default Work Unit\Play_Uninstall_Anti"/>
-				<Event Id="3792050540" Name="Play_Update_Deploy_Anti" ObjectPath="\Events\Default Work Unit\Play_Update_Deploy_Anti"/>
-				<Event Id="2932367912" Name="Play_Update_Deploy_Fire" ObjectPath="\Events\Default Work Unit\Play_Update_Deploy_Fire"/>
-				<Event Id="3813994196" Name="Play_Update_Info" ObjectPath="\Events\Default Work Unit\Play_Update_Info"/>
-				<Event Id="1968882817" Name="Play_Virus_Dies" ObjectPath="\Events\Default Work Unit\Play_Virus_Dies"/>
-				<Event Id="427127591" Name="Play_Virus_Pass" ObjectPath="\Events\Default Work Unit\Play_Virus_Pass">
-					<IncludedMemoryFiles>
-						<File Id="831232091" Language="SFX">
-							<ShortName>smw_blargg_no_echo.wav</ShortName>
-							<Path>SFX\smw_blargg_no_echo_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3595651944" Name="Play_VX_SD_Skull" ObjectPath="\Events\Default Work Unit\Play_VX_SD_Skull"/>
-				<Event Id="3055448759" Name="Play_Wave_Bar" ObjectPath="\Events\Default Work Unit\Play_Wave_Bar"/>
-				<Event Id="92581801" Name="Play_Wrong" ObjectPath="\Events\Default Work Unit\Play_Wrong"/>
-				<Event Id="2424970460" Name="Stop_Antivirus_1_Blast" ObjectPath="\Events\Default Work Unit\Stop_Antivirus_1_Blast" MaxAttenuation="0."/>
-				<Event Id="2516319623" Name="Stop_Antivirus_1_Laser" ObjectPath="\Events\Default Work Unit\Stop_Antivirus_1_Laser" MaxAttenuation="0."/>
-				<Event Id="882063095" Name="Stop_Antivirus_2_Blast" ObjectPath="\Events\Default Work Unit\Stop_Antivirus_2_Blast" MaxAttenuation="0."/>
-				<Event Id="2010462792" Name="Stop_Antivirus_2_Laser" ObjectPath="\Events\Default Work Unit\Stop_Antivirus_2_Laser" MaxAttenuation="0."/>
-				<Event Id="4211330366" Name="Stop_Antivirus_3_Blast" ObjectPath="\Events\Default Work Unit\Stop_Antivirus_3_Blast" MaxAttenuation="0."/>
-				<Event Id="2129848849" Name="Stop_Antivirus_3_Laser" ObjectPath="\Events\Default Work Unit\Stop_Antivirus_3_Laser" MaxAttenuation="0."/>
-				<Event Id="3726213320" Name="Stop_AX_GameScene" ObjectPath="\Events\Default Work Unit\Stop_AX_GameScene" MaxAttenuation="0."/>
-				<Event Id="3166435559" Name="Stop_AX_Menu" ObjectPath="\Events\Default Work Unit\Stop_AX_Menu" MaxAttenuation="0."/>
-				<Event Id="3824642668" Name="Stop_AX_Tutorial" ObjectPath="\Events\Default Work Unit\Stop_AX_Tutorial" MaxAttenuation="0."/>
-				<Event Id="3462881543" Name="Stop_Firewall_1_Blast" ObjectPath="\Events\Default Work Unit\Stop_Firewall_1_Blast" MaxAttenuation="0."/>
-				<Event Id="4018147032" Name="Stop_Firewall_1_Laser" ObjectPath="\Events\Default Work Unit\Stop_Firewall_1_Laser" MaxAttenuation="0."/>
-				<Event Id="3709894380" Name="Stop_Firewall_2_Blast" ObjectPath="\Events\Default Work Unit\Stop_Firewall_2_Blast" MaxAttenuation="0."/>
-				<Event Id="2834782679" Name="Stop_Firewall_2_Laser" ObjectPath="\Events\Default Work Unit\Stop_Firewall_2_Laser" MaxAttenuation="0."/>
-				<Event Id="1169078421" Name="Stop_Firewall_3_Blast" ObjectPath="\Events\Default Work Unit\Stop_Firewall_3_Blast" MaxAttenuation="0."/>
-				<Event Id="1131542710" Name="Stop_Firewall_3_Laser" ObjectPath="\Events\Default Work Unit\Stop_Firewall_3_Laser" MaxAttenuation="0."/>
-				<Event Id="2636698450" Name="Stop_VX_SD_Skull" ObjectPath="\Events\Default Work Unit\Stop_VX_SD_Skull" MaxAttenuation="0."/>
-			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

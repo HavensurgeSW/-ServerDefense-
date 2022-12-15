@@ -9,6 +9,8 @@
 						<State Name="Easy" ID="{C59F7747-2C4B-4857-AA1D-0205B3D36411}"/>
 						<State Name="Medium" ID="{2F2766F9-192D-4616-B6AF-3438C980AB3E}"/>
 						<State Name="Hard" ID="{7A2F5A9B-8B2E-4D15-AB60-DC47F68CF771}"/>
+						<State Name="Loose" ID="{49A4F846-D469-46B5-8473-322D4480E1BB}"/>
+						<State Name="Win" ID="{50017EA6-97FB-4E1E-881E-0B019CCCC529}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

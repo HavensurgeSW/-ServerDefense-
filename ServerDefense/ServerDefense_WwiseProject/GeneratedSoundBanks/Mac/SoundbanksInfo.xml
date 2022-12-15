@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/mariangelesburgos/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/-ServerDefense-/ServerDefense/ServerDefense_WwiseProject/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3308849057">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="1685527054" Name="MX" ObjectPath="\Game Parameters\Default Work Unit\Volume\MX"/>
+				<GameParameter Id="1886858530" Name="AX" ObjectPath="\Game Parameters\Default Work Unit\Volume\AX"/>
+				<GameParameter Id="2607695663" Name="SFX_World" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX_World"/>
+				<GameParameter Id="3912465185" Name="SFX_Terminal" ObjectPath="\Game Parameters\Default Work Unit\Volume\SFX_Terminal"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="2228651116" Language="SFX" Hash="3659513767">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main_SoundBank</ObjectPath>
+			<ShortName>Main_SoundBank</ShortName>
+			<Path>Main_SoundBank.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

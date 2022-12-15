@@ -55,7 +55,7 @@
 						<Action Name="" ID="{1C374B4C-7607-4FE3-A6B6-576B37DE1C3B}" ShortID="43447093">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="GameScene_AX" ID="{472B45BD-9DDB-43BA-B9D4-74342BE28678}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="GameScene_AX" ID="{A097402A-559B-43B6-A828-B9766286B52F}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -69,7 +69,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="GameScene_AX" ID="{472B45BD-9DDB-43BA-B9D4-74342BE28678}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="GameScene_AX" ID="{A097402A-559B-43B6-A828-B9766286B52F}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -80,7 +80,7 @@
 						<Action Name="" ID="{443F101B-786A-4032-B668-AD8CFAF8CC29}" ShortID="554415872">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Tutorial_AX" ID="{1924FC7A-6329-491C-8077-2804A7BB4546}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="Tutorial_AX" ID="{4D7A49AD-4F70-4010-99A1-8AAA68A9368B}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -94,7 +94,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Tutorial_AX" ID="{1924FC7A-6329-491C-8077-2804A7BB4546}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="Tutorial_AX" ID="{4D7A49AD-4F70-4010-99A1-8AAA68A9368B}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -105,7 +105,7 @@
 						<Action Name="" ID="{9C58424F-ED7B-4A92-BFE5-A37890DC2C8B}" ShortID="580835513">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="UI_Hover" ID="{47E37B05-A121-42F2-B295-92273AFC41A0}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="UI_Hover" ID="{8FB4C258-CD83-4F55-A9E1-1BB90A359F38}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -116,7 +116,7 @@
 						<Action Name="" ID="{5AEF0420-79AF-4639-B433-EAEE7374E876}" ShortID="902426176">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="UI_Button" ID="{29F27048-083D-45CC-A250-0ADCBB191B2D}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="UI_Button" ID="{0FA5C019-F9B2-44F9-BDBB-C10856A31D54}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -257,28 +257,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_SFX_Win" ID="{15363E06-B545-48E5-B251-33B3EA71EF16}">
-					<ChildrenList>
-						<Action Name="" ID="{91BD2447-4316-4567-8610-1EB1329D1FFD}" ShortID="413640398">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Operation_Succesfull_SFX" ID="{10CD3049-D6A2-48E3-9F62-F8E81D02513E}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Game_Over" ID="{0EADE881-8797-44FC-8082-9B91617C1A12}">
-					<ChildrenList>
-						<Action Name="" ID="{6509B931-D8A6-48CD-B79F-B74BB91D9C7B}" ShortID="774600526">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Game_Over_SFX" ID="{0C84D1B9-9BF7-4B83-80AF-505804C2B60A}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Virus_Dies" ID="{0953B2F4-8C57-432B-A33D-9AC86FEBE85E}">
 					<ChildrenList>
 						<Action Name="" ID="{EB2D1508-BA63-4056-8DA2-FAA9BB2B6824}" ShortID="625596204">
@@ -295,7 +273,7 @@
 						<Action Name="" ID="{455349AF-E636-487B-BA7E-9EE32EFE3BDA}" ShortID="619521508">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Swarm_Dies" ID="{C125F20C-964E-421F-B1F0-A00B133251CD}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
+									<ObjectRef Name="Swarm_Dies" ID="{2C5696AE-6B8E-4360-9639-CDE17294631F}" WorkUnitID="{52C5A26E-7F02-4609-BB6C-85F5DFBBA714}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
