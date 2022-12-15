@@ -27,6 +27,8 @@ public class GameSFXUtils : MonoBehaviour
         PlayerPrefs.SetFloat(busMX, axSlider.value);
         PlayerPrefs.SetFloat(busTerminal, axSlider.value);
         PlayerPrefs.SetFloat(busWorld, axSlider.value);
+
+        Debug.Log("Volviendo");
     
     }
 

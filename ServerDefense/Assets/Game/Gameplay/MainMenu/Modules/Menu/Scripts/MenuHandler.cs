@@ -32,23 +32,24 @@ public class MenuHandler : MonoBehaviour
         startGameButton.onClick.AddListener(() => {
             ToggleLevelStatus(true);
             ToggleMenuStatus(false);
-            startGameButton.onClick.AddListener(() => { AkSoundEngine.PostEvent("Play_UI_Button", gameObject); });
+            AkSoundEngine.PostEvent("Play_UI_Button", gameObject);
         });
         backButton.onClick.AddListener(() => {
             ToggleMenuStatus(true);
             ToggleLevelStatus(false);
-            backButton.onClick.AddListener(() => { AkSoundEngine.PostEvent("Play_UI_Button", gameObject); });
+            AkSoundEngine.PostEvent("Play_UI_Button", gameObject);
         });
 
         optionsButton.onClick.AddListener(() => {
             ToggleOptionsStatus(true);
             ToggleMenuStatus(false);
+            AkSoundEngine.PostEvent("Play_UI_Button", gameObject);
         });
 
         optionsBackButton.onClick.AddListener(() => {
             ToggleMenuStatus(true);
             ToggleOptionsStatus(false);
-            optionsBackButton.onClick.AddListener(() => { AkSoundEngine.PostEvent("Play_UI_Button", gameObject); });
+            AkSoundEngine.PostEvent("Play_UI_Button", gameObject);
         });
 
         level0Button.onClick.AddListener(() => onChangeScene?.Invoke(SCENE.LEVEL_0, true));
