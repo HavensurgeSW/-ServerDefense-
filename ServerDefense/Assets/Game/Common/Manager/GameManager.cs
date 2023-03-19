@@ -2,11 +2,14 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using ServerDefense.Systems.Currencies;
+
 public class GameManager : SceneController
 {
     public static bool gameStatus = false;
 
     [SerializeField] private CommandManager commandManager = null;
+    [SerializeField] private CurrenciesController currenciesController = null;
     [SerializeField] private UIManager uiManager = null;
     [SerializeField] private TerminalManager terminal = null;
     [SerializeField] private TowersController towersController = null;
@@ -23,28 +26,29 @@ public class GameManager : SceneController
 
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
+    [SerializeField] private int debugValue = 10000;
 
-    private int packetScore = 0;
     private int currentWave = 0;
 
     protected override void Awake()
     {
-        packetScore = debugScore ? 10000 : startingPackets;
-        
-        uiManager.Init(timerSeconds);
-        uiManager.UpdatePacketPointsText(packetScore);
+        currenciesController.Init();
+        currenciesController.SetCurrencyValue(CurrencyConstants.packetCurrency, debugScore ? 10000 : startingPackets);
 
-        commandManager.Init(terminal, levelManager, mapHandler, towersController);
-        commandManager.SetCallbacks(UpdatePacketScore, GetCurrentWaveIndex, GetPacketScore, uiManager.GeneratePopUp);
+        uiManager.Init(timerSeconds);
+        uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
+
+        commandManager.Init(terminal, levelManager, mapHandler, towersController, currenciesController, uiManager);
+        commandManager.SetCallbacks(GetCurrentWaveIndex, uiManager.GeneratePopUp);
 
         levelManager.Init(IncreaseCurrentWaveValue);
 
         towersController.Init();
         mapHandler.Init();
-        terminal.Init(InterpretTerminalText);
+        terminal.Init(NewInterpretTerminalText);
 
         pauseHandler.AddOnPausedCallback((status) => terminal.ToggleTerminalInteraction(!status));
-        pauseHandler.Init(() => ChangeScene(CommonUtils.SCENE.MAIN_MENU, false));
+        pauseHandler.Init(() => ChangeScene(SCENE.MAIN_MENU, false));
     }
 
     protected override void OnEnable()
@@ -78,11 +82,6 @@ public class GameManager : SceneController
         levelManager.BeginWave(currentWave);
     }
 
-    private int GetPacketScore()
-    {
-        return packetScore;
-    }
-
     private int GetCurrentWaveIndex()
     {
         return currentWave;
@@ -93,19 +92,18 @@ public class GameManager : SceneController
         currentWave++;
     }
 
-    private void UpdatePacketScore(int i)
+    private void UpdatePacketScore(int value)
     {
-
-        packetScore += i;
-        uiManager.UpdatePacketPointsText(packetScore);
+        currenciesController.AddCurrencyValue(CurrencyConstants.packetCurrency, value);
+        uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
     }
 
     private void WinGame()
     {
         if (!tutorialScene)
         {
-           gameStatus = true;
-           ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+            gameStatus = true;
+            ChangeScene(SCENE.END_SCENE, true);
         }
     }
 
@@ -114,7 +112,7 @@ public class GameManager : SceneController
         if (!tutorialScene)
         {
             gameStatus = false;
-            ChangeScene(CommonUtils.SCENE.END_SCENE, true);
+            ChangeScene(SCENE.END_SCENE, true);
         }
     }
 
@@ -134,5 +132,24 @@ public class GameManager : SceneController
 
         uiManager.ClearAllPopUps();
         commandManager.ProcessCommand(command, arguments);
+    }
+
+    private void NewInterpretTerminalText(string text)
+    {
+        text = text.ToLower();
+        string[] arguments = text.Split(' ');
+        string commandId = arguments[0];
+
+        CommandSO command = commandManager.GetNewCommand(commandId);
+
+        if (command == null)
+        {
+            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type HELP for a list of commands" });
+            InterpretTerminalText(text);
+            return;
+        }
+
+        uiManager.ClearAllPopUps();
+        commandManager.NewProcessCommand(command, arguments);
     }
 }

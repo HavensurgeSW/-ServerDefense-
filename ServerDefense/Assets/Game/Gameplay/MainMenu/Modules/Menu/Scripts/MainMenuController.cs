@@ -1,5 +1,4 @@
 using UnityEngine;
-using static CommonUtils;
 
 public class MainMenuController : SceneController
 {

@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using static CommonUtils;
-
 public abstract class SceneController : MonoBehaviour
 {
     protected abstract void Awake();

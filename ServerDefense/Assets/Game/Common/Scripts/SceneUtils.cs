@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 
-public static class CommonUtils
+public enum SCENE
 {
-    // CHANGE ALL OF THIS WHEN CHANGING UNITY BUILD SETTINGS
-    public enum SCENE
-    {
-        SPLASH_SCREEN = 0,
-        MAIN_MENU = 1,
-        LEVEL_0 = 2,
-        LEVEL_1 = 3,
-        TUTORIAL = 4,
-        END_SCENE = 5
-    }
+    NONE = -1,
+    SPLASH_SCREEN = 0,
+    MAIN_MENU = 1,
+    LEVEL_0 = 2,
+    LEVEL_1 = 3,
+    TUTORIAL = 4,
+    END_SCENE = 5
+}
 
+public class SceneUtils
+{
     public static readonly Dictionary<string, SCENE> scenesEnumDictionary = new Dictionary<string, SCENE>
     {
         { "SplashScreen", SCENE.SPLASH_SCREEN },

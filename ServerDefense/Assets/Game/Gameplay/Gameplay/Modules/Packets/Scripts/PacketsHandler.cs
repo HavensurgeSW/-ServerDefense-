@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -12,6 +9,7 @@ public class PacketsHandler : MonoBehaviour
 
     private Transform[] waypoints = null;
     private ObjectPool<Packet> packetPool = null;
+
     private int currentPackets = 0;
     private float spawnTimer = 0.0f;
     private bool allowPackets = false;

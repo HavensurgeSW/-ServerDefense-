@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using ServerDefense.Systems.Currencies;
+
 public class CommandManager : MonoBehaviour
 {
     // TEMPORARY
@@ -17,6 +19,7 @@ public class CommandManager : MonoBehaviour
 
     [Header("Main Configuration")]
     [SerializeField] private List<Command> commands = new List<Command>();
+    [SerializeField] private List<CommandSO> newCommands = new List<CommandSO>();
     
     [Header("Helper commands Configuration")]
     [SerializeField] private HelpCommandInfo helpInfo = null;
@@ -27,13 +30,13 @@ public class CommandManager : MonoBehaviour
     private MapHandler mapHandler = null;
     private LevelManager levelManager = null;
     private TowersController towersController = null;
+    private CurrenciesController currencyController = null;
+    private UIManager uiManager = null;
 
-    private Action<int> OnUpdatePacketScore = null;
-    private Action<string, Vector3> OnGeneratePopup = null;
-    private Func<int> OnGetCurrentWaveIndex = null;
-    private Func<int> OnGetPacketScore = null;
+    public Action<string, Vector3> OnGeneratePopup = null;
+    public Func<int> OnGetCurrentWaveIndex = null;
 
-    public void Init(TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController)
+    public void Init(TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController, CurrenciesController currencyController, UIManager uiManager)
     {
         mainCamera = Camera.main;
 
@@ -41,14 +44,74 @@ public class CommandManager : MonoBehaviour
         this.levelManager = levelManager;
         this.mapHandler = mapHandler;
         this.towersController = towersController;
+        this.currencyController = currencyController;
+        this.uiManager = uiManager;
     }
 
-    public void SetCallbacks(Action<int> onUpdatePacketScore, Func<int> onGetCurrentWaveIndex, Func<int> onGetPacketScore, Action<string, Vector3> onGeneratePopup)
+    public Camera GetMainCamera()
     {
-        OnUpdatePacketScore = onUpdatePacketScore;
+        return mainCamera;
+    }
+
+    public TerminalManager GetTerminalManager()
+    {
+        return terminal;
+    }
+
+    public LevelManager GetLevelManager()
+    {
+        return levelManager;
+    }
+
+    public MapHandler GetMapHandler()
+    {
+        return mapHandler;
+    }
+
+    public TowersController GetTowersController()
+    {
+        return towersController;
+    }
+
+    public UIManager GetUIManager()
+    {
+        return uiManager;
+    }
+
+    public CurrenciesController GetCurrencyController()
+    {
+        return currencyController;
+    }
+
+    public void SetCallbacks(Func<int> onGetCurrentWaveIndex, Action<string, Vector3> onGeneratePopup)
+    {
         OnGetCurrentWaveIndex = onGetCurrentWaveIndex;
-        OnGetPacketScore = onGetPacketScore;
         OnGeneratePopup = onGeneratePopup;
+    }
+
+    public void NewProcessCommand(CommandSO command, string[] fullArguments)
+    {
+        string[] commandArgs = new string[fullArguments.Length - 1];
+
+        for (int i = 1; i <= commandArgs.Length; i++)
+        {
+            commandArgs[i - 1] = fullArguments[i];
+        }
+
+        if (CheckHelpCommand(commandArgs))
+        {
+            ShowTerminalLines(command.HELP_RESPONSE);
+            OnHelpArgument?.Invoke();
+            return;
+        }
+
+        if (!CheckNewCommandArguments(commandArgs, command))
+        {
+            ShowTerminalLines(new List<string> { "Invalid argument amount" });
+            return;
+        }
+
+        command.TriggerCommand(this, commandArgs, ShowTerminalLines, ShowTerminalLines);
     }
 
     public void ProcessCommand(Command command, string[] fullArguments)
@@ -89,6 +152,24 @@ public class CommandManager : MonoBehaviour
         return null;
     }
 
+    public CommandSO GetNewCommand(string id)
+    {
+        foreach (CommandSO cmd in newCommands)
+        {
+            if (cmd.COMMAND_ID == id)
+            {
+                return cmd;
+            }
+        }
+
+        return null;
+    }
+
+    public List<CommandSO> GetNewCommands()
+    {
+        return newCommands;
+    }
+
     private bool CheckCommandArguments(string[] args, CommandInfo info)
     {
         if (args != null)
@@ -100,6 +181,24 @@ public class CommandManager : MonoBehaviour
         }
 
         if (args == null && info.ARG_COUNT == 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool CheckNewCommandArguments(string[] args, CommandSO command)
+    {
+        if (args != null)
+        {
+            if (args.Length == command.ARGUMENTS_COUNT)
+            {
+                return true;
+            }
+        }
+
+        if (args == null && command.ARGUMENTS_COUNT == 0)
         {
             return true;
         }
@@ -144,20 +243,6 @@ public class CommandManager : MonoBehaviour
     }
 
     #region COMMANDS
-    public void Command_ReturnCommands(string[] args, CommandInfo cmdi)
-    {
-        //OnHelpCommand?.Invoke(); UNUSED
-
-        List<string> commandIds = new List<string>();
-
-        for (int i = 0; i < commands.Count; i++)
-        {
-            commandIds.Add(commands[i].INFO.ID.ToUpperInvariant());
-        }
-
-        ShowTerminalLines(commandIds);
-    }
-
     public void Command_NetworkController(string[] args, CommandInfo cmdi)
     {
         if (args[0] == "init")
@@ -180,151 +265,6 @@ public class CommandManager : MonoBehaviour
         }
 
         ShowTerminalLines(locList);
-    }
-
-    public void Command_ChangeDirectory(string[] args, CommandInfo cmdi)
-    {
-        string locName = args[0];
-        bool searchHit = false;
-
-        foreach (Location loc in levelManager.LOCATIONS)
-        {
-            if (loc.ID == locName)
-            {
-                if (mapHandler.CURRENT_LOCATION != null)
-                {
-                    mapHandler.CURRENT_LOCATION.ToggleSelected(false);
-                    mapHandler.SetTileToDefault(mapHandler.CURRENT_LOCATION.transform.position);
-                }
-
-                OnGeneratePopup?.Invoke(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
-
-                mapHandler.SetCurrentLocation(loc);
-                loc.ToggleSelected(true);
-                mapHandler.SetTileToSelected(loc.transform.position);
-                searchHit = true;
-                terminal.ClearCmdEntries();
-
-                //Action callout
-                OnChangeDirectory?.Invoke(locName);
-
-                break;
-            }
-        }
-
-        if (!searchHit)
-        {
-            TriggerErrorResponse(cmdi);
-        }
-    }
-
-    public void Command_InstallTower(string[] args, CommandInfo cmdi)
-    {
-        terminal.ClearCmdEntries();
-
-        InstallCommandInfo info = cmdi as InstallCommandInfo;
-
-        if (!mapHandler.GetIsCurrentLocationAvailable())
-        {
-            ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
-            return;
-        }
-
-        string towerId = args[0];
-
-        if (!towersController.DoesTowerIdExist(towerId))
-        {
-            ShowTerminalLines(info.INVALID_TOWER_ID_RESPONSE);
-            return;
-        }
-
-        TowerData data = towersController.GetTowerData(towerId);
-
-        if (OnGetPacketScore() < data.LEVELS[0].PRICE)
-        {
-            ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
-            return;
-        }
-
-        OnUpdatePacketScore?.Invoke(-data.LEVELS[0].PRICE);
-
-        Location currentLoc = mapHandler.CURRENT_LOCATION;
-        BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);
-
-        actualTower.SetPosition(currentLoc.transform.position + (Vector3)data.OFFSET);
-        currentLoc.SetTower(actualTower);
-        currentLoc.SetAvailable(false);
-
-        OnInstallTower?.Invoke(towerId);
-
-        TriggerSuccessResponse(cmdi);
-    }
-
-    public void Command_UpdateTower(string[] args, CommandInfo cmdi)
-    {
-        string keyword = args[0];
-        UpdateCommandInfo info = cmdi as UpdateCommandInfo;
-
-        if (keyword != info.INFO_ID && keyword != info.DEPLOY_ID)
-        {
-            TriggerErrorResponse(info);
-            return;
-        }
-
-        if (mapHandler.GetIsCurrentLocationAvailable())
-        {
-            ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
-            return;
-        }
-
-        BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
-        if (selectedTower == null)
-        {
-            ShowTerminalLines(info.INVALID_LOCATION_RESPONSE);
-            return;
-        }
-
-        TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
-
-        if (selectedTower.NEXT_LEVEL > towerLevelsData.Length)
-        {
-            ShowTerminalLines(info.MAX_LEVEL_RESPONSE);
-            return;
-        }
-
-        TowerLevelData nextLevelData = towerLevelsData[selectedTower.NEXT_LEVEL - 1];
-
-        if (keyword == info.INFO_ID)
-        {
-            TriggerUpdateCommandInfo(info, selectedTower, nextLevelData);
-        }
-        else if (keyword == info.DEPLOY_ID)
-        {
-            OnUpdateTower?.Invoke(selectedTower.ID);
-            TriggerUpdateCommandDeploy(info, selectedTower, nextLevelData, () => TriggerSuccessResponse(info));
-        }
-    }
-
-    private void TriggerUpdateCommandInfo(UpdateCommandInfo info, BaseTower tower, TowerLevelData nextLevelData)
-    {
-        List<string> updateInfoLines = info.GetNextUpdateInfo(tower, nextLevelData);
-        ShowTerminalLines(updateInfoLines);
-    }
-
-    private void TriggerUpdateCommandDeploy(UpdateCommandInfo info, BaseTower tower, TowerLevelData nextLevelData, Action onSuccess)
-    {
-        if (OnGetPacketScore() < nextLevelData.PRICE)
-        {
-            ShowTerminalLines(info.INSUFFICIENT_FUNDS_RESPONSE);
-            return;
-        }
-
-        OnUpdatePacketScore?.Invoke(-nextLevelData.PRICE);
-        tower.CURRENT_LEVEL++;
-        tower.SetData(nextLevelData.STATS);
-        tower.SetTowerMaterial(nextLevelData.TOWER_LEVEL_MATERIAL);
-        tower.SetLaserMaterial(nextLevelData.LASER_LEVEL_MATERIAL);
-        onSuccess?.Invoke();
     }
 
     public void Command_UninstallTower(string[] args, CommandInfo cmdi)
@@ -372,14 +312,6 @@ public class CommandManager : MonoBehaviour
     public void Command_ReloadScene(string[] args, CommandInfo cmdi)
     {
         SceneManager.LoadScene(1);
-    }
-
-    public void Command_QuitGame(string[] args, CommandInfo cmdi)
-    {
-        if (args[0] == "application" || args[0] == "app")
-        {
-            SceneManager.LoadScene(1);
-        }
     }
     #endregion
 }

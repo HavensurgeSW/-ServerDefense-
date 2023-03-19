@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
-  m_Name: CD_Command
+  m_Script: {fileID: 11500000, guid: 1a61cfa1ebe77444b9fbd6a61b3849f1, type: 3}
+  m_Name: command_CD
   m_EditorClassIdentifier: 
-  id: cd
-  argCount: 1
-  succResponse: []
+  commandId: cd
+  argumentsCount: 1
+  successResponse: []
   helpResponse:
   - 'CD <Location>. '
   - Use NETSTAT to find a list of locations.

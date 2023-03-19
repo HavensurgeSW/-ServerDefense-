@@ -153,8 +153,54 @@ Transform:
   m_Children:
   - {fileID: 164088596}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &58095938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58095940}
+  - component: {fileID: 58095941}
+  m_Layer: 0
+  m_Name: Currencies Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &58095940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58095938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &58095941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58095938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a1662f15d03024a9463450681e3804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencies:
+  - {fileID: 11400000, guid: 117c3ee79931a70469bf51bb60cb7237, type: 2}
 --- !u!1 &164088595
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1506362281
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: affb4f5ac35974148a875ad801cf6263, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -322,7 +368,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &174434788
 MonoBehaviour:
@@ -370,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3669464417268274647, guid: 91d4ba02ce927d44da7db873aec99f2c, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3669464417268274647, guid: 91d4ba02ce927d44da7db873aec99f2c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -631,7 +677,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &414097740
 GameObject:
@@ -762,7 +808,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -847,7 +893,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -943,7 +989,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &664188390
 MonoBehaviour:
@@ -1054,7 +1100,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &816289017
 MonoBehaviour:
@@ -1165,7 +1211,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &839054923
 MonoBehaviour:
@@ -1376,7 +1422,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1080500286
 MonoBehaviour:
@@ -1503,7 +1549,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1108472195
 MonoBehaviour:
@@ -1617,7 +1663,7 @@ Transform:
   - {fileID: 887586100}
   - {fileID: 1609495007}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1213192342
 GameObject:
@@ -1648,7 +1694,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215247148
 GameObject:
@@ -1791,40 +1837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commands:
-  - name: CMDS
-    info: {fileID: 11400000, guid: 3b36f8ae055a66645b9e69a7f3211ab7, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1308555774}
-          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
-          m_MethodName: Command_ReturnCommands
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: CD
-    info: {fileID: 11400000, guid: feccb80dd99d840459f64345a4328f9b, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1308555774}
-          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
-          m_MethodName: Command_ChangeDirectory
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - name: NETSTAT
     info: {fileID: 11400000, guid: 9e43c83807ba3104e810e474087e4809, type: 2}
     callback:
@@ -1833,23 +1845,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1308555774}
           m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
           m_MethodName: Command_ReturnLocations
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: INSTALL
-    info: {fileID: 11400000, guid: d942b080306bcfe40897db17c3fe4f9c, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1308555774}
-          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
-          m_MethodName: Command_InstallTower
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1910,23 +1905,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: QUIT
-    info: {fileID: 11400000, guid: a7a0537280b112648b3d7fef86eb5e48, type: 2}
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1308555774}
-          m_TargetAssemblyTypeName: CommandManager, Assembly-CSharp
-          m_MethodName: Command_QuitGame
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  newCommands:
+  - {fileID: 11400000, guid: c4fafde39e386444ca232db43bde4eda, type: 2}
+  - {fileID: 11400000, guid: 6ebab925b0fa9c34880b7edd9082a895, type: 2}
+  - {fileID: 11400000, guid: 0113aae3244c3664a8e6c614ec6dbaf0, type: 2}
+  - {fileID: 11400000, guid: c6c0e725f4423f145a46a20e41a28fc6, type: 2}
   helpInfo: {fileID: 11400000, guid: b773addd88fd7884b98c8070c86bb2ef, type: 2}
 --- !u!114 &1317126686 stripped
 MonoBehaviour:
@@ -1968,7 +1951,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374820841
 GameObject:
@@ -2036,7 +2019,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1483558949
 GameObject:
@@ -2067,7 +2050,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1555728286
 GameObject:
@@ -2132,7 +2115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 738427899938477745, guid: b44bdce6d1b7d844c818945f4e54d247, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 738427899938477745, guid: b44bdce6d1b7d844c818945f4e54d247, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2378,7 +2361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758878457
 GameObject:
@@ -2635,6 +2618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandManager: {fileID: 1308555774}
+  currenciesController: {fileID: 58095941}
   uiManager: {fileID: 1317126686}
   terminal: {fileID: 225311706}
   towersController: {fileID: 1758878460}
@@ -2718,7 +2702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570244210426829950, guid: c959616757a2ca24a809c4d665b5d3f8, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2570244210426829950, guid: c959616757a2ca24a809c4d665b5d3f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3050,7 +3034,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9202163451807312616, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9202163451807312616, guid: 259b9a6def6bb7e43b648e6c83c94c8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3131,7 +3115,7 @@ Transform:
   - {fileID: 1101614708}
   - {fileID: 1833167170}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3763575795485986856
 PrefabInstance:
@@ -3158,7 +3142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3763575794549643990, guid: 92ca42153bc3c6a48a02f49eee6197f7, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3763575794549643990, guid: 92ca42153bc3c6a48a02f49eee6197f7, type: 3}
       propertyPath: m_AnchorMax.x

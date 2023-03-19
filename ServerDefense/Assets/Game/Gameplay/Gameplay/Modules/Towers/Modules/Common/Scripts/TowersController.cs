@@ -80,6 +80,16 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
+    public void UpgradeTower(BaseTower tower, int levelToSet)
+    {
+        TowerLevelData levelData = GetLevelDataFromIndex(tower.ID, levelToSet);
+
+        tower.CURRENT_LEVEL = levelToSet;
+        tower.SetData(levelData.STATS);
+        tower.SetTowerMaterial(levelData.TOWER_LEVEL_MATERIAL);
+        tower.SetLaserMaterial(levelData.LASER_LEVEL_MATERIAL);
+    }
+
     public void ReleaseActiveTower(BaseTower tower)
     {
         string id = tower.ID;

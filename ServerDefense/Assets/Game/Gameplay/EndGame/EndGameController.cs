@@ -12,7 +12,7 @@ public class EndGameController : SceneController
         gameStatusPanel.Init(GameManager.gameStatus);
 
         replayButton.onClick.AddListener(() => ChangeScene(MainMenuController.selectedLevel, true));
-        mainMenuButton.onClick.AddListener(() => ChangeScene(CommonUtils.SCENE.MAIN_MENU, true));
+        mainMenuButton.onClick.AddListener(() => ChangeScene(SCENE.MAIN_MENU, true));
     }
 
     protected override void OnDisable()

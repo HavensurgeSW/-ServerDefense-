@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1937cda24f2e314f8e9a9a52293bc12, type: 3}
-  m_Name: INSTALL_Command
+  m_Script: {fileID: 11500000, guid: 0ffe4d3a5807d3f4aad5eeab80526d3f, type: 3}
+  m_Name: command_install_tower
   m_EditorClassIdentifier: 
-  id: install
-  argCount: 1
-  succResponse:
+  commandId: install
+  argumentsCount: 1
+  successResponse:
   - Tower installed
   helpResponse:
   - INSTALL <Program>
