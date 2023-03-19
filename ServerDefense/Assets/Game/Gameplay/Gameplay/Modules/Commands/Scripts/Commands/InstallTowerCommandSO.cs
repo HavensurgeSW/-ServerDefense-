@@ -48,7 +48,7 @@ public class InstallTowerCommandSO : CommandSO
             return;
         }
 
-        currenciesController.AddCurrencyValue(CurrencyConstants.packetCurrency, -data.LEVELS[0].PRICE);
+        currenciesController.SubstractCurrencyValue(CurrencyConstants.packetCurrency, data.LEVELS[0].PRICE);
 
         Location currentLoc = mapHandler.CURRENT_LOCATION;
         BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);

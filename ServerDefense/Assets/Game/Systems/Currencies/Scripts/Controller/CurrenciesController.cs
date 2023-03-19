@@ -54,6 +54,16 @@ namespace ServerDefense.Systems.Currencies
             Debug.LogError("Failed to find currency of Id: " + currencyId);
         }
 
+        public void SubstractCurrencyValue(string currencyId, int amount)
+        {
+            if (currenciesDictionary.ContainsKey(currencyId))
+            {
+                currenciesDictionary[currencyId] -= amount;
+            }
+
+            Debug.LogError("Failed to find currency of Id: " + currencyId);
+        }
+
         public int GetCurrencyValue(string currencyId)
         {
             if (currenciesDictionary.ContainsKey(currencyId))

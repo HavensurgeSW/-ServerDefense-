@@ -1910,6 +1910,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ebab925b0fa9c34880b7edd9082a895, type: 2}
   - {fileID: 11400000, guid: 0113aae3244c3664a8e6c614ec6dbaf0, type: 2}
   - {fileID: 11400000, guid: c6c0e725f4423f145a46a20e41a28fc6, type: 2}
+  - {fileID: 11400000, guid: 73d98790703a31e479b5f0bb4b3b6265, type: 2}
   helpInfo: {fileID: 11400000, guid: b773addd88fd7884b98c8070c86bb2ef, type: 2}
 --- !u!114 &1317126686 stripped
 MonoBehaviour:
@@ -2629,6 +2630,7 @@ MonoBehaviour:
   startingPackets: 10
   tutorialScene: 0
   debugScore: 1
+  debugValue: 10000
 --- !u!4 &1899149030
 Transform:
   m_ObjectHideFlags: 0

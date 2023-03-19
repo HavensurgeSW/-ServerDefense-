@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using ServerDefense.Systems.Currencies;
+
+[CreateAssetMenu(fileName = "command_updatetower", menuName = "ScriptableObjects/Commands/UpdateTower")]
 public class UpdateTowerCommandSO : CommandSO
 {
+    [Header("Update Command Configuration")]
     [SerializeField] private string deployId = string.Empty;
     [SerializeField] private string infoId = string.Empty;
     [SerializeField] private List<string> invalidLocationResponse = null;
@@ -33,7 +37,7 @@ public class UpdateTowerCommandSO : CommandSO
         }
         else if (keyword == deployId)
         {
-            TriggerUpdateCommandDeploy(towersController, tower, nextLevel, onSuccess, onFailure);
+            TriggerUpdateCommandDeploy(towersController, tower, nextLevel, commandManager.GetCurrencyController(), onSuccess, onFailure);
         }
     }
 
@@ -42,17 +46,12 @@ public class UpdateTowerCommandSO : CommandSO
         response = new List<string>();
 
         MapHandler mapHandler = commandManager.GetMapHandler();
+        BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
         bool isCorrectKeyword = keyword == infoId || keyword == deployId;
         bool isLocationAvailable = mapHandler.GetIsCurrentLocationAvailable();
+        bool hasAvailableTower = selectedTower != null;
 
-        if (!isCorrectKeyword || !isLocationAvailable)
-        {
-            response = errorResponse;
-            return false;
-        }
-
-        BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
-        if (selectedTower == null)
+        if (!isCorrectKeyword || !isLocationAvailable || !hasAvailableTower)
         {
             response = errorResponse;
             return false;
@@ -70,14 +69,16 @@ public class UpdateTowerCommandSO : CommandSO
         return true;
     }
 
-    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, CurrenciesController currenciesController, Action<List<string>> onSuccess, Action<List<string>> onFailure)
     {
-        //if (OnGetPacketScore() < nextLevel.PRICE)
-        //{
-        //    onFailure(insufficientFundsResponse);
-        //    return;
-        //}
+        int packetAmount = currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency);
+        if (packetAmount < nextLevel.PRICE)
+        {
+            onFailure(insufficientFundsResponse);
+            return;
+        }
 
+        currenciesController.SubstractCurrencyValue(CurrencyConstants.packetCurrency, nextLevel.PRICE);
         towerController.UpgradeTower(tower, tower.NEXT_LEVEL);
 
         onSuccess(successResponse);
