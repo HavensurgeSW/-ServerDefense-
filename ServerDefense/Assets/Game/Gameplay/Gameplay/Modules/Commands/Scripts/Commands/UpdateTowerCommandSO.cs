@@ -48,10 +48,10 @@ public class UpdateTowerCommandSO : CommandSO
         MapHandler mapHandler = commandManager.GetMapHandler();
         BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
         bool isCorrectKeyword = keyword == infoId || keyword == deployId;
-        bool isLocationAvailable = mapHandler.GetIsCurrentLocationAvailable();
+        bool isLocationOccupied = !mapHandler.GetIsCurrentLocationAvailable();
         bool hasAvailableTower = selectedTower != null;
 
-        if (!isCorrectKeyword || !isLocationAvailable || !hasAvailableTower)
+        if (!isCorrectKeyword || !isLocationOccupied || !hasAvailableTower)
         {
             response = errorResponse;
             return false;

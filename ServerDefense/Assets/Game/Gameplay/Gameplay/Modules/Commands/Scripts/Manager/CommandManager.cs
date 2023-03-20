@@ -17,7 +17,7 @@ public class CommandManager : MonoBehaviour
 
 
     [Header("Main Configuration")]
-    [SerializeField] private List<CommandSO> newCommands = new List<CommandSO>();
+    [SerializeField] private List<CommandSO> commands = new List<CommandSO>();
     
     [Header("Helper commands Configuration")]
     [SerializeField] private HelpCommandSO helpCommand = null;
@@ -117,7 +117,7 @@ public class CommandManager : MonoBehaviour
 
     public CommandSO GetCommand(string id)
     {
-        foreach (CommandSO cmd in newCommands)
+        foreach (CommandSO cmd in commands)
         {
             if (cmd.COMMAND_ID == id)
             {
@@ -130,7 +130,7 @@ public class CommandManager : MonoBehaviour
 
     public List<CommandSO> GetCommands()
     {
-        return newCommands;
+        return commands;
     }
 
     private bool CheckCommandArguments(string[] args, CommandSO command)

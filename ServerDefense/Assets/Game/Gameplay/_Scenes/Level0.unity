@@ -1836,19 +1836,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2392eda9d4ab7d40a520a6f0ba830a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commands: []
-  newCommands:
-  - {fileID: 11400000, guid: c4fafde39e386444ca232db43bde4eda, type: 2}
-  - {fileID: 11400000, guid: 6ebab925b0fa9c34880b7edd9082a895, type: 2}
+  commands:
   - {fileID: 11400000, guid: 0113aae3244c3664a8e6c614ec6dbaf0, type: 2}
   - {fileID: 11400000, guid: c6c0e725f4423f145a46a20e41a28fc6, type: 2}
-  - {fileID: 11400000, guid: 73d98790703a31e479b5f0bb4b3b6265, type: 2}
-  - {fileID: 11400000, guid: 7f55a47a9846f3f4baa45434351750bf, type: 2}
+  - {fileID: 11400000, guid: 1bec372318d146e4ba15ede1961f5b50, type: 2}
+  - {fileID: 11400000, guid: c4fafde39e386444ca232db43bde4eda, type: 2}
   - {fileID: 11400000, guid: e7b3e7f39d51dc143b1315283e7c18d9, type: 2}
   - {fileID: 11400000, guid: def404fae5f39444fb8533e14ff9fc1d, type: 2}
+  - {fileID: 11400000, guid: 6ebab925b0fa9c34880b7edd9082a895, type: 2}
   - {fileID: 11400000, guid: 3c9d403d06cf90341855df604270540f, type: 2}
   - {fileID: 11400000, guid: 48e3f10cfb2766748a5cc4a57a022fa4, type: 2}
-  helpInfo: {fileID: 11400000, guid: b773addd88fd7884b98c8070c86bb2ef, type: 2}
+  - {fileID: 11400000, guid: 7f55a47a9846f3f4baa45434351750bf, type: 2}
+  - {fileID: 11400000, guid: 73d98790703a31e479b5f0bb4b3b6265, type: 2}
   helpCommand: {fileID: 11400000, guid: 1bec372318d146e4ba15ede1961f5b50, type: 2}
 --- !u!114 &1317126686 stripped
 MonoBehaviour:
