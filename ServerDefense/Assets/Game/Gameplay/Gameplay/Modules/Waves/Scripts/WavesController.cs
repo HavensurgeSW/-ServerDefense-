@@ -9,6 +9,7 @@ public class WavesController : MonoBehaviour
 
     private WaveData activeWave = null;
     private int currentWaveEnemyCount = 0;
+    private int currentWaveIndex = 0;
 
     private bool isWaveSpawning = false;
     private bool isInWave = false;
@@ -17,6 +18,7 @@ public class WavesController : MonoBehaviour
     private Action<string, Action> OnEnemySpawned = null;
     private Action OnWaveCompleted = null;
 
+    public int CURRENT_WAVE_INDEX { get => currentWaveIndex; set => currentWaveIndex = value; }
     public bool IS_WAVE_SPAWNING { get => isWaveSpawning; }
     public bool IS_IN_WAVE { get => isInWave; }
     public bool ALL_WAVES_COMPLETE { get => allWavesComplete; }
@@ -46,7 +48,8 @@ public class WavesController : MonoBehaviour
         if (currentWaveEnemyCount <= 0)
         {
             isInWave = false;
-            allWavesComplete = activeWave == waves[waves.Length - 1];
+            currentWaveIndex++;
+            allWavesComplete = activeWave == waves[^1];
             OnWaveCompleted?.Invoke();
             UIManager.OnWaveEnd?.Invoke(true);
         }

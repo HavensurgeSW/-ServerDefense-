@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
-  m_Name: NETSTAT_Command
+  m_Script: {fileID: 11500000, guid: b6a4dd2f38a18a344a43ebfa797c985d, type: 3}
+  m_Name: command_reload
   m_EditorClassIdentifier: 
-  id: netstat
-  argCount: 0
-  succResponse: []
+  commandId: reload
+  argumentsCount: 0
+  successResponse: []
   helpResponse:
-  - Provides a list of locations
-  - Use CD <Location> with these names
-  errorResponse:
-  - 
+  - RELOAD
+  - Reloads the level
+  errorResponse: []

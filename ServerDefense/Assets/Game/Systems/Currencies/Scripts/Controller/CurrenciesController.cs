@@ -39,6 +39,7 @@ namespace ServerDefense.Systems.Currencies
             if (currenciesDictionary.ContainsKey(currencyId))
             {
                 currenciesDictionary[currencyId] = amount;
+                return;
             }
 
             Debug.LogError("Failed to find currency of Id: " + currencyId);
@@ -49,6 +50,7 @@ namespace ServerDefense.Systems.Currencies
             if (currenciesDictionary.ContainsKey(currencyId))
             {
                 currenciesDictionary[currencyId] += amount;
+                return;
             }
 
             Debug.LogError("Failed to find currency of Id: " + currencyId);
@@ -59,6 +61,7 @@ namespace ServerDefense.Systems.Currencies
             if (currenciesDictionary.ContainsKey(currencyId))
             {
                 currenciesDictionary[currencyId] -= amount;
+                return;
             }
 
             Debug.LogError("Failed to find currency of Id: " + currencyId);

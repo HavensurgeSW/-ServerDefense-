@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191838e6e5754f94a9f2873fa5b7bbe2, type: 3}
-  m_Name: NETWORK_Command
+  m_Script: {fileID: 11500000, guid: 0b57447af182a904e86719acb56758c0, type: 3}
+  m_Name: command_network
   m_EditorClassIdentifier: 
-  id: network
-  argCount: 1
-  succResponse: []
+  commandId: network
+  argumentsCount: 1
+  successResponse: []
   helpResponse:
   - NETWORK INIT
   - Opens the network and starts the wave
   errorResponse: []
+  initId: init

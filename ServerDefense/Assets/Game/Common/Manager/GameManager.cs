@@ -28,8 +28,6 @@ public class GameManager : SceneController
     [SerializeField] private bool debugScore = false;
     [SerializeField] private int debugValue = 10000;
 
-    private int currentWave = 0;
-
     protected override void Awake()
     {
         currenciesController.Init();
@@ -39,9 +37,9 @@ public class GameManager : SceneController
         uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
 
         commandManager.Init(terminal, levelManager, mapHandler, towersController, currenciesController, uiManager);
-        commandManager.SetCallbacks(GetCurrentWaveIndex, uiManager.GeneratePopUp);
+        commandManager.SetCallbacks((scene) => ChangeScene(scene, false));
 
-        levelManager.Init(IncreaseCurrentWaveValue);
+        levelManager.Init(null);
 
         towersController.Init();
         mapHandler.Init();
@@ -79,17 +77,7 @@ public class GameManager : SceneController
 
     private void BeginCurrentWave()
     {
-        levelManager.BeginWave(currentWave);
-    }
-
-    private int GetCurrentWaveIndex()
-    {
-        return currentWave;
-    }
-
-    private void IncreaseCurrentWaveValue()
-    {
-        currentWave++;
+        levelManager.BeginWave(levelManager.GetCurrentWaveIndex());
     }
 
     private void UpdatePacketScore(int value)
@@ -122,7 +110,7 @@ public class GameManager : SceneController
         string[] arguments = text.Split(' ');
         string commandId = arguments[0];
 
-        Command command = commandManager.GetCommand(commandId);
+        CommandSO command = commandManager.GetCommand(commandId);
 
         if (command == null)
         {
@@ -140,7 +128,7 @@ public class GameManager : SceneController
         string[] arguments = text.Split(' ');
         string commandId = arguments[0];
 
-        CommandSO command = commandManager.GetNewCommand(commandId);
+        CommandSO command = commandManager.GetCommand(commandId);
 
         if (command == null)
         {
@@ -150,6 +138,6 @@ public class GameManager : SceneController
         }
 
         uiManager.ClearAllPopUps();
-        commandManager.NewProcessCommand(command, arguments);
+        commandManager.ProcessCommand(command, arguments);
     }
 }

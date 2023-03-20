@@ -28,6 +28,11 @@ public class LevelManager : MonoBehaviour
         wavesController.Init(enemyHandler.GenerateEnemy);
     }
 
+    public void BeginNextWave()
+    {
+        BeginWave(GetCurrentWaveIndex() + 1);
+    }
+
     public void BeginWave(int index)
     {
         if (wavesController.IS_WAVE_SPAWNING || wavesController.IS_IN_WAVE)
@@ -50,8 +55,13 @@ public class LevelManager : MonoBehaviour
                     OnAllWavesCompleted?.Invoke();
                 }
             });
-        //UIManager.OnWaveEnd?.Invoke(true);
+
         packetsHandler.StartPacketsWave();
+    }
+
+    public int GetCurrentWaveIndex()
+    {
+        return wavesController.CURRENT_WAVE_INDEX;
     }
 
     public void AddOnWaveEndCallback(Action callback)

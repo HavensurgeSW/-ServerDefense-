@@ -8,7 +8,7 @@ public class CMDSCommandSO : CommandSO
 {
     public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
     {
-        List<string> commandIds = GetCommandIds(commandManager.GetNewCommands());
+        List<string> commandIds = GetCommandIds(commandManager.GetCommands());
 
         onSuccess(commandIds);
     }
