@@ -6,14 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_CD", menuName = "ScriptableObjects/Commands/ChangeDirectory")]
 public class CDCommandSO : CommandSO
 {
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string locName = arguments[0];
-        Camera mainCamera = commandManager.GetMainCamera();
-        MapHandler mapHandler = commandManager.GetMapHandler();
-        LevelManager levelManager = commandManager.GetLevelManager();
-        TerminalManager terminal = commandManager.GetTerminalManager();
-        UIManager uIManager = commandManager.GetUIManager();
+        Camera mainCamera = commandManagerModel.MAIN_CAMERA;
+        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
+        LevelManager levelManager = commandManagerModel.LEVEL_MANAGER;
+        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
+        UIManager uIManager = commandManagerModel.UI_MANAGER;
 
         bool searchHit = false;
 
@@ -37,7 +37,8 @@ public class CDCommandSO : CommandSO
 
                 //Action callout
                 //OnChangeDirectory?.Invoke(locName);
-                onSuccess(successResponse);
+                onTriggerMessage(successResponse);
+                onSuccess(this);
 
                 break;
             }
@@ -45,7 +46,8 @@ public class CDCommandSO : CommandSO
 
         if (!searchHit)
         {
-            onFailure(errorResponse);
+            onTriggerMessage(errorResponse);
+            onFailure(this);
         }
     }
 }

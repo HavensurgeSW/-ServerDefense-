@@ -6,11 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_NETSTAT", menuName = "ScriptableObjects/Commands/NETSTAT")]
 public class NETSTATCommandSO : CommandSO
 {
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        LevelManager levelManager = commandManager.GetLevelManager();
-        UIManager uIManager = commandManager.GetUIManager();
-        Camera mainCamera = commandManager.GetMainCamera();
+        LevelManager levelManager = commandManagerModel.LEVEL_MANAGER;
+        UIManager uIManager = commandManagerModel.UI_MANAGER;
+        Camera mainCamera = commandManagerModel.MAIN_CAMERA;
         List<string> locList = new List<string>();
 
         for (int i = 0; i < levelManager.LOCATIONS.Length; i++)
@@ -20,6 +20,7 @@ public class NETSTATCommandSO : CommandSO
             uIManager.GeneratePopUp(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
         }
 
-        onSuccess(locList);
+        onTriggerMessage(locList);
+        onSuccess(this);
     }
 }

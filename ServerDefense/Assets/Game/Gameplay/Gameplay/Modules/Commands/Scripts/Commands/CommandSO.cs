@@ -18,5 +18,5 @@ public abstract class CommandSO : ScriptableObject
     public List<string> HELP_RESPONSE { get => helpResponse; }
     public List<string> ERROR_RESPONSE { get => errorResponse; }
 
-    public abstract void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure);
+    public abstract void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure);
 }

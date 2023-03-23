@@ -6,8 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_reload", menuName = "ScriptableObjects/Commands/Reload")]
 public class ReloadCommandSO : CommandSO
 {
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        commandManager.ChangeScene(SCENE.LEVEL_0);
+        commandManagerModel.OnChangeScene(SCENE.LEVEL_0);
     }
 }

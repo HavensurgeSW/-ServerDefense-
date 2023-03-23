@@ -11,7 +11,7 @@ public class QuitCommandSO : CommandSO
     [SerializeField] private string[] quitKeywords = null;
     [SerializeField] private SCENE targetScene = SCENE.NONE;
 
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string keyword = arguments[0];
 
@@ -19,12 +19,14 @@ public class QuitCommandSO : CommandSO
         {
             if (keyword == quitKeywords[i])
             {
-                onSuccess(successResponse);
+                onTriggerMessage(successResponse);
+                onSuccess(this);
                 SceneManager.LoadScene((int)targetScene);
                 break;
             }
         }
 
-        onFailure(errorResponse);
+        onTriggerMessage(errorResponse);
+        onFailure(this);
     }
 }

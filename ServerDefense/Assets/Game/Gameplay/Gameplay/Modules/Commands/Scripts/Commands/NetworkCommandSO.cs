@@ -9,18 +9,20 @@ public class NetworkCommandSO : CommandSO
     [Header("network Command Configuration")]
     [SerializeField] private string initId = string.Empty;
 
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string keyword = arguments[0];
 
         if (keyword == initId)
         {
-            LevelManager levelManager = commandManager.GetLevelManager();
+            LevelManager levelManager = commandManagerModel.LEVEL_MANAGER;
             levelManager.BeginWave(levelManager.GetCurrentWaveIndex());
-            onSuccess(successResponse);
+            onTriggerMessage(successResponse);
+            onSuccess(this);
             return;
         }
 
-        onFailure(errorResponse);
+        onTriggerMessage(errorResponse);
+        onFailure(this);
     }
 }

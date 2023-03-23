@@ -21,7 +21,7 @@ public class TutorialCommandSO : CommandSO
 
     public TutorialData[] TUTORIALS { get => tutorials; }
 
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string tutorialId = arguments[0];
 
@@ -30,11 +30,13 @@ public class TutorialCommandSO : CommandSO
             TutorialData tutorial = tutorials[i];
             if (tutorial.TUTORIAL_ID == tutorialId)
             {
-                onSuccess(tutorial.TUTORIAL_LINES);
+                onTriggerMessage(tutorial.TUTORIAL_LINES);
+                onSuccess(this);
                 return;
             }
         }
 
-        onFailure(errorResponse);
+        onTriggerMessage(errorResponse);
+        onFailure(this);
     }
 }

@@ -6,11 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_CMDS", menuName = "ScriptableObjects/Commands/CMDS")]
 public class CMDSCommandSO : CommandSO
 {
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        List<string> commandIds = GetCommandIds(commandManager.GetCommands());
+        List<string> commandIds = GetCommandIds(commandManagerModel.OnGetCommands());
 
-        onSuccess(commandIds);
+        onTriggerMessage(commandIds);
+        onSuccess(this);
     }
 
     private List<string> GetCommandIds(List<CommandSO> commands)

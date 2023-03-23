@@ -6,13 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_uninstall_", menuName = "ScriptableObjects/Commands/Uninstalls/UninstallTower")]
 public class UninstallTowerCommandSO : CommandSO
 {
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        MapHandler mapHandler = commandManager.GetMapHandler();
+        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
 
         if (mapHandler.GetIsCurrentLocationAvailable())
         {
-            onFailure(errorResponse);
+            onTriggerMessage(errorResponse);
+            onFailure(this);
             return;
         }
 
@@ -23,15 +24,17 @@ public class UninstallTowerCommandSO : CommandSO
 
         if (inputTowerId != selectedTower.ID)
         {
-            onFailure(errorResponse);
+            onTriggerMessage(errorResponse);
+            onFailure(this);
             return;
         }
 
-        TowersController towersController = commandManager.GetTowersController();
+        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
 
         towersController.ReleaseActiveTower(selectedTower);
         currentLoc.SetTower(null);
         currentLoc.SetAvailable(true);
-        onSuccess(successResponse);
+        onTriggerMessage(successResponse);
+        onSuccess(this);
     }
 }

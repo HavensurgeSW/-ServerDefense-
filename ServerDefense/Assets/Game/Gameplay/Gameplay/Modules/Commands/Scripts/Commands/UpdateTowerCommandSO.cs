@@ -15,37 +15,39 @@ public class UpdateTowerCommandSO : CommandSO
     [SerializeField] private List<string> insufficientFundsResponse = null;
     [SerializeField] private List<string> maxLevelResponse = null;
 
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string keyword = arguments[0];
 
-        if(!HasNecessaryDataForUpdate(commandManager, keyword, out List<string> errorResponse))
+        if(!HasNecessaryDataForUpdate(commandManagerModel, keyword, out List<string> errorResponse))
         {
-            onFailure(errorResponse);
+            onTriggerMessage(errorResponse);
+            onFailure(this);
             return;
         }
 
-        TowersController towersController = commandManager.GetTowersController();
+        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
 
-        BaseTower tower = commandManager.GetMapHandler().CURRENT_LOCATION.TOWER;
+        BaseTower tower = commandManagerModel.MAP_HANDLER.CURRENT_LOCATION.TOWER;
         TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(tower.ID);
         TowerLevelData nextLevel = towerLevelsData[tower.NEXT_LEVEL - 1];
 
         if (keyword == infoId)
         {
-            onSuccess(GetNextUpdateInfo(tower, nextLevel));
+            onTriggerMessage(GetNextUpdateInfo(tower, nextLevel));
+            onSuccess(this);
         }
         else if (keyword == deployId)
         {
-            TriggerUpdateCommandDeploy(towersController, tower, nextLevel, commandManager.GetCurrencyController(), onSuccess, onFailure);
+            TriggerUpdateCommandDeploy(towersController, tower, nextLevel, commandManagerModel.CURRENCIES_CONTROLLER, onTriggerMessage, onSuccess, onFailure);
         }
     }
 
-    private bool HasNecessaryDataForUpdate(CommandManager commandManager, string keyword, out List<string> response)
+    private bool HasNecessaryDataForUpdate(CommandManagerModel commandManagerModel, string keyword, out List<string> response)
     {
         response = new List<string>();
 
-        MapHandler mapHandler = commandManager.GetMapHandler();
+        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
         BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
         bool isCorrectKeyword = keyword == infoId || keyword == deployId;
         bool isLocationOccupied = !mapHandler.GetIsCurrentLocationAvailable();
@@ -57,7 +59,7 @@ public class UpdateTowerCommandSO : CommandSO
             return false;
         }
 
-        TowersController towersController = commandManager.GetTowersController();
+        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
         TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
 
         if (selectedTower.NEXT_LEVEL > towerLevelsData.Length)
@@ -69,19 +71,21 @@ public class UpdateTowerCommandSO : CommandSO
         return true;
     }
 
-    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, CurrenciesController currenciesController, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, CurrenciesController currenciesController, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         int packetAmount = currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency);
         if (packetAmount < nextLevel.PRICE)
         {
-            onFailure(insufficientFundsResponse);
+            onTriggerMessage(insufficientFundsResponse);
+            onFailure(this);
             return;
         }
 
         currenciesController.SubstractCurrencyValue(CurrencyConstants.packetCurrency, nextLevel.PRICE);
         towerController.UpgradeTower(tower, tower.NEXT_LEVEL);
 
-        onSuccess(successResponse);
+        onTriggerMessage(successResponse);
+        onSuccess(this);
     }
 
     public List<string> GetNextUpdateInfo(BaseTower tower, TowerLevelData nextLevel)

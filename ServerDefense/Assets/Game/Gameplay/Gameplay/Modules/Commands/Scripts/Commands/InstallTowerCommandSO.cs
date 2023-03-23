@@ -17,17 +17,18 @@ public class InstallTowerCommandSO : CommandSO
     public List<string> INVALID_TOWER_ID_RESPONSE { get => invalidTowerIdResponse; }
     public List<string> INSUFFICIENT_FUNDS_RESPONSE { get => insufficientFundsResponse; }
 
-    public override void TriggerCommand(CommandManager commandManager, string[] arguments, Action<List<string>> onSuccess, Action<List<string>> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        TerminalManager terminal = commandManager.GetTerminalManager();
-        MapHandler mapHandler = commandManager.GetMapHandler();
-        TowersController towersController = commandManager.GetTowersController();
+        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
+        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
+        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
 
         terminal.ClearCmdEntries();
 
         if (!mapHandler.GetIsCurrentLocationAvailable())
         {
-            onFailure(invalidLocationResponse);
+            onTriggerMessage(invalidLocationResponse);
+            onFailure(this);
             return;
         }
 
@@ -35,16 +36,18 @@ public class InstallTowerCommandSO : CommandSO
 
         if (!towersController.DoesTowerIdExist(towerId))
         {
-            onFailure(invalidTowerIdResponse);
+            onTriggerMessage(invalidLocationResponse);
+            onFailure(this);
             return;
         }
 
         TowerData data = towersController.GetTowerData(towerId);
 
-        CurrenciesController currenciesController = commandManager.GetCurrencyController();
+        CurrenciesController currenciesController = commandManagerModel.CURRENCIES_CONTROLLER;
         if (currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency) < data.LEVELS[0].PRICE)
         {
-            onFailure(insufficientFundsResponse);
+            onTriggerMessage(insufficientFundsResponse);
+            onFailure(this);
             return;
         }
 
@@ -59,6 +62,7 @@ public class InstallTowerCommandSO : CommandSO
 
         //OnInstallTower?.Invoke(towerId);
 
-        onSuccess(successResponse);
+        onTriggerMessage(successResponse);
+        onSuccess(this);
     }
 }

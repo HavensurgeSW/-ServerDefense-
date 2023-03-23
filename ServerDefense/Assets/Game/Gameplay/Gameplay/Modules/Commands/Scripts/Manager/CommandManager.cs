@@ -31,6 +31,8 @@ public class CommandManager : MonoBehaviour
     private CurrenciesController currencyController = null;
     private UIManager uiManager = null;
 
+    private CommandManagerModel commandManagerModel = null;
+
     public Action<SCENE> OnChangeScene = null;
 
     public void Init(TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController, CurrenciesController currencyController, UIManager uiManager)
@@ -43,41 +45,9 @@ public class CommandManager : MonoBehaviour
         this.towersController = towersController;
         this.currencyController = currencyController;
         this.uiManager = uiManager;
-    }
 
-    public Camera GetMainCamera()
-    {
-        return mainCamera;
-    }
-
-    public TerminalManager GetTerminalManager()
-    {
-        return terminal;
-    }
-
-    public LevelManager GetLevelManager()
-    {
-        return levelManager;
-    }
-
-    public MapHandler GetMapHandler()
-    {
-        return mapHandler;
-    }
-
-    public TowersController GetTowersController()
-    {
-        return towersController;
-    }
-
-    public UIManager GetUIManager()
-    {
-        return uiManager;
-    }
-
-    public CurrenciesController GetCurrencyController()
-    {
-        return currencyController;
+        commandManagerModel = new CommandManagerModel(terminal, levelManager, mapHandler, towersController, currencyController, uiManager, mainCamera);
+        commandManagerModel.SetCallbacks(ChangeScene, GetCommands);
     }
 
     public void SetCallbacks(Action<SCENE> onChangeScene)
@@ -112,7 +82,7 @@ public class CommandManager : MonoBehaviour
             return;
         }
 
-        command.TriggerCommand(this, commandArgs, ShowTerminalLines, ShowTerminalLines);
+        command.TriggerCommand(commandManagerModel, commandArgs, ShowTerminalLines, OnCommandSuccess, OnCommandFailed);
     }
 
     public CommandSO GetCommand(string id)
@@ -170,5 +140,15 @@ public class CommandManager : MonoBehaviour
     private void ShowTerminalLines(List<string> lines)
     {
         terminal.AddInterpreterLines(lines);
+    }
+
+    private void OnCommandSuccess(CommandSO command)
+    {
+        // whatever
+    }
+
+    private void OnCommandFailed(CommandSO command)
+    {
+        // whatever
     }
 }
