@@ -8,6 +8,6 @@ public class ReloadCommandSO : CommandSO
 {
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        commandManagerModel.OnChangeScene(SCENE.LEVEL_0);
+        commandManagerModel.COMMAND_MANAGER.ChangeScene(SCENE.LEVEL_0);
     }
 }

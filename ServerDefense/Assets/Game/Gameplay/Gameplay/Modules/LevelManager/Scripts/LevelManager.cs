@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         wavesController.StartWave(index,
             () =>
             {
-                OnWaveEnd();
+                OnWaveEnd?.Invoke();
                 if (wavesController.ALL_WAVES_COMPLETE)
                 {
                     OnAllWavesCompleted?.Invoke();

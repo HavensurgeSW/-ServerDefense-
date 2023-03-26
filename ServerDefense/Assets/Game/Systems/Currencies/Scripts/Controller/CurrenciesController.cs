@@ -6,7 +6,11 @@ namespace ServerDefense.Systems.Currencies
 {
     public class CurrenciesController : MonoBehaviour
     {
+        [Header("Main Configuration")]
         [SerializeField] private List<CurrencySO> currencies = null;
+
+        [Header("Responses Configuration")]
+        [SerializeField] private TerminalResponseSO insufficientCurrencyResponse = null;
 
         private Dictionary<string, int> currenciesDictionary = null;
 

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using ServerDefense.Systems.Currencies;
-
 public class CommandManager : MonoBehaviour
 {
     // TEMPORARY
@@ -15,39 +13,19 @@ public class CommandManager : MonoBehaviour
     //public event Action OnNetworkInit;
     //public event Action OnHelpCommand;
 
-
     [Header("Main Configuration")]
     [SerializeField] private List<CommandSO> commands = new List<CommandSO>();
     
     [Header("Helper commands Configuration")]
     [SerializeField] private HelpCommandSO helpCommand = null;
 
-    private Camera mainCamera = null;
-
-    private TerminalManager terminal = null;
-    private MapHandler mapHandler = null;
-    private LevelManager levelManager = null;
-    private TowersController towersController = null;
-    private CurrenciesController currencyController = null;
-    private UIManager uiManager = null;
-
     private CommandManagerModel commandManagerModel = null;
 
     public Action<SCENE> OnChangeScene = null;
 
-    public void Init(TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController, CurrenciesController currencyController, UIManager uiManager)
+    public void Init(CommandManagerModel commandManagerModel)
     {
-        mainCamera = Camera.main;
-
-        this.terminal = terminal;
-        this.levelManager = levelManager;
-        this.mapHandler = mapHandler;
-        this.towersController = towersController;
-        this.currencyController = currencyController;
-        this.uiManager = uiManager;
-
-        commandManagerModel = new CommandManagerModel(terminal, levelManager, mapHandler, towersController, currencyController, uiManager, mainCamera);
-        commandManagerModel.SetCallbacks(ChangeScene, GetCommands);
+        this.commandManagerModel = commandManagerModel;
     }
 
     public void SetCallbacks(Action<SCENE> onChangeScene)
@@ -139,7 +117,7 @@ public class CommandManager : MonoBehaviour
 
     private void ShowTerminalLines(List<string> lines)
     {
-        terminal.AddInterpreterLines(lines);
+        commandManagerModel.TERMINAL_MANAGER.AddInterpreterLines(lines);
     }
 
     private void OnCommandSuccess(CommandSO command)

@@ -28,15 +28,19 @@ public class GameManager : SceneController
     [SerializeField] private bool debugScore = false;
     [SerializeField] private int debugValue = 10000;
 
+    private Camera mainCamera = null;
+
     protected override void Awake()
     {
+        mainCamera = Camera.main;
+
         currenciesController.Init();
         currenciesController.SetCurrencyValue(CurrencyConstants.packetCurrency, debugScore ? 10000 : startingPackets);
 
         uiManager.Init(timerSeconds);
         uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
 
-        commandManager.Init(terminal, levelManager, mapHandler, towersController, currenciesController, uiManager);
+        commandManager.Init(GenerateCommandManagerModel());
         commandManager.SetCallbacks((scene) => ChangeScene(scene, false));
 
         levelManager.Init(null);
@@ -73,6 +77,11 @@ public class GameManager : SceneController
         {
             pauseHandler.TogglePauseStatus(!pauseHandler.IS_PAUSED);
         }
+    }
+
+    private CommandManagerModel GenerateCommandManagerModel()
+    {
+        return new CommandManagerModel(commandManager, terminal, levelManager, mapHandler, towersController, currenciesController, uiManager, mainCamera);
     }
 
     private void BeginCurrentWave()

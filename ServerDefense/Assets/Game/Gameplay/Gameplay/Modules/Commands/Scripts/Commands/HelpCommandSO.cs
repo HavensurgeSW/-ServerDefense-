@@ -13,7 +13,7 @@ public class HelpCommandSO : CommandSO
 
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        List<string> commandIds = GetCommandIds(commandManagerModel.OnGetCommands());
+        List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());
 
         onTriggerMessage(commandIds);
         onSuccess(this);
