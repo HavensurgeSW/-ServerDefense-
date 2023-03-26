@@ -81,5 +81,10 @@ namespace ServerDefense.Systems.Currencies
             Debug.LogError("Failed to find currency of Id: " + currencyId);
             return -1;
         }
+
+        public TerminalResponseSO GetInsufficientCurrencyResponse()
+        {
+            return insufficientCurrencyResponse;
+        }
     }
 }

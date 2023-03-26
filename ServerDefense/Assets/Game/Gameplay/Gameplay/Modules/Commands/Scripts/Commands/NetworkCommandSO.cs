@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_network", menuName = "ScriptableObjects/Commands/Network")]
 public class NetworkCommandSO : CommandSO
 {
-    [Header("network Command Configuration")]
+    [Header("Network Command Configuration")]
     [SerializeField] private string initId = string.Empty;
 
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21afc44518a14f4eab146bf94bee3e3, type: 3}
+  m_Name: response_command_tutorial_tutorial_3
+  m_EditorClassIdentifier: 
+  response:
+  - Deploying towers costs Kilobytes, noted as KB on the left
+  - Packets reaching your server will increase your current KB
+  - With a selected <location>, run the INSTALL command
+  - You might want to add the HELP argument to learn how to use it
+  - All available commands can be seen by running CMDS
+  - When you're ready, open up your network by running NETWORK INIT

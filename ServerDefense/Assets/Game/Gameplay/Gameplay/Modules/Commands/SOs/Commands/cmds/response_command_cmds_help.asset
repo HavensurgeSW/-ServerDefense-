@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21afc44518a14f4eab146bf94bee3e3, type: 3}
-  m_Name: response_insufficient_currencies
+  m_Name: response_command_cmds_help
   m_EditorClassIdentifier: 
   response:
-  - Insufficient funds to install program
+  - Returns a list of available commands
