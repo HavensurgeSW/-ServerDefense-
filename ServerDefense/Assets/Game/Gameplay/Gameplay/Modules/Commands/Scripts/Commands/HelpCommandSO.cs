@@ -11,11 +11,13 @@ public class HelpCommandSO : CommandSO
 
     public string[] HELP_KEYWORDS => helpKeywords;
 
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());
 
-        onTriggerMessage(commandIds);
+        TerminalResponseSO response = GenerateCustomTerminalResponse(commandIds);
+        onTriggerMessage(response);
+        DeleteGeneratedTerminalResponse(response);
         onSuccess(this);
     }
 

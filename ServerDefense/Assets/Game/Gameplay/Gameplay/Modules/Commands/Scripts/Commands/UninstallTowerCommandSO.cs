@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "command_uninstall_", menuName = "ScriptableObjects/Commands/Uninstalls/UninstallTower")]
 public class UninstallTowerCommandSO : CommandSO
 {
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
 

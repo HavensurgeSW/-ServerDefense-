@@ -14,10 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: uninstall
   argumentsCount: 1
-  successResponse:
-  - Program removed from Location
-  helpResponse:
-  - UNINSTALL <Program>
-  - Removes the specified <Program> from the selected location
-  errorResponse:
-  - Invalid location OR location contains no program
+  successResponse: {fileID: 11400000, guid: a56e783674396a1429d82c704dd99a00, type: 2}
+  helpResponse: {fileID: 11400000, guid: a0fa52e5a0784264cbedd2b950d5e411, type: 2}
+  errorResponse: {fileID: 11400000, guid: 85b240dc8de34fc469f94959e2d0fc0b, type: 2}

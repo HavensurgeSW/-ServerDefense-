@@ -19,9 +19,13 @@ public class CommandManager : MonoBehaviour
     [Header("Helper commands Configuration")]
     [SerializeField] private HelpCommandSO helpCommand = null;
 
+    [Header("Responses Configuration")]
+    [SerializeField] private TerminalResponseSO invalidCommandResponse = null;
+    [SerializeField] private TerminalResponseSO invalidArgumentAmountResponse = null;
+
     private CommandManagerModel commandManagerModel = null;
 
-    public Action<SCENE> OnChangeScene = null;
+    private Action<SCENE> OnChangeScene = null;
 
     public void Init(CommandManagerModel commandManagerModel)
     {
@@ -56,7 +60,7 @@ public class CommandManager : MonoBehaviour
 
         if (!CheckCommandArguments(commandArgs, command))
         {
-            ShowTerminalLines(new List<string> { "Invalid argument amount" });
+            ShowTerminalLines(invalidArgumentAmountResponse);
             return;
         }
 
@@ -115,9 +119,14 @@ public class CommandManager : MonoBehaviour
         return false;
     }
 
-    private void ShowTerminalLines(List<string> lines)
+    public TerminalResponseSO GetInvalidCommandResponse()
     {
-        commandManagerModel.TERMINAL_MANAGER.AddInterpreterLines(lines);
+        return invalidCommandResponse;
+    }
+
+    private void ShowTerminalLines(TerminalResponseSO response)
+    {
+        commandManagerModel.TERMINAL_MANAGER.AddInterpreterLines(response);
     }
 
     private void OnCommandSuccess(CommandSO command)

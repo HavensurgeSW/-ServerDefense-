@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class NetworkCommandSO : CommandSO
     [Header("Network Command Configuration")]
     [SerializeField] private string initId = string.Empty;
 
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string keyword = arguments[0];
 

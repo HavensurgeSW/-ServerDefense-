@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: cmds
   argumentsCount: 0
-  successResponse: []
-  helpResponse:
-  - Returns a list of available commands
-  errorResponse: []
+  successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  helpResponse: {fileID: 11400000, guid: d7628f7cc960a8740a6b6f92a4060210, type: 2}
+  errorResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}

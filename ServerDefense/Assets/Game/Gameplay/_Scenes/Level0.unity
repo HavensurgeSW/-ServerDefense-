@@ -1850,6 +1850,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7f55a47a9846f3f4baa45434351750bf, type: 2}
   - {fileID: 11400000, guid: 73d98790703a31e479b5f0bb4b3b6265, type: 2}
   helpCommand: {fileID: 11400000, guid: 1bec372318d146e4ba15ede1961f5b50, type: 2}
+  invalidCommandResponse: {fileID: 11400000, guid: 7f81c2e6e0c863649952deced0e585b0, type: 2}
+  invalidArgumentAmountResponse: {fileID: 11400000, guid: 23c24a41a20ae7941bead6ce56e82dfa, type: 2}
 --- !u!114 &1317126686 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 738427899938477746, guid: b44bdce6d1b7d844c818945f4e54d247, type: 3}

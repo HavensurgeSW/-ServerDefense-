@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using UnityEngine;
 
 using ServerDefense.Systems.Currencies;
@@ -35,7 +33,7 @@ public class GameManager : SceneController
         mainCamera = Camera.main;
 
         currenciesController.Init();
-        currenciesController.SetCurrencyValue(CurrencyConstants.packetCurrency, debugScore ? 10000 : startingPackets);
+        currenciesController.SetCurrencyValue(CurrencyConstants.packetCurrency, debugScore ? debugValue : startingPackets);
 
         uiManager.Init(timerSeconds);
         uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
@@ -47,7 +45,7 @@ public class GameManager : SceneController
 
         towersController.Init();
         mapHandler.Init();
-        terminal.Init(NewInterpretTerminalText);
+        terminal.Init(InterpretTerminalText);
 
         pauseHandler.AddOnPausedCallback((status) => terminal.ToggleTerminalInteraction(!status));
         pauseHandler.Init(() => ChangeScene(SCENE.MAIN_MENU, false));
@@ -123,26 +121,7 @@ public class GameManager : SceneController
 
         if (command == null)
         {
-            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type HELP for a list of commands" });
-            return;
-        }
-
-        uiManager.ClearAllPopUps();
-        commandManager.ProcessCommand(command, arguments);
-    }
-
-    private void NewInterpretTerminalText(string text)
-    {
-        text = text.ToLower();
-        string[] arguments = text.Split(' ');
-        string commandId = arguments[0];
-
-        CommandSO command = commandManager.GetCommand(commandId);
-
-        if (command == null)
-        {
-            terminal.AddInterpreterLines(new List<string> { "Command not recognized. Type HELP for a list of commands" });
-            InterpretTerminalText(text);
+            terminal.AddInterpreterLines(commandManager.GetInvalidCommandResponse());
             return;
         }
 

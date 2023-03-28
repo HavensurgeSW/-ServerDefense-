@@ -14,33 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: tutorial
   argumentsCount: 1
-  successResponse: []
-  helpResponse:
-  - TUTORIAL <Num. of page>
-  - Prints out tutorial logs.
-  - 'NUMS OF PAGE: 1, 2, 3'
-  errorResponse:
-  - No tutorial with matching id found
+  successResponse: {fileID: 0}
+  helpResponse: {fileID: 11400000, guid: 58b433fd1b3f70847adca2c0ec307338, type: 2}
+  errorResponse: {fileID: 11400000, guid: 2193e0b8e111a0342a2dd04530e412de, type: 2}
   tutorials:
   - tutorialId: 1
-    tutorialLines:
-    - Welcome to the Network
-    - Your job is to protect the server from viruses
-    - To do this, deploy towers on the <locations> available
-    - Begin by writing CD LOC1 on the terminal
-    - Then go ahead and run TUTORIAL 2 to continue
+    tutorialLines: {fileID: 11400000, guid: c80db9dbda946b04b9a35b0d84cac29a, type: 2}
   - tutorialId: 2
-    tutorialLines:
-    - You can use NETSTAT to find the name of all available locations
-    - Most commands can take <Arguments>. These are parameters that change the behaviour
-    - 'All commands have a HELP argument. EG: CD HELP, INSTALL HELP'
-    - Use the HELP argument to find out more about the command
-    - Run TUTORIAL 3 to continue
+    tutorialLines: {fileID: 11400000, guid: 20c245c61dddcee4abe09d88e9615ac4, type: 2}
   - tutorialId: 3
-    tutorialLines:
-    - Deploying towers costs Kilobytes, noted as KB on the left
-    - Packets reaching your server will increase your current KB
-    - With a selected <location>, run the INSTALL command
-    - You might want to add the HELP argument to learn how to use it
-    - All available commands can be seen by running CMDS
-    - When you're ready, open up your network by running NETWORK INIT
+    tutorialLines: {fileID: 11400000, guid: 1f72552a2d250b94d9102baf4a5cc50b, type: 2}

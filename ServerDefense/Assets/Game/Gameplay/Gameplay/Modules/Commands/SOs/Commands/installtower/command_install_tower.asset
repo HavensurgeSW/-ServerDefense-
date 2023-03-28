@@ -14,19 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: install
   argumentsCount: 1
-  successResponse:
-  - Tower installed
-  helpResponse:
-  - INSTALL <Program>
-  - Install a program on an available location
-  - 'Current available PROGRAMS: antivirus, firewall'
-  - 'ANTIVIRUS cost: 8 KB'
-  - 'FIREWALL cost: 14 KB'
-  errorResponse:
-  - Location unavailable or tower type does not exist
-  invalidLocationResponse:
-  - Invalid location selected
-  invalidTowerIdResponse:
-  - Invalid installation ID
-  insufficientFundsResponse:
-  - Insufficient funds to install program
+  successResponse: {fileID: 11400000, guid: 212ca1ec94c7cb94ba0db35a81537ae0, type: 2}
+  helpResponse: {fileID: 11400000, guid: f74391edfaebb8d479e8ab69c222d694, type: 2}
+  errorResponse: {fileID: 11400000, guid: 638fa0a49dda2824fa81c9beb3b004bc, type: 2}
+  invalidLocationResponse: {fileID: 11400000, guid: 638fa0a49dda2824fa81c9beb3b004bc, type: 2}
+  invalidTowerIdResponse: {fileID: 11400000, guid: 28e78a2bbde139840b036618ce8d642b, type: 2}

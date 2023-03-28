@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -9,21 +8,15 @@ using ServerDefense.Systems.Currencies;
 public class InstallTowerCommandSO : CommandSO
 {
     [Header("Install Command Configuration")]
-    [SerializeField] private List<string> invalidLocationResponse = null;
-    [SerializeField] private List<string> invalidTowerIdResponse = null;
-    [SerializeField] private List<string> insufficientFundsResponse = null;
+    [SerializeField] private TerminalResponseSO invalidLocationResponse = null;
+    [SerializeField] private TerminalResponseSO invalidTowerIdResponse = null;
 
-    public List<string> INVALID_LOCATION_RESPONSE { get => invalidLocationResponse; }
-    public List<string> INVALID_TOWER_ID_RESPONSE { get => invalidTowerIdResponse; }
-    public List<string> INSUFFICIENT_FUNDS_RESPONSE { get => insufficientFundsResponse; }
-
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
         MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
         TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
-
-        terminal.ClearCmdEntries();
+        terminal.ClearCmdEntries();        
 
         if (!mapHandler.GetIsCurrentLocationAvailable())
         {
@@ -33,10 +26,9 @@ public class InstallTowerCommandSO : CommandSO
         }
 
         string towerId = arguments[0];
-
         if (!towersController.DoesTowerIdExist(towerId))
         {
-            onTriggerMessage(invalidLocationResponse);
+            onTriggerMessage(invalidTowerIdResponse);
             onFailure(this);
             return;
         }
@@ -46,7 +38,7 @@ public class InstallTowerCommandSO : CommandSO
         CurrenciesController currenciesController = commandManagerModel.CURRENCIES_CONTROLLER;
         if (currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency) < data.LEVELS[0].PRICE)
         {
-            onTriggerMessage(insufficientFundsResponse);
+            onTriggerMessage(currenciesController.GetInsufficientCurrencyResponse());
             onFailure(this);
             return;
         }

@@ -11,17 +11,30 @@ public class UpdateTowerCommandSO : CommandSO
     [Header("Update Command Configuration")]
     [SerializeField] private string deployId = string.Empty;
     [SerializeField] private string infoId = string.Empty;
-    [SerializeField] private List<string> invalidLocationResponse = null;
-    [SerializeField] private List<string> insufficientFundsResponse = null;
-    [SerializeField] private List<string> maxLevelResponse = null;
+    [SerializeField] private TerminalResponseSO invalidLocationResponse = null;
+    [SerializeField] private TerminalResponseSO maxLevelResponse = null;
 
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string keyword = arguments[0];
 
-        if(!HasNecessaryDataForUpdate(commandManagerModel, keyword, out List<string> errorResponse))
+        if (!HasDefaultDataToTrigger(commandManagerModel, keyword))
         {
             onTriggerMessage(errorResponse);
+            onFailure(this);
+            return;
+        }
+
+        if (commandManagerModel.MAP_HANDLER.GetIsCurrentLocationAvailable())
+        {
+            onTriggerMessage(invalidLocationResponse);
+            onFailure(this);
+            return;
+        }
+
+        if (IsTowerMaxLevel(commandManagerModel))
+        {
+            onTriggerMessage(maxLevelResponse);
             onFailure(this);
             return;
         }
@@ -34,8 +47,7 @@ public class UpdateTowerCommandSO : CommandSO
 
         if (keyword == infoId)
         {
-            onTriggerMessage(GetNextUpdateInfo(tower, nextLevel));
-            onSuccess(this);
+            TriggerUpdateCommandInfo(tower, nextLevel, onTriggerMessage, onSuccess);
         }
         else if (keyword == deployId)
         {
@@ -43,47 +55,41 @@ public class UpdateTowerCommandSO : CommandSO
         }
     }
 
-    private bool HasNecessaryDataForUpdate(CommandManagerModel commandManagerModel, string keyword, out List<string> response)
+    private bool IsTowerMaxLevel(CommandManagerModel commandManagerModel)
     {
-        response = new List<string>();
+        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
+        BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
 
+        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
+        TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
+
+        return selectedTower.NEXT_LEVEL > towerLevelsData.Length;
+    }
+
+    private bool HasDefaultDataToTrigger(CommandManagerModel commandManagerModel, string keyword)
+    {
         MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
         BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
         bool isCorrectKeyword = keyword == infoId || keyword == deployId;
         bool hasAvailableTower = selectedTower != null;
 
-        if (!isCorrectKeyword || !hasAvailableTower)
-        {
-            response = errorResponse;
-            return false;
-        }
-
-        bool isLocationOccupied = !mapHandler.GetIsCurrentLocationAvailable();
-
-        if(!isLocationOccupied)
-        {
-            response = invalidLocationResponse;
-            return false;
-        }
-
-        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
-        TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
-
-        if (selectedTower.NEXT_LEVEL > towerLevelsData.Length)
-        {
-            response = maxLevelResponse;
-            return false;
-        }
-
-        return true;
+        return isCorrectKeyword && hasAvailableTower;
     }
 
-    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, CurrenciesController currenciesController, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    private void TriggerUpdateCommandInfo(BaseTower tower, TowerLevelData nextLevel, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess)
+    {
+        TerminalResponseSO response = GenerateCustomTerminalResponse(GetNextUpdateInfo(tower, nextLevel));
+        onTriggerMessage(response);
+        DeleteGeneratedTerminalResponse(response);
+        onSuccess(this);
+    }
+
+    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, CurrenciesController currenciesController, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         int packetAmount = currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency);
         if (packetAmount < nextLevel.PRICE)
         {
-            onTriggerMessage(insufficientFundsResponse);
+            onTriggerMessage(currenciesController.GetInsufficientCurrencyResponse());
             onFailure(this);
             return;
         }

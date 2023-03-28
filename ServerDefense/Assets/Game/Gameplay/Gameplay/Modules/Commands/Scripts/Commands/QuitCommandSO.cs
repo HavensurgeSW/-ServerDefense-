@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "command_quit", menuName = "ScriptableObjects/Commands/Quit")]
 public class QuitCommandSO : CommandSO
@@ -11,7 +9,7 @@ public class QuitCommandSO : CommandSO
     [SerializeField] private string[] quitKeywords = null;
     [SerializeField] private SCENE targetScene = SCENE.NONE;
 
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<List<string>> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         string keyword = arguments[0];
 
@@ -21,7 +19,7 @@ public class QuitCommandSO : CommandSO
             {
                 onTriggerMessage(successResponse);
                 onSuccess(this);
-                SceneManager.LoadScene((int)targetScene);
+                commandManagerModel.COMMAND_MANAGER.ChangeScene(targetScene);
                 break;
             }
         }

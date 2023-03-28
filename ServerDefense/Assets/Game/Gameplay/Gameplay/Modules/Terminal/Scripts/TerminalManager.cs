@@ -43,6 +43,12 @@ public class TerminalManager : MonoBehaviour
         GenerateCmdEntries(userInput);
     }
 
+    public void AddInterpreterLines(TerminalResponseSO response)
+    {
+        ClearCmdEntries();
+        GenerateCmdEntries(response);
+    }
+
     public void ToggleTerminalInteraction(bool status)
     {
         isEnabled = status;
@@ -167,6 +173,17 @@ public class TerminalManager : MonoBehaviour
             CmdEntry entry = entriesPool.Get();
             entry.SetSiblingIndex(i);
             entry.SetText(userInput[i]);
+            activeEntries.Add(entry);
+        }
+    }
+
+    private void GenerateCmdEntries(TerminalResponseSO response)
+    {
+        for (int i = 0; i < response.RESPONSE.Count; i++)
+        {
+            CmdEntry entry = entriesPool.Get();
+            entry.SetSiblingIndex(i);
+            entry.SetText(response.RESPONSE[i]);
             activeEntries.Add(entry);
         }
     }

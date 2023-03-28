@@ -14,21 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: update
   argumentsCount: 1
-  successResponse:
-  - Program updated
-  helpResponse:
-  - UPDATE <Info / Deploy>
-  - Upgrades program on selected location, costs KB
-  - Use UPDATE INFO  for update information
-  - Use UPDATE DEPLOY update the program to its next version
-  errorResponse:
-  - Argument not recognized
-  - Use UPDATE HELP for more information
+  successResponse: {fileID: 11400000, guid: 08ceb7a7396f62343bae82269a046d49, type: 2}
+  helpResponse: {fileID: 11400000, guid: e84bec5e3121eea4986bd0ce0c242aad, type: 2}
+  errorResponse: {fileID: 11400000, guid: ada2acf5b565af648b012659d3d1a509, type: 2}
   deployId: deploy
   infoId: info
-  invalidLocationResponse:
-  - No location selected or no program installed on location
-  insufficientFundsResponse:
-  - Insufficient KBs for upgrade
-  maxLevelResponse:
-  - Program has latest update
+  invalidLocationResponse: {fileID: 11400000, guid: 7ef6779cd03db2648955019bbc9ea22f, type: 2}
+  maxLevelResponse: {fileID: 11400000, guid: 06bc57e26883add4f9cb53ee7f6ab069, type: 2}

@@ -7,5 +7,16 @@ public class TerminalResponseSO : ScriptableObject
 {
     [SerializeField] private List<string> response = new List<string>();
 
-    public List<string> RESPONSE => response;
+    public List<string> RESPONSE { get => response; }
+
+    public void OverrideResponse(List<string> lines)
+    {
+        ClearResponses();
+        response.AddRange(lines);
+    }
+
+    public void ClearResponses()
+    {
+        response.Clear();
+    }
 }
