@@ -53,7 +53,7 @@ public class CommandManager : MonoBehaviour
 
         if (CheckForHelpCommand(commandArgs))
         {
-            ShowTerminalLines(command.HELP_RESPONSE);
+            command.TriggerHelpResponse(commandManagerModel, ShowTerminalLines);
             OnHelpArgument?.Invoke();
             return;
         }
@@ -89,18 +89,12 @@ public class CommandManager : MonoBehaviour
     {
         if (args != null)
         {
-            if (args.Length == command.ARGUMENTS_COUNT)
-            {
-                return true;
-            }
+            return args.Length == command.ARGUMENTS_COUNT;
         }
-
-        if (args == null && command.ARGUMENTS_COUNT == 0)
+        else
         {
-            return true;
+            return command.ARGUMENTS_COUNT == 0;
         }
-
-        return false;
     }
 
     private bool CheckForHelpCommand(string[] args)

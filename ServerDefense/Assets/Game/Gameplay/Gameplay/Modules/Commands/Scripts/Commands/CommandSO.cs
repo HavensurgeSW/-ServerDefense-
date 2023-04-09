@@ -13,7 +13,11 @@ public abstract class CommandSO : ScriptableObject
 
     public string COMMAND_ID { get => commandId; }
     public int ARGUMENTS_COUNT { get => argumentsCount; }
-    public TerminalResponseSO HELP_RESPONSE { get => helpResponse; }
+
+    public virtual void TriggerHelpResponse(CommandManagerModel commandManagerModel, Action<TerminalResponseSO> onTriggerMessage)
+    {
+        onTriggerMessage(helpResponse);
+    }
 
     public abstract void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure);
 }

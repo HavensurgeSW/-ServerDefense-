@@ -15,7 +15,7 @@ MonoBehaviour:
   commandId: tutorial
   argumentsCount: 1
   successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
-  helpResponse: {fileID: 11400000, guid: 58b433fd1b3f70847adca2c0ec307338, type: 2}
+  helpResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
   errorResponse: {fileID: 11400000, guid: 2193e0b8e111a0342a2dd04530e412de, type: 2}
   tutorials:
   - tutorialId: 1

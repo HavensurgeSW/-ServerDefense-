@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -25,5 +26,30 @@ public class TutorialCommandSO : CommandSO
 
         onTriggerMessage(errorResponse);
         onFailure(this);
+    }
+
+    public override void TriggerHelpResponse(CommandManagerModel commandManagerModel, Action<TerminalResponseSO> onTriggerMessage)
+    {
+        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
+        List<string> lines = new List<string>();
+        lines.Add("TUTORIAL <Num. of page>");
+        lines.Add("Prints out tutorial logs.");
+
+        string lastLine = "NUMBER OF PAGES: ";
+
+        for (int i = 0; i < tutorials.Length; i++)
+        {
+            lastLine += tutorials[i].TUTORIAL_ID;
+
+            if (i != tutorials.Length - 1)
+            {
+                lastLine += ", ";
+            }
+        }
+
+        lines.Add(lastLine);
+        TerminalResponseSO response = terminal.GenerateCustomTerminalResponse(lines);
+        onTriggerMessage(response);
+        terminal.DeleteGeneratedTerminalResponse(response);
     }
 }

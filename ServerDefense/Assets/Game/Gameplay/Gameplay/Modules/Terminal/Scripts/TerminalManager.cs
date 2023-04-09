@@ -48,12 +48,6 @@ public class TerminalManager : MonoBehaviour
         SelectInputField();
     }
 
-    public void AddInterpreterLines(List<string> userInput)
-    {
-        ClearCmdEntries();
-        GenerateCmdEntries(userInput);
-    }
-
     public void AddInterpreterLines(TerminalResponseSO response)
     {
         ClearCmdEntries();
