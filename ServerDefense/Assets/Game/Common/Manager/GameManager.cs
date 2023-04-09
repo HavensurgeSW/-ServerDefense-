@@ -6,6 +6,7 @@ public class GameManager : SceneController
 {
     public static bool gameStatus = false;
 
+    [Header("Game Manager Main Configuration")]
     [SerializeField] private CommandManager commandManager = null;
     [SerializeField] private CurrenciesController currenciesController = null;
     [SerializeField] private UIManager uiManager = null;
@@ -51,6 +52,14 @@ public class GameManager : SceneController
         pauseHandler.Init(() => ChangeScene(SCENE.MAIN_MENU, false));
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseHandler.TogglePauseStatus(!pauseHandler.IS_PAUSED);
+        }
+    }
+
     protected override void OnEnable()
     {
         LevelManager.OnAllWavesCompleted += WinGame;
@@ -67,14 +76,6 @@ public class GameManager : SceneController
         Server.OnPacketEntry -= UpdatePacketScore;
 
         uiManager.RemoveOnTimerEndCallback(BeginCurrentWave);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            pauseHandler.TogglePauseStatus(!pauseHandler.IS_PAUSED);
-        }
     }
 
     private CommandManagerModel GenerateCommandManagerModel()

@@ -47,7 +47,7 @@ public class UpdateTowerCommandSO : CommandSO
 
         if (keyword == infoId)
         {
-            TriggerUpdateCommandInfo(tower, nextLevel, onTriggerMessage, onSuccess);
+            TriggerUpdateCommandInfo(commandManagerModel.TERMINAL_MANAGER, tower, nextLevel, onTriggerMessage, onSuccess);
         }
         else if (keyword == deployId)
         {
@@ -76,11 +76,11 @@ public class UpdateTowerCommandSO : CommandSO
         return isCorrectKeyword && hasAvailableTower;
     }
 
-    private void TriggerUpdateCommandInfo(BaseTower tower, TowerLevelData nextLevel, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess)
+    private void TriggerUpdateCommandInfo(TerminalManager terminalManager, BaseTower tower, TowerLevelData nextLevel, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess)
     {
-        TerminalResponseSO response = GenerateCustomTerminalResponse(GetNextUpdateInfo(tower, nextLevel));
+        TerminalResponseSO response = terminalManager.GenerateCustomTerminalResponse(GetNextUpdateInfo(tower, nextLevel));
         onTriggerMessage(response);
-        DeleteGeneratedTerminalResponse(response);
+        terminalManager.DeleteGeneratedTerminalResponse(response);
         onSuccess(this);
     }
 

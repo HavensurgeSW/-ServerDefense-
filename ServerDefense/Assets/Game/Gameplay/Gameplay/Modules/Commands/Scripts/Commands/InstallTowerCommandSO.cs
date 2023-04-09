@@ -8,6 +8,7 @@ using ServerDefense.Systems.Currencies;
 public class InstallTowerCommandSO : CommandSO
 {
     [Header("Install Command Configuration")]
+    [SerializeField] private CurrencySO currencyToConsume = null;
     [SerializeField] private TerminalResponseSO invalidLocationResponse = null;
     [SerializeField] private TerminalResponseSO invalidTowerIdResponse = null;
 
@@ -36,14 +37,14 @@ public class InstallTowerCommandSO : CommandSO
         TowerData data = towersController.GetTowerData(towerId);
 
         CurrenciesController currenciesController = commandManagerModel.CURRENCIES_CONTROLLER;
-        if (currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency) < data.LEVELS[0].PRICE)
+        if (currenciesController.GetCurrencyValue(currencyToConsume.CURRENCY_ID) < data.LEVELS[0].PRICE)
         {
             onTriggerMessage(currenciesController.GetInsufficientCurrencyResponse());
             onFailure(this);
             return;
         }
 
-        currenciesController.SubstractCurrencyValue(CurrencyConstants.packetCurrency, data.LEVELS[0].PRICE);
+        currenciesController.SubstractCurrencyValue(currencyToConsume.CURRENCY_ID, data.LEVELS[0].PRICE);
 
         Location currentLoc = mapHandler.CURRENT_LOCATION;
         BaseTower actualTower = towersController.GenerateTower(towerId, currentLoc.transform);

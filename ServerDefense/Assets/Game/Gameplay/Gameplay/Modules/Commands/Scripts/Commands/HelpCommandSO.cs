@@ -15,9 +15,10 @@ public class HelpCommandSO : CommandSO
     {
         List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());
 
-        TerminalResponseSO response = GenerateCustomTerminalResponse(commandIds);
+        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
+        TerminalResponseSO response = terminal.GenerateCustomTerminalResponse(commandIds);
         onTriggerMessage(response);
-        DeleteGeneratedTerminalResponse(response);
+        terminal.DeleteGeneratedTerminalResponse(response);
         onSuccess(this);
     }
 

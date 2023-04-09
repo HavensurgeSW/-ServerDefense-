@@ -25,6 +25,17 @@ public class TerminalManager : MonoBehaviour
     private Action<string> OnHistoryInput = null;
     private Action<string> OnInputCommand = null;
 
+    private void Update()
+    {
+        if (!isEnabled)
+        {
+            return;
+        }
+
+        HandleTerminalInput();
+        HandleUserHistory();
+    }
+
     public void Init(Action<string> onInputCommand)
     {
         OnInputCommand = onInputCommand;
@@ -66,15 +77,17 @@ public class TerminalManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public TerminalResponseSO GenerateCustomTerminalResponse(List<string> lines)
     {
-        if (!isEnabled)
-        {
-            return;
-        }
+        TerminalResponseSO responseSO = ScriptableObject.CreateInstance<TerminalResponseSO>();
+        responseSO.OverrideResponse(lines);
+        return responseSO;
+    }
 
-        HandleTerminalInput();
-        HandleUserHistory();       
+    public void DeleteGeneratedTerminalResponse(TerminalResponseSO response)
+    {
+        response.ClearResponses();
+        ScriptableObject.Destroy(response);
     }
 
     private void HandleTerminalInput()

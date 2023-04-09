@@ -17,5 +17,6 @@ MonoBehaviour:
   successResponse: {fileID: 11400000, guid: 212ca1ec94c7cb94ba0db35a81537ae0, type: 2}
   helpResponse: {fileID: 11400000, guid: f74391edfaebb8d479e8ab69c222d694, type: 2}
   errorResponse: {fileID: 11400000, guid: 638fa0a49dda2824fa81c9beb3b004bc, type: 2}
+  currencyToConsume: {fileID: 11400000, guid: 117c3ee79931a70469bf51bb60cb7237, type: 2}
   invalidLocationResponse: {fileID: 11400000, guid: 638fa0a49dda2824fa81c9beb3b004bc, type: 2}
   invalidTowerIdResponse: {fileID: 11400000, guid: 28e78a2bbde139840b036618ce8d642b, type: 2}

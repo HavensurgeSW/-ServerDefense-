@@ -20,9 +20,10 @@ public class NETSTATCommandSO : CommandSO
             uIManager.GeneratePopUp(loc.ID, mainCamera.WorldToScreenPoint(loc.transform.position));
         }
 
-        TerminalResponseSO response = GenerateCustomTerminalResponse(locList);
+        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
+        TerminalResponseSO response = terminal.GenerateCustomTerminalResponse(locList);
         onTriggerMessage(response);
-        DeleteGeneratedTerminalResponse(response);
+        terminal.DeleteGeneratedTerminalResponse(response);
         onSuccess(this);
     }
 }

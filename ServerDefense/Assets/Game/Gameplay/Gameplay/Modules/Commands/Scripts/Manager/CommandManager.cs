@@ -14,7 +14,7 @@ public class CommandManager : MonoBehaviour
     //public event Action OnHelpCommand;
 
     [Header("Main Configuration")]
-    [SerializeField] private List<CommandSO> commands = new List<CommandSO>();
+    [SerializeField] private List<CommandSO> commands = null;
     
     [Header("Helper commands Configuration")]
     [SerializeField] private HelpCommandSO helpCommand = null;
