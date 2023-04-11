@@ -173,17 +173,6 @@ public class TerminalManager : MonoBehaviour
         terminalInput.MoveTextEnd(false);
     }
 
-    private void GenerateCmdEntries(List<string> userInput)
-    {
-        for (int i = 0; i < userInput.Count; i++)
-        {
-            CmdEntry entry = entriesPool.Get();
-            entry.SetSiblingIndex(i);
-            entry.SetText(userInput[i]);
-            activeEntries.Add(entry);
-        }
-    }
-
     private void GenerateCmdEntries(TerminalResponseSO response)
     {
         for (int i = 0; i < response.RESPONSE.Count; i++)
