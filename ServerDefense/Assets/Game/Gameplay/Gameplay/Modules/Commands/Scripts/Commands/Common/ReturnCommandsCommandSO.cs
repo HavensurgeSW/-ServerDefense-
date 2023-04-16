@@ -1,16 +1,10 @@
 using System;
 using System.Collections.Generic;
-
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_help", menuName = "ScriptableObjects/Commands/Help")]
-public class HelpCommandSO : CommandSO
+[CreateAssetMenu(fileName = "command_returnCommands", menuName = "ScriptableObjects/Commands/ReturnCommandsCommand")]
+public class ReturnCommandsCommandSO : CommandSO
 {
-    [Header("Help Command Configuration")]
-    [SerializeField] private string[] helpKeywords = null;
-
-    public string[] HELP_KEYWORDS => helpKeywords;
-
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());

@@ -11,7 +11,6 @@ public class UpdateTowerCommandSO : CommandSO
     [Header("Update Command Configuration")]
     [SerializeField] private string deployId = string.Empty;
     [SerializeField] private string infoId = string.Empty;
-    [SerializeField] private TerminalResponseSO invalidLocationResponse = null;
     [SerializeField] private TerminalResponseSO maxLevelResponse = null;
 
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
@@ -27,7 +26,7 @@ public class UpdateTowerCommandSO : CommandSO
 
         if (commandManagerModel.MAP_HANDLER.GetIsCurrentLocationAvailable())
         {
-            onTriggerMessage(invalidLocationResponse);
+            onTriggerMessage(commandManagerModel.MAP_HANDLER.GetInvalidLocationResponse());
             onFailure(this);
             return;
         }

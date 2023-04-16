@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: netstat
   argumentsCount: 0
-  successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  successResponse: {fileID: 0}
   helpResponse: {fileID: 11400000, guid: 3782c5f2963fa5b4497df53f83da41c4, type: 2}
-  errorResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  errorResponse: {fileID: 0}

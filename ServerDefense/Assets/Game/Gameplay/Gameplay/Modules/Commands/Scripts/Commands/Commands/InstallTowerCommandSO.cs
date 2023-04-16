@@ -9,7 +9,6 @@ public class InstallTowerCommandSO : CommandSO
 {
     [Header("Install Command Configuration")]
     [SerializeField] private CurrencySO currencyToConsume = null;
-    [SerializeField] private TerminalResponseSO invalidLocationResponse = null;
     [SerializeField] private TerminalResponseSO invalidTowerIdResponse = null;
 
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
@@ -21,7 +20,7 @@ public class InstallTowerCommandSO : CommandSO
 
         if (!mapHandler.GetIsCurrentLocationAvailable())
         {
-            onTriggerMessage(invalidLocationResponse);
+            onTriggerMessage(mapHandler.GetInvalidLocationResponse());
             onFailure(this);
             return;
         }

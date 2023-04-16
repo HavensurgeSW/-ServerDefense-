@@ -96,18 +96,19 @@ public class GameManager : SceneController
 
     private void WinGame()
     {
-        if (!tutorialScene)
-        {
-            gameStatus = true;
-            ChangeScene(SCENE.END_SCENE, true);
-        }
+        TriggerEndGame(true);
     }
 
     private void LoseGame()
     {
+        TriggerEndGame(false);
+    }
+
+    private void TriggerEndGame(bool status)
+    {
         if (!tutorialScene)
         {
-            gameStatus = false;
+            gameStatus = status;
             ChangeScene(SCENE.END_SCENE, true);
         }
     }

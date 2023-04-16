@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: network
   argumentsCount: 1
-  successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  successResponse: {fileID: 0}
   helpResponse: {fileID: 11400000, guid: e6419f8cc9d2f644885e70e0d889be57, type: 2}
-  errorResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  errorResponse: {fileID: 0}
   initId: init

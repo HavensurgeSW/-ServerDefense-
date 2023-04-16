@@ -87,14 +87,7 @@ public class CommandManager : MonoBehaviour
 
     private bool CheckCommandArguments(string[] args, CommandSO command)
     {
-        if (args != null)
-        {
-            return args.Length == command.ARGUMENTS_COUNT;
-        }
-        else
-        {
-            return command.ARGUMENTS_COUNT == 0;
-        }
+        return args.Length == command.ARGUMENTS_COUNT;
     }
 
     private bool CheckForHelpCommand(string[] args)

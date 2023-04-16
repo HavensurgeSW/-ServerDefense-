@@ -7,6 +7,9 @@ public class MapHandler : MonoBehaviour
     [SerializeField] private Tilemap tilemap = null;
     [SerializeField] private TileBase selectedLocation = null;
     [SerializeField] private TileBase defaultLocation = null;
+    
+    [Header("Terminal Responses Configuration")]
+    [SerializeField] private TerminalResponseSO invalidLocationResponse = null;
 
     private Location currentLocation = null;
 
@@ -50,5 +53,10 @@ public class MapHandler : MonoBehaviour
     public void SetTileToSelected(Vector3 worldPosition)
     {
         tilemap.SetTile(WorldToCellId(worldPosition), selectedLocation);
+    }
+
+    public TerminalResponseSO GetInvalidLocationResponse()
+    {
+        return invalidLocationResponse;
     }
 }

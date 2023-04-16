@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ae1489e7895b94a90ea3e5988a773a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1958267578bc88a4aaa55f719a321f57, type: 3}
   m_Name: command_CMDS
   m_EditorClassIdentifier: 
   commandId: cmds
   argumentsCount: 0
-  successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  successResponse: {fileID: 0}
   helpResponse: {fileID: 11400000, guid: d7628f7cc960a8740a6b6f92a4060210, type: 2}
-  errorResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  errorResponse: {fileID: 0}

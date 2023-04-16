@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: tutorial
   argumentsCount: 1
-  successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
-  helpResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  successResponse: {fileID: 0}
+  helpResponse: {fileID: 0}
   errorResponse: {fileID: 11400000, guid: 2193e0b8e111a0342a2dd04530e412de, type: 2}
   tutorials:
   - tutorialId: 1

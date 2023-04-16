@@ -491,6 +491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3669464417268274649, guid: 91d4ba02ce927d44da7db873aec99f2c, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3669464417829887000, guid: 91d4ba02ce927d44da7db873aec99f2c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -727,6 +731,7 @@ MonoBehaviour:
   tilemap: {fileID: 1761297925}
   selectedLocation: {fileID: 11400000, guid: ea54350be3fb98d489db8b9d83976b65, type: 2}
   defaultLocation: {fileID: 11400000, guid: 832f7cddedaf0304caa519d8be15bbc4, type: 2}
+  invalidLocationResponse: {fileID: 11400000, guid: 7ef6779cd03db2648955019bbc9ea22f, type: 2}
 --- !u!1 &442130244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,7 +1844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commands:
   - {fileID: 11400000, guid: 0113aae3244c3664a8e6c614ec6dbaf0, type: 2}
-  - {fileID: 11400000, guid: c6c0e725f4423f145a46a20e41a28fc6, type: 2}
+  - {fileID: 11400000, guid: 4b767aac2dcffb1468b1a77e8e78df35, type: 2}
   - {fileID: 11400000, guid: 1bec372318d146e4ba15ede1961f5b50, type: 2}
   - {fileID: 11400000, guid: c4fafde39e386444ca232db43bde4eda, type: 2}
   - {fileID: 11400000, guid: e7b3e7f39d51dc143b1315283e7c18d9, type: 2}
