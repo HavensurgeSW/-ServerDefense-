@@ -6,7 +6,7 @@ public class Firewall : BaseTower
     [SerializeField] private Transform[] laserHolders = null;
     [SerializeField] private int maxTargets = 1;
 
-    public override void Init(string id, TowerStatsData stats, Material levelMaterial)
+    public override void Init(string id, TowerStatsSO stats, Material levelMaterial)
     {
         base.Init(id, stats, levelMaterial);
 
@@ -14,9 +14,9 @@ public class Firewall : BaseTower
         SetLasers(maxTargets);
     }
 
-    public override void SetData(TowerStatsData stats)
+    public override void ConfigureStats(TowerStatsSO stats)
     {
-        base.SetData(stats);
+        base.ConfigureStats(stats);
         maxTargets = stats.TARGET_COUNT;
         SetLasers(maxTargets);
     }

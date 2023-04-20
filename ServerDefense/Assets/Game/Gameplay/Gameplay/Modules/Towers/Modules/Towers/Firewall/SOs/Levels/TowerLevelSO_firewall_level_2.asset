@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4cfb9b275ee65541ad3a43f0282309f, type: 3}
+  m_Name: TowerLevelSO_firewall_level_2
+  m_EditorClassIdentifier: 
+  level: 2
+  price: 12
+  towerMaterial: {fileID: 2100000, guid: cb1d6c350349503429c980942660717f, type: 2}
+  laserMaterial: {fileID: 2100000, guid: 4e1aea15f45bdf64081854a1040176cf, type: 2}
+  stats: {fileID: 11400000, guid: 1d5bbd99c8632dd4ea1acdb0e870e72c, type: 2}

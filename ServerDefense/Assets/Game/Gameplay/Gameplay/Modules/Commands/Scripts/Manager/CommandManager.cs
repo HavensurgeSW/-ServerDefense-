@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using System.Reflection;
 using UnityEngine;
 
 public class CommandManager : MonoBehaviour
@@ -113,16 +113,34 @@ public class CommandManager : MonoBehaviour
 
     private void ShowTerminalLines(TerminalResponseSO response)
     {
+        if (response == null)
+        {
+            return;
+        }
+
         commandManagerModel.TERMINAL_MANAGER.AddInterpreterLines(response);
     }
 
     private void OnCommandSuccess(CommandSO command)
     {
         // whatever
+        Bruh(command);
     }
 
     private void OnCommandFailed(CommandSO command)
     {
         // whatever
+    }
+
+    public static bool IsOverride(MethodInfo method)
+    {
+        return method.GetBaseDefinition().DeclaringType != method.DeclaringType;
+    }
+
+    private void Bruh(CommandSO command)
+    {
+        MethodInfo info = command.GetType().GetMethod(nameof(command.TriggerHelpResponse));
+        bool isOverriden = info.GetBaseDefinition().DeclaringType != info.DeclaringType;
+        Debug.Log(isOverriden);
     }
 }

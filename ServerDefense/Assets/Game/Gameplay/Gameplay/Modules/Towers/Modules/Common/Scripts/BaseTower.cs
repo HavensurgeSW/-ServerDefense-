@@ -32,7 +32,7 @@ public abstract class BaseTower : MonoBehaviour
     public int CURRENT_LEVEL { get => level; set => level = value; }
     public int NEXT_LEVEL { get => level + 1; }
 
-    public virtual void Init(string id, TowerStatsData stats, Material levelMaterial)
+    public virtual void Init(string id, TowerStatsSO stats, Material levelMaterial)
     {
         this.id = id;
         lasersList = new List<TowerLaser>();
@@ -87,7 +87,7 @@ public abstract class BaseTower : MonoBehaviour
         enemy.ReceiveDamage(damage);
     }
 
-    public virtual void SetData(TowerStatsData stats)
+    public virtual void ConfigureStats(TowerStatsSO stats)
     {
         damage = stats.DAMAGE;
         rangeRadius = stats.RANGE;

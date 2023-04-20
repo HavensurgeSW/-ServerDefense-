@@ -41,8 +41,8 @@ public class UpdateTowerCommandSO : CommandSO
         TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
 
         BaseTower tower = commandManagerModel.MAP_HANDLER.CURRENT_LOCATION.TOWER;
-        TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(tower.ID);
-        TowerLevelData nextLevel = towerLevelsData[tower.NEXT_LEVEL - 1];
+        TowerLevelSO[] towerLevelsData = towersController.GetTowerLevelsData(tower.ID);
+        TowerLevelSO nextLevel = towerLevelsData[tower.NEXT_LEVEL - 1];
 
         if (keyword == infoId)
         {
@@ -60,7 +60,7 @@ public class UpdateTowerCommandSO : CommandSO
         BaseTower selectedTower = mapHandler.CURRENT_LOCATION.TOWER;
 
         TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
-        TowerLevelData[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
+        TowerLevelSO[] towerLevelsData = towersController.GetTowerLevelsData(selectedTower.ID);
 
         return selectedTower.NEXT_LEVEL > towerLevelsData.Length;
     }
@@ -75,7 +75,7 @@ public class UpdateTowerCommandSO : CommandSO
         return isCorrectKeyword && hasAvailableTower;
     }
 
-    private void TriggerUpdateCommandInfo(TerminalManager terminalManager, BaseTower tower, TowerLevelData nextLevel, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess)
+    private void TriggerUpdateCommandInfo(TerminalManager terminalManager, BaseTower tower, TowerLevelSO nextLevel, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess)
     {
         TerminalResponseSO response = terminalManager.GenerateCustomTerminalResponse(GetNextUpdateInfo(tower, nextLevel));
         onTriggerMessage(response);
@@ -83,7 +83,7 @@ public class UpdateTowerCommandSO : CommandSO
         onSuccess(this);
     }
 
-    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelData nextLevel, CurrenciesController currenciesController, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelSO nextLevel, CurrenciesController currenciesController, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         int packetAmount = currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency);
         if (packetAmount < nextLevel.PRICE)
@@ -100,7 +100,7 @@ public class UpdateTowerCommandSO : CommandSO
         onSuccess(this);
     }
 
-    public List<string> GetNextUpdateInfo(BaseTower tower, TowerLevelData nextLevel)
+    public List<string> GetNextUpdateInfo(BaseTower tower, TowerLevelSO nextLevel)
     {
         List<string> toReturn = new List<string>
         {

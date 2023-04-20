@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d23f6f14e40384f80320404fe926ac, type: 3}
+  m_Name: TowerSO_Firewall
+  m_EditorClassIdentifier: 
+  id: firewall
+  towerPrefab: {fileID: 2447185751727838718, guid: 086838ff4aab8ea4f98019e2ed2bd6a1, type: 3}
+  levels:
+  - {fileID: 11400000, guid: 36c05a2324ec207469185ca10b1aa047, type: 2}
+  - {fileID: 11400000, guid: 8f8b93fe86eb8f946af52f986d9ce327, type: 2}
+  - {fileID: 11400000, guid: d532c2d6de31ffc4bb13c4c7ee24921c, type: 2}
+  offset: {x: 0, y: 0.45}

@@ -5,16 +5,16 @@ using UnityEngine.Pool;
 
 public class TowersController : MonoBehaviour
 {
-    [SerializeField] private TowerData[] towersData = null;
+    [SerializeField] private TowerSO[] towersData = null;
     [SerializeField] private Transform towersHolder = null;
 
-    private Dictionary<string, TowerData> towersDictionary = null;
+    private Dictionary<string, TowerSO> towersDictionary = null;
     private Dictionary<string, ObjectPool<BaseTower>> towerPools = null;
     private Dictionary<string, List<BaseTower>> towersListsDictionary = null;
 
     public void Init()
     {
-        towersDictionary = new Dictionary<string, TowerData>();
+        towersDictionary = new Dictionary<string, TowerSO>();
         towerPools = new Dictionary<string, ObjectPool<BaseTower>>();
         towersListsDictionary = new Dictionary<string, List<BaseTower>>();
 
@@ -40,7 +40,7 @@ public class TowersController : MonoBehaviour
         return false;
     }
 
-    public TowerData GetTowerData(string towerId)
+    public TowerSO GetTowerData(string towerId)
     {
         if (towersDictionary.ContainsKey(towerId))
         {
@@ -50,9 +50,9 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
-    public TowerLevelData GetLevelDataFromIndex(string towerId, int levelIndex)
+    public TowerLevelSO GetLevelDataFromIndex(string towerId, int levelIndex)
     {
-        TowerData data = GetTowerData(towerId);
+        TowerSO data = GetTowerData(towerId);
 
         if (data != null)
         {
@@ -68,9 +68,9 @@ public class TowersController : MonoBehaviour
         return null;
     }
 
-    public TowerLevelData[] GetTowerLevelsData(string towerId)
+    public TowerLevelSO[] GetTowerLevelsData(string towerId)
     {
-        TowerData data = GetTowerData(towerId);
+        TowerSO data = GetTowerData(towerId);
 
         if (data != null)
         {
@@ -82,12 +82,12 @@ public class TowersController : MonoBehaviour
 
     public void UpgradeTower(BaseTower tower, int levelToSet)
     {
-        TowerLevelData levelData = GetLevelDataFromIndex(tower.ID, levelToSet);
+        TowerLevelSO levelData = GetLevelDataFromIndex(tower.ID, levelToSet);
 
         tower.CURRENT_LEVEL = levelToSet;
-        tower.SetData(levelData.STATS);
-        tower.SetTowerMaterial(levelData.TOWER_LEVEL_MATERIAL);
-        tower.SetLaserMaterial(levelData.LASER_LEVEL_MATERIAL);
+        tower.ConfigureStats(levelData.STATS);
+        tower.SetTowerMaterial(levelData.TOWER_MATERIAL);
+        tower.SetLaserMaterial(levelData.LASER_MATERIAL);
     }
 
     public void ReleaseActiveTower(BaseTower tower)
@@ -107,16 +107,16 @@ public class TowersController : MonoBehaviour
 
     private BaseTower SpawnTower(string towerId)
     {
-        TowerData towerData = towersDictionary[towerId];
+        TowerSO towerData = towersDictionary[towerId];
         BaseTower tower = Instantiate(towerData.TOWER_PREFAB, towersHolder).GetComponent<BaseTower>();
         tower.gameObject.transform.localPosition += new Vector3(0, towerData.OFFSET.y, 0);
 
-        TowerLevelData levelData = towerData.LEVELS[0];
+        TowerLevelSO levelData = towerData.LEVELS[0];
 
-        tower.Init(towerData.ID, levelData.STATS, levelData.TOWER_LEVEL_MATERIAL);
+        tower.Init(towerData.ID, levelData.STATS, levelData.TOWER_MATERIAL);
         tower.CURRENT_LEVEL = levelData.LEVEL;
         tower.SetFocusTargets(levelData.STATS.TARGETS);
-        tower.SetLaserMaterial(levelData.LASER_LEVEL_MATERIAL);
+        tower.SetLaserMaterial(levelData.LASER_MATERIAL);
 
         return tower;
     }

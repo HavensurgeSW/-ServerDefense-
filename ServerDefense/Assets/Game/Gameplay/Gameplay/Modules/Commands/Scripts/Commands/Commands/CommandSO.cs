@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class CommandSO : ScriptableObject
 {
     [Header("Base Command Configuration")]
-    [SerializeField] protected string commandId = null;
+    [SerializeField] protected string commandId = string.Empty;
     [SerializeField] protected int argumentsCount = 0;
     [SerializeField] protected TerminalResponseSO successResponse = null;
     [SerializeField] protected TerminalResponseSO helpResponse = null;

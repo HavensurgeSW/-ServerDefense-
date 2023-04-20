@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Towers/StatsData", fileName = "StatsData_Tower_")]
-public class TowerStatsData : ScriptableObject
+public class TowerStatsSO : ScriptableObject
 {
     [Header("Tower Data Configuration")]
     [SerializeField] private int damage = 0;

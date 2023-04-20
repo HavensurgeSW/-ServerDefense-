@@ -33,7 +33,7 @@ public class InstallTowerCommandSO : CommandSO
             return;
         }
 
-        TowerData data = towersController.GetTowerData(towerId);
+        TowerSO data = towersController.GetTowerData(towerId);
 
         CurrenciesController currenciesController = commandManagerModel.CURRENCIES_CONTROLLER;
         if (currenciesController.GetCurrencyValue(currencyToConsume.CURRENCY_ID) < data.LEVELS[0].PRICE)

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad478cffb607878449fa80ac6b28ddf9, type: 3}
-  m_Name: StatsData_Firewall_2
+  m_Script: {fileID: 11500000, guid: f7cfc8aaa170bb04b9d7d3183f333751, type: 3}
+  m_Name: StatsSO_Antivirus_3
   m_EditorClassIdentifier: 
-  damage: 3
-  fireRate: 2.2
+  damage: 4
+  fireRate: 0.8
   range: 7.5
   targets:
   - Enemy
-  targetCount: 4
+  targetCount: 2
