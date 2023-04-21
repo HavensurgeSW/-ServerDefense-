@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    public void Init(EnemyData data, Transform[] wpList, Action<Enemy> onDeath)
+    public void Init(EnemySO data, Transform[] wpList, Action<Enemy> onDeath)
     {
         wpPath = wpList;
         

@@ -7,10 +7,10 @@ using UnityEngine.Pool;
 public class EnemyHandler : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private EnemyData[] enemiesData = null;
+    [SerializeField] private EnemySO[] enemiesData = null;
     [SerializeField] private Transform enemiesHolder = null;
 
-    private Dictionary<string, EnemyData> enemiesDictionary = null;
+    private Dictionary<string, EnemySO> enemiesDictionary = null;
     private Dictionary<string, ObjectPool<Enemy>> enemyPools = null;
     private Dictionary<string, List<Enemy>> enemyListsDictionary = null;
 
@@ -20,7 +20,7 @@ public class EnemyHandler : MonoBehaviour
     {
         this.waypoints = waypoints;
 
-        enemiesDictionary = new Dictionary<string, EnemyData>();
+        enemiesDictionary = new Dictionary<string, EnemySO>();
         enemyPools = new Dictionary<string, ObjectPool<Enemy>>();
         enemyListsDictionary = new Dictionary<string, List<Enemy>>();
 
@@ -49,7 +49,7 @@ public class EnemyHandler : MonoBehaviour
 
     private Enemy SpawnEnemy(string enemyId)
     {
-        EnemyData data = enemiesDictionary[enemyId];
+        EnemySO data = enemiesDictionary[enemyId];
         Enemy enemy = Instantiate(data.ENEMY_PREFAB, enemiesHolder).GetComponent<Enemy>();
         return enemy;
     }

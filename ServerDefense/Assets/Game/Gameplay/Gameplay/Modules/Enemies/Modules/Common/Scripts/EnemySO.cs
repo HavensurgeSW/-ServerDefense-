@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Enemies/EnemyData", fileName = "EnemyData_")]
-public class EnemyData : ScriptableObject
+[CreateAssetMenu(menuName = "ScriptableObjects/Enemies/EnemySO", fileName = "EnemySO_")]
+public class EnemySO : ScriptableObject
 {
     [SerializeField] private string id = string.Empty;
     [SerializeField] private GameObject enemyPrefab = null;
