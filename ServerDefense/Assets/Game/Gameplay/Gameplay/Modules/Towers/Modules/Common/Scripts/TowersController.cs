@@ -84,10 +84,7 @@ public class TowersController : MonoBehaviour
     {
         TowerLevelSO levelData = GetLevelDataFromIndex(tower.ID, levelToSet);
 
-        tower.CURRENT_LEVEL = levelToSet;
-        tower.ConfigureStats(levelData.STATS);
-        tower.SetTowerMaterial(levelData.TOWER_MATERIAL);
-        tower.SetLaserMaterial(levelData.LASER_MATERIAL);
+        tower.ConfigureLevel(levelData);
     }
 
     public void ReleaseActiveTower(BaseTower tower)
@@ -113,10 +110,8 @@ public class TowersController : MonoBehaviour
 
         TowerLevelSO levelData = towerData.LEVELS[0];
 
-        tower.Init(towerData.ID, levelData.STATS, levelData.TOWER_MATERIAL);
-        tower.CURRENT_LEVEL = levelData.LEVEL;
-        tower.SetFocusTargets(levelData.STATS.TARGETS);
-        tower.SetLaserMaterial(levelData.LASER_MATERIAL);
+        tower.Init(towerData.ID);
+        tower.ConfigureLevel(levelData);
 
         return tower;
     }

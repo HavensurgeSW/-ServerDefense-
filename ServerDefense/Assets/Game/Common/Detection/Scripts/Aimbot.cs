@@ -5,13 +5,13 @@ using UnityEngine;
 public class Aimbot : MonoBehaviour
 {
     [SerializeField] private List<GameObject> targets = new List<GameObject>();
-    [SerializeField] private CircleCollider2D circleCollider;
+    [SerializeField] private CircleCollider2D circleCollider = null;
 
     private string[] targetTags = null;
 
     public List<GameObject> TARGETS { get => targets; }
 
-    public void Init(params string[] targetTags)
+    public void SetTargets(params string[] targetTags)
     {
         this.targetTags = targetTags;
     }

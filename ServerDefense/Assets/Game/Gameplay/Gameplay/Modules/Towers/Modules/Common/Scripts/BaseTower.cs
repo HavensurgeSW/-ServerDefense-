@@ -29,43 +29,13 @@ public abstract class BaseTower : MonoBehaviour
     public int DAMAGE { get => damage; }
     public float RANGE { get => rangeRadius; }
     public float FIRE_RATE { get => fireRate; }
-    public int CURRENT_LEVEL { get => level; set => level = value; }
     public int NEXT_LEVEL { get => level + 1; }
 
-    public virtual void Init(string id, TowerStatsSO stats, Material levelMaterial)
+    public virtual void Init(string id)
     {
         this.id = id;
         lasersList = new List<TowerLaser>();
-
         laserPool = new ObjectPool<TowerLaser>(GenerateLaser, GetLaser, ReleaseLaser);
-
-        damage = stats.DAMAGE;
-        rangeRadius = stats.RANGE;
-        aimbot.SetRange(rangeRadius);
-        fireRate = stats.FIRE_RATE;
-
-        SetTowerMaterial(levelMaterial);
-    }
-
-    public void SetTowerMaterial(Material material)
-    {
-        if (material != null)
-        {
-            spriteRenderer.material = material;
-        }
-    }
-
-    public void SetLaserMaterial(Material material)
-    {
-        if (material == null)
-        {
-            return;
-        }
-
-        for (int i = 0; i < lasersList.Count; i++)
-        {
-            lasersList[i].SetLaserMaterial(material);
-        }
     }
 
     protected virtual void Update()
@@ -87,19 +57,28 @@ public abstract class BaseTower : MonoBehaviour
         enemy.ReceiveDamage(damage);
     }
 
+    public void ConfigureLevel(TowerLevelSO level)
+    {
+        this.level = level.LEVEL;
+        
+        ConfigureStats(level.STATS);
+
+        SetTowerMaterial(level.TOWER_MATERIAL);
+        SetLaserMaterial(level.LASER_MATERIAL);
+    }
+
     public virtual void ConfigureStats(TowerStatsSO stats)
     {
         damage = stats.DAMAGE;
         rangeRadius = stats.RANGE;
         aimbot.SetRange(rangeRadius);
         fireRate = stats.FIRE_RATE;
-
-        //TargetCount contra el aimbot aca
+        SetFocusTargets(stats.TARGETS);
     }
 
     public void SetFocusTargets(params string[] targetTags)
     {
-        aimbot.Init(targetTags);
+        aimbot.SetTargets(targetTags);
     }
 
     public void SetPosition(Vector3 position)
@@ -110,6 +89,27 @@ public abstract class BaseTower : MonoBehaviour
     public void SetParent(Transform parent)
     {
         transform.SetParent(parent);
+    }
+
+    private void SetTowerMaterial(Material material)
+    {
+        if (material != null)
+        {
+            spriteRenderer.material = material;
+        }
+    }
+
+    private void SetLaserMaterial(Material material)
+    {
+        if (material == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < lasersList.Count; i++)
+        {
+            lasersList[i].SetLaserMaterial(material);
+        }
     }
 
     protected TowerLaser GenerateLaser()

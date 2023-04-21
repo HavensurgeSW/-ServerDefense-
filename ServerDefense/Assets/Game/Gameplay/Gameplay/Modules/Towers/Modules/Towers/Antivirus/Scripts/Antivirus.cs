@@ -7,9 +7,9 @@ public class Antivirus : BaseTower
 
     private TowerLaser laser = null;
 
-    public override void Init(string id, TowerStatsSO stats, Material levelMaterial)
+    public override void Init(string id)
     {
-        base.Init(id, stats, levelMaterial);
+        base.Init(id);
 
         lasersList.Add(laserPool.Get());
         laser = lasersList[0];
