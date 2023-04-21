@@ -124,23 +124,10 @@ public class CommandManager : MonoBehaviour
     private void OnCommandSuccess(CommandSO command)
     {
         // whatever
-        Bruh(command);
     }
 
     private void OnCommandFailed(CommandSO command)
     {
         // whatever
-    }
-
-    public static bool IsOverride(MethodInfo method)
-    {
-        return method.GetBaseDefinition().DeclaringType != method.DeclaringType;
-    }
-
-    private void Bruh(CommandSO command)
-    {
-        MethodInfo info = command.GetType().GetMethod(nameof(command.TriggerHelpResponse));
-        bool isOverriden = info.GetBaseDefinition().DeclaringType != info.DeclaringType;
-        Debug.Log(isOverriden);
     }
 }
