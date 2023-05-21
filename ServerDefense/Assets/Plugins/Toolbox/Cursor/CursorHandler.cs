@@ -3,13 +3,17 @@ using UnityEngine;
 public class CursorHandler : MonoBehaviour
 {
     [SerializeField] private bool showCursor = false;
+    [SerializeField] private bool configureOnAwake = true;
     
     private void Awake()
     {
-        ToggleMouse(showCursor);
+        if (configureOnAwake)
+        {
+            ToggleMouseVisibility(showCursor);
+        }
     }
 
-    public void ToggleMouse(bool status)
+    public void ToggleMouseVisibility(bool status)
     {
         Cursor.visible = status;
 

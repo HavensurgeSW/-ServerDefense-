@@ -83,7 +83,7 @@ public class UpdateTowerCommandSO : CommandSO
         onSuccess(this);
     }
 
-    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelSO nextLevel, CurrenciesController currenciesController, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelSO nextLevel, GameCurrenciesController currenciesController, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         int packetAmount = currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency);
         if (packetAmount < nextLevel.PRICE)

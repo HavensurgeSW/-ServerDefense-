@@ -8,7 +8,7 @@ public class GameManager : SceneController
 
     [Header("Game Manager Main Configuration")]
     [SerializeField] private CommandManager commandManager = null;
-    [SerializeField] private CurrenciesController currenciesController = null;
+    [SerializeField] private GameCurrenciesController currenciesController = null;
     [SerializeField] private UIManager uiManager = null;
     [SerializeField] private TerminalManager terminal = null;
     [SerializeField] private TowersController towersController = null;

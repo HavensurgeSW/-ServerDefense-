@@ -9,9 +9,6 @@ namespace ServerDefense.Systems.Currencies
         [Header("Main Configuration")]
         [SerializeField] private List<CurrencySO> currencies = null;
 
-        [Header("Responses Configuration")]
-        [SerializeField] private TerminalResponseSO insufficientCurrencyResponse = null;
-
         private Dictionary<string, int> currenciesDictionary = null;
 
         public void Init()
@@ -80,11 +77,6 @@ namespace ServerDefense.Systems.Currencies
 
             Debug.LogError("Failed to find currency of Id: " + currencyId);
             return -1;
-        }
-
-        public TerminalResponseSO GetInsufficientCurrencyResponse()
-        {
-            return insufficientCurrencyResponse;
         }
     }
 }

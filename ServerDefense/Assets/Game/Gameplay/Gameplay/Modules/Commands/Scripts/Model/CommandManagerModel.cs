@@ -9,11 +9,11 @@ public class CommandManagerModel
     public LevelManager LEVEL_MANAGER { get; private set; }
     public MapHandler MAP_HANDLER { get; private set; }
     public TowersController TOWERS_CONTROLLER { get; private set; }
-    public CurrenciesController CURRENCIES_CONTROLLER { get; private set; }
+    public GameCurrenciesController CURRENCIES_CONTROLLER { get; private set; }
     public UIManager UI_MANAGER { get; private set; }
     public Camera MAIN_CAMERA { get; private set; }
 
-    public CommandManagerModel(CommandManager commandManager, TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController, CurrenciesController currencyController, UIManager uiManager, Camera mainCamera)
+    public CommandManagerModel(CommandManager commandManager, TerminalManager terminal, LevelManager levelManager, MapHandler mapHandler, TowersController towersController, GameCurrenciesController currencyController, UIManager uiManager, Camera mainCamera)
     {
         COMMAND_MANAGER = commandManager;
         TERMINAL_MANAGER = terminal;

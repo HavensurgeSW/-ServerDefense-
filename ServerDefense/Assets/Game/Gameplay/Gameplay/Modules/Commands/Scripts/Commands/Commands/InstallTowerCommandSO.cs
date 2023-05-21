@@ -35,7 +35,7 @@ public class InstallTowerCommandSO : CommandSO
 
         TowerSO data = towersController.GetTowerData(towerId);
 
-        CurrenciesController currenciesController = commandManagerModel.CURRENCIES_CONTROLLER;
+        GameCurrenciesController currenciesController = commandManagerModel.CURRENCIES_CONTROLLER;
         if (currenciesController.GetCurrencyValue(currencyToConsume.CURRENCY_ID) < data.LEVELS[0].PRICE)
         {
             onTriggerMessage(currenciesController.GetInsufficientCurrencyResponse());

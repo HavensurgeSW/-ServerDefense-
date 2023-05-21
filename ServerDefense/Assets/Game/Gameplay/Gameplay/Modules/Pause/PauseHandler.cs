@@ -11,7 +11,7 @@ public class PauseHandler : MonoBehaviour
     [SerializeField] private Button resumeButton = null;
     [SerializeField] private Button menuButton = null;
 
-    [SerializeField] private bool isPaused = false;
+    private bool isPaused = false;
 
     private Action<bool> OnPaused = null;
 
@@ -36,7 +36,7 @@ public class PauseHandler : MonoBehaviour
     {
         isPaused = status;
         
-        cursorStatus.ToggleMouse(status);
+        cursorStatus.ToggleMouseVisibility(status);
         holder.SetActive(status);
 
         if (isPaused)
