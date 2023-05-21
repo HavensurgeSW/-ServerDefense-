@@ -7,7 +7,7 @@ public abstract class SceneController : MonoBehaviour
     protected abstract void OnEnable();
     protected abstract void OnDisable();
 
-    protected void ChangeScene(SCENE scene, bool async)
+    protected virtual void ChangeScene(SCENE scene, bool async)
     {
         if (async)
         {

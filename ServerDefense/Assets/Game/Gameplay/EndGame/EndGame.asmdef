@@ -1,0 +1,18 @@
+{
+    "name": "EndGame",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a7f2548f620dffe42a92ae858884c91f",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:41f34883c7ab3a14d9132e5d597c9523"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

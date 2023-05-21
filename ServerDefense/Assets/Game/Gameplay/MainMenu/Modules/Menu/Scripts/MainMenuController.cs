@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class MainMenuController : SceneController
 {
-    public static SCENE selectedLevel = default;
-
     [Header("Main Configuration")]
     [SerializeField] private MenuHandler menuHandler = null;
     [SerializeField] private CreditsHandler creditsHandler = null;
@@ -11,11 +9,14 @@ public class MainMenuController : SceneController
 
     protected override void Awake()
     {
+        SavedDataHandler savedDataHandler = SavedDataHandler.Instance;
+        savedDataHandler.ResetData();
+
         menuHandler.Init(SwitchToCredits, 
             (scene, isAsync) => 
             {
                 loadingPanel.SetActive(true);
-                selectedLevel = scene;
+                savedDataHandler.SetSelectedScene(scene);
                 ChangeScene(scene, isAsync);
             }, 
             QuitApplication);

@@ -4,8 +4,6 @@ using ServerDefense.Systems.Currencies;
 
 public class GameManager : SceneController
 {
-    public static bool gameStatus = false;
-
     [Header("Game Manager Main Configuration")]
     [SerializeField] private CommandManager commandManager = null;
     [SerializeField] private GameCurrenciesController currenciesController = null;
@@ -108,7 +106,7 @@ public class GameManager : SceneController
     {
         if (!tutorialScene)
         {
-            gameStatus = status;
+            SavedDataHandler.Instance.SetGameWonStatus(status);
             ChangeScene(SCENE.END_SCENE, true);
         }
     }

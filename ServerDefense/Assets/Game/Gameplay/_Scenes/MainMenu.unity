@@ -1061,6 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showCursor: 1
+  configureOnAwake: 1
 --- !u!1 &625567548
 GameObject:
   m_ObjectHideFlags: 0

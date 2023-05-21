@@ -9,9 +9,11 @@ public class EndGameController : SceneController
 
     protected override void Awake()
     {
-        gameStatusPanel.Init(GameManager.gameStatus);
+        SavedDataHandler savedDataHandler = SavedDataHandler.Instance;
 
-        replayButton.onClick.AddListener(() => ChangeScene(MainMenuController.selectedLevel, true));
+        gameStatusPanel.Init(savedDataHandler.GameStatus);
+
+        replayButton.onClick.AddListener(() => ChangeScene(savedDataHandler.SelectedScene, true));
         mainMenuButton.onClick.AddListener(() => ChangeScene(SCENE.MAIN_MENU, true));
     }
 
@@ -21,5 +23,15 @@ public class EndGameController : SceneController
 
     protected override void OnEnable()
     {
+    }
+
+    protected override void ChangeScene(SCENE scene, bool async)
+    {
+        if (scene == SCENE.NONE)
+        {
+            scene = SCENE.LEVEL_0;
+        }
+
+        base.ChangeScene(scene, async);
     }
 }
