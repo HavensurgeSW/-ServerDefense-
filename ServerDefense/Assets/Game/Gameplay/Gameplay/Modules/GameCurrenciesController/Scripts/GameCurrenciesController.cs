@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using ServerDefense.Systems.Currencies;
+using ServerDefense.Common.Currencies;
 
 public class GameCurrenciesController : CurrenciesController
 {

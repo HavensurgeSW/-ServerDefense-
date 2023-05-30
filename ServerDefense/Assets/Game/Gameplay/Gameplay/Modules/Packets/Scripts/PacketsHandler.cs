@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
+using TMPro;
+
 public class PacketsHandler : MonoBehaviour
 {
     [SerializeField] private PacketData packetData = null;
     [SerializeField] private Transform packetsHolder = null;
+    [SerializeField] private TMP_Text packetPointsText = null;
     [SerializeField] private int packetsPerWave = 1;
 
     private Transform[] waypoints = null;
@@ -19,6 +22,12 @@ public class PacketsHandler : MonoBehaviour
         this.waypoints = waypoints;
         packetPool = new ObjectPool<Packet>(GeneratePacket, GetPacket, ReleasePacket);
         allowPackets = false;
+        UpdatePacketPointsText(0);
+    }
+
+    public void UpdatePacketPointsText(int points)
+    {
+        packetPointsText.text = "Current KB: " + points.ToString();
     }
 
     public void StartPacketsWave()

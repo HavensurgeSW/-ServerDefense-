@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-using ServerDefense.Systems.Currencies;
+using ServerDefense.Common.Currencies;
 
 [CreateAssetMenu(fileName = "command_install_", menuName = "ScriptableObjects/Commands/Installs/InstallTower")]
 public class InstallTowerCommandSO : CommandSO

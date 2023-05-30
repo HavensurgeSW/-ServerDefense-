@@ -5,7 +5,16 @@ using UnityEngine;
 
 public class WavesController : MonoBehaviour
 {
+    [Header("Waves Configuration")]
     [SerializeField] private WaveData[] waves = null;
+
+    [Header("Timer Configuration")]
+    [SerializeField] private WavesControllerUI wavesControllerUI = null;
+    [SerializeField] private float timerSeconds = 0;
+
+    private bool isTimerEnabled = false;
+    private float timeLeft = 0;
+    private float maxTime = 0;
 
     private WaveData activeWave = null;
     private int currentWaveEnemyCount = 0;
@@ -15,29 +24,75 @@ public class WavesController : MonoBehaviour
     private bool isInWave = false;
     private bool allWavesComplete = false;
 
+    private Action OnTimerEnd = null;
     private Action<string, Action> OnEnemySpawned = null;
-    private Action OnWaveCompleted = null;
+    private Action OnWaveStart = null;
+    private Action OnWaveComplete = null;
+    private Action OnAllWavesComplete = null;
 
     public int CURRENT_WAVE_INDEX { get => currentWaveIndex; set => currentWaveIndex = value; }
-    public bool IS_WAVE_SPAWNING { get => isWaveSpawning; }
-    public bool IS_IN_WAVE { get => isInWave; }
-    public bool ALL_WAVES_COMPLETE { get => allWavesComplete; }
 
-    public void Init(Action<string, Action> onEnemySpawned)
+    private void Update()
     {
-        OnEnemySpawned = onEnemySpawned;
-    }
-
-    public void StartWave(int index, Action onWaveCompleted)
-    {
-        if (index >= waves.Length)
+        if (!isTimerEnabled)
         {
             return;
         }
 
-        OnWaveCompleted = onWaveCompleted;
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            wavesControllerUI.SetBarProgress(timeLeft / maxTime);
+
+            if (timeLeft <= 0)
+            {
+                timeLeft = maxTime;
+                isTimerEnabled = false;
+                OnTimerEnd?.Invoke();
+            }
+        }
+    }
+
+    public void Init(Action<string, Action> onEnemySpawned, Action onWaveStart, Action onAllWavesComplete)
+    {
+        OnWaveStart = onWaveStart;
+        OnEnemySpawned = onEnemySpawned;
+        OnAllWavesComplete = onAllWavesComplete;
+
+        maxTime = timerSeconds;
+        timeLeft = maxTime;
+
+        OnTimerEnd = BeginCurrentWave;
+    }
+
+    private void ToggleTimer(bool status)
+    {
+        isTimerEnabled = status;
+        timeLeft = maxTime;
+    }
+
+    private void BeginCurrentWave()
+    {
+        StartWave(currentWaveIndex, null);
+    }
+
+    public void StartWave(int index, Action onWaveComplete)
+    {
+        if (isWaveSpawning || isInWave || index >= waves.Length)
+        {
+            return;
+        }
+
+        if (allWavesComplete)
+        {
+            OnAllWavesComplete?.Invoke();
+            return;
+        }
 
         SetActiveWave(waves[index]);
+
+        OnWaveComplete = onWaveComplete;
+
         BeginWave(activeWave, null);
     }
 
@@ -50,8 +105,16 @@ public class WavesController : MonoBehaviour
             isInWave = false;
             currentWaveIndex++;
             allWavesComplete = activeWave == waves[^1];
-            OnWaveCompleted?.Invoke();
-            UIManager.OnWaveEnd?.Invoke(true);
+            OnWaveComplete?.Invoke();
+
+            if (!allWavesComplete)
+            {
+                ToggleTimer(true);
+            }
+            else
+            {
+                OnAllWavesComplete?.Invoke();
+            }
         }
     }
 
@@ -62,12 +125,13 @@ public class WavesController : MonoBehaviour
 
     private void BeginWave(WaveData wave, Action onWaveSpawnEnd)
     {
+        OnWaveStart?.Invoke();
         isWaveSpawning = true;
         isInWave = true;
         onWaveSpawnEnd += () => isWaveSpawning = false;
 
         currentWaveEnemyCount = GetWaveEnemyCount(wave);
-        StartCoroutine(IBeginWave(wave, onWaveSpawnEnd));
+        StartCoroutine(ISpawnWaveEnemies(wave, onWaveSpawnEnd));
     }
 
     private int GetWaveEnemyCount(WaveData wave)
@@ -82,7 +146,7 @@ public class WavesController : MonoBehaviour
         return toReturn;
     }
 
-    private IEnumerator IBeginWave(WaveData wave, Action onWaveSpawnEnd)
+    private IEnumerator ISpawnWaveEnemies(WaveData wave, Action onWaveSpawnEnd)
     {
         for (int i = 0; i < wave.WAVE_SPAWN_DATA.Length; i++)
         {

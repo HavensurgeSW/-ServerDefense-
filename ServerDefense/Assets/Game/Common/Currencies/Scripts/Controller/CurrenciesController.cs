@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-
 using UnityEngine;
 
-namespace ServerDefense.Systems.Currencies
+using System.Collections.Generic;
+
+namespace ServerDefense.Common.Currencies
 {
     public class CurrenciesController : MonoBehaviour
     {
@@ -10,6 +10,8 @@ namespace ServerDefense.Systems.Currencies
         [SerializeField] private List<CurrencySO> currencies = null;
 
         private Dictionary<string, int> currenciesDictionary = null;
+
+        private const int invalidValue = -1;
 
         public void Init()
         {
@@ -46,26 +48,28 @@ namespace ServerDefense.Systems.Currencies
             Debug.LogError("Failed to find currency of Id: " + currencyId);
         }
 
-        public void AddCurrencyValue(string currencyId, int amount)
+        public int AddCurrencyValue(string currencyId, int amount)
         {
             if (currenciesDictionary.ContainsKey(currencyId))
             {
                 currenciesDictionary[currencyId] += amount;
-                return;
+                return currenciesDictionary[currencyId];
             }
 
             Debug.LogError("Failed to find currency of Id: " + currencyId);
+            return invalidValue;
         }
 
-        public void SubstractCurrencyValue(string currencyId, int amount)
+        public int SubstractCurrencyValue(string currencyId, int amount)
         {
             if (currenciesDictionary.ContainsKey(currencyId))
             {
                 currenciesDictionary[currencyId] -= amount;
-                return;
+                return currenciesDictionary[currencyId];
             }
 
             Debug.LogError("Failed to find currency of Id: " + currencyId);
+            return invalidValue;
         }
 
         public int GetCurrencyValue(string currencyId)

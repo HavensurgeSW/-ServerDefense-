@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 
 using UnityEngine;
-
-using ServerDefense.Systems.Currencies;
+using ServerDefense.Common.Currencies;
 
 [CreateAssetMenu(fileName = "command_updatetower", menuName = "ScriptableObjects/Commands/UpdateTower")]
 public class UpdateTowerCommandSO : CommandSO
@@ -11,6 +10,7 @@ public class UpdateTowerCommandSO : CommandSO
     [Header("Update Command Configuration")]
     [SerializeField] private string deployId = string.Empty;
     [SerializeField] private string infoId = string.Empty;
+    [SerializeField] private CurrencySO currencyToUse = null;
     [SerializeField] private TerminalResponseSO maxLevelResponse = null;
 
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
@@ -85,7 +85,7 @@ public class UpdateTowerCommandSO : CommandSO
 
     private void TriggerUpdateCommandDeploy(TowersController towerController, BaseTower tower, TowerLevelSO nextLevel, GameCurrenciesController currenciesController, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
-        int packetAmount = currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency);
+        int packetAmount = currenciesController.GetCurrencyValue(currencyToUse.CURRENCY_ID);
         if (packetAmount < nextLevel.PRICE)
         {
             onTriggerMessage(currenciesController.GetInsufficientCurrencyResponse());
@@ -93,7 +93,7 @@ public class UpdateTowerCommandSO : CommandSO
             return;
         }
 
-        currenciesController.SubstractCurrencyValue(CurrencyConstants.packetCurrency, nextLevel.PRICE);
+        currenciesController.SubstractCurrencyValue(currencyToUse.CURRENCY_ID, nextLevel.PRICE);
         towerController.UpgradeTower(tower, tower.NEXT_LEVEL);
 
         onTriggerMessage(successResponse);

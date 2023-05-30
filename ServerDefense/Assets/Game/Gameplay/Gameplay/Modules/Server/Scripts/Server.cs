@@ -2,25 +2,40 @@ using System;
 
 using UnityEngine;
 
+using TMPro;
+
 public class Server : MonoBehaviour
 {
     public static Action<int> OnDamaged = null;
     public static Action OnDeath = null;
     public static Action<int> OnPacketEntry = null;
 
-    [SerializeField] private int hp;
-    
+    [SerializeField] private int hp = 10;
+    [SerializeField] private TMP_Text serverHealthText = null;
+
     public int HEALTH { get => hp; }
+
+    public void Init()
+    {
+        UpdateHealthText(hp);
+    }
 
     private void DealDamageToServer(int dmg) 
     {
         hp -= dmg;
         OnDamaged?.Invoke(hp);
+        
+        UpdateHealthText(hp);
 
         if (hp <= 0) 
         {
             OnDeath?.Invoke();   
         }
+    }
+
+    private void UpdateHealthText(int health)
+    {
+        serverHealthText.text = "Server Health: " + health.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

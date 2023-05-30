@@ -16,4 +16,4 @@ MonoBehaviour:
   argumentsCount: 1
   successResponse: {fileID: 0}
   helpResponse: {fileID: 11400000, guid: 5cea1a666f751a445b3033295ec3984c, type: 2}
-  errorResponse: {fileID: 0}
+  errorResponse: {fileID: 11400000, guid: 7ef6779cd03db2648955019bbc9ea22f, type: 2}

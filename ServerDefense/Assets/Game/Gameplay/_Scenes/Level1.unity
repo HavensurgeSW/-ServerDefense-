@@ -703,6 +703,9 @@ MonoBehaviour:
   tilemap: {fileID: 2570244209147999435}
   selectedLocation: {fileID: 11400000, guid: ea54350be3fb98d489db8b9d83976b65, type: 2}
   defaultLocation: {fileID: 11400000, guid: 832f7cddedaf0304caa519d8be15bbc4, type: 2}
+  popUpPrefab: {fileID: 5754507825141779710, guid: 46a1076cfa262fe449b531b8a0def356, type: 3}
+  offset: {x: 0, y: -69}
+  popUpsHolder: {fileID: 1317126690}
   invalidLocationResponse: {fileID: 11400000, guid: 7ef6779cd03db2648955019bbc9ea22f, type: 2}
 --- !u!114 &429863891 stripped
 MonoBehaviour:
@@ -2091,17 +2094,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commands:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  helpCommand: {fileID: 0}
-  invalidCommandResponse: {fileID: 0}
-  invalidArgumentAmountResponse: {fileID: 0}
+  - {fileID: 11400000, guid: 0113aae3244c3664a8e6c614ec6dbaf0, type: 2}
+  - {fileID: 11400000, guid: 4b767aac2dcffb1468b1a77e8e78df35, type: 2}
+  - {fileID: 11400000, guid: 1bec372318d146e4ba15ede1961f5b50, type: 2}
+  - {fileID: 11400000, guid: c4fafde39e386444ca232db43bde4eda, type: 2}
+  - {fileID: 11400000, guid: e7b3e7f39d51dc143b1315283e7c18d9, type: 2}
+  - {fileID: 11400000, guid: def404fae5f39444fb8533e14ff9fc1d, type: 2}
+  - {fileID: 11400000, guid: 6ebab925b0fa9c34880b7edd9082a895, type: 2}
+  - {fileID: 11400000, guid: 3c9d403d06cf90341855df604270540f, type: 2}
+  - {fileID: 11400000, guid: 48e3f10cfb2766748a5cc4a57a022fa4, type: 2}
+  - {fileID: 11400000, guid: 7f55a47a9846f3f4baa45434351750bf, type: 2}
+  - {fileID: 11400000, guid: 73d98790703a31e479b5f0bb4b3b6265, type: 2}
+  helpCommand: {fileID: 11400000, guid: 1bec372318d146e4ba15ede1961f5b50, type: 2}
+  invalidCommandResponse: {fileID: 11400000, guid: 7f81c2e6e0c863649952deced0e585b0, type: 2}
+  invalidArgumentAmountResponse: {fileID: 11400000, guid: 23c24a41a20ae7941bead6ce56e82dfa, type: 2}
 --- !u!114 &1317126686 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 738427899938477746, guid: b44bdce6d1b7d844c818945f4e54d247, type: 3}
@@ -2113,6 +2119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e344e7e9157614d811382d3840f8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1317126690 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 738427899938477745, guid: b44bdce6d1b7d844c818945f4e54d247, type: 3}
+  m_PrefabInstance: {fileID: 1592538649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1324258151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,6 +2915,7 @@ MonoBehaviour:
   levelManager: {fileID: 983216369}
   mapHandler: {fileID: 414097743}
   pauseHandler: {fileID: 1224457144}
+  packetCurrency: {fileID: 11400000, guid: 117c3ee79931a70469bf51bb60cb7237, type: 2}
   timerSeconds: 12
   startingPackets: 10
   tutorialScene: 0

@@ -6,7 +6,6 @@ public class TutorialEvents : MonoBehaviour
 {
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private CommandManager commandManager;
-    [SerializeField] private LevelManager levelManager;
 
     [TextArea(3, 10)]
     [SerializeField] private string[] sentences;
@@ -35,7 +34,7 @@ public class TutorialEvents : MonoBehaviour
         commandManager.OnInstallTower -= Tutorial2;
         commandManager.OnInstallTower -= Tutorial3;
         commandManager.OnHelpArgument -= Tutorial4;
-        levelManager.RemoveOnWaveEndCallback(Tutorial5);
+        //levelManager.RemoveOnWaveEndCallback(Tutorial5);
         commandManager.OnUpdateTower -= Tutorial6;
     }
 
@@ -86,14 +85,14 @@ public class TutorialEvents : MonoBehaviour
     {
         tutorialText.text = sentences[5];
         commandManager.OnHelpArgument -= Tutorial4;
-        levelManager.AddOnWaveEndCallback(Tutorial5);
+        //levelManager.AddOnWaveEndCallback(Tutorial5);
     }
 
     private void Tutorial5()
     {
         tutorialText.text = sentences[6];
         //levelManager.PauseWave();
-        levelManager.RemoveOnWaveEndCallback(Tutorial5);
+        //levelManager.RemoveOnWaveEndCallback(Tutorial5);
         commandManager.OnUpdateTower += Tutorial6;
     }
 

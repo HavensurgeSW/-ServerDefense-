@@ -14,8 +14,13 @@ public class NetworkCommandSO : CommandSO
 
         if (keyword == initId)
         {
-            LevelManager levelManager = commandManagerModel.LEVEL_MANAGER;
-            levelManager.BeginWave(levelManager.GetCurrentWaveIndex());
+            WavesController wavesController = commandManagerModel.WAVES_CONTROLLER;
+            wavesController.StartWave(wavesController.CURRENT_WAVE_INDEX, null);
+
+            //wavesController.StartWave(index, null);
+            //
+            //packetsHandler.StartPacketsWave();
+
             onTriggerMessage(successResponse);
             onSuccess(this);
             return;

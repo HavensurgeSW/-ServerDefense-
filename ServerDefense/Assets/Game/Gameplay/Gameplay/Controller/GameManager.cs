@@ -1,46 +1,50 @@
 using UnityEngine;
 
-using ServerDefense.Systems.Currencies;
+using ServerDefense.Common.Currencies;
 
 public class GameManager : SceneController
 {
-    [Header("Game Manager Main Configuration")]
+    [Header("Game Manager Configuration")]
     [SerializeField] private CommandManager commandManager = null;
-    [SerializeField] private GameCurrenciesController currenciesController = null;
-    [SerializeField] private UIManager uiManager = null;
     [SerializeField] private TerminalManager terminal = null;
     [SerializeField] private TowersController towersController = null;
-    [SerializeField] private LevelManager levelManager = null;
     [SerializeField] private MapHandler mapHandler = null;
     [SerializeField] private PauseHandler pauseHandler = null;
+    [SerializeField] private EnemyHandler enemyHandler = null;
+    [SerializeField] private WavesController wavesController = null;
+    [SerializeField] private PacketsHandler packetsHandler = null;
+    [SerializeField] private WaypointManager waypointManager = null;
+    
+    [Header("Entities Configuration")]
+    [SerializeField] private Server server = null;
 
-    [Header("Gameplay Values")]
-    [SerializeField] private float timerSeconds = 0;
+    [Header("Currencies Configuration")]
+    [SerializeField] private GameCurrenciesController currenciesController = null;
+    [SerializeField] private CurrencySO packetCurrency = null;
     [SerializeField] private int startingPackets = 0;
 
     [Header("Scene settings")]
-    [SerializeField] private bool tutorialScene;
+    [SerializeField] private bool tutorialScene = false;
 
     [Header("Debugging")]
     [SerializeField] private bool debugScore = false;
     [SerializeField] private int debugValue = 10000;
 
-    private Camera mainCamera = null;
-
     protected override void Awake()
     {
-        mainCamera = Camera.main;
-
         currenciesController.Init();
-        currenciesController.SetCurrencyValue(CurrencyConstants.packetCurrency, debugScore ? debugValue : startingPackets);
+        currenciesController.SetCurrencyValue(packetCurrency.CURRENCY_ID, debugScore ? debugValue : startingPackets);
 
-        uiManager.Init(timerSeconds);
-        uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
+        server.Init();
 
         commandManager.Init(GenerateCommandManagerModel());
         commandManager.SetCallbacks((scene) => ChangeScene(scene, false));
 
-        levelManager.Init(null);
+        enemyHandler.Init(waypointManager.WAYPOINTS);
+        wavesController.Init(enemyHandler.GenerateEnemy, packetsHandler.StartPacketsWave, WinGame);
+
+        packetsHandler.Init(waypointManager.WAYPOINTS);
+        packetsHandler.UpdatePacketPointsText(currenciesController.GetCurrencyValue(packetCurrency.CURRENCY_ID));
 
         towersController.Init();
         mapHandler.Init();
@@ -60,36 +64,25 @@ public class GameManager : SceneController
 
     protected override void OnEnable()
     {
-        LevelManager.OnAllWavesCompleted += WinGame;
         Server.OnDeath += LoseGame;
         Server.OnPacketEntry += UpdatePacketScore;
-
-        uiManager.AddOnTimerEndCallback(BeginCurrentWave);
     }
 
     protected override void OnDisable()
     {
-        LevelManager.OnAllWavesCompleted -= WinGame;
         Server.OnDeath -= LoseGame;
         Server.OnPacketEntry -= UpdatePacketScore;
-
-        uiManager.RemoveOnTimerEndCallback(BeginCurrentWave);
     }
 
     private CommandManagerModel GenerateCommandManagerModel()
     {
-        return new CommandManagerModel(commandManager, terminal, levelManager, mapHandler, towersController, currenciesController, uiManager, mainCamera);
-    }
-
-    private void BeginCurrentWave()
-    {
-        levelManager.BeginWave(levelManager.GetCurrentWaveIndex());
+        return new CommandManagerModel(commandManager, terminal, wavesController, mapHandler, towersController, currenciesController);
     }
 
     private void UpdatePacketScore(int value)
     {
-        currenciesController.AddCurrencyValue(CurrencyConstants.packetCurrency, value);
-        uiManager.UpdatePacketPointsText(currenciesController.GetCurrencyValue(CurrencyConstants.packetCurrency));
+        int newValue = currenciesController.AddCurrencyValue(packetCurrency.CURRENCY_ID, value);
+        packetsHandler.UpdatePacketPointsText(newValue);
     }
 
     private void WinGame()
@@ -125,7 +118,7 @@ public class GameManager : SceneController
             return;
         }
 
-        uiManager.ClearAllPopUps();
+        mapHandler.ClearAllPopUps();
         commandManager.ProcessCommand(command, arguments);
     }
 }

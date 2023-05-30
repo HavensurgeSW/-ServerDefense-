@@ -19,5 +19,5 @@ MonoBehaviour:
   errorResponse: {fileID: 11400000, guid: ada2acf5b565af648b012659d3d1a509, type: 2}
   deployId: deploy
   infoId: info
-  invalidLocationResponse: {fileID: 11400000, guid: 7ef6779cd03db2648955019bbc9ea22f, type: 2}
+  currencyToUse: {fileID: 11400000, guid: 117c3ee79931a70469bf51bb60cb7237, type: 2}
   maxLevelResponse: {fileID: 11400000, guid: 06bc57e26883add4f9cb53ee7f6ab069, type: 2}
