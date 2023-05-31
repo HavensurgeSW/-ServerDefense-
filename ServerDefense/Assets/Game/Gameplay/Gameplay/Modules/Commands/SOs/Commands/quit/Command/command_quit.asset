@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandId: quit
   argumentsCount: 1
-  successResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  successResponse: {fileID: 0}
   helpResponse: {fileID: 11400000, guid: 0181cba43827f8f41aa1516dffc7461f, type: 2}
-  errorResponse: {fileID: 11400000, guid: eafa00430da9d004bbb7561a359305c8, type: 2}
+  errorResponse: {fileID: 0}
   quitKeywords:
   - application
   - app

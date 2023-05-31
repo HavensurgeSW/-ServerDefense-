@@ -11,7 +11,7 @@ public class EnemySO : ScriptableObject
    
     public string ID { get => id; }
     public GameObject ENEMY_PREFAB { get => enemyPrefab; }
-    public int HP { get =>hp; }
+    public int HP { get => hp; }
     public int DAMAGE { get => damage; }
     public float SPEED { get => speed; }
 }
