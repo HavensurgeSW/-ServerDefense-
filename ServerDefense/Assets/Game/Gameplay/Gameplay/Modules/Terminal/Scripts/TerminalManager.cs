@@ -71,19 +71,6 @@ public class TerminalManager : MonoBehaviour
         }
     }
 
-    public TerminalResponseSO GenerateCustomTerminalResponse(List<string> lines)
-    {
-        TerminalResponseSO responseSO = ScriptableObject.CreateInstance<TerminalResponseSO>();
-        responseSO.OverrideResponse(lines);
-        return responseSO;
-    }
-
-    public void DeleteGeneratedTerminalResponse(TerminalResponseSO response)
-    {
-        response.ClearResponses();
-        ScriptableObject.Destroy(response);
-    }
-
     private void HandleTerminalInput()
     {
         if (string.IsNullOrEmpty(terminalInput.text))

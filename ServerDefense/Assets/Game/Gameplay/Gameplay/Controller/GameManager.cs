@@ -38,7 +38,7 @@ public class GameManager : SceneController
         server.Init();
 
         commandManager.Init(GenerateCommandManagerModel());
-        commandManager.SetCallbacks((scene) => ChangeScene(scene, false));
+        commandManager.SetCallbacks((scene) => ChangeScene(scene, false), mapHandler.ClearAllPopUps);
 
         enemyHandler.Init(waypointManager.WAYPOINTS);
         wavesController.Init(enemyHandler.GenerateEnemy, packetsHandler.StartPacketsWave, WinGame);
@@ -48,7 +48,7 @@ public class GameManager : SceneController
 
         towersController.Init();
         mapHandler.Init();
-        terminal.Init(InterpretTerminalText);
+        terminal.Init(commandManager.ProcessCommand);
 
         pauseHandler.AddOnPausedCallback((status) => terminal.ToggleTerminalInteraction(!status));
         pauseHandler.Init(() => ChangeScene(SCENE.MAIN_MENU, false));
@@ -102,23 +102,5 @@ public class GameManager : SceneController
             SavedDataHandler.Instance.SetGameWonStatus(status);
             ChangeScene(SCENE.END_SCENE, true);
         }
-    }
-
-    private void InterpretTerminalText(string text)
-    {
-        text = text.ToLower();
-        string[] arguments = text.Split(' ');
-        string commandId = arguments[0];
-
-        CommandSO command = commandManager.GetCommand(commandId);
-
-        if (command == null)
-        {
-            terminal.AddInterpreterLines(commandManager.GetInvalidCommandResponse());
-            return;
-        }
-
-        mapHandler.ClearAllPopUps();
-        commandManager.ProcessCommand(command, arguments);
     }
 }

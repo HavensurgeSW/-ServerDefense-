@@ -1,6 +1,5 @@
 using ServerDefense.Tools.Singleton;
 
-[System.Serializable]
 public class SavedDataHandler : Singleton<SavedDataHandler>
 {
     private bool gameStatus = false;

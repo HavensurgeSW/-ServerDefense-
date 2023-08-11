@@ -18,10 +18,9 @@ public class NETSTATCommandSO : CommandSO
             mapHandler.GeneratePopUp(loc);
         }
 
-        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
-        TerminalResponseSO response = terminal.GenerateCustomTerminalResponse(locList);
+        TerminalResponseSO response = TerminalResponseSO.CreateInstance(locList);
         onTriggerMessage(response);
-        terminal.DeleteGeneratedTerminalResponse(response);
+        TerminalResponseSO.Destroy(response);
         onSuccess(this);
     }
 }

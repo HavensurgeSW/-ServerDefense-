@@ -5,18 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "response_", menuName = "ScriptableObjects/Terminal/Response")]
 public class TerminalResponseSO : ScriptableObject
 {
-    [SerializeField] private List<string> response = new List<string>();
+    [SerializeField] private List<string> response = null;
 
     public List<string> RESPONSE { get => response; }
 
-    public void OverrideResponse(List<string> lines)
+    public static TerminalResponseSO CreateInstance(List<string> response)
     {
-        ClearResponses();
-        response.AddRange(lines);
+        TerminalResponseSO so = CreateInstance<TerminalResponseSO>();
+        so.response = response;
+        return so;
     }
 
-    public void ClearResponses()
+    public static void Destroy(TerminalResponseSO so)
     {
-        response.Clear();
+        ScriptableObject.Destroy(so);
     }
 }

@@ -9,11 +9,9 @@ public class ReturnCommandsCommandSO : CommandSO
     public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
     {
         List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());
-
-        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
-        TerminalResponseSO response = terminal.GenerateCustomTerminalResponse(commandIds);
+        TerminalResponseSO response = TerminalResponseSO.CreateInstance(commandIds);
         onTriggerMessage(response);
-        terminal.DeleteGeneratedTerminalResponse(response);
+        TerminalResponseSO.Destroy(response);
         onSuccess(this);
     }
 

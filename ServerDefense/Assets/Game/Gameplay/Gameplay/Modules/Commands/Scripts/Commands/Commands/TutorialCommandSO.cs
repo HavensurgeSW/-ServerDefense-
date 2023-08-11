@@ -30,7 +30,6 @@ public class TutorialCommandSO : CommandSO
 
     public override void TriggerHelpResponse(CommandManagerModel commandManagerModel, Action<TerminalResponseSO> onTriggerMessage)
     {
-        TerminalManager terminal = commandManagerModel.TERMINAL_MANAGER;
         List<string> lines = new List<string>();
         lines.Add("TUTORIAL <Num. of page>");
         lines.Add("Prints out tutorial logs.");
@@ -48,8 +47,8 @@ public class TutorialCommandSO : CommandSO
         }
 
         lines.Add(lastLine);
-        TerminalResponseSO response = terminal.GenerateCustomTerminalResponse(lines);
+        TerminalResponseSO response = TerminalResponseSO.CreateInstance(lines);
         onTriggerMessage(response);
-        terminal.DeleteGeneratedTerminalResponse(response);
+        TerminalResponseSO.Destroy(response);
     }
 }

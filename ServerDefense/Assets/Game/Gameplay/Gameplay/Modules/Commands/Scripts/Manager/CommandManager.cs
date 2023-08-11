@@ -26,15 +26,17 @@ public class CommandManager : MonoBehaviour
     private CommandManagerModel commandManagerModel = null;
 
     private Action<SCENE> OnChangeScene = null;
+    private Action OnCommandProcessed = null;
 
     public void Init(CommandManagerModel commandManagerModel)
     {
         this.commandManagerModel = commandManagerModel;
     }
 
-    public void SetCallbacks(Action<SCENE> onChangeScene)
+    public void SetCallbacks(Action<SCENE> onChangeScene, Action onCommandProcessed)
     {
         OnChangeScene = onChangeScene;
+        OnCommandProcessed = onCommandProcessed;
     }
 
     public void ChangeScene(SCENE scene)
@@ -42,29 +44,43 @@ public class CommandManager : MonoBehaviour
         OnChangeScene?.Invoke(scene);
     }
 
-    public void ProcessCommand(CommandSO command, string[] fullArguments)
+    public void ProcessCommand(string textToInterpret)
     {
-        string[] commandArgs = new string[fullArguments.Length - 1];
+        textToInterpret = textToInterpret.ToLower();
+        CommandDataModel commandModel = new CommandDataModel(textToInterpret);
+        CommandSO command = GetCommand(commandModel);
 
-        for (int i = 1; i <= commandArgs.Length; i++)
+        OnCommandProcessed?.Invoke();
+        ProcessCommand(command, commandModel);
+    }
+
+    public void ProcessCommand(CommandSO command, CommandDataModel commandModel)
+    {
+        if (command == null)
         {
-            commandArgs[i - 1] = fullArguments[i];
+            ShowTerminalLines(invalidCommandResponse);
+            return;
         }
 
-        if (CheckForHelpCommand(commandArgs))
+        if (CheckForHelpCommand(commandModel.ARGUMENTS))
         {
             command.TriggerHelpResponse(commandManagerModel, ShowTerminalLines);
             OnHelpArgument?.Invoke();
             return;
         }
 
-        if (!CheckCommandArguments(commandArgs, command))
+        if (!CheckCommandArguments(commandModel.ARGUMENTS, command))
         {
             ShowTerminalLines(invalidArgumentAmountResponse);
             return;
         }
 
-        command.TriggerCommand(commandManagerModel, commandArgs, ShowTerminalLines, OnCommandSuccess, OnCommandFailed);
+        command.TriggerCommand(commandManagerModel, commandModel.ARGUMENTS, ShowTerminalLines, OnCommandSuccess, OnCommandFailed);
+    }
+
+    public CommandSO GetCommand(CommandDataModel model)
+    {
+        return GetCommand(model.ID);
     }
 
     public CommandSO GetCommand(string id)
@@ -77,6 +93,7 @@ public class CommandManager : MonoBehaviour
             }
         }
 
+        Debug.LogError("Command of id " + id + " not found.");
         return null;
     }
 
@@ -104,11 +121,6 @@ public class CommandManager : MonoBehaviour
         }
 
         return false;
-    }
-
-    public TerminalResponseSO GetInvalidCommandResponse()
-    {
-        return invalidCommandResponse;
     }
 
     private void ShowTerminalLines(TerminalResponseSO response)

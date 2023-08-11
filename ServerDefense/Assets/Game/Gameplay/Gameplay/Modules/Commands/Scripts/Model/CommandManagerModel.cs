@@ -1,19 +1,26 @@
 public class CommandManagerModel
 {
-    public CommandManager COMMAND_MANAGER { get; private set; }
-    public TerminalManager TERMINAL_MANAGER { get; private set; }
-    public WavesController WAVES_CONTROLLER { get; private set; }
-    public MapHandler MAP_HANDLER { get; private set; }
-    public TowersController TOWERS_CONTROLLER { get; private set; }
-    public GameCurrenciesController CURRENCIES_CONTROLLER { get; private set; }
+    public CommandManager COMMAND_MANAGER => commandManager;
+    public TerminalManager TERMINAL_MANAGER => terminal;
+    public WavesController WAVES_CONTROLLER => wavesController;
+    public MapHandler MAP_HANDLER => mapHandler;
+    public TowersController TOWERS_CONTROLLER => towersController;
+    public GameCurrenciesController CURRENCIES_CONTROLLER => currencyController;
+
+    private CommandManager commandManager = null;
+    private TerminalManager terminal = null;
+    private WavesController wavesController = null;
+    private MapHandler mapHandler = null;
+    private TowersController towersController = null;
+    private GameCurrenciesController currencyController = null;
 
     public CommandManagerModel(CommandManager commandManager, TerminalManager terminal, WavesController wavesController, MapHandler mapHandler, TowersController towersController, GameCurrenciesController currencyController)
     {
-        COMMAND_MANAGER = commandManager;
-        TERMINAL_MANAGER = terminal;
-        WAVES_CONTROLLER = wavesController;
-        MAP_HANDLER = mapHandler;
-        TOWERS_CONTROLLER = towersController;
-        CURRENCIES_CONTROLLER = currencyController;
+        this.commandManager = commandManager;
+        this.terminal = terminal;
+        this.wavesController = wavesController;
+        this.mapHandler = mapHandler;
+        this.towersController = towersController;
+        this.currencyController = currencyController;
     }
 }
