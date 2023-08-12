@@ -1,11 +1,7 @@
 {
-    "name": "EndGame",
-    "rootNamespace": "ServerDefense.Gameplay.EndGame",
-    "references": [
-        "GUID:bcf565fe16e9ed141b370aea4a6b533d",
-        "GUID:a7f2548f620dffe42a92ae858884c91f",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
-    ],
+    "name": "Tools",
+    "rootNamespace": "ServerDefense.Toolbox",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

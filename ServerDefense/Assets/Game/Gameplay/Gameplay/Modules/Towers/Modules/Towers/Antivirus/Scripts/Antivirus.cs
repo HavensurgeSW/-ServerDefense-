@@ -1,44 +1,49 @@
 using UnityEngine;
 
-public class Antivirus : BaseTower
+using ServerDefense.Gameplay.Gameplay.Modules.Enemies;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Towers
 {
-    [Header("Antivirus Configuration")]
-    [SerializeField] private int maxTargets = 1;
-
-    private TowerLaser laser = null;
-
-    public override void Init(string id)
+    public class Antivirus : BaseTower
     {
-        base.Init(id);
+        [Header("Antivirus Configuration")]
+        [SerializeField] private int maxTargets = 1;
 
-        lasersList.Add(laserPool.Get());
-        laser = lasersList[0];
-        laser.SetPositionCount(maxTargets + 1);
-    }
+        private TowerLaser laser = null;
 
-    protected override void HandleTimedAttack()
-    {
-        if (aimbot.ContainsTargets())
+        public override void Init(string id)
         {
-            if (aimbot.TryGetTargetComponent(out Enemy enemy))
+            base.Init(id);
+
+            lasersList.Add(laserPool.Get());
+            laser = lasersList[0];
+            laser.SetPositionCount(maxTargets + 1);
+        }
+
+        protected override void HandleTimedAttack()
+        {
+            if (aimbot.ContainsTargets())
             {
-                DealDamage(enemy);
+                if (aimbot.TryGetTargetComponent(out Enemy enemy))
+                {
+                    DealDamage(enemy);
+                }
             }
         }
-    }
 
-    protected override void Update()
-    {
-        base.Update();
+        protected override void Update()
+        {
+            base.Update();
 
-        if (aimbot.ContainsTargets())
-        {
-            laser.SetPositionCount(maxTargets + 1);
-            laser.DrawLine(towerLasersHolder.transform.position, aimbot.TARGETS[0].transform.position);
-        }
-        else
-        {
-            laser.ClearLine();
+            if (aimbot.ContainsTargets())
+            {
+                laser.SetPositionCount(maxTargets + 1);
+                laser.DrawLine(towerLasersHolder.transform.position, aimbot.TARGETS[0].transform.position);
+            }
+            else
+            {
+                laser.ClearLine();
+            }
         }
     }
 }

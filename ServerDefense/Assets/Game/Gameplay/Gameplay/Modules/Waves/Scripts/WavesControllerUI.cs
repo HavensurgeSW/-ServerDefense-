@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WavesControllerUI : MonoBehaviour
+namespace ServerDefense.Gameplay.Gameplay.Modules.Waves
 {
-    [SerializeField] private Image timerBar = null;
-
-    public void SetBarProgress(float value)
+    public class WavesControllerUI : MonoBehaviour
     {
-        timerBar.fillAmount = value;
+        [SerializeField] private Image timerBar = null;
+
+        public void SetBarProgress(float value)
+        {
+            timerBar.fillAmount = value;
+        }
     }
 }

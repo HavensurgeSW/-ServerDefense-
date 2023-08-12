@@ -1,49 +1,54 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Location : MonoBehaviour
+using ServerDefense.Gameplay.Gameplay.Modules.Towers;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Map
 {
-    [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private string id;
-    [SerializeField] private bool availability;
-    [SerializeField] private Light2D selectedSpotlight;
-
-    private BaseTower tower = null;
-    private bool isSelected = false;
-
-    public string ID { get => id; }
-    public BaseTower TOWER { get => tower; }
-
-    private void Start()
+    public class Location : MonoBehaviour
     {
-        isSelected = false;
-        availability = true;
+        [SerializeField] private SpriteRenderer sr;
+        [SerializeField] private string id;
+        [SerializeField] private bool availability;
+        [SerializeField] private Light2D selectedSpotlight;
 
-    }
-    public void SetTower(BaseTower tower)
-    {
-        this.tower = tower;
-    }
+        private BaseTower tower = null;
+        private bool isSelected = false;
 
-    public void ToggleSelected(bool b)
-    {
-        isSelected = b;
-        selectedSpotlight.enabled = b;
-        
-    }
+        public string ID { get => id; }
+        public BaseTower TOWER { get => tower; }
 
-    public void ToggleColor(Color clr)
-    {
-        sr.color = clr;
-    }
+        private void Start()
+        {
+            isSelected = false;
+            availability = true;
 
-    public bool GetAvailability()
-    {
-        return availability;
-    }
+        }
+        public void SetTower(BaseTower tower)
+        {
+            this.tower = tower;
+        }
 
-    public void SetAvailable(bool b)
-    {
-        availability = b;
+        public void ToggleSelected(bool b)
+        {
+            isSelected = b;
+            selectedSpotlight.enabled = b;
+
+        }
+
+        public void ToggleColor(Color clr)
+        {
+            sr.color = clr;
+        }
+
+        public bool GetAvailability()
+        {
+            return availability;
+        }
+
+        public void SetAvailable(bool b)
+        {
+            availability = b;
+        }
     }
 }

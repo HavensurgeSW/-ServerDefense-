@@ -1,6 +1,6 @@
 {
     "name": "Common",
-    "rootNamespace": "",
+    "rootNamespace": "ServerDefense.Common",
     "references": [
         "GUID:bcf565fe16e9ed141b370aea4a6b533d"
     ],

@@ -12,8 +12,11 @@ public enum TYLE_TYPE
     PATH = 2
 }
 
-[CreateAssetMenu(fileName = "MapTile", menuName = "ScriptableObjects/Map/Tiles/MapTile")]
-public class MapTile : Tile //this sucks but i really got no other clue as to how to identify the tile type
+namespace ServerDefense.Gameplay.Gameplay.Modules.Map
 {
-    [SerializeField] private TYLE_TYPE type = TYLE_TYPE.NONE;
+    [CreateAssetMenu(fileName = "MapTile", menuName = "ScriptableObjects/Map/Tiles/MapTile")]
+    public class MapTile : Tile //this sucks but i really got no other clue as to how to identify the tile type
+    {
+        [SerializeField] private TYLE_TYPE type = TYLE_TYPE.NONE;
+    }
 }

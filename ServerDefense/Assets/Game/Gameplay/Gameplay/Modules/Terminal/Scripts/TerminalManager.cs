@@ -4,196 +4,201 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal.Entry;
+
 using TMPro;
 
-public class TerminalManager : MonoBehaviour
+namespace ServerDefense.Gameplay.Gameplay.Modules.Terminal
 {
-    [Header("Main Configuration")]
-    [SerializeField] private TMP_InputField terminalInput = null;
-    [SerializeField] private GameObject cmdEntryPrefab = null;
-    [SerializeField] private Transform logHolder = null;
-    
-    [Header("History Configuration")]
-    [SerializeField] private int maxCachedInputsCount = 5;
-
-    private List<CmdEntry> activeEntries = null;
-    private ObjectPool<CmdEntry> entriesPool = null;
-    private List<string> userHistory = null;
-    private int currentHistoryIndex = 0;
-    private bool isEnabled = true;
-
-    private Action<string> OnHistoryInput = null;
-    private Action<string> OnInputCommand = null;
-
-    private void Update()
+    public class TerminalManager : MonoBehaviour
     {
-        if (!isEnabled)
+        [Header("Main Configuration")]
+        [SerializeField] private TMP_InputField terminalInput = null;
+        [SerializeField] private GameObject cmdEntryPrefab = null;
+        [SerializeField] private Transform logHolder = null;
+
+        [Header("History Configuration")]
+        [SerializeField] private int maxCachedInputsCount = 5;
+
+        private List<CmdEntry> activeEntries = null;
+        private ObjectPool<CmdEntry> entriesPool = null;
+        private List<string> userHistory = null;
+        private int currentHistoryIndex = 0;
+        private bool isEnabled = true;
+
+        private Action<string> OnHistoryInput = null;
+        private Action<string> OnInputCommand = null;
+
+        private void Update()
         {
-            return;
-        }
-
-        HandleTerminalInput();
-        HandleUserHistory();
-    }
-
-    public void Init(Action<string> onInputCommand)
-    {
-        OnInputCommand = onInputCommand;
-        OnHistoryInput = UpdateInputField;
-
-        userHistory = new List<string>();
-        activeEntries = new List<CmdEntry>();
-        entriesPool = new ObjectPool<CmdEntry>(CreateEntry, GetEntry, ReleaseEntry);
-
-        SelectInputField();
-    }
-
-    public void AddInterpreterLines(TerminalResponseSO response)
-    {
-        ClearCmdEntries();
-        GenerateCmdEntries(response);
-    }
-
-    public void ToggleTerminalInteraction(bool status)
-    {
-        isEnabled = status;
-        terminalInput.enabled = status;
-        terminalInput.interactable = status;
-
-        if (status)
-        {
-            SelectInputField();
-            terminalInput.MoveTextEnd(false);
-        }
-        else
-        {
-            terminalInput.DeactivateInputField();
-        }
-    }
-
-    private void HandleTerminalInput()
-    {
-        if (string.IsNullOrEmpty(terminalInput.text))
-        {
-            SelectInputField();
-            return;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            InputTerminalText(terminalInput.text);
-            ClearInputField();
-            SelectInputField();
-        }        
-    }
-
-    private void HandleUserHistory()
-    {
-        if (userHistory == null || userHistory.Count == 0)
-        {
-            return;
-        }
-
-        bool updateText = false;
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (currentHistoryIndex >= userHistory.Count)
+            if (!isEnabled)
             {
                 return;
             }
 
-            if (currentHistoryIndex < userHistory.Count - 1)
+            HandleTerminalInput();
+            HandleUserHistory();
+        }
+
+        public void Init(Action<string> onInputCommand)
+        {
+            OnInputCommand = onInputCommand;
+            OnHistoryInput = UpdateInputField;
+
+            userHistory = new List<string>();
+            activeEntries = new List<CmdEntry>();
+            entriesPool = new ObjectPool<CmdEntry>(CreateEntry, GetEntry, ReleaseEntry);
+
+            SelectInputField();
+        }
+
+        public void AddInterpreterLines(TerminalResponseSO response)
+        {
+            ClearCmdEntries();
+            GenerateCmdEntries(response);
+        }
+
+        public void ToggleTerminalInteraction(bool status)
+        {
+            isEnabled = status;
+            terminalInput.enabled = status;
+            terminalInput.interactable = status;
+
+            if (status)
             {
-                currentHistoryIndex++;
+                SelectInputField();
+                terminalInput.MoveTextEnd(false);
+            }
+            else
+            {
+                terminalInput.DeactivateInputField();
+            }
+        }
+
+        private void HandleTerminalInput()
+        {
+            if (string.IsNullOrEmpty(terminalInput.text))
+            {
+                SelectInputField();
+                return;
             }
 
-            updateText = true;
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                InputTerminalText(terminalInput.text);
+                ClearInputField();
+                SelectInputField();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        private void HandleUserHistory()
         {
-            currentHistoryIndex--;
-
-            if (currentHistoryIndex <= 0)
+            if (userHistory == null || userHistory.Count == 0)
             {
-                currentHistoryIndex = 0;
+                return;
             }
 
-            updateText = true;
+            bool updateText = false;
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (currentHistoryIndex >= userHistory.Count)
+                {
+                    return;
+                }
+
+                if (currentHistoryIndex < userHistory.Count - 1)
+                {
+                    currentHistoryIndex++;
+                }
+
+                updateText = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                currentHistoryIndex--;
+
+                if (currentHistoryIndex <= 0)
+                {
+                    currentHistoryIndex = 0;
+                }
+
+                updateText = true;
+            }
+
+            if (updateText)
+            {
+                OnHistoryInput?.Invoke(userHistory[currentHistoryIndex]);
+            }
         }
 
-        if (updateText)
+        private void InputTerminalText(string text)
         {
-            OnHistoryInput?.Invoke(userHistory[currentHistoryIndex]);
+            OnInputCommand(text);
+
+            userHistory.Add(text);
+
+            if (userHistory.Count > maxCachedInputsCount)
+            {
+                userHistory.RemoveAt(0);
+            }
+
+            currentHistoryIndex = userHistory.Count;
         }
-    }
 
-    private void InputTerminalText(string text)
-    {
-        OnInputCommand(text);
-
-        userHistory.Add(text);
-
-        if (userHistory.Count > maxCachedInputsCount)
+        private void SelectInputField()
         {
-            userHistory.RemoveAt(0);
+            terminalInput.ActivateInputField();
+            terminalInput.Select();
         }
 
-        currentHistoryIndex = userHistory.Count;
-    }
-
-    private void SelectInputField()
-    {
-        terminalInput.ActivateInputField();
-        terminalInput.Select();
-    }
-
-    private void ClearInputField()
-    {
-        terminalInput.text = string.Empty;
-    }
-
-    private void UpdateInputField(string userInput) 
-    {
-        terminalInput.text = userInput;
-        terminalInput.MoveTextEnd(false);
-    }
-
-    private void GenerateCmdEntries(TerminalResponseSO response)
-    {
-        for (int i = 0; i < response.RESPONSE.Count; i++)
+        private void ClearInputField()
         {
-            CmdEntry entry = entriesPool.Get();
-            entry.SetSiblingIndex(i);
-            entry.SetText(response.RESPONSE[i]);
-            activeEntries.Add(entry);
+            terminalInput.text = string.Empty;
         }
-    }
 
-    public void ClearCmdEntries()
-    {
-        for (int i = 0; i < activeEntries.Count; i++)
+        private void UpdateInputField(string userInput)
         {
-            entriesPool.Release(activeEntries[i]);
+            terminalInput.text = userInput;
+            terminalInput.MoveTextEnd(false);
         }
 
-        activeEntries.Clear();
-    }
+        private void GenerateCmdEntries(TerminalResponseSO response)
+        {
+            for (int i = 0; i < response.RESPONSE.Count; i++)
+            {
+                CmdEntry entry = entriesPool.Get();
+                entry.SetSiblingIndex(i);
+                entry.SetText(response.RESPONSE[i]);
+                activeEntries.Add(entry);
+            }
+        }
 
-    private CmdEntry CreateEntry()
-    {
-        return Instantiate(cmdEntryPrefab, logHolder).GetComponent<CmdEntry>();
-    }
+        public void ClearCmdEntries()
+        {
+            for (int i = 0; i < activeEntries.Count; i++)
+            {
+                entriesPool.Release(activeEntries[i]);
+            }
 
-    private void GetEntry(CmdEntry entry)
-    {
-        entry.ToggleStatus(true);
-    }
+            activeEntries.Clear();
+        }
 
-    private void ReleaseEntry(CmdEntry entry)
-    {
-        entry.SetText(string.Empty);
-        entry.ToggleStatus(false);
+        private CmdEntry CreateEntry()
+        {
+            return Instantiate(cmdEntryPrefab, logHolder).GetComponent<CmdEntry>();
+        }
+
+        private void GetEntry(CmdEntry entry)
+        {
+            entry.ToggleStatus(true);
+        }
+
+        private void ReleaseEntry(CmdEntry entry)
+        {
+            entry.SetText(string.Empty);
+            entry.ToggleStatus(false);
+        }
     }
 }

@@ -3,47 +3,50 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CreditsHandler : MonoBehaviour
+namespace ServerDefense.Gameplay.MainMenu
 {
-    [Header("Main Configuration")]
-    [SerializeField] private GameObject holder = null;
-    [SerializeField] private Button exitButton = null;
-    [SerializeField] private Transform creditsDataHolder = null;
-    
-    [Header("Credits Configuration")]
-    [SerializeField] private CreditDepartmentData[] creditsData = null;
-    [SerializeField] private GameObject departmentHolderPrefab = null;
-    [SerializeField] private GameObject creditTextPrefab = null;
-    [SerializeField] private GameObject logoHolderPrefab = null;
-
-    public void Init(Action onSwitchToMenu)
+    public class CreditsHandler : MonoBehaviour
     {
-        exitButton.onClick.AddListener(() => onSwitchToMenu?.Invoke());
+        [Header("Main Configuration")]
+        [SerializeField] private GameObject holder = null;
+        [SerializeField] private Button exitButton = null;
+        [SerializeField] private Transform creditsDataHolder = null;
 
-        LoadCredits();
-    }
+        [Header("Credits Configuration")]
+        [SerializeField] private CreditDepartmentData[] creditsData = null;
+        [SerializeField] private GameObject departmentHolderPrefab = null;
+        [SerializeField] private GameObject creditTextPrefab = null;
+        [SerializeField] private GameObject logoHolderPrefab = null;
 
-    public void ToggleStatus(bool status)
-    {
-        holder.SetActive(status);
-    }
-
-    private void LoadCredits()
-    {
-        for (int i = 0; i < creditsData.Length; i++)
+        public void Init(Action onSwitchToMenu)
         {
-            Transform holder = Instantiate(departmentHolderPrefab, creditsDataHolder).transform;
+            exitButton.onClick.AddListener(() => onSwitchToMenu?.Invoke());
 
-            for (int j = 0; j < creditsData[i].STAFF_NAMES.Length; j++)
-            {
-                CreditText credit = Instantiate(creditTextPrefab, holder).GetComponent<CreditText>();
-                credit.SetData(creditsData[i].DEPARTMENT, creditsData[i].STAFF_NAMES[j]);
-
-                bool isFirstNameFromDepartment = j == 0;
-                credit.SetArrowStatus(isFirstNameFromDepartment);
-            }
+            LoadCredits();
         }
 
-        Transform logoholder = Instantiate(logoHolderPrefab, creditsDataHolder).transform;
+        public void ToggleStatus(bool status)
+        {
+            holder.SetActive(status);
+        }
+
+        private void LoadCredits()
+        {
+            for (int i = 0; i < creditsData.Length; i++)
+            {
+                Transform holder = Instantiate(departmentHolderPrefab, creditsDataHolder).transform;
+
+                for (int j = 0; j < creditsData[i].STAFF_NAMES.Length; j++)
+                {
+                    CreditText credit = Instantiate(creditTextPrefab, holder).GetComponent<CreditText>();
+                    credit.SetData(creditsData[i].DEPARTMENT, creditsData[i].STAFF_NAMES[j]);
+
+                    bool isFirstNameFromDepartment = j == 0;
+                    credit.SetArrowStatus(isFirstNameFromDepartment);
+                }
+            }
+
+            Transform logoholder = Instantiate(logoHolderPrefab, creditsDataHolder).transform;
+        }
     }
 }

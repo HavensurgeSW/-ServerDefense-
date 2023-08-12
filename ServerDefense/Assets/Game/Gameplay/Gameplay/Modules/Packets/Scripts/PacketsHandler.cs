@@ -3,81 +3,84 @@ using UnityEngine.Pool;
 
 using TMPro;
 
-public class PacketsHandler : MonoBehaviour
+namespace ServerDefense.Gameplay.Gameplay.Modules.Packets
 {
-    [SerializeField] private PacketData packetData = null;
-    [SerializeField] private Transform packetsHolder = null;
-    [SerializeField] private TMP_Text packetPointsText = null;
-    [SerializeField] private int packetsPerWave = 1;
-
-    private Transform[] waypoints = null;
-    private ObjectPool<Packet> packetPool = null;
-
-    private int currentPackets = 0;
-    private float spawnTimer = 0.0f;
-    private bool allowPackets = false;
-
-    public void Init(Transform[] waypoints)
+    public class PacketsHandler : MonoBehaviour
     {
-        this.waypoints = waypoints;
-        packetPool = new ObjectPool<Packet>(GeneratePacket, GetPacket, ReleasePacket);
-        allowPackets = false;
-        UpdatePacketPointsText(0);
-    }
+        [SerializeField] private PacketData packetData = null;
+        [SerializeField] private Transform packetsHolder = null;
+        [SerializeField] private TMP_Text packetPointsText = null;
+        [SerializeField] private int packetsPerWave = 1;
 
-    public void UpdatePacketPointsText(int points)
-    {
-        packetPointsText.text = "Current KB: " + points.ToString();
-    }
+        private Transform[] waypoints = null;
+        private ObjectPool<Packet> packetPool = null;
 
-    public void StartPacketsWave()
-    {
-        allowPackets = true;
-    }
+        private int currentPackets = 0;
+        private float spawnTimer = 0.0f;
+        private bool allowPackets = false;
 
-    private void Update()
-    {
-        if (!allowPackets)
+        public void Init(Transform[] waypoints)
         {
-            return;
+            this.waypoints = waypoints;
+            packetPool = new ObjectPool<Packet>(GeneratePacket, GetPacket, ReleasePacket);
+            allowPackets = false;
+            UpdatePacketPointsText(0);
         }
 
-        spawnTimer += Time.deltaTime;
-
-        if (spawnTimer >= packetData.SPAWN_DELAY)
+        public void UpdatePacketPointsText(int points)
         {
-            SpawnPackets();
-            spawnTimer = 0;
+            packetPointsText.text = "Current KB: " + points.ToString();
+        }
 
-            if (currentPackets == packetsPerWave)
+        public void StartPacketsWave()
+        {
+            allowPackets = true;
+        }
+
+        private void Update()
+        {
+            if (!allowPackets)
             {
-                currentPackets = 0;
-                allowPackets = false;
+                return;
+            }
+
+            spawnTimer += Time.deltaTime;
+
+            if (spawnTimer >= packetData.SPAWN_DELAY)
+            {
+                SpawnPackets();
+                spawnTimer = 0;
+
+                if (currentPackets == packetsPerWave)
+                {
+                    currentPackets = 0;
+                    allowPackets = false;
+                }
             }
         }
-    }
 
-    private void SpawnPackets()
-    {
-        currentPackets++;
-        allowPackets = true;
+        private void SpawnPackets()
+        {
+            currentPackets++;
+            allowPackets = true;
 
-        Packet packet = packetPool.Get();
-        packet.Init(waypoints, packetPool.Release);
-    }
+            Packet packet = packetPool.Get();
+            packet.Init(waypoints, packetPool.Release);
+        }
 
-    private Packet GeneratePacket()
-    {
-        return Instantiate(packetData.PACKET_PREFAB, packetsHolder).GetComponent<Packet>();
-    }
+        private Packet GeneratePacket()
+        {
+            return Instantiate(packetData.PACKET_PREFAB, packetsHolder).GetComponent<Packet>();
+        }
 
-    private void GetPacket(Packet item)
-    {
-        item.gameObject.SetActive(true);
-    }
+        private void GetPacket(Packet item)
+        {
+            item.gameObject.SetActive(true);
+        }
 
-    private void ReleasePacket(Packet item)
-    {
-        item.gameObject.SetActive(false);
+        private void ReleasePacket(Packet item)
+        {
+            item.gameObject.SetActive(false);
+        }
     }
 }

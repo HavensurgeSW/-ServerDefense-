@@ -1,108 +1,113 @@
 using UnityEngine;
 
-public class Firewall : BaseTower
+using ServerDefense.Gameplay.Gameplay.Modules.Enemies;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Towers
 {
-    [Header("Firewall Configuration")]
-    [SerializeField] private Transform[] laserHolders = null;
-    [SerializeField] private int maxTargets = 1;
-
-    public override void ConfigureStats(TowerStatsSO stats)
+    public class Firewall : BaseTower
     {
-        FirewallTowerStatsSO firewallStats = stats as FirewallTowerStatsSO;
-        base.ConfigureStats(firewallStats);
-        maxTargets = firewallStats.TARGET_COUNT;
-        SetLasers(maxTargets);
-    }
+        [Header("Firewall Configuration")]
+        [SerializeField] private Transform[] laserHolders = null;
+        [SerializeField] private int maxTargets = 1;
 
-    protected override void HandleTimedAttack()
-    {
-        int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
-
-        if (currentMaxTargets > 0)
+        public override void ConfigureStats(TowerStatsSO stats)
         {
-            GameObject[] objs = new GameObject[currentMaxTargets];
+            FirewallTowerStatsSO firewallStats = stats as FirewallTowerStatsSO;
+            base.ConfigureStats(firewallStats);
+            maxTargets = firewallStats.TARGET_COUNT;
+            SetLasers(maxTargets);
+        }
 
-            for (int i = 0; i < currentMaxTargets; i++)
-            {
-                objs[i] = aimbot.TARGETS[i];
-            }
+        protected override void HandleTimedAttack()
+        {
+            int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
 
-            for (int i = 0; i < objs.Length; i++)
+            if (currentMaxTargets > 0)
             {
-                if (objs[i].TryGetComponent(out Enemy enemy))
+                GameObject[] objs = new GameObject[currentMaxTargets];
+
+                for (int i = 0; i < currentMaxTargets; i++)
                 {
-                    DealDamage(enemy);
+                    objs[i] = aimbot.TARGETS[i];
+                }
+
+                for (int i = 0; i < objs.Length; i++)
+                {
+                    if (objs[i].TryGetComponent(out Enemy enemy))
+                    {
+                        DealDamage(enemy);
+                    }
                 }
             }
         }
-    }
 
-    protected override void Update()
-    {
-        base.Update();
-
-        int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
-
-        if (lasersList == null || lasersList.Count <= 0)
+        protected override void Update()
         {
-            return;
-        }
+            base.Update();
 
-        if (currentMaxTargets > 0)
-        {
-            for (int i = 0; i < lasersList.Count; i++)
-            {
-                lasersList[i].ClearLine();
-            }
-            Vector3[] positions = new Vector3[currentMaxTargets];
+            int currentMaxTargets = aimbot.TARGETS.Count >= maxTargets ? maxTargets : aimbot.TARGETS.Count;
 
-            for (int i = 0; i < currentMaxTargets; i++)
+            if (lasersList == null || lasersList.Count <= 0)
             {
-                positions[i] = aimbot.TARGETS[i].transform.position;
+                return;
             }
 
-            for (int i = 0; i < positions.Length; i++)
+            if (currentMaxTargets > 0)
             {
-                lasersList[i].SetPositionCount(2);
-                lasersList[i].DrawLine(laserHolders[i].transform.position, positions[i]);                
-            }
-        }
-        else
-        {
-            for (int i = 0; i < lasersList.Count; i++)
-            {
-                lasersList[i].ClearLine();
-            }
-        }
-    }
+                for (int i = 0; i < lasersList.Count; i++)
+                {
+                    lasersList[i].ClearLine();
+                }
+                Vector3[] positions = new Vector3[currentMaxTargets];
 
-    private void SetLasers(int count)
-    {
-        if (lasersList.Count == count)
-        {
-            return;
-        }
+                for (int i = 0; i < currentMaxTargets; i++)
+                {
+                    positions[i] = aimbot.TARGETS[i].transform.position;
+                }
 
-        int diff = Mathf.Abs(lasersList.Count - count);
-        if (lasersList.Count < count)
-        {
-            for (int i = 0; i < diff; i++)
-            {
-                TowerLaser laser = laserPool.Get();
-                lasersList.Add(laser);
+                for (int i = 0; i < positions.Length; i++)
+                {
+                    lasersList[i].SetPositionCount(2);
+                    lasersList[i].DrawLine(laserHolders[i].transform.position, positions[i]);
+                }
             }
-
-            for (int i = 0; i < lasersList.Count; i++)
+            else
             {
-                lasersList[i].transform.SetParent(laserHolders[i]);
+                for (int i = 0; i < lasersList.Count; i++)
+                {
+                    lasersList[i].ClearLine();
+                }
             }
         }
-        else if (lasersList.Count > count)
+
+        private void SetLasers(int count)
         {
-            for (int i = 0; i < diff; i++)
+            if (lasersList.Count == count)
             {
-                laserPool.Release(lasersList[i]);
-                lasersList.RemoveAt(i);
+                return;
+            }
+
+            int diff = Mathf.Abs(lasersList.Count - count);
+            if (lasersList.Count < count)
+            {
+                for (int i = 0; i < diff; i++)
+                {
+                    TowerLaser laser = laserPool.Get();
+                    lasersList.Add(laser);
+                }
+
+                for (int i = 0; i < lasersList.Count; i++)
+                {
+                    lasersList[i].transform.SetParent(laserHolders[i]);
+                }
+            }
+            else if (lasersList.Count > count)
+            {
+                for (int i = 0; i < diff; i++)
+                {
+                    laserPool.Release(lasersList[i]);
+                    lasersList.RemoveAt(i);
+                }
             }
         }
     }

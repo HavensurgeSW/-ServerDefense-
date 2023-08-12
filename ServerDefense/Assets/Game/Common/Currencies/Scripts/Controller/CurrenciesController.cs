@@ -37,6 +37,26 @@ namespace ServerDefense.Common.Currencies
             return null;
         }
 
+        public int GetCurrencyValue(CurrencySO currency)
+        {
+            return GetCurrencyValue(currency.CURRENCY_ID);
+        }
+
+        public void SetCurrencyValue(CurrencySO currency, int amount)
+        {
+            SetCurrencyValue(currency.CURRENCY_ID, amount);
+        }
+
+        public int AddCurrencyValue(CurrencySO currency, int amount)
+        {
+            return AddCurrencyValue(currency.CURRENCY_ID, amount);
+        }
+
+        public int SubstractCurrencyValue(CurrencySO currency, int amount)
+        {
+            return SubstractCurrencyValue(currency.CURRENCY_ID, amount);
+        }
+
         public void SetCurrencyValue(string currencyId, int amount)
         {
             if (currenciesDictionary.ContainsKey(currencyId))

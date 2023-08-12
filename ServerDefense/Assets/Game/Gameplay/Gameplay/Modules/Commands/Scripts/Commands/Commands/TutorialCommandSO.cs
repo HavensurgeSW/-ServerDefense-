@@ -3,52 +3,57 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_tutorial", menuName = "ScriptableObjects/Commands/Tutorial")]
-public class TutorialCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    [Header("Tutorial Command Configuration")]
-    [SerializeField] private TutorialData[] tutorials = null;
-
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_tutorial", menuName = "ScriptableObjects/Commands/Tutorial")]
+    public class TutorialCommandSO : CommandSO
     {
-        string tutorialId = arguments[0];
+        [Header("Tutorial Command Configuration")]
+        [SerializeField] private TutorialData[] tutorials = null;
 
-        for (int i = 0; i < tutorials.Length; i++)
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
-            TutorialData tutorial = tutorials[i];
-            if (tutorial.TUTORIAL_ID == tutorialId)
+            string tutorialId = arguments[0];
+
+            for (int i = 0; i < tutorials.Length; i++)
             {
-                onTriggerMessage(tutorial.TUTORIAL_LINES);
-                onSuccess(this);
-                return;
+                TutorialData tutorial = tutorials[i];
+                if (tutorial.TUTORIAL_ID == tutorialId)
+                {
+                    onTriggerMessage(tutorial.TUTORIAL_LINES);
+                    onSuccess(this);
+                    return;
+                }
             }
+
+            onTriggerMessage(errorResponse);
+            onFailure(this);
         }
 
-        onTriggerMessage(errorResponse);
-        onFailure(this);
-    }
-
-    public override void TriggerHelpResponse(CommandManagerModel commandManagerModel, Action<TerminalResponseSO> onTriggerMessage)
-    {
-        List<string> lines = new List<string>();
-        lines.Add("TUTORIAL <Num. of page>");
-        lines.Add("Prints out tutorial logs.");
-
-        string lastLine = "NUMBER OF PAGES: ";
-
-        for (int i = 0; i < tutorials.Length; i++)
+        public override void TriggerHelpResponse(CommandManagerModel commandManagerModel, Action<TerminalResponseSO> onTriggerMessage)
         {
-            lastLine += tutorials[i].TUTORIAL_ID;
+            List<string> lines = new List<string>();
+            lines.Add("TUTORIAL <Num. of page>");
+            lines.Add("Prints out tutorial logs.");
 
-            if (i != tutorials.Length - 1)
+            string lastLine = "NUMBER OF PAGES: ";
+
+            for (int i = 0; i < tutorials.Length; i++)
             {
-                lastLine += ", ";
-            }
-        }
+                lastLine += tutorials[i].TUTORIAL_ID;
 
-        lines.Add(lastLine);
-        TerminalResponseSO response = TerminalResponseSO.CreateInstance(lines);
-        onTriggerMessage(response);
-        TerminalResponseSO.Destroy(response);
+                if (i != tutorials.Length - 1)
+                {
+                    lastLine += ", ";
+                }
+            }
+
+            lines.Add(lastLine);
+            TerminalResponseSO response = TerminalResponseSO.CreateInstance(lines);
+            onTriggerMessage(response);
+            TerminalResponseSO.Destroy(response);
+        }
     }
 }

@@ -4,70 +4,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class EnemyHandler : MonoBehaviour
+namespace ServerDefense.Gameplay.Gameplay.Modules.Enemies
 {
-    [Header("Settings")]
-    [SerializeField] private EnemySO[] enemiesData = null;
-    [SerializeField] private Transform enemiesHolder = null;
-
-    private Dictionary<string, EnemySO> enemiesDictionary = null;
-    private Dictionary<string, ObjectPool<Enemy>> enemyPools = null;
-    private Dictionary<string, List<Enemy>> enemyListsDictionary = null;
-
-    private Transform[] waypoints = null;
-
-    public void Init(Transform[] waypoints)
+    public class EnemyHandler : MonoBehaviour
     {
-        this.waypoints = waypoints;
+        [Header("Settings")]
+        [SerializeField] private EnemySO[] enemiesData = null;
+        [SerializeField] private Transform enemiesHolder = null;
 
-        enemiesDictionary = new Dictionary<string, EnemySO>();
-        enemyPools = new Dictionary<string, ObjectPool<Enemy>>();
-        enemyListsDictionary = new Dictionary<string, List<Enemy>>();
+        private Dictionary<string, EnemySO> enemiesDictionary = null;
+        private Dictionary<string, ObjectPool<Enemy>> enemyPools = null;
+        private Dictionary<string, List<Enemy>> enemyListsDictionary = null;
 
-        for (int i = 0; i < enemiesData.Length; i++)
+        private Transform[] waypoints = null;
+
+        public void Init(Transform[] waypoints)
         {
-            string id = enemiesData[i].ID;
-            enemiesDictionary.Add(id, enemiesData[i]);
-            enemyPools.Add(id, new ObjectPool<Enemy>(() => SpawnEnemy(id), GetEnemy, ReleaseEnemy));
-            enemyListsDictionary.Add(id, new List<Enemy>());
-        }
-    }
+            this.waypoints = waypoints;
 
-    public void GenerateEnemy(string enemyId, Action onDeath)
-    {
-        Enemy enemy = enemyPools[enemyId].Get();
-        enemyListsDictionary[enemyId].Add(enemy);
-        enemy.transform.SetParent(enemiesHolder);
+            enemiesDictionary = new Dictionary<string, EnemySO>();
+            enemyPools = new Dictionary<string, ObjectPool<Enemy>>();
+            enemyListsDictionary = new Dictionary<string, List<Enemy>>();
 
-        enemy.Init(enemiesDictionary[enemyId], waypoints, 
-            (enemy) =>
+            for (int i = 0; i < enemiesData.Length; i++)
             {
-                ReleaseActiveEnemy(enemy);
-                onDeath?.Invoke();
-            });
-    }
+                string id = enemiesData[i].ID;
+                enemiesDictionary.Add(id, enemiesData[i]);
+                enemyPools.Add(id, new ObjectPool<Enemy>(() => SpawnEnemy(id), GetEnemy, ReleaseEnemy));
+                enemyListsDictionary.Add(id, new List<Enemy>());
+            }
+        }
 
-    private Enemy SpawnEnemy(string enemyId)
-    {
-        EnemySO data = enemiesDictionary[enemyId];
-        Enemy enemy = Instantiate(data.ENEMY_PREFAB, enemiesHolder).GetComponent<Enemy>();
-        return enemy;
-    }
+        public void GenerateEnemy(string enemyId, Action onDeath)
+        {
+            Enemy enemy = enemyPools[enemyId].Get();
+            enemyListsDictionary[enemyId].Add(enemy);
+            enemy.transform.SetParent(enemiesHolder);
 
-    private void GetEnemy(Enemy item)
-    {
-        item.gameObject.SetActive(true);
-    }
+            enemy.Init(enemiesDictionary[enemyId], waypoints,
+                (enemy) =>
+                {
+                    ReleaseActiveEnemy(enemy);
+                    onDeath?.Invoke();
+                });
+        }
 
-    private void ReleaseEnemy(Enemy item)
-    {
-        item.gameObject.SetActive(false);
-    }
+        private Enemy SpawnEnemy(string enemyId)
+        {
+            EnemySO data = enemiesDictionary[enemyId];
+            Enemy enemy = Instantiate(data.ENEMY_PREFAB, enemiesHolder).GetComponent<Enemy>();
+            return enemy;
+        }
 
-    public void ReleaseActiveEnemy(Enemy enemy)
-    {
-        string id = enemy.ID;
-        enemyListsDictionary[id].Remove(enemy);
-        enemyPools[id].Release(enemy);
+        private void GetEnemy(Enemy item)
+        {
+            item.gameObject.SetActive(true);
+        }
+
+        private void ReleaseEnemy(Enemy item)
+        {
+            item.gameObject.SetActive(false);
+        }
+
+        public void ReleaseActiveEnemy(Enemy enemy)
+        {
+            string id = enemy.ID;
+            enemyListsDictionary[id].Remove(enemy);
+            enemyPools[id].Release(enemy);
+        }
     }
 }

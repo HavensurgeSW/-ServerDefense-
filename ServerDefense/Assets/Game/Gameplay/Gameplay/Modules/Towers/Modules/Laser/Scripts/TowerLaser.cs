@@ -1,38 +1,41 @@
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-public class TowerLaser : MonoBehaviour
+namespace ServerDefense.Gameplay.Gameplay.Modules.Towers
 {
-    [SerializeField] private LineRenderer lineRenderer = null;
-
-    public void SetPositionCount(int positionCount)
+    [RequireComponent(typeof(LineRenderer))]
+    public class TowerLaser : MonoBehaviour
     {
-        lineRenderer.positionCount = positionCount;
-    }
+        [SerializeField] private LineRenderer lineRenderer = null;
 
-    public void DrawLine(Vector3 origin, Vector3 target)
-    {
-        lineRenderer.SetPosition(0, origin);
-        lineRenderer.SetPosition(1, target);
-    }
-
-    public void SetLaserMaterial(Material material)
-    {
-        lineRenderer.material = material;
-    }
-
-    public void DrawChainedLines(Vector3 origin, Vector3[] target)
-    {
-        lineRenderer.SetPosition(0, origin);
-        
-        for (int i = 1; i < target.Length; i++)
+        public void SetPositionCount(int positionCount)
         {
-            lineRenderer.SetPosition(i, target[i - 1]);
+            lineRenderer.positionCount = positionCount;
         }
-    }
 
-    public void ClearLine()
-    {
-        SetPositionCount(0);
+        public void DrawLine(Vector3 origin, Vector3 target)
+        {
+            lineRenderer.SetPosition(0, origin);
+            lineRenderer.SetPosition(1, target);
+        }
+
+        public void SetLaserMaterial(Material material)
+        {
+            lineRenderer.material = material;
+        }
+
+        public void DrawChainedLines(Vector3 origin, Vector3[] target)
+        {
+            lineRenderer.SetPosition(0, origin);
+
+            for (int i = 1; i < target.Length; i++)
+            {
+                lineRenderer.SetPosition(i, target[i - 1]);
+            }
+        }
+
+        public void ClearLine()
+        {
+            SetPositionCount(0);
+        }
     }
 }

@@ -2,47 +2,50 @@ using System;
 
 using UnityEngine;
 
-public class Packet : MonoBehaviour
+namespace ServerDefense.Gameplay.Gameplay.Modules.Packets
 {
-    [SerializeField] private PacketData packetData = null;
-
-    private int targetIndex;
-    private Transform[] wpPath;
-
-    private Action<Packet> OnDeath = null;
-
-    public PacketData PACKET_DATA => packetData;
-
-    public void Init(Transform[] wpList, Action<Packet> onDeath)
+    public class Packet : MonoBehaviour
     {
-        wpPath = wpList;
-        OnDeath = onDeath;
-        targetIndex = 0;
-        transform.position = wpPath[targetIndex].position;
-    }
+        [SerializeField] private PacketData packetData = null;
 
-    private void Update()
-    {
-        float step = packetData.SPEED * Time.deltaTime;
+        private int targetIndex;
+        private Transform[] wpPath;
 
-        transform.position = Vector2.MoveTowards(transform.position, wpPath[targetIndex].position, step);
+        private Action<Packet> OnDeath = null;
 
-        if (Vector2.Distance(transform.position, wpPath[targetIndex].position) < packetData.TARGET_CHANGE_DISTANCE)
+        public PacketData PACKET_DATA => packetData;
+
+        public void Init(Transform[] wpList, Action<Packet> onDeath)
         {
-            UpdateTargetWP();
+            wpPath = wpList;
+            OnDeath = onDeath;
+            targetIndex = 0;
+            transform.position = wpPath[targetIndex].position;
         }
-    }
 
-    public void UpdateTargetWP()
-    {
-        if (targetIndex < wpPath.Length - 1)
+        private void Update()
         {
-            targetIndex++;
-        }
-    }
+            float step = packetData.SPEED * Time.deltaTime;
 
-    public void Die()
-    {
-        OnDeath?.Invoke(this);
+            transform.position = Vector2.MoveTowards(transform.position, wpPath[targetIndex].position, step);
+
+            if (Vector2.Distance(transform.position, wpPath[targetIndex].position) < packetData.TARGET_CHANGE_DISTANCE)
+            {
+                UpdateTargetWP();
+            }
+        }
+
+        public void UpdateTargetWP()
+        {
+            if (targetIndex < wpPath.Length - 1)
+            {
+                targetIndex++;
+            }
+        }
+
+        public void Die()
+        {
+            OnDeath?.Invoke(this);
+        }
     }
 }

@@ -1,47 +1,52 @@
 using UnityEngine;
 
-public class MainMenuController : SceneController
+using ServerDefense.Common.Controller;
+
+namespace ServerDefense.Gameplay.MainMenu
 {
-    [Header("Main Configuration")]
-    [SerializeField] private MenuHandler menuHandler = null;
-    [SerializeField] private CreditsHandler creditsHandler = null;
-    [SerializeField] private GameObject loadingPanel = null;
-
-    protected override void Awake()
+    public class MainMenuController : SceneController
     {
-        SavedDataHandler savedDataHandler = SavedDataHandler.Instance;
-        savedDataHandler.ResetData();
+        [Header("Main Configuration")]
+        [SerializeField] private MenuHandler menuHandler = null;
+        [SerializeField] private CreditsHandler creditsHandler = null;
+        [SerializeField] private GameObject loadingPanel = null;
 
-        menuHandler.Init(SwitchToCredits, 
-            (scene, isAsync) => 
-            {
-                loadingPanel.SetActive(true);
-                savedDataHandler.SetSelectedScene(scene);
-                ChangeScene(scene, isAsync);
-            }, 
-            QuitApplication);
+        protected override void Awake()
+        {
+            SavedDataHandler savedDataHandler = SavedDataHandler.Instance;
+            savedDataHandler.ResetData();
 
-        creditsHandler.Init(SwitchToMenu);
+            menuHandler.Init(SwitchToCredits,
+                (scene, isAsync) =>
+                {
+                    loadingPanel.SetActive(true);
+                    savedDataHandler.SetSelectedScene(scene);
+                    ChangeScene(scene, isAsync);
+                },
+                QuitApplication);
 
-        SwitchToMenu();
-    }
+            creditsHandler.Init(SwitchToMenu);
 
-    protected override void OnDisable()
-    {
-    }
+            SwitchToMenu();
+        }
 
-    protected override void OnEnable()
-    {
-    }
+        protected override void OnDisable()
+        {
+        }
 
-    private void SwitchToMenu()
-    {
-        menuHandler.ToggleMenuStatus(true);
-        creditsHandler.ToggleStatus(false);
-    }
-    private void SwitchToCredits()
-    {
-        menuHandler.ToggleMenuStatus(false);
-        creditsHandler.ToggleStatus(true);
+        protected override void OnEnable()
+        {
+        }
+
+        private void SwitchToMenu()
+        {
+            menuHandler.ToggleMenuStatus(true);
+            creditsHandler.ToggleStatus(false);
+        }
+        private void SwitchToCredits()
+        {
+            menuHandler.ToggleMenuStatus(false);
+            creditsHandler.ToggleStatus(true);
+        }
     }
 }

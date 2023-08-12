@@ -1,30 +1,33 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+namespace ServerDefense.Gameplay.MainMenu
 {
-    [SerializeField] private Animator currentAnimator = null;
-    [SerializeField] private Animator[] recursiveAnimator = null;
-
-    private int isSelectedHash = Animator.StringToHash("isSelected");
-
-    public void OnPointerEnter(PointerEventData eventData)
+    public class ArrowButtonRelator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        RunAnimatorLoop(true);     
-    }
+        [SerializeField] private Animator currentAnimator = null;
+        [SerializeField] private Animator[] recursiveAnimator = null;
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        RunAnimatorLoop(false);
-    }
+        private int isSelectedHash = Animator.StringToHash("isSelected");
 
-    private void RunAnimatorLoop(bool b) 
-    {
-        currentAnimator.SetBool(isSelectedHash, b);
-    
-        for (int i = 0; i < recursiveAnimator.Length; i++)
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            recursiveAnimator[i].SetBool(isSelectedHash, b);
+            RunAnimatorLoop(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            RunAnimatorLoop(false);
+        }
+
+        private void RunAnimatorLoop(bool b)
+        {
+            currentAnimator.SetBool(isSelectedHash, b);
+
+            for (int i = 0; i < recursiveAnimator.Length; i++)
+            {
+                recursiveAnimator[i].SetBool(isSelectedHash, b);
+            }
         }
     }
 }

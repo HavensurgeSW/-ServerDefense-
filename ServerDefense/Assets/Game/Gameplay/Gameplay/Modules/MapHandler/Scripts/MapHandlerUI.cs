@@ -3,73 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class MapHandlerUI : MonoBehaviour
+using ServerDefense.Gameplay.Gameplay.Modules.PopUps;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Map
 {
-    [Header("Popups Configuration")]
-    [SerializeField] private Transform popUpsHolder = null;
-    [SerializeField] private GameObject popUpPrefab = null;
-    [SerializeField] private Vector2 offset = Vector2.zero;
-
-    private ObjectPool<PopUp> popUpPool = null;
-    private List<PopUp> activePopUps = null;
-    private Camera mainCamera = null;
-
-    public void Init()
+    public class MapHandlerUI : MonoBehaviour
     {
-        mainCamera = Camera.main;
+        [Header("Popups Configuration")]
+        [SerializeField] private Transform popUpsHolder = null;
+        [SerializeField] private GameObject popUpPrefab = null;
+        [SerializeField] private Vector2 offset = Vector2.zero;
 
-        activePopUps = new List<PopUp>();
-        popUpPool = new ObjectPool<PopUp>(CreatePopUp, GetPopUp, ReleasePopUp);
-    }
+        private ObjectPool<PopUp> popUpPool = null;
+        private List<PopUp> activePopUps = null;
+        private Camera mainCamera = null;
 
-    public void GeneratePopUp(Location location)
-    {
-        GeneratePopUp(location.ID, mainCamera.WorldToScreenPoint(location.transform.position));
-    }
-
-    public void GeneratePopUp(string id, Vector3 position)
-    {
-        PopUp popUp = popUpPool.Get();
-        activePopUps.Add(popUp);
-        popUp.SetPosition(position + (Vector3)offset);
-        popUp.SetLocationIdText(id);
-        popUp.ToggleTowerDataText(false);
-    }
-
-    public void ClearAllPopUps()
-    {
-        for (int i = 0; i < activePopUps.Count; i++)
+        public void Init()
         {
-            popUpPool.Release(activePopUps[i]);
+            mainCamera = Camera.main;
+
+            activePopUps = new List<PopUp>();
+            popUpPool = new ObjectPool<PopUp>(CreatePopUp, GetPopUp, ReleasePopUp);
         }
 
-        activePopUps.Clear();
-    }
-
-    private void RemovePopUp(PopUp item)
-    {
-        item.Release();
-
-        if (activePopUps.Contains(item))
+        public void GeneratePopUp(Location location)
         {
-            activePopUps.Remove(item);
+            GeneratePopUp(location.ID, mainCamera.WorldToScreenPoint(location.transform.position));
         }
-    }
 
-    private PopUp CreatePopUp()
-    {
-        PopUp item = Instantiate(popUpPrefab, popUpsHolder).GetComponent<PopUp>();
-        item.Init(RemovePopUp);
-        return item;
-    }
+        public void GeneratePopUp(string id, Vector3 position)
+        {
+            PopUp popUp = popUpPool.Get();
+            activePopUps.Add(popUp);
+            popUp.SetPosition(position + (Vector3)offset);
+            popUp.SetLocationIdText(id);
+            popUp.ToggleTowerDataText(false);
+        }
 
-    private void GetPopUp(PopUp item)
-    {
-        item.gameObject.SetActive(true);
-    }
+        public void ClearAllPopUps()
+        {
+            for (int i = 0; i < activePopUps.Count; i++)
+            {
+                popUpPool.Release(activePopUps[i]);
+            }
 
-    private void ReleasePopUp(PopUp item)
-    {
-        item.gameObject.SetActive(false);
+            activePopUps.Clear();
+        }
+
+        private void RemovePopUp(PopUp item)
+        {
+            item.Release();
+
+            if (activePopUps.Contains(item))
+            {
+                activePopUps.Remove(item);
+            }
+        }
+
+        private PopUp CreatePopUp()
+        {
+            PopUp item = Instantiate(popUpPrefab, popUpsHolder).GetComponent<PopUp>();
+            item.Init(RemovePopUp);
+            return item;
+        }
+
+        private void GetPopUp(PopUp item)
+        {
+            item.gameObject.SetActive(true);
+        }
+
+        private void ReleasePopUp(PopUp item)
+        {
+            item.gameObject.SetActive(false);
+        }
     }
 }

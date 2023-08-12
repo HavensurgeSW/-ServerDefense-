@@ -3,18 +3,21 @@ using UnityEngine.UI;
 
 using TMPro;
 
-public class CreditText : MonoBehaviour
+namespace ServerDefense.Gameplay.MainMenu
 {
-    [SerializeField] private TMP_Text text = null;
-    [SerializeField] private Image arrow = null;
-
-    public void SetData(string department, string name)
+    public class CreditText : MonoBehaviour
     {
-        text.text = department + ": " + name;
-    }
+        [SerializeField] private TMP_Text text = null;
+        [SerializeField] private Image arrow = null;
 
-    public void SetArrowStatus(bool status)
-    {
-        arrow.gameObject.SetActive(status);
+        public void SetData(string department, string name)
+        {
+            text.text = department + ": " + name;
+        }
+
+        public void SetArrowStatus(bool status)
+        {
+            arrow.gameObject.SetActive(status);
+        }
     }
 }

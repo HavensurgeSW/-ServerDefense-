@@ -2,42 +2,48 @@ using System;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_CD", menuName = "ScriptableObjects/Commands/ChangeDirectory")]
-public class CDCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Map;
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_CD", menuName = "ScriptableObjects/Commands/ChangeDirectory")]
+    public class CDCommandSO : CommandSO
     {
-        string locName = arguments[0];
-        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
-
-        bool foundLocation = false;
-
-        foreach (Location loc in mapHandler.LOCATIONS)
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
-            if (loc.ID == locName)
+            string locName = arguments[0];
+            MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
+
+            bool foundLocation = false;
+
+            foreach (Location loc in mapHandler.LOCATIONS)
             {
-                SelectLocation(commandManagerModel, loc);
-                foundLocation = true;
-                onTriggerMessage(successResponse);
-                onSuccess(this);
-                break;
+                if (loc.ID == locName)
+                {
+                    SelectLocation(commandManagerModel, loc);
+                    foundLocation = true;
+                    onTriggerMessage(successResponse);
+                    onSuccess(this);
+                    break;
+                }
+            }
+
+            if (!foundLocation)
+            {
+                onTriggerMessage(errorResponse);
+                onFailure(this);
             }
         }
 
-        if (!foundLocation)
+        private void SelectLocation(CommandManagerModel model, Location location)
         {
-            onTriggerMessage(errorResponse);
-            onFailure(this);
+            MapHandler mapHandler = model.MAP_HANDLER;
+
+            mapHandler.SetCurrentLocation(location);
+
+            TerminalManager terminal = model.TERMINAL_MANAGER;
+            terminal.ClearCmdEntries();
         }
-    }
-
-    private void SelectLocation(CommandManagerModel model, Location location)
-    {
-        MapHandler mapHandler = model.MAP_HANDLER;
-
-        mapHandler.SetCurrentLocation(location);
-
-        TerminalManager terminal = model.TERMINAL_MANAGER;
-        terminal.ClearCmdEntries();
     }
 }

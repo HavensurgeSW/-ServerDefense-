@@ -2,31 +2,37 @@ using System;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_network", menuName = "ScriptableObjects/Commands/Network")]
-public class NetworkCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+using ServerDefense.Gameplay.Gameplay.Modules.Waves;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    [Header("Network Command Configuration")]
-    [SerializeField] private string initId = string.Empty;
-
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_network", menuName = "ScriptableObjects/Commands/Network")]
+    public class NetworkCommandSO : CommandSO
     {
-        string keyword = arguments[0];
+        [Header("Network Command Configuration")]
+        [SerializeField] private string initId = string.Empty;
 
-        if (keyword == initId)
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
-            WavesController wavesController = commandManagerModel.WAVES_CONTROLLER;
-            wavesController.StartWave(wavesController.CURRENT_WAVE_INDEX, null);
+            string keyword = arguments[0];
 
-            //wavesController.StartWave(index, null);
-            //
-            //packetsHandler.StartPacketsWave();
+            if (keyword == initId)
+            {
+                WavesController wavesController = commandManagerModel.WAVES_CONTROLLER;
+                wavesController.StartWave(wavesController.CURRENT_WAVE_INDEX, null);
 
-            onTriggerMessage(successResponse);
-            onSuccess(this);
-            return;
+                //wavesController.StartWave(index, null);
+                //
+                //packetsHandler.StartPacketsWave();
+
+                onTriggerMessage(successResponse);
+                onSuccess(this);
+                return;
+            }
+
+            onTriggerMessage(errorResponse);
+            onFailure(this);
         }
-
-        onTriggerMessage(errorResponse);
-        onFailure(this);
     }
 }

@@ -1,10 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_help", menuName = "ScriptableObjects/Commands/Help")]
-public class HelpCommandSO : ReturnCommandsCommandSO
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    [Header("Help Command Configuration")]
-    [SerializeField] private string[] helpKeywords = null;
+    [CreateAssetMenu(fileName = "command_help", menuName = "ScriptableObjects/Commands/Help")]
+    public class HelpCommandSO : ReturnCommandsCommandSO
+    {
+        [Header("Help Command Configuration")]
+        [SerializeField] private string[] helpKeywords = null;
 
-    public string[] HELP_KEYWORDS => helpKeywords;
+        public string[] HELP_KEYWORDS => helpKeywords;
+    }
 }

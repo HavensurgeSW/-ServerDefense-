@@ -2,11 +2,16 @@ using System;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_reload", menuName = "ScriptableObjects/Commands/Reload")]
-public class ReloadCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_reload", menuName = "ScriptableObjects/Commands/Reload")]
+    public class ReloadCommandSO : CommandSO
     {
-        commandManagerModel.COMMAND_MANAGER.ChangeScene(SCENE.LEVEL_0);
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+        {
+            commandManagerModel.COMMAND_MANAGER.ChangeScene(SCENE.LEVEL_0);
+        }
     }
 }

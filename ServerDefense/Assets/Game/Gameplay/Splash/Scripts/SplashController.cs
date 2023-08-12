@@ -1,26 +1,31 @@
 using UnityEngine;
 using UnityEngine.Video;
 
-public class SplashController : SceneController
+using ServerDefense.Common.Controller;
+
+namespace ServerDefense.Gameplay.Splash
 {
-    [SerializeField] private SCENE targetScene = SCENE.NONE;
-    [SerializeField] private VideoPlayer video = null;
-
-    protected override void Awake()
+    public class SplashController : SceneController
     {
-        video.loopPointReached += (video) => ChangeSceneOnVideoEnd();
-    }
+        [SerializeField] private SCENE targetScene = SCENE.NONE;
+        [SerializeField] private VideoPlayer video = null;
 
-    protected override void OnDisable()
-    {
-    }
+        protected override void Awake()
+        {
+            video.loopPointReached += (video) => ChangeSceneOnVideoEnd();
+        }
 
-    protected override void OnEnable()
-    {
-    }
+        protected override void OnDisable()
+        {
+        }
 
-    private void ChangeSceneOnVideoEnd()
-    {
-        ChangeScene(targetScene, true);
+        protected override void OnEnable()
+        {
+        }
+
+        private void ChangeSceneOnVideoEnd()
+        {
+            ChangeScene(targetScene, true);
+        }
     }
 }

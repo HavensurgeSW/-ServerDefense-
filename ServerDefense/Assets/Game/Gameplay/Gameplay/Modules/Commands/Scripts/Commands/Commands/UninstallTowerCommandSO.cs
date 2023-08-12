@@ -1,40 +1,46 @@
 using System;
-using System.Collections.Generic;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_uninstall_", menuName = "ScriptableObjects/Commands/Uninstalls/UninstallTower")]
-public class UninstallTowerCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Map;
+using ServerDefense.Gameplay.Gameplay.Modules.Towers;
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_uninstall_", menuName = "ScriptableObjects/Commands/Uninstalls/UninstallTower")]
+    public class UninstallTowerCommandSO : CommandSO
     {
-        MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
-
-        if (mapHandler.GetIsCurrentLocationAvailable())
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
-            onTriggerMessage(errorResponse);
-            onFailure(this);
-            return;
+            MapHandler mapHandler = commandManagerModel.MAP_HANDLER;
+
+            if (mapHandler.GetIsCurrentLocationAvailable())
+            {
+                onTriggerMessage(errorResponse);
+                onFailure(this);
+                return;
+            }
+
+            string inputTowerId = arguments[0];
+            Location currentLoc = mapHandler.CURRENT_LOCATION;
+
+            BaseTower selectedTower = currentLoc.TOWER;
+
+            if (inputTowerId != selectedTower.ID)
+            {
+                onTriggerMessage(errorResponse);
+                onFailure(this);
+                return;
+            }
+
+            TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
+
+            towersController.ReleaseActiveTower(selectedTower);
+            currentLoc.SetTower(null);
+            currentLoc.SetAvailable(true);
+            onTriggerMessage(successResponse);
+            onSuccess(this);
         }
-
-        string inputTowerId = arguments[0];
-        Location currentLoc = mapHandler.CURRENT_LOCATION;
-
-        BaseTower selectedTower = currentLoc.TOWER;
-
-        if (inputTowerId != selectedTower.ID)
-        {
-            onTriggerMessage(errorResponse);
-            onFailure(this);
-            return;
-        }
-
-        TowersController towersController = commandManagerModel.TOWERS_CONTROLLER;
-
-        towersController.ReleaseActiveTower(selectedTower);
-        currentLoc.SetTower(null);
-        currentLoc.SetAvailable(true);
-        onTriggerMessage(successResponse);
-        onSuccess(this);
     }
 }

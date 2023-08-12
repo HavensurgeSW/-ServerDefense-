@@ -2,13 +2,18 @@ using UnityEngine;
 
 using ServerDefense.Common.Currencies;
 
-public class GameCurrenciesController : CurrenciesController
-{
-    [Header("Responses Configuration")]
-    [SerializeField] private TerminalResponseSO insufficientCurrencyResponse = null;
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 
-    public TerminalResponseSO GetInsufficientCurrencyResponse()
+namespace ServerDefense.Gameplay.Gameplay.Modules.Currencies
+{
+    public class GameCurrenciesController : CurrenciesController
     {
-        return insufficientCurrencyResponse;
+        [Header("Responses Configuration")]
+        [SerializeField] private TerminalResponseSO insufficientCurrencyResponse = null;
+
+        public TerminalResponseSO GetInsufficientCurrencyResponse()
+        {
+            return insufficientCurrencyResponse;
+        }
     }
 }

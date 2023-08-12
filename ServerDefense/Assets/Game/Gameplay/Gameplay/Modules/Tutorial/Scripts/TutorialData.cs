@@ -2,6 +2,8 @@ using System;
 
 using UnityEngine;
 
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
 [Serializable]
 public class TutorialData
 {

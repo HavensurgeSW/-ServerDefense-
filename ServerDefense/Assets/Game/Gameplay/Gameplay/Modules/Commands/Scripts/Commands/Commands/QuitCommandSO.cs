@@ -2,29 +2,34 @@ using System;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_quit", menuName = "ScriptableObjects/Commands/Quit")]
-public class QuitCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    [Header("Quit Command Configuration")]
-    [SerializeField] private string[] quitKeywords = null;
-    [SerializeField] private SCENE targetScene = SCENE.NONE;
-
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_quit", menuName = "ScriptableObjects/Commands/Quit")]
+    public class QuitCommandSO : CommandSO
     {
-        string keyword = arguments[0];
+        [Header("Quit Command Configuration")]
+        [SerializeField] private string[] quitKeywords = null;
+        [SerializeField] private SCENE targetScene = SCENE.NONE;
 
-        for (int i = 0; i < quitKeywords.Length; i++)
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
-            if (keyword == quitKeywords[i])
-            {
-                onTriggerMessage(successResponse);
-                onSuccess(this);
-                commandManagerModel.COMMAND_MANAGER.ChangeScene(targetScene);
-                break;
-            }
-        }
+            string keyword = arguments[0];
 
-        onTriggerMessage(errorResponse);
-        onFailure(this);
+            for (int i = 0; i < quitKeywords.Length; i++)
+            {
+                if (keyword == quitKeywords[i])
+                {
+                    onTriggerMessage(successResponse);
+                    onSuccess(this);
+                    commandManagerModel.COMMAND_MANAGER.ChangeScene(targetScene);
+                    break;
+                }
+            }
+
+            onTriggerMessage(errorResponse);
+            onFailure(this);
+        }
     }
 }

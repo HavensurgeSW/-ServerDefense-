@@ -3,22 +3,25 @@ using System.Reflection;
 
 using UnityEditor;
 
-[CustomEditor(typeof(CommandSO), true)]
-public class CommandEditor : Editor
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    // a futuro para modificar el help response
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(CommandSO), true)]
+    public class CommandEditor : Editor
     {
-        base.OnInspectorGUI();
-        CommandSO command = target as CommandSO;
+        // a futuro para modificar el help response
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            CommandSO command = target as CommandSO;
 
-        MethodInfo info = command.GetType().GetMethod(nameof(command.TriggerHelpResponse));
-        bool isOverriden = IsOverridden(info);
-    }
+            MethodInfo info = command.GetType().GetMethod(nameof(command.TriggerHelpResponse));
+            bool isOverriden = IsOverridden(info);
+        }
 
-    public bool IsOverridden(MethodInfo method)
-    {
-        return method.GetBaseDefinition().DeclaringType != method.DeclaringType;
+        public bool IsOverridden(MethodInfo method)
+        {
+            return method.GetBaseDefinition().DeclaringType != method.DeclaringType;
+        }
     }
 }
 #endif

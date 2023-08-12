@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using ServerDefense.Gameplay.Gameplay.Modules.Commands;
+
 using TMPro;
 
 public class TutorialEvents : MonoBehaviour

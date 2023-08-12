@@ -1,37 +1,42 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndGameController : SceneController
+using ServerDefense.Common.Controller;
+
+namespace ServerDefense.Gameplay.EndGame
 {
-    [SerializeField] private GameStatusPanel gameStatusPanel = null;
-    [SerializeField] private Button replayButton = null;
-    [SerializeField] private Button mainMenuButton = null;
-
-    protected override void Awake()
+    public class EndGameController : SceneController
     {
-        SavedDataHandler savedDataHandler = SavedDataHandler.Instance;
+        [SerializeField] private GameStatusPanel gameStatusPanel = null;
+        [SerializeField] private Button replayButton = null;
+        [SerializeField] private Button mainMenuButton = null;
 
-        gameStatusPanel.Init(savedDataHandler.GameStatus);
-
-        replayButton.onClick.AddListener(() => ChangeScene(savedDataHandler.SelectedScene, true));
-        mainMenuButton.onClick.AddListener(() => ChangeScene(SCENE.MAIN_MENU, true));
-    }
-
-    protected override void OnDisable()
-    {
-    }
-
-    protected override void OnEnable()
-    {
-    }
-
-    protected override void ChangeScene(SCENE scene, bool async)
-    {
-        if (scene == SCENE.NONE)
+        protected override void Awake()
         {
-            scene = SCENE.LEVEL_0;
+            SavedDataHandler savedDataHandler = SavedDataHandler.Instance;
+
+            gameStatusPanel.Init(savedDataHandler.GameStatus);
+
+            replayButton.onClick.AddListener(() => ChangeScene(savedDataHandler.SelectedScene, true));
+            mainMenuButton.onClick.AddListener(() => ChangeScene(SCENE.MAIN_MENU, true));
         }
 
-        base.ChangeScene(scene, async);
+        protected override void OnDisable()
+        {
+        }
+
+        protected override void OnEnable()
+        {
+        }
+
+        protected override void ChangeScene(SCENE scene, bool async)
+        {
+            if (scene == SCENE.NONE)
+            {
+                scene = SCENE.LEVEL_0;
+            }
+
+            base.ChangeScene(scene, async);
+        }
     }
 }

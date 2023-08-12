@@ -1,39 +1,42 @@
-public class CommandDataModel
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    private string id = string.Empty;
-    private string[] arguments = null;
-
-    public string ID => id;
-    public string[] ARGUMENTS => arguments;
-
-    public CommandDataModel(string id, string[] arguments) 
+    public class CommandDataModel
     {
-        this.id = id;
-        this.arguments = arguments;
-    }
+        private string id = string.Empty;
+        private string[] arguments = null;
 
-    public CommandDataModel(string fullArgumentsString)
-    {
-        id = GetId(fullArgumentsString);
-        arguments = GetArguments(fullArgumentsString);
-    }
+        public string ID => id;
+        public string[] ARGUMENTS => arguments;
 
-    private string[] GetArguments(string fullArgumentsString)
-    {
-        string[] arguments = fullArgumentsString.Split(' ');
-        string[] commandArgs = new string[arguments.Length - 1];
-
-        for (int i = 1; i <= commandArgs.Length; i++)
+        public CommandDataModel(string id, string[] arguments)
         {
-            commandArgs[i - 1] = arguments[i];
+            this.id = id;
+            this.arguments = arguments;
         }
 
-        return commandArgs;
-    }
+        public CommandDataModel(string fullArgumentsString)
+        {
+            id = GetId(fullArgumentsString);
+            arguments = GetArguments(fullArgumentsString);
+        }
 
-    private string GetId(string fullArgumentsString)
-    {
-        string[] arguments = fullArgumentsString.Split(' ');
-        return arguments[0];
+        private string[] GetArguments(string fullArgumentsString)
+        {
+            string[] arguments = fullArgumentsString.Split(' ');
+            string[] commandArgs = new string[arguments.Length - 1];
+
+            for (int i = 1; i <= commandArgs.Length; i++)
+            {
+                commandArgs[i - 1] = arguments[i];
+            }
+
+            return commandArgs;
+        }
+
+        private string GetId(string fullArgumentsString)
+        {
+            string[] arguments = fullArgumentsString.Split(' ');
+            return arguments[0];
+        }
     }
 }

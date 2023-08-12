@@ -3,27 +3,32 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "command_returnCommands", menuName = "ScriptableObjects/Commands/ReturnCommandsCommand")]
-public class ReturnCommandsCommandSO : CommandSO
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+
+namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
-    public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
+    [CreateAssetMenu(fileName = "command_returnCommands", menuName = "ScriptableObjects/Commands/ReturnCommandsCommand")]
+    public class ReturnCommandsCommandSO : CommandSO
     {
-        List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());
-        TerminalResponseSO response = TerminalResponseSO.CreateInstance(commandIds);
-        onTriggerMessage(response);
-        TerminalResponseSO.Destroy(response);
-        onSuccess(this);
-    }
-
-    private List<string> GetCommandIds(List<CommandSO> commands)
-    {
-        List<string> ids = new List<string>();
-
-        foreach (CommandSO command in commands)
+        public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
-            ids.Add(command.COMMAND_ID.ToUpperInvariant());
+            List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());
+            TerminalResponseSO response = TerminalResponseSO.CreateInstance(commandIds);
+            onTriggerMessage(response);
+            TerminalResponseSO.Destroy(response);
+            onSuccess(this);
         }
 
-        return ids;
+        private List<string> GetCommandIds(List<CommandSO> commands)
+        {
+            List<string> ids = new List<string>();
+
+            foreach (CommandSO command in commands)
+            {
+                ids.Add(command.COMMAND_ID.ToUpperInvariant());
+            }
+
+            return ids;
+        }
     }
 }
