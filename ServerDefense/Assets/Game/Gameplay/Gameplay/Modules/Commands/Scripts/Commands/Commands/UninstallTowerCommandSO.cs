@@ -9,8 +9,10 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_uninstall_", menuName = "ScriptableObjects/Commands/Uninstalls/UninstallTower")]
-    public class UninstallTowerCommandSO : CommandSO
+    public class UninstallTowerCommandSO : CommandSO, IHelpCommandResponder
     {
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
+
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
             MapHandler mapHandler = commandManagerModel.MAP_HANDLER;

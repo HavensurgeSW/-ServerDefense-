@@ -9,8 +9,10 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_NETSTAT", menuName = "ScriptableObjects/Commands/NETSTAT")]
-    public class NETSTATCommandSO : CommandSO
+    public class NETSTATCommandSO : CommandSO, IHelpCommandResponder
     {
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
+
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
             MapHandler mapHandler = commandManagerModel.MAP_HANDLER;

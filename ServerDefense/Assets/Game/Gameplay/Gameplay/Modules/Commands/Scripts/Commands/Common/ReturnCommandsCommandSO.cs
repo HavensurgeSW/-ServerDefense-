@@ -8,8 +8,10 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_returnCommands", menuName = "ScriptableObjects/Commands/ReturnCommandsCommand")]
-    public class ReturnCommandsCommandSO : CommandSO
+    public class ReturnCommandsCommandSO : CommandSO, IHelpCommandResponder
     {
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
+
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
             List<string> commandIds = GetCommandIds(commandManagerModel.COMMAND_MANAGER.GetCommands());

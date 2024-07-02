@@ -66,9 +66,9 @@ namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
                 return;
             }
 
-            if (CheckForHelpCommand(commandModel.ARGUMENTS))
+            if (CheckForHelpCommand(command, commandModel.ARGUMENTS, out IHelpCommandResponder responder))
             {
-                command.TriggerHelpResponse(commandManagerModel, ShowTerminalLines);
+                responder.TriggerHelpResponse(commandManagerModel, ShowTerminalLines);
                 OnHelpArgument?.Invoke();
                 return;
             }
@@ -111,14 +111,21 @@ namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
             return args.Length == command.ARGUMENTS_COUNT;
         }
 
-        private bool CheckForHelpCommand(string[] args)
+        private bool CheckForHelpCommand(CommandSO command, string[] args, out IHelpCommandResponder response)
         {
+            response = null;
+            if (command is not IHelpCommandResponder helpResponder)
+            {
+                return false;
+            }
+
             if (args != null && args.Length == 1)
             {
                 for (int i = 0; i < helpCommand.HELP_KEYWORDS.Length; i++)
                 {
                     if (args[0] == helpCommand.HELP_KEYWORDS[i])
                     {
+                        response = helpResponder;
                         return true;
                     }
                 }

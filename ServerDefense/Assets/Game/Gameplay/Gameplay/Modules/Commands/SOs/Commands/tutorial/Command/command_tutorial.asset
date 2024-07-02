@@ -15,7 +15,6 @@ MonoBehaviour:
   commandId: tutorial
   argumentsCount: 1
   successResponse: {fileID: 0}
-  helpResponse: {fileID: 0}
   errorResponse: {fileID: 11400000, guid: 2193e0b8e111a0342a2dd04530e412de, type: 2}
   tutorials:
   - tutorialId: 1
@@ -24,3 +23,5 @@ MonoBehaviour:
     tutorialLines: {fileID: 11400000, guid: 20c245c61dddcee4abe09d88e9615ac4, type: 2}
   - tutorialId: 3
     tutorialLines: {fileID: 11400000, guid: 1f72552a2d250b94d9102baf4a5cc50b, type: 2}
+  <GenerateCustomHelpResponse>k__BackingField: 1
+  <HelpResponse>k__BackingField: {fileID: 0}

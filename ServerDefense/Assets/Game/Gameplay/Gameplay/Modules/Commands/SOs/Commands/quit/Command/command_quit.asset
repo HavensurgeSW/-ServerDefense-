@@ -15,9 +15,9 @@ MonoBehaviour:
   commandId: quit
   argumentsCount: 1
   successResponse: {fileID: 0}
-  helpResponse: {fileID: 11400000, guid: 0181cba43827f8f41aa1516dffc7461f, type: 2}
   errorResponse: {fileID: 0}
   quitKeywords:
   - application
   - app
   targetScene: 1
+  <HelpResponse>k__BackingField: {fileID: 11400000, guid: 0181cba43827f8f41aa1516dffc7461f, type: 2}

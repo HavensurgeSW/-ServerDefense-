@@ -8,8 +8,10 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_CD", menuName = "ScriptableObjects/Commands/ChangeDirectory")]
-    public class CDCommandSO : CommandSO
+    public class CDCommandSO : CommandSO, IHelpCommandResponder
     {
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
+
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
             string locName = arguments[0];

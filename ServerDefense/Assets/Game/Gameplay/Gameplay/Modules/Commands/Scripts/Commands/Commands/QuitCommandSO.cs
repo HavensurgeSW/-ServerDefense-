@@ -7,11 +7,13 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_quit", menuName = "ScriptableObjects/Commands/Quit")]
-    public class QuitCommandSO : CommandSO
+    public class QuitCommandSO : CommandSO, IHelpCommandResponder
     {
         [Header("Quit Command Configuration")]
         [SerializeField] private string[] quitKeywords = null;
         [SerializeField] private SCENE targetScene = SCENE.NONE;
+
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
 
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {

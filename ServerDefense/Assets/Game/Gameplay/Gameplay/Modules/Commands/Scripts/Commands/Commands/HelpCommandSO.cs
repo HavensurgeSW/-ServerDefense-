@@ -1,3 +1,5 @@
+using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
+using System;
 using UnityEngine;
 
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands

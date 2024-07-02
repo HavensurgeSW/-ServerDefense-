@@ -12,11 +12,13 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_install_", menuName = "ScriptableObjects/Commands/Installs/InstallTower")]
-    public class InstallTowerCommandSO : CommandSO
+    public class InstallTowerCommandSO : CommandSO, IHelpCommandResponder
     {
         [Header("Install Command Configuration")]
         [SerializeField] private CurrencySO currencyToConsume = null;
         [SerializeField] private TerminalResponseSO invalidTowerIdResponse = null;
+
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
 
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {

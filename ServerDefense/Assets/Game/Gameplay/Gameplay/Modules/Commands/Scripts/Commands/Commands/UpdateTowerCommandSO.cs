@@ -13,13 +13,15 @@ using ServerDefense.Gameplay.Gameplay.Modules.Terminal;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_updatetower", menuName = "ScriptableObjects/Commands/UpdateTower")]
-    public class UpdateTowerCommandSO : CommandSO
+    public class UpdateTowerCommandSO : CommandSO, IHelpCommandResponder
     {
         [Header("Update Command Configuration")]
         [SerializeField] private string deployId = string.Empty;
         [SerializeField] private string infoId = string.Empty;
         [SerializeField] private CurrencySO currencyToUse = null;
         [SerializeField] private TerminalResponseSO maxLevelResponse = null;
+
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
 
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {

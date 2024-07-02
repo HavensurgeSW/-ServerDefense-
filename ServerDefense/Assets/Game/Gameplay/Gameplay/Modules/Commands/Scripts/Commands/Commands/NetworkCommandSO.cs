@@ -8,10 +8,12 @@ using ServerDefense.Gameplay.Gameplay.Modules.Waves;
 namespace ServerDefense.Gameplay.Gameplay.Modules.Commands
 {
     [CreateAssetMenu(fileName = "command_network", menuName = "ScriptableObjects/Commands/Network")]
-    public class NetworkCommandSO : CommandSO
+    public class NetworkCommandSO : CommandSO, IHelpCommandResponder
     {
         [Header("Network Command Configuration")]
         [SerializeField] private string initId = string.Empty;
+
+        [field: SerializeField] public TerminalResponseSO HelpResponse { get; private set; } = null;
 
         public override void TriggerCommand(CommandManagerModel commandManagerModel, string[] arguments, Action<TerminalResponseSO> onTriggerMessage, Action<CommandSO> onSuccess, Action<CommandSO> onFailure)
         {
